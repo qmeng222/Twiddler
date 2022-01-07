@@ -8,6 +8,160 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  height: 100%;
+  width: 100%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.2em;
 }
+
+h1 {
+  background-color: white;
+  color: rgb(0, 61, 128);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 2.7em;
+  padding: 9px;
+}
+
+#flex-container {
+  display: flex;
+  flex-direction: row;
+  padding: 3em 3.9em;
+  /* background-color: rgb(0, 61, 128); */
+  background: linear-gradient(to bottom, rgb(0, 61, 128, 1), rgb(0, 61, 128, 0.8));
+  color: white;
+}
+
+#panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 30%;
+}
+
+/* update feed */
+#update-feed {
+  margin: 16px auto 60px;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  background-color: #676767;
+  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.2em;
+  padding: 0.3em 0.6em;
+  border: 2px solid white;
+  border-radius: 21px;
+}
+
+button:hover {
+  cursor: pointer;
+  -ms-transform: scale(1.2); /* IE 9 */
+  -webkit-transform: scale(1.2); /* Safari 3-8 */
+  transform: scale(1.2);
+}
+
+/* new tweet */
+#new-tweet-form {
+  display: block;
+  background-color: rgb(255, 255, 255, 0.2); /* set block background color */
+  padding: 2.1em;
+  /* border-top: 2px dotted white;
+  border-bottom: 2px dotted white; */
+}
+
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-weight: lighter;
+  display: flex;
+  justify-content: center;
+}
+
+#new-tweet-form h2 {
+  margin: 0 auto 16px;
+}
+
+#new-tweet-form input {
+  position: relative;
+  width: 97%; /* set the width of inputs under New Tweet*/
+}
+
+#new-tweet-form button {
+  margin: 9px auto 0;
+}
+
+/* friends list */
+#friends-list-header {
+  margin: 1.7em auto 0;
+}
+
+#friends-list {
+  list-style-type: none; /* no bullets */
+}
+
+/* feed */
+#feed {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 70%;
+  margin: 0 6em 2em;
+}
+
+/* tweet */
+.tweet {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 16px 36px;
+  margin: 1em 0 2em 1em;
+  background-color: rgb(255, 255, 255, 0.2);
+}
+
+/* all-about-user */
+.all-about-user {
+  display: flex;
+  flex-direction: column;
+  width: 9em;
+}
+
+/* hover effects for .username under both "friends list" and "tweet" */
+.username:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #8ecae6;
+}
+
+/* all-about-tweet */
+.all-about-tweet {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* icons */
+.tweet-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 27em;
+}
+
+i:hover {
+  cursor: pointer;
+  color: #8ecae6;
+}
+
+
+
+
+
+
+
+
+
