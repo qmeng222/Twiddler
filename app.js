@@ -1,26 +1,19 @@
 "use strict";
 
 $(document).ready(function(){
+
+  // Select already existing elements
   var $app = $('#app');
   $app.html('');
 
 
+  // Create new HTML elements
   var $title = $('<h1>Twiddler</h1>');
-  $title.appendTo($app);
-  $title.on("click", function(event) {
-    console.log(event);
-    alert('This is an event: ' + event.target.innerText);
-  });
-
   var $updateFeedButton = $('<button id="update-feed" class="button">Update Feed</button>');
-  $updateFeedButton.appendTo($app);
-  $updateFeedButton.on("click", function () {
-    $renderFeed();
-  });
-
   var $feed = $('<div class="container" id="feed"></div>')
-  $feed.appendTo($app);
 
+
+  // Create event handler functions
   var $renderFeed = function() {
     $feed.empty();
     var index = streams.home.length - 1;
@@ -32,9 +25,22 @@ $(document).ready(function(){
       index -= 1;
     }
   };
+
+
+  // Set event listeners
+  $title.on("click", function(event) {
+    console.log(event);
+    alert('This is an event: ' + event.target.innerText);
+  });
+  $updateFeedButton.on("click", function () {
+    $renderFeed();
+  });
+
+
+  // Append new HTML element to the DOM
+  $title.appendTo($app);
+  $updateFeedButton.appendTo($app);
+  $feed.appendTo($app);
   $renderFeed();
 
-
-
 });
-console.log('hello');
