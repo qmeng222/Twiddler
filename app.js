@@ -25,9 +25,28 @@ $(document).ready(function(){
     var index = streams.home.length - 1;
     while(index >= 0){
       var tweet = streams.home[index];
+
+      var $username = $('<div class="username"></div>');
+      $username.text(`@${tweet.user}: `);
+
+      var $message = $('<div class="message">');
+      $message.text(tweet.message);
+
+      var $timestamp = $('<div class="timestamp"></div>');
+      $timestamp.text(jQuery.timeago(tweet.created_at));
+
+      var $profilePhoto = $('<img class="profile-photo"></img>')
+      $profilePhoto.attr('src', tweet.profilePhotoURL);
+
       var $tweet = $('<div class="tweet"></div>');
-      $tweet.text('@' + tweet.user + ': ' + tweet.message);
+
+      $profilePhoto.appendTo($tweet);
+      $username.appendTo($tweet);
+      $message.appendTo($tweet);
+      $timestamp.appendTo($tweet);
+
       $tweet.appendTo($feed);
+
       index -= 1;
     }
   };
