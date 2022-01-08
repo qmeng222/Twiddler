@@ -15,20 +15,24 @@ $(document).ready(function(){
   var $updateFeedButton = $('<button id="update-feed" class="button">Update Feed</button>');
   $updateFeedButton.appendTo($app);
   $updateFeedButton.on("click", function () {
-    $updateFeed();
-  })
+    $renderFeed();
+  });
 
-  var $updateFeed = function() {
+  var $feed = $('<div class="container" id="feed"></div>')
+  $feed.appendTo($app);
+
+  var $renderFeed = function() {
+    $feed.empty();
     var index = streams.home.length - 1;
     while(index >= 0){
       var tweet = streams.home[index];
       var $tweet = $('<div class="tweet"></div>');
       $tweet.text('@' + tweet.user + ': ' + tweet.message);
-      $tweet.appendTo($app);
+      $tweet.appendTo($feed);
       index -= 1;
     }
   };
-  $updateFeed();
+  $renderFeed();
 
 
 
