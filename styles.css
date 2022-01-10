@@ -10,4 +10,5 @@ providing a space for you to apply styles to your app's outermost HTML element -
 #app {
   background-color: wheat;
   color: black;
+  font-family: 'Be Vietnam Pro', sans-serif;
 }
