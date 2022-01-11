@@ -1,4 +1,3 @@
-
 "use strict"
 $(document).ready(function(){
 
@@ -7,8 +6,14 @@ $(document).ready(function(){
   $app.html('');
 
   // CREATE NEW HTML ELEMENTS
-  var $title = $('<h1>Twiddler</h1>');
-  var $subtitle = $('<h2>Where the twiddlers be twiddlin\'</h2>');
+  var $header = $('<section class="container" id="header"></section').append(
+    $('<h1/>').text("Twiddler"),
+    $('<h2/>').text("Where the twiddlers be twiddlin\'")
+  );
+
+
+  //var $subtitle = $('<h2>Where the twiddlers be twiddlin\'</h2>');
+
   var $feed = $('<section class="container" id="feed"></section>');
   var $updateFeedButton = $('<button id="update-feed" class="button">Update Feed</button>');
   var $friendsList = $('<section class="container" id="friendsList"></section');
@@ -31,7 +36,7 @@ $(document).ready(function(){
     var index = specificStream.length - 1;
     while(index >= 0){
       var tweet = specificStream[index];
-      var $tweet = $('<div class="tweet"></div>');
+      var $tweet = $('<div class="tweet container"></div>');
 
       var $profilePhoto = $('<img class="profile-photo"></img>')
       $profilePhoto.attr('src', tweet.profilePhotoURL);
@@ -121,7 +126,7 @@ $(document).ready(function(){
   };
 
   // SET EVENT LISTNERS
-  $title.on("click", handleTitleClick);
+  //$title.on("click", handleTitleClick);
   $subtitle.on("click", handleTitleClick);
   $updateFeedButton.click(function() {
     renderFeed('home');
@@ -129,8 +134,9 @@ $(document).ready(function(){
   $submitButton.click(handleSubmitClick);
 
   // APPEND NEW HTML ELEMENTS TO THE DOM
-  $title.appendTo($app);
-  $subtitle.appendTo($app);
+  //$title.appendTo($app);
+  //$subtitle.appendTo($app);
+  $header.appendto($app);
   $updateFeedButton.appendTo($app);
   $friendsList.appendTo($app);
   $newTweetForm.appendTo($app);
@@ -139,5 +145,6 @@ $(document).ready(function(){
   // POPULATE INITIAL PAGE
   populatefriendsList();
   renderFeed('home');
+
 
 });

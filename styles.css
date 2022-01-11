@@ -1,3 +1,54 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/**************************************************************************************************/
+
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
@@ -8,7 +59,55 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: wheat;
+  background-color: rgb(168, 204, 228);
   color: black;
   font-family: 'Be Vietnam Pro', sans-serif;
+  display: grid;
+  grid-template-columns: repeat(100, 1fr);
+  grid-template-rows:    repeat(100, 9px);
+}
+
+.container {
+  margin: 5px;
+  padding: 5px;
+  background-color: whitesmoke;
+  border-style: solid;
+  border-radius: 25px;
+  border: rgb(84, 42, 92);
+  border-width: 10px;
+
+}
+#header {
+  grid-column: 2 / 25;
+  grid-row:    2 / 10;
+  background-color: rgb(168, 204, 228);
+}
+#subtitle {
+  grid-column: 25 / 101;
+  grid-row:    2 / 10;
+}
+#update-feed {
+  grid-column: 7 / 15;
+  grid-row:    14 / 17;
+}
+#friendsList {
+  overflow-y: auto;
+  grid-column: 2 / 20;
+  grid-row:    22 / 40;
+}
+#newTweetForm {
+  grid-column: 2 / 20;
+  grid-row:    42 / 60;
+}
+#feed {
+  overflow-y: auto;
+  grid-column: 28 / -10;
+  grid-row:    13 / -2;
+  background-color: rgb(168, 204, 228);
+  display: grid;
+  grid-template-rows: repeat(12, 1fr);
+}
+#tweet {
+  display: flexbox;
+
 }
