@@ -9,7 +9,7 @@ $(document).ready(function(){
   var $title = $('<h1 id="header">Twiddler</h1>');
   var $subtitle = $('<h2 id="subtitle">Where the twiddlers be twiddlin\'</h2>');
   var $feed = $('<section class="container" id="feed"></section>');
-  var $updateFeedButton = $('<button id="update-feed" class="button">Update Feed</button>');
+  var $updateFeedButton = $('<button id="update-feed" class="button container">Update Feed</button>');
   var $friendsList = $('<ul class="container" id="friends-list"></ul>');
   var $newTweetForm = $('<form onsubmit="return false" class="container" id="new-tweet-form"></form>').append(
     $('<h3/>').text("Make a tweet!"),
@@ -18,8 +18,7 @@ $(document).ready(function(){
     $('<label/ for="formMessage">').text("Tweet"),
     $('<input/ name="message" type="text" class="form" id="formMessage">')
   );
-  // figure out how to bind event listner to a child element so this can be places w/ other event listeners
-  var $submitButton = $('<button id="makeTweet" class="button">Post Tweet</button>')
+  var $submitButton = $('<button id="makeTweet" class="button container">Post Tweet</button>')
   $submitButton.appendTo($newTweetForm);
 
   // CREATE EVENT HANDLER FUNCTIONS

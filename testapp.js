@@ -3,29 +3,23 @@ $(document).ready(function(){
 
   // SELECT ALREADY EXISTING ELEMENTS
   var $app = $('#app');
-  $app.html('');
 
   // CREATE NEW HTML ELEMENTS
-  var $header = $('<section class="container" id="header"></section').append(
-    $('<h1/>').text("Twiddler"),
-    $('<h2/>').text("Where the twiddlers be twiddlin\'")
-  );
-
-
-  //var $subtitle = $('<h2>Where the twiddlers be twiddlin\'</h2>');
-
+  var $twiddlerIcon = $('<i class="fas fa-user-astronaut" id="twiddlerIcon"></i>');
+  var $title = $('<h1 id="header">Twiddler</h1>');
+  var $subtitle = $('<h2 id="subtitle">Where the twiddlers be twiddlin\'</h2>');
   var $feed = $('<section class="container" id="feed"></section>');
-  var $updateFeedButton = $('<button id="update-feed" class="button">Update Feed</button>');
-  var $friendsList = $('<section class="container" id="friendsList"></section');
-  var $newTweetForm = $('<section class="container" id="newTweetForm"></section').append(
+  var $updateFeedButton = $('<button id="update-feed" class="button container">Update Feed</button>');
+  var $friendsList = $('<ul class="container" id="friends-list"></ul>');
+  var $newTweetForm = $('<form onsubmit="return false" class="container" id="new-tweet-form"></form>').append(
     $('<h3/>').text("Make a tweet!"),
-    $('<p/>').text("Username"),
-    $('<form onsubmit="return false"></form>').append($('<input/ type="text" class="form" id="formUsername" >')),
-    $('<p/>').text("Tweet"),
-    $('<form onsubmit="return false"></form>').append($('<input/ type="text" class="form" id="formMessage">'))
+    $('<label/ for="formUsername">').text("Username"),
+    $('<input/ id="formUsername" name="username" type="text" class="form">'),
+    $('<label/ for="formMessage">').text("Tweet"),
+    $('<input/ name="message" type="text" class="form" id="formMessage">')
   );
-  // figure out how to bind event listner to a child element
-  var $submitButton = $('<button id="makeTweet" class="button">Post Tweet</button>')
+  // figure out how to bind event listner to a child element so this can be places w/ other event listeners
+  var $submitButton = $('<button id="makeTweet" class="button container">Post Tweet</button>')
   $submitButton.appendTo($newTweetForm);
 
   // CREATE EVENT HANDLER FUNCTIONS
@@ -37,12 +31,16 @@ $(document).ready(function(){
     while(index >= 0){
       var tweet = specificStream[index];
       var $tweet = $('<div class="tweet container"></div>');
+      var $tweetHeader = $('<div class="header" id=tweetHeader></div>');
+      var $tweetFooter = $('<div class="footer" id="tweetFooter"></div>');
 
-      var $profilePhoto = $('<img class="profile-photo"></img>')
+      var $profilePhoto = $('<img class="profile-photo"></img>');
       $profilePhoto.attr('src', tweet.profilePhotoURL);
+      $profilePhoto.appendTo($tweetHeader);
 
       var $username = $('<div class="username"></div>');
       $username.text(`@${tweet.user}`);
+      $username.appendTo($tweetHeader);
 
       var $message = $('<div class="message"></div>');
       $message.text(`${tweet.message}`);
@@ -54,34 +52,34 @@ $(document).ready(function(){
       var $like = $('<i class="fas fa-thumbs-up fa-lg icon like"></i>');
       var $share = $('<i class="fas fa-share fa-lg icon share"></i>');
       var $retweet = $('<i class="fas fa-retweet fa-lg icon retweet"></i>');
+      $like.appendTo($tweetFooter);
+      $comment.appendTo($tweetFooter);
+      $retweet.appendTo($tweetFooter);
+      $share.appendTo($tweetFooter);
+      $timestamp.appendTo($tweetFooter);
 
-      // todo: bind event listeners for renderfeed's lexical scope and place with other eventlisteners; syntax is confusing
+      // todo: bind event listeners for renderfeed's lexical scope? place with other event listeners; syntax is confusing
       $('.icon').hover(hoverEnter, hoverExit);
       $username.hover(hoverEnter, hoverExit);
       $username.click(handleUsernameClick);
 
-      $profilePhoto.appendTo($tweet);
-      $username.appendTo($tweet);
+      $tweetHeader.appendTo($tweet);
       $message.appendTo($tweet);
-      $timestamp.appendTo($tweet);
-      $like.appendTo($tweet);
-      $comment.appendTo($tweet);
-      $retweet.appendTo($tweet);
-      $share.appendTo($tweet);
-
+      $tweetFooter.appendTo($tweet);
       $tweet.appendTo($feed);
+
       index -= 1;
     }
   };
 
   var populatefriendsList = function() {
     $friendsList.empty();
-    $('<h3/>').text('Friends').appendTo($friendsList);
+    $('<h3 class="title"/>').text('Friends').appendTo($friendsList);
     for (var user in streams.users) {
-      var $friend = $(`<ul class="friend">@${user}</ul>`);
+      var $friend = $(`<li class="friend">@${user}</li>`);
       $friend.appendTo($friendsList);
     }
-    // tode: same problem as with renderfeed
+    // tode: same problem as with renderfeed/event listeners
     $('.friend').hover(hoverEnter, hoverExit);
     $('.friend').click(handleUsernameClick);
   };
@@ -126,7 +124,7 @@ $(document).ready(function(){
   };
 
   // SET EVENT LISTNERS
-  //$title.on("click", handleTitleClick);
+  $title.on("click", handleTitleClick);
   $subtitle.on("click", handleTitleClick);
   $updateFeedButton.click(function() {
     renderFeed('home');
@@ -134,9 +132,9 @@ $(document).ready(function(){
   $submitButton.click(handleSubmitClick);
 
   // APPEND NEW HTML ELEMENTS TO THE DOM
-  //$title.appendTo($app);
-  //$subtitle.appendTo($app);
-  $header.appendto($app);
+  $twiddlerIcon.appendTo($app);
+  $title.appendTo($app);
+  $subtitle.appendTo($app);
   $updateFeedButton.appendTo($app);
   $friendsList.appendTo($app);
   $newTweetForm.appendTo($app);
@@ -146,5 +144,6 @@ $(document).ready(function(){
   populatefriendsList();
   renderFeed('home');
 
-
 });
+
+window.isItBeautifulYet = true;
