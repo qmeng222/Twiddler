@@ -1,6 +1,10 @@
 :root {
-  --black: black;
-  --white: #ffffff;
+    --black: black;
+    --white: #ffffff;
+    --main: rgb(235, 0, 0);
+    --secondary: rgb(211, 0, 0);
+    --hoveredRed: rgb(158, 0, 0);
+
 }
 
 /*
@@ -12,33 +16,140 @@ font-family: 'The Nautigal', cursive;
 
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
+  display: flex;
+  flex-direction: column;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   min-height: 100vh;
   margin: 0;
 }
 
+h1 {
+  font-size: 4em;
+}
+
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
-#app {
-
+#update-feed {
+  font-family: 'Lobster', cursive;
+  font-size: 20px;
+  background-color: rgb(211, 0, 0);
+  color: rgb(255, 255, 255);
+  min-width: 150px;
+  height: 40px;
+  max-width: 150px;
+  border-radius: 100px;
+  border: none;
+  align-self: center;
+  margin-bottom: 15px;
+  transition: all ease-in-out 150ms;
 }
+
+#update-feed:hover {
+  background-color: rgb(158, 0, 0);
+  color: white;
+  transition: all ease-in-out 150ms;
+}
+
 .title {
   font-family: 'Lobster', cursive;
-  font-size: 5em;
+  text-align: center;
+  color: rgb(235, 0, 0);
+  margin: 10px;
+}
+
+#feed {
+  display: flex;
+  flex-direction: column;
+  align-self: center auto;
 }
 
 .tweet {
+  border-radius: 10px;
+  margin: 5px 0px;
+  width: 40%;
+  display: flex column;
+  align-self: center;
+  transition: all ease-in-out 50ms;
+  padding: 15px;
+}
 
+.tweet:hover {
+  background-color: rgba(100, 0, 0, 0.01);
+  transition: all ease-in-out 50ms;
+}
+
+.profile-photo {
+  display: inline-block;
+  border-radius: 50%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
+  margin: 15px;
+}
+
+.username {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--secondary);
+  display: inline-block;
+  position: relative;
+  bottom: 37px;
+}
+
+.username:hover {
+  cursor: pointer;
+  color: var(--hoveredRed);
+  text-decoration: underline;
+  text-shadow: 1px 1px 1px rgb(255, 203, 227);
+}
+
+.message {
+  background-color: rgba(128, 128, 128, 0.03);
+  min-height: 80px;
+  display: flex;
+  position: relative;
+  width: 80%;
+  left: 10%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  padding: 20px 0px;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.7);
+  font-style: italic;
+  float: right;
+  margin-right: 15px;
+}
+
+i::before{
+  background:transparent;
+}
+
+.iconsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-self: flex-end;
+  clear: both;
 }
 
 .icon {
-  color: rgb(189, 0, 0);
+  margin: 10px;
+  color: var(--main);
+  background: transparent;
   transition: all ease-in-out .150ms;
+  align-self: end;
+}
+
+.icon:hover {
+  color: rgb(24, 24, 24);
 }
 
 .highlight {
-  color: rgb(255, 0, 0);
-  transition: all ease-in-out .150ms;
+  text-shadow: 1px 1px 2px rgb(255, 0, 0);
+  transition: all ease-in-out 80ms;
 }

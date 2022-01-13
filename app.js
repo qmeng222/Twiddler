@@ -6,10 +6,10 @@ $(document).ready(function(){
 
   // Create new HTML elements
   $app.html('');
-  var $title = $('<h1 class="title">Twiddler<h1>');
+  var $title = $('<h1 class="title">Twiddler</h1>');
   var $button = $('<button id="update-feed"</button>');
   $button.text('Update Feed');
-  var $feed = $('<div id=feed></div<');
+  var $feed = $('<div id=feed></div>');
 
 
 
@@ -31,15 +31,17 @@ $(document).ready(function(){
     while(newIndex >= 0) {
       // var tweet = streams.home[newIndex];
       var tweet = user ? streams.users[user][newIndex] : streams.home[newIndex];
+      var $tweet = $('<div class="tweet"></div>');
       var $profilePhoto = $('<img class="profile-photo" />');
       var $username = $('<span class="username"></span>');
-      var $message = $('<p class="message"></p>');
+      var $message = $('<div class="message"></div>');
       var $timestamp = $('<div class="timestamp"></div>');
+      var $iconsContainer = $('<div class="iconsContainer"></div>');
       var $commentIcon = $('<i class="far fa-comment-alt fa-2x icon comment"></i>');
       var $retweetIcon = $('<i class="fas fa-retweet fa-2x icon retweet"></i>');
       var $likeIcon = $('<i class="far fa-thumbs-up fa-2x icon like"></i>');
       var $shareIcon = $('<i class="far fa-share-square fa-2x icon share"></i>');
-      var $tweet = $('<div class="tweet"></div>');
+
 
       //event handlers
       $retweetIcon.on('mouseover', handleIconHover).on('mouseleave', handleIconHover);
@@ -51,7 +53,10 @@ $(document).ready(function(){
       $username.text('@' + tweet.user);
       $message.text(tweet.message);
       $timestamp.text(jQuery.timeago(tweet.created_at));
-      $.each([$profilePhoto, $username, $message, $timestamp, $commentIcon, $retweetIcon, $likeIcon, $shareIcon],
+      $.each([$commentIcon, $retweetIcon, $likeIcon, $shareIcon], function(i, val) {
+        val.appendTo($iconsContainer);
+      });
+      $.each([$profilePhoto, $username, $message, $timestamp, $iconsContainer],
         function(index,value) {
           value.appendTo($tweet);
       });
