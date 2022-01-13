@@ -6,25 +6,30 @@ $(document).ready(function(){
 
   // Create new HTML elements
   $app.html('');
-
   var $title = $('<h1 class="title">Twiddler<h1>');
-
   var $button = $('<button id="update-feed"</button>');
   $button.text('Update Feed');
-
   var $feed = $('<div id=feed></div<');
 
 
 
   // Create event handler functions
-  function renderFeed(username, message) {
-    var newIndex = streams.home.length-1;
+  function renderFeed(username) {
+    typeof username !== 'string' ? username = null : username = username;
+    var newIndex;
+
+    if(username) {
+      newIndex = streams.users[username].length-1
+    } else {
+        newIndex = streams.home.length-1;
+      }
     var $users = streams.users;
+    // var user = streams.user[username];
     $feed.html('');
 
     while(newIndex >= 0) {
-      //NOTE FOR LATER: use on hover, show the filled in dark version of icons.
-      var tweet = streams.home[newIndex];
+      // var tweet = streams.home[newIndex];
+      var tweet = username ? streams.users[username][newIndex] : streams.home[newIndex];
       var $profilePhoto = $('<img class="profile-photo" />');
       var $username = $('<span class="username"></span>');
       var $message = $('<p class="message"></p>');
@@ -34,6 +39,20 @@ $(document).ready(function(){
       var $likeIcon = $('<i class="far fa-thumbs-up fa-2x icon like"></i>');
       var $shareIcon = $('<i class="far fa-share-square fa-2x icon share"></i>');
       var $tweet = $('<div class="tweet"></div>');
+
+
+
+      /*
+
+      How to render user feed only.
+
+      //on click of a username (addEventListener for this)
+        //traverse through the list of possible users(maybe by streams.user??)
+        //if what we clicked matches one of the people in the streams.users
+          //render instead, the user with:
+            //profilePic, username, tweet, timestamp, icons + an icon to GO BACK to home stream.
+
+      */
 
       //event handlers
       $retweetIcon.on('mouseover', handleIconHover).on('mouseleave', handleIconHover);
@@ -54,7 +73,15 @@ $(document).ready(function(){
       $tweet.appendTo($feed);
       newIndex -= 1;
     }
+
+      $($feed).find('.username').on('click', function() {
+          var userClicked = $(this)[0].innerText.substring(1);
+          renderFeed(userClicked);
+      })
   }
+
+
+
 
   function handleIconHover() {
     // var $empty = $myIcon.hasClass('far');
@@ -76,8 +103,17 @@ $(document).ready(function(){
 
   }
 
+
+
+
+
   // Set event listeners (providing appropriate handlers as input)
   $button.on('click', renderFeed);
+
+
+
+
+
 
   // Append new HTML elements to the DOM
   $title.appendTo($app);
@@ -92,20 +128,12 @@ $(document).ready(function(){
 
 /*
 
-function to create a tweet
-  //we want:
-  -profile picture (img with class profile-photo)
-  -username (span with class username)
-  -tweet (span, p, or div with class 'message)
-  -date posted (span or div with class timestamp)
-  -four images with the class 'icon' each with their own classes
---this will go inside a div with a class of tweet, which will be appended to feed.
+How to render user feed only.
 
+//on click of a username (addEventListener for this)
+  //traverse through the list of possible users(maybe by streams.user??)
+  //if what we clicked matches one of the people in the streams.users
+    //render instead, the user with:
+      //profilePic, username, tweet, timestamp, icons + an icon to GO BACK to home stream.
 
- Include the appropriate data inside each child element:
- .profile-photo elements should have an src attribute set to the path of the appropriate user's photo .jpeg file (already in repo).
- .username elements should contain the current Tweet object's username, with format: "@username".
- .message elements should contain the current Tweet object's message.
- .timestamp elements should contain the current Tweet object's timestamp.
- .icon elements should have a src attribute set to the path of your repo's placeholder.png file.
 */
