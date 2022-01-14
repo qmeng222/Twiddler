@@ -34,7 +34,7 @@ $(document).ready(function(){
       var $message = $('<p class="message"></p>');
       $($message).html(tweet.message);
       var $timeStamp = $('<div class="timestamp"></div>');
-      $($timeStamp).html(tweet.created_at);
+      $($timeStamp).html(jQuery.timeago(tweet.created_at));
       var $comment = $('<img class="icon comment" src="assets/icons/placeholder.png">')
       var $retweet = $('<img class="icon retweet" src="assets/icons/placeholder.png">');
       var $like = $('<img class="icon like" src="assets/icons/placeholder.png">');
