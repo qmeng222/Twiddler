@@ -1,13 +1,40 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
+  font-family: 'Nanum Gothic', sans-serif;
   min-height: 100vh;
   margin: 0;
+}
+
+h1 {
+  text-align: center;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  margin: 10px;
+}
+
+.tweet {
+  display: flex;
+  justify-content: space-evenly;
+  border-style: solid;
+  border-color: black;
+  border-width: 0.5px;
+  padding: 5px;
+  margin: 10px 0px 10px 0px;
+}
+
+.profile-photo, .username, .message, .timestamp {
+
+}
+
+.icon {
+  flex-direction: row;
+  align-self: flex-end;
+  margin: 5px;
 }
