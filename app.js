@@ -35,10 +35,10 @@ $(document).ready(function(){
       $($message).html(tweet.message);
       var $timeStamp = $('<div class="timestamp"></div>');
       $($timeStamp).html(jQuery.timeago(tweet.created_at));
-      var $comment = $('<img class="icon comment" src="assets/icons/placeholder.png">')
-      var $retweet = $('<img class="icon retweet" src="assets/icons/placeholder.png">');
-      var $like = $('<img class="icon like" src="assets/icons/placeholder.png">');
-      var $share = $('<img class="icon share" src="assets/icons/placeholder.png">');
+      var $comment = $('<i class="icon comment far fa-comment-alt"></i>')
+      var $retweet = $('<i class="icon retweet fas fa-retweet"></i>');
+      var $like = $('<i class="icon like far fa-heart"></i>');
+      var $share = $('<i class="icon share far fa-share-square"></i>');
       $profilePhoto.appendTo($tweet);
       $userName.appendTo($tweet);
       $message.appendTo($tweet);
