@@ -11,3 +11,12 @@ providing a space for you to apply styles to your app's outermost HTML element -
   background-color: green;
   color: yellow;
 }
+
+h1 {
+  font-size: 40px;
+  font-family: 'Pacifico', cursive;
+}
+
+i:hover {
+  color: brown;
+}
