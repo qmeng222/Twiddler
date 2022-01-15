@@ -16,6 +16,8 @@ font-family: 'The Nautigal', cursive;
 
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
+  /* background-color: #232323;
+  color: #E4E6EB; */
   display: flex;
   flex-direction: column;
   font-family: 'Open Sans', sans-serif;
@@ -31,17 +33,65 @@ h1 {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
+/* NAV BAR STYLING */
+.navbar {
+  display: flex column;
+  background-color: #2429361f;
+  min-height: 100vh;
+  width: 20%;
+  margin-top: 100px;
+  margin-left: 20px;
+  padding: 20px;
+  position: absolute;
+  border-radius: 25px;
+  border: 1px solid red;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.friendsContainer {
+  padding: 15px;
+  background-color: rgba(128, 128, 128, 0.274);
+  border-radius: 25px;
+  display: flex table-column;
+}
+
+.friendsContainer ul {
+  padding: 0px;
+  padding-left: 15px;
+  text-align: left;
+  list-style-type: none;
+}
+
+.friendsContainer li {
+  font-size: 14px;
+  text-align: left;
+  margin: 4px;
+  overflow: hidden;
+}
+
+.friendsContainer li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#friendsTitle {
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: underline;
+  margin: 0px;
+}
+
 #update-feed {
   font-family: 'Lobster', cursive;
   font-size: 20px;
   background-color: rgb(211, 0, 0);
   color: rgb(255, 255, 255);
   min-width: 150px;
-  height: 40px;
   max-width: 150px;
+  height: 40px;
   border-radius: 100px;
   border: none;
-  align-self: center;
   margin-bottom: 15px;
   transition: all ease-in-out 150ms;
 }
@@ -52,14 +102,44 @@ providing a space for you to apply styles to your app's outermost HTML element -
   transition: all ease-in-out 150ms;
 }
 
-.title {
+#tweetButton {
   font-family: 'Lobster', cursive;
-  text-align: center;
-  color: rgb(235, 0, 0);
-  margin: 10px;
+  font-size: 20px;
+  background-color: rgb(211, 0, 0);
+  color: rgb(255, 255, 255);
+  min-width: 150px;
+  max-width: 150px;
+  height: 40px;
+  border-radius: 100px;
+  border: none;
+  margin-bottom: 15px;
+  transition: all ease-in-out 150ms;
 }
 
+#tweetButton:hover {
+  background-color: rgb(158, 0, 0);
+  color: white;
+  transition: all ease-in-out 150ms;
+}
+
+/* TITLE STYLING */
+.title {
+  font-family: 'Lobster', cursive;
+  width: 100%;
+  margin: 0px;
+  padding: 10px 0px 0px 0px;
+  padding-left: 25px;
+  box-sizing: border-box;
+  position: absolute;
+  text-align: center;
+  color: rgb(235, 0, 0);
+  text-align: left;
+}
+
+/* TWITTER FEED STYLING */
 #feed {
+  margin-top: 90px;
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-self: center auto;
@@ -71,17 +151,19 @@ providing a space for you to apply styles to your app's outermost HTML element -
   width: 40%;
   display: flex column;
   align-self: center;
-  transition: all ease-in-out 50ms;
+  transition: all ease-in-out 200ms;
   padding: 15px;
 }
 
 .tweet:hover {
-  background-color: rgba(100, 0, 0, 0.01);
-  transition: all ease-in-out 50ms;
+  background-color: rgba(100, 0, 0, 0.02);
+  transition: all ease-in-out 200ms;
 }
 
 .profile-photo {
   display: inline-block;
+  height: 64px;
+  width: 64px;
   border-radius: 50%;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6);
   margin: 15px;
@@ -152,4 +234,70 @@ i::before{
 .highlight {
   text-shadow: 1px 1px 2px rgb(255, 0, 0);
   transition: all ease-in-out 80ms;
+}
+
+
+/* Form STYLING */
+.tweetForm {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 25%;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.274);
+  min-height: 50%;
+  min-width: 70%;
+  border-radius: 50px;
+  visibility: hidden;
+  opacity: 0%;
+  transition: all ease-in-out 300ms;
+}
+
+.focus {
+  opacity: 100%;
+  visibility: visible;
+  transition: all ease-in-out 400ms;
+}
+
+#new-tweet-form {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  min-width: 80%;
+  min-height: 80%;
+  position: absolute;
+  top: calc(10%);
+  align-content: center;
+  justify-content: center;
+  align-self: center;
+  border-radius: 20px;
+  box-sizing: content-box;
+  border: 1px solid green;
+}
+
+#new-tweet-form input {
+  width: 50%;
+  text-align: start;
+  align-self: center;
+}
+
+#message {
+  height: 100px;
+  text-align: start;
+}
+
+#new-tweet-form label {
+  font-weight: bold;
+}
+
+#submit {
+  height: 40px;
+  width: 120px;
+  align-self: center;
+  border: none;
+  border-radius: 20px;
 }
