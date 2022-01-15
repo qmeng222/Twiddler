@@ -16,16 +16,14 @@ $(document).ready(function(){
 
   // render feed utility function (event handler function)
   var renderFeed = function() {
-    // // prevent refresh
-    // event.preventDefault();
     // remove tweets from feed
     $feed.html('');
     // console.log(event);
     // for each tweet object in the stream array (in reverse order)
     var index;
     // create functionality for individual pages of tweets
-    // if the arguments array is not empty
-    if (event.target.outerText === 'Update Feed' || event.target === document) {
+    if (event.target.outerText === 'Update Feed' || event.target.outerText === 'Back' || event.target === document) {
+      $updateFeed.text('Update Feed');
       index = streams.home.length - 1;
       while(index >= 0){
         var tweet = streams.home[index];
@@ -59,6 +57,7 @@ $(document).ready(function(){
       }
     }
     else {
+      $updateFeed.text('Back');
       var user = event.target.innerHTML.slice(1);
       index = streams.users[user].length - 1;
       console.log(streams.users[user]);
