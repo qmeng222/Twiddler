@@ -1,9 +1,13 @@
 :root {
     --black: black;
     --white: #ffffff;
-    --main: rgb(235, 0, 0);
+    --secondaryWhite: rgb(240, 242, 245);
+    --tercWhite: rgb(227, 229, 231);
+    --main: #ca2c39;
     --secondary: rgb(211, 0, 0);
-    --hoveredRed: rgb(158, 0, 0);
+    --hoveredRed: #9A010F;
+    --backgroundBlack: ;
+    --secondaryBlack: ;
 
 }
 
@@ -18,12 +22,14 @@ font-family: 'The Nautigal', cursive;
 html, body, #app {
   /* background-color: #232323;
   color: #E4E6EB; */
+  background-color: #f8f8f8;
   display: flex;
   flex-direction: column;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   min-height: 100vh;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 h1 {
@@ -36,24 +42,27 @@ providing a space for you to apply styles to your app's outermost HTML element -
 /* NAV BAR STYLING */
 .navbar {
   display: flex column;
-  background-color: #2429361f;
-  min-height: 100vh;
+  background-color: var(--secondaryWhite);
+  min-height: 50%;
   width: 20%;
   margin-top: 100px;
   margin-left: 20px;
   padding: 20px;
   position: absolute;
   border-radius: 25px;
-  border: 1px solid red;
+  border-right: 1px solid rgba(128, 128, 128, 0.3);
   text-align: center;
   box-sizing: border-box;
 }
 
 .friendsContainer {
   padding: 15px;
-  background-color: rgba(128, 128, 128, 0.274);
+  background-color: #dee2e6;
   border-radius: 25px;
   display: flex table-column;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.10);
+  border-right: 3px solid rgba(0, 0, 0, 0.10);
+
 }
 
 .friendsContainer ul {
@@ -87,9 +96,9 @@ providing a space for you to apply styles to your app's outermost HTML element -
   font-size: 20px;
   background-color: rgb(211, 0, 0);
   color: rgb(255, 255, 255);
-  min-width: 150px;
-  max-width: 150px;
-  height: 40px;
+  width: 160px;
+  max-width: 160px;
+  min-height: 40px;
   border-radius: 100px;
   border: none;
   margin-bottom: 15px;
@@ -97,7 +106,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 
 #update-feed:hover {
-  background-color: rgb(158, 0, 0);
+  background-color: var(--hoveredRed);
+  box-shadow: 0px 4px 10px rgb(83, 0, 0, 0.2);
   color: white;
   transition: all ease-in-out 150ms;
 }
@@ -107,9 +117,9 @@ providing a space for you to apply styles to your app's outermost HTML element -
   font-size: 20px;
   background-color: rgb(211, 0, 0);
   color: rgb(255, 255, 255);
-  min-width: 150px;
-  max-width: 150px;
-  height: 40px;
+  width: 160px;
+  max-width: 160px;
+  min-height: 40px;
   border-radius: 100px;
   border: none;
   margin-bottom: 15px;
@@ -117,7 +127,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 
 #tweetButton:hover {
-  background-color: rgb(158, 0, 0);
+  background-color: var(--hoveredRed);
+  box-shadow: 0px 4px 10px rgb(83, 0, 0, 0.2);
   color: white;
   transition: all ease-in-out 150ms;
 }
@@ -134,12 +145,12 @@ providing a space for you to apply styles to your app's outermost HTML element -
   text-align: center;
   color: rgb(235, 0, 0);
   text-align: left;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.199);
 }
 
 /* TWITTER FEED STYLING */
 #feed {
   margin-top: 90px;
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-self: center auto;
@@ -156,7 +167,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 
 .tweet:hover {
-  background-color: rgba(100, 0, 0, 0.02);
+  background-color: rgba(188, 198, 255, 0.05);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
   transition: all ease-in-out 200ms;
 }
 
@@ -180,13 +192,13 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 .username:hover {
   cursor: pointer;
-  color: var(--hoveredRed);
+  color: rgb(250, 0, 0);
   text-decoration: underline;
   text-shadow: 1px 1px 1px rgb(255, 203, 227);
 }
 
 .message {
-  background-color: rgba(128, 128, 128, 0.03);
+  background-color: rgba(214, 214, 214, 0.25);
   min-height: 80px;
   display: flex;
   position: relative;
@@ -194,9 +206,12 @@ providing a space for you to apply styles to your app's outermost HTML element -
   left: 10%;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
   border-radius: 20px;
   margin-bottom: 10px;
-  padding: 20px 0px;
+  padding: 20px 10px;
 }
 
 .timestamp {
@@ -220,7 +235,8 @@ i::before{
 }
 
 .icon {
-  margin: 10px;
+  margin: 7px;
+  font-size: 25px;
   color: var(--main);
   background: transparent;
   transition: all ease-in-out .150ms;
@@ -228,11 +244,11 @@ i::before{
 }
 
 .icon:hover {
-  color: rgb(24, 24, 24);
+  color: rgb(250, 0, 0);
 }
 
 .highlight {
-  text-shadow: 1px 1px 2px rgb(255, 0, 0);
+  text-shadow: 1px 1px 2px rgba(44, 43, 56, 0.486);
   transition: all ease-in-out 80ms;
 }
 
@@ -248,13 +264,15 @@ i::before{
   justify-self: center;
   align-self: center;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.274);
-  min-height: 50%;
+  background-color: rgba(180, 180, 180, 0.274);
+  min-height: 40%;
   min-width: 70%;
-  border-radius: 50px;
+  border-radius: 20px;
   visibility: hidden;
   opacity: 0%;
   transition: all ease-in-out 300ms;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.05);
+  border-right: 3px solid rgba(0, 0, 0, 0.05);
 }
 
 .focus {
@@ -264,19 +282,20 @@ i::before{
 }
 
 #new-tweet-form {
-  background: white;
+  background: rgb(255, 255, 255);
   display: flex;
+  font-style: italic;
   flex-direction: column;
-  min-width: 80%;
-  min-height: 80%;
+  min-width: 90%;
+  min-height: 90%;
   position: absolute;
-  top: calc(10%);
+  top: calc(5%);
   align-content: center;
   justify-content: center;
   align-self: center;
-  border-radius: 20px;
+  border-radius: 10px;
   box-sizing: content-box;
-  border: 1px solid green;
+  box-shadow: 0px 0px 30px black;
 }
 
 #new-tweet-form input {
@@ -285,10 +304,30 @@ i::before{
   align-self: center;
 }
 
+#username {
+  margin-top: 10px;
+}
+
+#username:focus {
+  border: 4px solid rgb(187, 0, 0);
+  background-color: rgb(249, 249, 249);
+  color: black;
+  box-shadow: 0px 1px 10px black;
+}
+
 #message {
+  margin-top: 10px;
   height: 100px;
   text-align: start;
 }
+
+#message:focus {
+  border: 4px solid rgb(187, 0, 0);
+  background-color: rgb(249, 249, 249);
+  color: black;
+  box-shadow: 0px 1px 10px black;
+}
+
 
 #new-tweet-form label {
   font-weight: bold;
@@ -300,4 +339,45 @@ i::before{
   align-self: center;
   border: none;
   border-radius: 20px;
+}
+
+#submit:hover {
+  cursor: pointer;
+  background-color: rgb(209, 209, 209);
+  box-shadow: 0px 1px 4px black;
+}
+
+#topButton {
+  font-size: 34px;
+  background-color: var(--main);
+  color: white;
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  transition: height ease-in-out 100ms;
+}
+
+#topButton:hover {
+  cursor: pointer;
+  background-color: var(--hoveredRed);
+  box-shadow: 0px 1px 5px gray;
+  transition: all ease-in-out 100ms;
+}
+
+@media only screen and (max-width: 885px) {
+  #update-feed {
+    width: 70px;
+    border-radius: 20px;
+  }
+
+  #tweetButton {
+    width: 70px;
+    border-radius: 20px;
+  }
 }

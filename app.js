@@ -3,6 +3,7 @@ $(document).ready(function(){
   jQuery("time.timeago").timeago();
   var $app = $('#app');
   var currentIndex = streams.home.length;
+  window.visitor = "Guest";
 
   // Create new HTML elements
   $app.html('');
@@ -13,8 +14,7 @@ $(document).ready(function(){
   var $feed = $('<div id=feed></div>');
   var $sideNavContainer = $('<div class="navbar"></div>');
   var $tweetFormContainer = $('<div class="tweetForm"></div>');
-
-
+  var $topButton = $('<div id="topButton">⬆</div>');
 
   // Create event handler functions
   function handleUsernameClick() {
@@ -40,7 +40,6 @@ $(document).ready(function(){
     $friendsUl.appendTo($friendsDiv);
     $friendsDiv.appendTo($sideNavContainer);
 
-
     $("#friends-list").find('li').each(function(i,li) {
       $(li).on('click', function() {
           var user = $(this).html().replace('@','');
@@ -55,56 +54,26 @@ $(document).ready(function(){
 
     $tweetForm
       .html(`
-        <label for="username">Username:</label><br>
+        <label for="username">Username:</label>
         <input type="text" name="username" id="username"><br>
-        <label for="message">Write Your Message:</label><br>
+        <label for="message">Write Your Message:</label>
         <input type="text" id="message" name="message"><br>
         `);
 
     $submitButton.on('click', function(event){
       event.preventDefault();
-
-      //check if both username and message field is filled in
-
-      var $usernameInput = $('#username').val().toLowerCase();
+      var $usernameInput = $('#username').val();
       var $messageInput = $('#message').val();
+
       if($usernameInput && $messageInput) {
-        //if it is, push the following data to streams.home (array of objects)
-        if (!$usernameInput.toLowerCase()) {
-          throw new Error('set the global $usernameInput.toLowerCase() property!');
-        }
-        if (!streams.users[$usernameInput]) {
-          streams.users[$usernameInput] = [];
-        }
-        var tweet = {};
-        tweet.user = $usernameInput;
-        tweet.message = $messageInput;
-        tweet.created_at = new Date();
-        tweet.profilePhotoURL = './assets/img/visitor.png';
-        addTweet(tweet);
-
-        // var newUserObj = {
-        //   user: $usernameInput,
-        //   message: $messageInput,
-        //   created_at: new Date(),
-        //   profilePhotoURL: "./assets/img/myUser.png",
-        // }
-
-        // window.streams.users[$usernameInput.toLowerCase()] === undefined ?
-        //   window.streams.users[$usernameInput.toLowerCase()] = [] : window.streams.users[$usernameInput.toLowerCase()];
-        // window.streams.users[$usernameInput.toLowerCase()].push(newUserObj);
-        // streams.home.push(newUserObj);
-
-
-        // addTweet(newUserObj);
-        //update feed with new user info??
-
-        console.log(window.streams.users)
+        window.visitor = $usernameInput;
+        writeTweet($messageInput);
+        $('#username').val('');
+        $('#message').val('');
         $tweetFormContainer.removeClass('focus');
         renderFeed();
       }
     });
-
     //append form to app
     $tweetForm.appendTo($tweetFormContainer);
     $submitButton.appendTo($tweetForm)
@@ -126,10 +95,10 @@ $(document).ready(function(){
       var $message = $('<div class="message"></div>');
       var $timestamp = $('<div class="timestamp"></div>');
       var $iconsContainer = $('<div class="iconsContainer"></div>');
-      var $commentIcon = $('<i class="far fa-comment-alt fa-2x icon comment"></i>');
-      var $retweetIcon = $('<i class="fas fa-retweet fa-2x icon retweet"></i>');
-      var $likeIcon = $('<i class="far fa-thumbs-up fa-2x icon like"></i>');
-      var $shareIcon = $('<i class="far fa-share-square fa-2x icon share"></i>');
+      var $commentIcon = $('<i class="far fa-comment-alt icon comment"></i>');
+      var $retweetIcon = $('<i class="fas fa-retweet icon retweet"></i>');
+      var $likeIcon = $('<i class="far fa-thumbs-up icon like"></i>');
+      var $shareIcon = $('<i class="far fa-share-square icon share"></i>');
 
       //event handlers
       $retweetIcon.on('mouseover', handleIconHover).on('mouseleave', handleIconHover);
@@ -151,7 +120,6 @@ $(document).ready(function(){
       $tweet.appendTo($feed);
       newIndex -= 1;
     }
-
       //Additional EventHandlers
       $($feed).find('.username').on('click', handleUsernameClick);
   }
@@ -164,6 +132,15 @@ $(document).ready(function(){
     $tweetFormContainer.addClass('focus');
   }
 
+  function showTopButton() {
+      var y = window.scrollY;
+      if (y >= 600) {
+        $topButton.fadeIn('200');
+      } else {
+        $topButton.fadeOut('200');
+      }
+  };
+
   // Set event listeners (providing appropriate handlers as input)
   $button.on('click', renderFeed);
   $tweetButton.on('click', showTweetForm);
@@ -174,12 +151,16 @@ $(document).ready(function(){
       }
     }
   });
-
+  $(document).on("scroll", showTopButton);
+  $topButton.on('click', function() {
+    document.documentElement.scrollTop = 0;
+  })
 
   // Append new HTML elements to the DOM
   $title.appendTo($app);
   $button.appendTo($app);
   $sideNavContainer.appendTo($app);
+  $topButton.appendTo($app);
   $feed.appendTo($app);
 
   renderFriends();
