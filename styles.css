@@ -17,7 +17,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
 h1 {
   display: flex;
   justify-content: center;
-  margin:auto;
+  margin: auto;
+  font-weight: 100;
 }
 
 #feed {
@@ -33,7 +34,8 @@ h1 {
   justify-content: right;
   width: 640px;
   margin: auto;
-  margin-top: 20px;
+  border-top: 1px solid #1C2541;
+  padding-top: 30px;
 }
 
 #update-feed {
@@ -76,10 +78,10 @@ h1 {
   display: flex;
   flex-direction: column;
   width: 630px;
-  border: 1px solid #1C2541;
-  background-color: #1C2541;
-  margin: 5px;
-  padding: 5px;
+  border-bottom: 1px solid #1C2541;
+  background-color: #0B132B;
+  margin: 20px;
+  padding: 20px;
   border-radius: 4px;
 }
 .profile-photo {
