@@ -31,16 +31,24 @@ $(document).ready(function(){
         var profilePic = tweet.profilePhotoURL;
         var $profilePhoto = $('<img class="profile-photo">');
         var $userName = $('<div class="username"></div>');
+        var $timeStamp = $('<div class="timestamp"></div>');
         var $header = $('<div id="tweetHeader"></div>');
         $profilePhoto.appendTo($header);
         $userName.appendTo($header)
+        $timeStamp.appendTo($header);
         var $message = $('<p class="message"></p>');
-        var $timeStamp = $('<div class="timestamp"></div>');
+        var $body = $('<div class="body"></body>');
+        $message.appendTo($body);
         var $comment = $('<i class="icon comment far fa-comment-alt"></i>')
         var $retweet = $('<i class="icon retweet fas fa-retweet"></i>');
         var $like = $('<i class="icon like far fa-heart"></i>');
         var $share = $('<i class="icon share far fa-share-square"></i>');
-        var components = [$tweet, $header, $profilePhoto, $userName, $message, $timeStamp, $comment, $retweet, $like, $share];
+        var $footer = $('<footer class="footer"></footer>');
+        $comment.appendTo($footer);
+        $retweet.appendTo($footer);
+        $like.appendTo($footer);
+        $share.appendTo($footer);
+        var components = [$header, $body, $footer];
         $($profilePhoto).attr('src', profilePic);
         $($userName).html('@' + tweet.user);
         $($message).html(tweet.message);
@@ -61,13 +69,24 @@ $(document).ready(function(){
         var profilePic = tweet.profilePhotoURL;
         var $profilePhoto = $('<img class="profile-photo">');
         var $userName = $('<div class="username"></div>');
-        var $message = $('<p class="message"></p>');
         var $timeStamp = $('<div class="timestamp"></div>');
+        var $header = $('<div id="tweetHeader"></div>');
+        $profilePhoto.appendTo($header);
+        $userName.appendTo($header)
+        $timeStamp.appendTo($header);
+        var $message = $('<p class="message"></p>');
+        var $body = $('<div class="body"></body>');
+        $message.appendTo($body);
         var $comment = $('<i class="icon comment far fa-comment-alt"></i>')
         var $retweet = $('<i class="icon retweet fas fa-retweet"></i>');
         var $like = $('<i class="icon like far fa-heart"></i>');
         var $share = $('<i class="icon share far fa-share-square"></i>');
-        var components = [$tweet, $profilePhoto, $userName, $message, $timeStamp, $comment, $retweet, $like, $share];
+        var $footer = $('<footer class="footer"></footer>');
+        $comment.appendTo($footer);
+        $retweet.appendTo($footer);
+        $like.appendTo($footer);
+        $share.appendTo($footer);
+        var components = [$header, $body, $footer];
         $($profilePhoto).attr('src', profilePic);
         $($userName).html('@' + tweet.user);
         $($message).html(tweet.message);
