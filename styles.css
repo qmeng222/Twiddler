@@ -8,8 +8,77 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  /* background-color: green;
-  color: yellow; */
-  /* font-family: 'Roboto', sans-serif; */
+  background-color: #0B132B;
+  color: whitesmoke;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
 }
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+#feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+  margin: auto;
+}
+
+#btn-span {
+  display: flex;
+  justify-content: right;
+  width: 75%;
+  margin: auto;
+}
+
+.tweet {
+  display: flex;
+  width: 630px;
+  border: 1px solid #1C2541;
+  background-color: #1C2541;
+  margin: 5px;
+  padding: 5px;
+}
+.profile-photo {
+   width: 50px;
+   height: 50px;
+   border-radius: 4px;
+}
+
+.username {
+  display: flex;
+  margin-left: 10px;
+}
+
+.username:hover {
+  color: #5BC0BE;
+  font-style: italic;
+}
+
+.message {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.icon:hover {
+  color: #5BC0BE;
+}
+.icon {
+  text-align: right;
+}
+.timestamp {
+  height: 1em;
+  width: 200px;
+  justify-content: right;
+}
+
+
+/* colors
+darkest: 0B132B
+dark: 1C2541
+darkish: 3A506B
+light: 5BC0BE
 
