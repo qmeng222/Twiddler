@@ -9,7 +9,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 #app {
   background-color: #0B132B;
-  color: whitesmoke;
+  color: lightgray;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
 }
@@ -17,6 +17,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
 h1 {
   display: flex;
   justify-content: center;
+  margin:auto;
 }
 
 #feed {
@@ -30,17 +31,56 @@ h1 {
 #btn-span {
   display: flex;
   justify-content: right;
-  width: 75%;
+  width: 640px;
   margin: auto;
+  margin-top: 20px;
 }
 
+#update-feed {
+  border-radius: 4px;
+  color: lightgray;
+  background-color: #0B132B;
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid lightgray;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  text-align:center;
+  transition: all 0.2s;
+}
+#update-feed:hover{
+  color: #0B132B;
+  background-color: lightgray;
+  }
+
+#tweetHeader {
+  display: flex;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-self: start;
+  margin-bottom: 20px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+}
 .tweet {
   display: flex;
+  flex-direction: column;
   width: 630px;
   border: 1px solid #1C2541;
   background-color: #1C2541;
   margin: 5px;
   padding: 5px;
+  border-radius: 4px;
 }
 .profile-photo {
    width: 50px;
@@ -49,7 +89,6 @@ h1 {
 }
 
 .username {
-  display: flex;
   margin-left: 10px;
 }
 
@@ -70,9 +109,8 @@ h1 {
   text-align: right;
 }
 .timestamp {
-  height: 1em;
-  width: 200px;
-  justify-content: right;
+  text-align: right;
+  flex: auto;
 }
 
 
