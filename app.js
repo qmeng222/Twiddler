@@ -43,11 +43,11 @@ $(document).ready(function() {
 
       var $tweetImg = $('<img class="profile-photo">');
       var profilePhotos = {
-        'douglascalhoun': '/Users/laurenanderson/Documents/Hack Reactor - Precourse/seip2202-twiddler/assets/img/douglascalhoun.png',
-        'mracus': '/Users/laurenanderson/Documents/Hack Reactor - Precourse/seip2202-twiddler/assets/img/mracus.png',
-        'sharksforcheap': '/Users/laurenanderson/Documents/Hack Reactor - Precourse/seip2202-twiddler/assets/img/sharksforcheap.png',
-        'shawndrost': '/Users/laurenanderson/Documents/Hack Reactor - Precourse/seip2202-twiddler/assets/img/shawndrost.png',
-        'visitor': '/Users/laurenanderson/Documents/Hack Reactor - Precourse/seip2202-twiddler/assets/img/visitor.png'
+        'douglascalhoun': 'assets/img/douglascalhoun.png',
+        'mracus': 'assets/img/mracus.png',
+        'sharksforcheap': 'assets/img/sharksforcheap.png',
+        'shawndrost': 'assets/img/shawndrost.png',
+        'visitor': 'assets/img/visitor.png'
       };
       var imgSrc = profilePhotos[tweet.user];
       $tweetImg.attr('src', imgSrc);
@@ -113,6 +113,32 @@ $(document).ready(function() {
       renderFeed(user);
     }
   });
+
+  // add new tweet div
+  var $newTweetForm = $('<form action="" method="get" id="new-tweet-form"></form>');
+  $updateFeedButton.before($newTweetForm);
+
+  var $newTweetUsernameDiv = $('<div id="new-tweet-username" class="new-tweet-divs"></div>');
+  var $newTweetUsernameLabel = $('<label for="username-input">Enter your username</label>');
+  var $newTweetUsernameInput = $('<input type="text" id="username-input" placeholder="@..." class="new-tweet-inputs" required>');
+  $newTweetForm.append($newTweetUsernameDiv);
+  $newTweetUsernameDiv.append($newTweetUsernameLabel);
+  $newTweetUsernameDiv.append($newTweetUsernameInput);
+
+  var $newTweetMessageDiv = $('<div id="new-tweet-message" class="new-tweet-divs"></div>')
+  var $newTweetMessageLabel = $('<label for="message-input">What are you thinking about?</label>');
+  var $newTweetMessageInput = $('<textarea id="message-input" rows="3" cols="20" class="new-tweet-inputs" placeholder="..." required></textarea>');
+  $newTweetForm.append($newTweetMessageDiv);
+  $newTweetMessageDiv.append($newTweetMessageLabel);
+  $newTweetMessageDiv.append($newTweetMessageInput);
+
+
+  var $newTweetSubmitDiv = $('<div id="new-tweet-submit" class="new-tweet-divs"></div>')
+  var $newTweetSubmitInput = $('<button type="submit" id="new-tweet-submit-btn" class="new-tweet-inputs" value="Submit">Twiddle</button>');
+  $newTweetForm.append($newTweetSubmitDiv);
+  $newTweetSubmitDiv.append($newTweetSubmitInput);
+
+
 
   window.isItBeautifulYet = true;
 });
