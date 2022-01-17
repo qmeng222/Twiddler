@@ -1,13 +1,154 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
-html, body, #app {
+html,
+body,
+#app {
   min-height: 100vh;
   margin: 0;
+  font-family: "Crimson Pro", serif;
+  background-image: url(assets/img/background.jpg);
+  background-size: contain;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: rgb(107, 146, 171);
+  color: rgb(199, 224, 235);
+  width: 100%;
+  font-style: normal;
+  /* display: grid;
+  grid-template-rows: 50px 50px;
+  grid-template-columns: auto 90%; */
+}
+
+/* h1 {
+
+  background-color: yellow;
+  text-align: center;
+} */
+
+h1 {
+  font-style: bold;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #2d88bd 0%,
+    #d6a074 29%,
+    #8f475e 67%,
+    #7a5f7a 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 80px;
+  margin: auto;
+  position: absolute;
+  left: 40%;
+  top: 5%;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+#update-feed {
+  color: rgb(28, 76, 118);
+  position: relative;
+  /* top: 20%; */
+  left: 80%;
+  top: 120px;
+  background-color: pink;
+  width: 8em;
+  height: 3em;
+  font-style: bold;
+  font-size: 1em;
+  border-radius: 15px;
+  /* margin: 30px 30px 309x 50px; */
+  /* position: positive;
+  left: 100px;
+  top: 100px; */
+}
+
+#feed {
+  margin: auto;
+  margin-top: 20px;
+  margin-top: 150px;
+  width: 80%;
+  /* border-radius:10%; */
+  border-width: 10px;
+  border-style: solid;
+  border-color: black;
+  background-color: rgb(235, 235, 230);
+  background-blend-mode: hard-light;
+  align-content: center;
+  /* background-color: red; */
+}
+
+.tweet {
+  text-align: left;
+  color: black;
+  background-color: rgb(157, 177, 212);
+  display: block;
+  margin: auto;
+  border-width: 2px;
+  border-radius: 15px;
+  border-color: snow;
+  border-style: solid;
+  align-content: center;
+  padding: 30px;
+  /* position:absolute; */
+}
+
+.username {
+  font-weight: bold;
+  font-size: 1.2em;
+  position: relative;
+  left: 85px;
+  bottom: 80px;
+}
+
+.profile-photo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.message {
+  font-size: 1.1em;
+  position: relative;
+  left: 85px;
+  bottom: 80px;
+}
+
+.timestamp {
+  font-size: 1em;
+  text-align: right;
+}
+
+i {
+  display: inline-block;
+  margin-left: 45px;
+  position: relative;
+  bottom: 60px;
+  left: 50px;
+}
+
+i:hover {
+  color: smow;
+  opacity: 0.5;
+}
+
+#update-feed:hover {
+  color: cornflowerblue;
+  opacity: 0.5;
 }
