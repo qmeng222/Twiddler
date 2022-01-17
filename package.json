@@ -1,0 +1,25 @@
+{
+  "name": "seip2202-twiddler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanmcnamara33/seip2202-twiddler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seanmcnamara33/seip2202-twiddler/issues"
+  },
+  "homepage": "https://github.com/seanmcnamara33/seip2202-twiddler#readme",
+  "devDependencies": {
+    "cypress": "^9.2.1"
+  }
+}
