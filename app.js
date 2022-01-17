@@ -12,6 +12,12 @@ $(document).ready(function(){
   $($btnSpan).append($updateFeed);
   $btnSpan.appendTo($app);
 
+  // main page
+  var $mainPage = $('<div id="main"></div>')
+  $mainPage.appendTo($app);
+  // sidebar container
+  var $sideBar = $('<div id="sidebar"><strong>Friends List</strong></div>');
+  $sideBar.appendTo($mainPage);
   // create feed container
   var $feed = $('<div id="feed"></div>')
   $feed.appendTo($app);
@@ -77,7 +83,7 @@ $(document).ready(function(){
         var $message = $('<p class="message"></p>');
         var $body = $('<div class="body"></body>');
         $message.appendTo($body);
-        var $comment = $('<i class="icon comment far fa-comment-alt"></i>')
+        var $comment = $('<i class="icon comment far fa-comment-alt"></i>');
         var $retweet = $('<i class="icon retweet fas fa-retweet"></i>');
         var $like = $('<i class="icon like far fa-heart"></i>');
         var $share = $('<i class="icon share far fa-share-square"></i>');
@@ -99,7 +105,20 @@ $(document).ready(function(){
         index -= 1;
       }
     }
+    $feed.appendTo($mainPage);
   }
+
+  // friends list
+  // function for friends list
+  var $friendsList = $('<ul class="friends-list" aria-label="Friends List"></ul>');
+  for (var user in streams.users) {
+    user = "@" + user;
+    var $liUser = $('<li class="friend"></li>');
+    $liUser.text(user);
+    $liUser.appendTo($friendsList);
+  }
+  $friendsList.appendTo($sideBar);
+
 
   // helper function for username click
   var handleUsernameClick = function() {
@@ -117,4 +136,7 @@ $(document).ready(function(){
 
   // update to individual feed when username clicked
   $feed.on("click", 'div.username', handleUsernameClick);
+
+  $sideBar.on("click", '.user', handleUsernameClick);
 });
+
