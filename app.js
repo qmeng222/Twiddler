@@ -10,7 +10,6 @@ $(document).ready(function() {
   $('<button id="friends" class="button has-hover">Friends</button>').appendTo('#sidebar');
   $('<div id="feed"></div>').appendTo($app);
 
-
   $feed = $('#feed');
   $updateFeed = $('#update-feed');
 
