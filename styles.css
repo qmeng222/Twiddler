@@ -8,15 +8,308 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: ivory;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  font-style: normal;
+}
+
+/* sidebar */
+
+#sidebar {
+  background-color: rgb(107, 159, 175);
+  display: flex;
+  flex-direction: column;
+  margin-right: 5%;
+  min-width: 20em;
 }
 
 h1 {
   font-size: 40px;
   font-family: 'Pacifico', cursive;
+  box-shadow: 0px 0px 20px -10px;
+  padding: 5px 20px 5px 20px ;
 }
 
-i:hover {
+#sidebar input {
+  background-color: rgb(162, 209, 212);
+  border: none;
+  height: 60px;
+  padding: 1em;
+  width: 16rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+input:focus {
+  outline: none !important;
+}
+
+
+#search {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#searchbtn {
+  width: 20%;
+}
+
+ul {
+  padding: 0%;
+  margin: 0%;
+}
+
+
+
+.profile-photo {
+  border-radius: 50%;
+  align-self: center;
+  box-shadow: 0 0 .5vw black;
+}
+
+#sidebar .button {
+  background-color: rgb(107, 159, 175);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding-left: .5em;
+  border-bottom: .05em solid rgb(13, 55, 75);
+  border-top: .05em solid rgb(109, 201, 230);
+  border-right: none;
+  border-left: none;
+}
+
+#update-feed {
+  display: flex;
+  justify-content: center;
+}
+
+#sidebar .button:hover {
+  padding-left: 1em;
+  color: white;
+  cursor: pointer;
+  background-color: rgb(13, 55, 75);
+  border-bottom: .05em solid black;
+}
+
+#sidebar .pressed {
+  padding-left: 1em;
+  color: white;
+  cursor: pointer;
+  background-color: rgb(13, 55, 75);
+  border-bottom: .05em solid black;
+}
+
+#friends {
+  justify-content: center;
+}
+
+.friend img {
+  margin-right: 10px;
+
+}
+
+.friend .profile-photo {
+  width: 50px;
+  height: 50px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+/* feed */
+
+#feed {
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  min-width: 50%;
+  margin-right: auto;
+}
+
+/* tweet */
+
+.tweet {
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 8em;
+  min-width: 56em;
+  border-radius: .5em;
+  display: flex;
+  margin: 2%;
+  padding: 1.5% 1.5% 1.5% 1.5%  ;
+  background-color: rgba(255, 255, 255, 0.459);
+  flex-wrap: nowrap;
+  box-shadow: 0px 0px 20px -8px rgba(0, 0, 0, .75);
+  justify-content: space-evenly;
+}
+
+.newTweet {
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 8em;
+  min-width: 56em;
+  border-radius: .5em;
+  display: flex;
+  margin: 2%;
+  padding: 1.5% 1.5% 1.5% 1.5%  ;
+  background-color: rgba(255, 255, 255, 0.459);
+  flex-wrap: nowrap;
+  box-shadow: 0px 0px 20px -8px rgba(0, 0, 0, .75);
+  justify-content: space-evenly;
+}
+
+.leftside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(162, 209, 212);
+  min-width: 10em;
+  border-radius: .5em;
+  box-shadow: inset 0px 0px 10px -4px ;
+  margin-right: 1em;
+  font-size: .85rem;
+}
+
+.leftside:hover {
+  background-color: khaki;
+  cursor: pointer;
+  padding-bottom: .5em;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: ivory;
+  min-width: 35em;
+  border-radius: .5em;
+  box-shadow: inset 0px 0px 10px -4px ;
+  margin-right: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.message p {
+  max-width: 30em;
+  word-wrap: break-word;
+}
+
+.username {
+  margin-top: 1em;
+}
+
+.rightside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.timestamp {
+  background-color: ivory;
+  border-radius: .5em;
+  box-shadow: inset 0px 0px 10px -4px ;
+  padding: 1em;
+  font-size: .85em;
+  white-space: nowrap;
+  min-width: 10em;
+  display: flex;
+  justify-content: center;
+}
+
+.icon:hover {
+  cursor: pointer;
   color: brown;
+}
+
+.iconcontainer {
+  display: grid;
+  grid-template-columns: 2;
+  min-height: 4em;
+  max-width: 4em;
+}
+
+.comment {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.retweet {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+/* new tweet */
+
+#createTweet {
+  justify-content: flex-start;
+}
+
+#inputUser {
+  height: 3em;
+  margin-top: 1em;
+  margin-left: .2em;
+  border-radius: .5em;
+  border: none;
+  background-color: ivory;
+  box-shadow: inset 0px 0px 10px -4px ;
+  padding-left: 1.5em;
+  font-weight: bold;
+}
+
+#inputTxt {
+  font-size: 1.5em;
+  margin-left: 1em;
+}
+
+#inputTweet {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.3em;
+  margin-left: 1em;
+  border-radius: .5em;
+  border: none;
+  background-color: ivory;
+  box-shadow: inset 0px 0px 10px -4px ;
+  padding: 1.5em;
+  font-weight: bold;
+  min-width: 26.5em;
+  max-width: 26.5em;
+  max-height: 3em;
+  min-height: 3em;
+  resize: none;
+}
+
+#inputTweet:focus {
+  outline: none !important;
+}
+
+#leftside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#submit {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  border-radius: .5em;
+  height: 3em;
+  width: 15.2em;
+  align-self: flex-end;
+  border: none;
+  background-color: rgb(162, 209, 212);
+  box-shadow: inset 0px 0px 10px -4px ;
+}
+
+#submit:hover {
+  background-color: khaki;
+  padding-bottom: .25em;
+  cursor: pointer;
 }
