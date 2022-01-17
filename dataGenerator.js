@@ -47,10 +47,11 @@ var generateRandomTweet = function() {
   addTweet(tweet);
 };
 
+// runs a for loop from 0 - 9 (10 times) invoking generateRandomTweet each time
 for (var i = 0; i < 10; i++) {
   generateRandomTweet();
 }
-
+// sets up continuous stream of tweets
 var scheduleNextTweet = function() {
   if (streams.home.length < 500) {
     generateRandomTweet();
