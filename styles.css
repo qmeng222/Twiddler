@@ -106,10 +106,17 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 
 #update-feed:hover {
+  cursor: pointer;
   background-color: var(--hoveredRed);
   box-shadow: 0px 4px 10px rgb(83, 0, 0, 0.2);
   color: white;
   transition: all ease-in-out 150ms;
+}
+
+.backActive {
+  background-color: rgb(211, 0, 0);
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 #tweetButton {
@@ -127,6 +134,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 
 #tweetButton:hover {
+  cursor: pointer;
   background-color: var(--hoveredRed);
   box-shadow: 0px 4px 10px rgb(83, 0, 0, 0.2);
   color: white;
@@ -282,7 +290,7 @@ i::before{
 }
 
 #new-tweet-form {
-  background: rgb(255, 255, 255);
+  background: rgb(243, 243, 243);
   display: flex;
   font-style: italic;
   flex-direction: column;
@@ -306,10 +314,11 @@ i::before{
 
 #username {
   margin-top: 10px;
+  box-sizing: border-box;
 }
 
 #username:focus {
-  border: 4px solid rgb(187, 0, 0);
+  border: 4px solid rgb(255, 183, 125);
   background-color: rgb(249, 249, 249);
   color: black;
   box-shadow: 0px 1px 10px black;
@@ -319,10 +328,12 @@ i::before{
   margin-top: 10px;
   height: 100px;
   text-align: start;
+  font-size: 20px;
+  box-sizing: border-box;
 }
 
 #message:focus {
-  border: 4px solid rgb(187, 0, 0);
+  border: 4px solid rgb(255, 183, 125);
   background-color: rgb(249, 249, 249);
   color: black;
   box-shadow: 0px 1px 10px black;
@@ -339,34 +350,33 @@ i::before{
   align-self: center;
   border: none;
   border-radius: 20px;
+  background-color: rgb(212, 212, 212);
 }
 
 #submit:hover {
   cursor: pointer;
-  background-color: rgb(209, 209, 209);
+  background-color: rgb(189, 189, 189);
   box-shadow: 0px 1px 4px black;
 }
 
 #topButton {
-  font-size: 34px;
-  background-color: var(--main);
-  color: white;
+  color: var(--main);
+  background-color: transparent;
   display: none;
   flex-direction: column;
   text-align: center;
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
+  bottom: 25px;
+  right: 25px;
   transition: height ease-in-out 100ms;
+  box-sizing: border-box;
+  border-radius: 50%;
 }
 
 #topButton:hover {
   cursor: pointer;
-  background-color: var(--hoveredRed);
-  box-shadow: 0px 1px 5px gray;
+  color: var(--hoveredRed);
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.50);
   transition: all ease-in-out 100ms;
 }
 

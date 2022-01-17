@@ -14,7 +14,7 @@ $(document).ready(function(){
   var $feed = $('<div id=feed></div>');
   var $sideNavContainer = $('<div class="navbar"></div>');
   var $tweetFormContainer = $('<div class="tweetForm"></div>');
-  var $topButton = $('<div id="topButton">⬆</div>');
+  var $topButton = $('<i id="topButton" class="fas fa-5x fa-arrow-alt-circle-up"></i>');
 
   // Create event handler functions
   function handleUsernameClick() {
@@ -49,15 +49,15 @@ $(document).ready(function(){
   }
 
   function renderForm() {
-    var $tweetForm = $('<form id="new-tweet-form"></form>');
+    var $tweetForm = $('<form id="new-tweet-form" autocomplete="off"></form>');
     var $submitButton = $('<button id="submit" text="Submit">Submit</button>');
 
     $tweetForm
       .html(`
         <label for="username">Username:</label>
-        <input type="text" name="username" id="username"><br>
+        <input type="text" name="username" id="username" placeholder="@username"><br>
         <label for="message">Write Your Message:</label>
-        <input type="text" id="message" name="message"><br>
+        <input type="text" id="message" name="message" placeholder="Write your message here..."><br>
         `);
 
     $submitButton.on('click', function(event){
@@ -72,6 +72,8 @@ $(document).ready(function(){
         $('#message').val('');
         $tweetFormContainer.removeClass('focus');
         renderFeed();
+      } else {
+        alert("Please fill in all fields before sending a tweet!");
       }
     });
     //append form to app
@@ -81,7 +83,8 @@ $(document).ready(function(){
   }
 
   function renderFeed(user) {
-    typeof user !== 'string' ? user = null : user = user.toLowerCase();
+    typeof user !== 'string' ? user = null : user = user;
+    console.log(user)
     var newIndex = user ? streams.users[user].length -1 : newIndex = streams.home.length-1;
     var $users = streams.users;
     user ? $button.html('Back') : $button.html('Update Feed');
@@ -167,5 +170,4 @@ $(document).ready(function(){
   renderForm();
   renderFeed();
 });
-
 window.isItBeautifulYet = true;
