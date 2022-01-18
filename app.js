@@ -25,6 +25,22 @@ $(document).ready(function(){
 
 });
 
+const timePassed = function(dateObject) {
+  let timePassed;
+
+  let currentTime = new Date()
+  let currentSeconds = Math.floor(currentTime.getTime() / 1000)
+  let eventSeconds = Math.floor(dateObject.getTime() / 1000)
+  timePassed = currentSeconds - eventSeconds;
+  console.log(timePassed);
+
+  if (timePassed < 5) return 'just now'
+  if (timePassed < 60) return 'less than a minute ago'
+  if (timePassed < 600) return 'within last 10 minutes'
+  if (timePassed < 3600) return 'less than an hour ago'
+  return 'could not calculate when message was posted...';
+}
+
 
 const tweetGenerator = function(tweet) {
   return $(
@@ -32,7 +48,7 @@ const tweetGenerator = function(tweet) {
         <img src="${tweet.profilePhotoURL}" class="prof-pic" />
         <h4 class="username">@${tweet.user}</h4>
         <p class="message">${tweet.message}</p>
-        <p class="timestamp">${tweet.created_at}</p>
+        <p class="timestamp">${timePassed(tweet.created_at)}</p>
         <ul class="icons">
           <li class="retweet icon"><ion-icon name="return-up-forward-outline"></ion-icon></li>
           <li class="like icon"><ion-icon name="heart"></ion-icon></li>
@@ -47,7 +63,6 @@ const updateFriendsList = function() {
   friends.forEach(friend => {
     const $currentFriend = $(`<li class="friend border">@${friend}</li>`)
     $currentFriend.appendTo($friendsList)
-    console.log('anything')
   })
 }
 
@@ -56,8 +71,6 @@ const update = function(tweets) {
   var index = tweets.length - 1;
   $currentFeed.text(currentLocation)
   while(index >= 0){
-    console.log(index)
-    console.log(tweets[index])
     var tweet = tweets[index];
     var $tweet = tweetGenerator(tweet);
 
@@ -81,7 +94,7 @@ $($btn__update).on('click', function(e) {
     update(streams.home);
   }
   if (currentFeed !== 'home') {
-    update(streams.users.currentFeed);
+    update(streams.users[currentFeed]);
   }
 })
 
@@ -103,6 +116,7 @@ const init = function() {
 }
 
 init();
+
 
 
 
