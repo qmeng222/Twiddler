@@ -5,13 +5,69 @@
     <script src="dataGenerator.js"></script>
     <link rel="stylesheet" href="styles.css">
   </head>
+
   <body>
-    <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
+    <div id="app">
+
+      <!-- Title -->
+      <div class = "header title">
+        <h1>Twiddler 2.0</h1>
+      </div>
+
+      <!-- Update Feed Button -->
+      <button id = "update-feed">
+        Update Feed
+      </button>
+
+      <!-- Update Feed w/ custom message + Friends List/Feed-->
+      <section>
+
+        <!-- Update feed w/ custom message + Friends list Colum-->
+        <section>
+          <!-- Update feed  use form/ label + input and post button-->
+          <section>
+            <form>
+              <h3> Share your Twidbit</h3>
+              <label>Username</label>
+              <input placeholder = "username">
+              <label>Twidbit</label>
+              <input placeholder = "What's on your mind">
+              <button>Post</button>
+            </form>
+
+          </section>
+
+          <!-- Friends List -->
+          <section>
+            <h3>
+              Friend's List
+            </h3>
+            <ul>
+              <li>friend</li>
+              <li>friend</li>
+              <li>friend</li>
+              <li>friend</li>
+            </ul>
+          </section>
+        </section>
+
+
+
+        <!-- Feed colum -->
+        <section>
+          feed
+        </section>
+
+
+
+
+
+    </div>  <!-- Your Entire Application will be built inside this div! -->
 
     <script>
       $(document).ready(function(){
         var $app = $('#app');
-        $app.html('');
+        // $app.html('');
 
         var index = streams.home.length - 1;
         while(index >= 0){

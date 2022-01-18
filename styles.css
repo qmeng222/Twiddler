@@ -8,6 +8,16 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: white;
+  color: black;
+  line-height: 2.0;
+}
+
+.header {
+  margin: 0;
+  text-align: center;
+}
+
+#update-feed {
+
 }
