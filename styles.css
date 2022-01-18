@@ -163,6 +163,9 @@ providing a space for you to apply styles to your app's outermost HTML element -
     margin-left: 0;
     padding-left: 0;
   }
+  .tweet:hover {
+    opacity: 100%;
+  }
   .profile-photo {
     width: 50px;
     height: 50px;
