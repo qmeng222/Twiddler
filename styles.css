@@ -6,22 +6,10 @@
     --main: #ca2c39;
     --secondary: rgb(211, 0, 0);
     --hoveredRed: #9A010F;
-    --backgroundBlack: ;
-    --secondaryBlack: ;
-
 }
-
-/*
-font-family: 'Lobster', cursive;
-font-family: 'Open Sans', sans-serif;
-font-family: 'Space Mono', monospace;
-font-family: 'The Nautigal', cursive;
-*/
 
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
-  /* background-color: #232323;
-  color: #E4E6EB; */
   background-color: #f8f8f8;
   display: flex;
   flex-direction: column;

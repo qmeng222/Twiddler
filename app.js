@@ -1,8 +1,7 @@
-$(document).ready(function(){
+$(document).ready(function() {
   // Select already existing elements
   jQuery("time.timeago").timeago();
   var $app = $('#app');
-  var currentIndex = streams.home.length;
   window.visitor = "Guest";
 
   // Create new HTML elements
@@ -60,7 +59,7 @@ $(document).ready(function(){
         <input type="text" id="message" name="message" placeholder="Write your message here..."><br>
         `);
 
-    $submitButton.on('click', function(event){
+    $submitButton.on('click', function(event) {
       event.preventDefault();
       var $usernameInput = $('#username').val();
       var $messageInput = $('#message').val();
@@ -76,7 +75,7 @@ $(document).ready(function(){
         alert("Please fill in all fields before sending a tweet!");
       }
     });
-    //append form to app
+
     $tweetForm.appendTo($tweetFormContainer);
     $submitButton.appendTo($tweetForm)
     $tweetFormContainer.appendTo($app);
@@ -84,7 +83,6 @@ $(document).ready(function(){
 
   function renderFeed(user) {
     typeof user !== 'string' ? user = null : user = user;
-    console.log(user)
     var newIndex = user ? streams.users[user].length -1 : newIndex = streams.home.length-1;
     var $users = streams.users;
     user ? $button.html('Back') : $button.html('Update Feed');
@@ -103,7 +101,6 @@ $(document).ready(function(){
       var $likeIcon = $('<i class="far fa-thumbs-up icon like"></i>');
       var $shareIcon = $('<i class="far fa-share-square icon share"></i>');
 
-      //event handlers
       $retweetIcon.on('mouseover', handleIconHover).on('mouseleave', handleIconHover);
       $commentIcon.on('mouseover', handleIconHover).on('mouseleave', handleIconHover);
       $likeIcon.on('mouseover', handleIconHover).on('mouseleave', handleIconHover);
@@ -123,7 +120,6 @@ $(document).ready(function(){
       $tweet.appendTo($feed);
       newIndex -= 1;
     }
-      //Additional EventHandlers
       $($feed).find('.username').on('click', handleUsernameClick);
   }
 
@@ -170,4 +166,5 @@ $(document).ready(function(){
   renderForm();
   renderFeed();
 });
+
 window.isItBeautifulYet = true;
