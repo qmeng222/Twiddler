@@ -2,19 +2,35 @@ $(document).ready(function(){
 //Select alredy existing elements
 var $app = $('#app');
 $app.html('');
+
 //Create new HTML elements
 var $title = $('<h1>Twiddler</h1>')
 var $button = $('<button>Update Feed</button>');
 $button.attr({ID:'update-feed', type:'button'});
 var $homeFeed = $('<div id=feed><div>');
+var $friendsList = $('<ul id=friendsList> Friends Circle</ul>')
+var $postTweet = $('<form id=postTweet>Post Tweet</form>')
+
+
+
 
 
 
 
 //Append new HTMLelements to the DOM
 $("#app").append($title);
-$("#app").append($button);
 $("#app").append($homeFeed);
+$("#app").append($friendsList);
+$("#app").append($postTweet);
+$postTweet.html(' <label for="username">Username</label>\
+<input type="text" id="formUserName" name="formUserName">\
+<label for="NewTweet">New Tweet</label>\
+<input type="text" id="newTweet" name="NewTweet">')
+$postTweet.append('<input type="submit" id="submit" value = "Submit">')
+$("#app").append($button);
+
+
+
 
 
 //Create event handler funcrtions
@@ -51,7 +67,20 @@ var renderFeed = function(user) {
   }
 };
 
+var updateFriendList = function() {
+  $friendsList.empty();
+  for (current in streams.users) {
+    if (current !== "" && current !== undefined) {
+      $friends = $('<li></li>');
+      $friends.attr('id', current);
+      $friends.text(current);
+      $friends.appendTo($friendsList);
+    }
+  }
+};
+
 renderFeed();
+updateFriendList()
 
 
 var buttonClickhandler = function() {
@@ -71,17 +100,37 @@ var uernameClickHandler = function(event){
   $('#update-feed').text("Back");
 }
 
+
+var enterNewTweet = function(newUser, message) {
+  console.log(`newUser: ${newUser}`);
+  console.log(`message: ${message}`);
+  if (streams.users[newUser] === undefined) {
+    streams.users[newUser] = [];
+    streams.users[newUser].push(message);
+  }
+  else {
+    streams.users[newUser].push(message);
+  }
+  renderFeed();
+  updateFriendList();
+
+}
+
 //Set event listeners
 $button.on('click', buttonClickhandler)
 
 $('.username').on('click', uernameClickHandler)
 
+visitor= document.getElementById('formUserName').value;
+// var formUserName1 = formUserName.value;
+const newTweet = document.getElementById('newTweet').value;
+// var newTweet1 = newTweet.value;
+// console.log(`formUserName ${formUserName} `)
+// console.log(`newTweet ${newTweet} `)
+$('#submit').on('click', writeTweet(newTweet));
 
-// $('i').hover(function(){
-//   $(this).css("background-color", "white");
-// }, function(){
-//     $(this).css("background-color", "red");
-//   });
+$('li').on('click', uernameClickHandler)
+
 
 
 
