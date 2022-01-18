@@ -58,6 +58,8 @@ var scheduleNextTweet = function() {
   }
 };
 scheduleNextTweet();
+console.log(streams);
+
 
 // utility function for letting students add "write a tweet" functionality
 // (note: not used by the rest of this file.)
