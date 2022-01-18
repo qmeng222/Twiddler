@@ -10,4 +10,5 @@
           $tweet.appendTo($app);
           index -= 1;
         }
+       
       });
