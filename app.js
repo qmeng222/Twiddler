@@ -7,33 +7,30 @@ $app.html('');
 var $title = $('<h1>Twiddler</h1>')
 var $button = $('<button>Update Feed</button>');
 $button.attr({ID:'update-feed', type:'button'});
-var $homeFeed = $('<div id=feed><div>');
-var $friendsList = $('<ul id=friendsList> Friends Circle</ul>')
-var $postTweet = $('<form id=postTweet>Post Tweet</form>')
-
-
-
-
-
-
+var $homeFeed = $('<div id="feed"><div>');
+var $friendsList = $('<ul id="friends-list">Friends List</ul>');
+var $postTweet = $('<form id="new-tweet-form"></form>');
+var $tweetForm = $('<div id="tweetForm"><div>')
+var $friendLs = $('<div id="friendLs"><div>')
 
 //Append new HTMLelements to the DOM
 $("#app").append($title);
-$("#app").append($homeFeed);
-$("#app").append($friendsList);
-$("#app").append($postTweet);
-$postTweet.html(' <label for="username">Username</label>\
-<input type="text" id="formUserName" name="formUserName">\
-<label for="NewTweet">New Tweet</label>\
-<input type="text" id="newTweet" name="NewTweet">')
-$postTweet.append('<input type="submit" id="submit" value = "Submit">')
 $("#app").append($button);
+$("#app").append($homeFeed);
+$("#app").append($tweetForm);
+$("#app").append($friendLs);
+$postTweet.html(' <label for="formUserName">Username</label>\
+<input type="text" id="formUserName" name="username">\
+<label for="newTweet">New Tweet</label>\
+<input type="text" alight = "left" id="newTweet" name="message">\
+<button id="submit" form="new-tweet-form" type="button">Submit</button>');
+$postTweet.appendTo($tweetForm)
+$friendLs.append('<h4>Friend List</h4>');
+$friendLs.append($friendsList);
 
 
 
-
-
-//Create event handler funcrtions
+//Create event handler functions
 var renderFeed = function(user) {
   $("#feed").empty();
   var targetStreams = [];
@@ -72,25 +69,29 @@ var updateFriendList = function() {
   for (current in streams.users) {
     if (current !== "" && current !== undefined) {
       $friends = $('<li></li>');
-      $friends.attr('id', current);
-      $friends.text(current);
+      $friends.attr({'id': current, 'class': "friend"});
+      $friends.text('@' + current);
       $friends.appendTo($friendsList);
     }
   }
+
 };
 
+// initial settings
 renderFeed();
-updateFriendList()
+updateFriendList();
 
 
 var buttonClickhandler = function() {
   if ($(this).val() === 'Update Feed'){
     renderFeed();
+    updateFriendList();
   } else {
     $(this).text("Update Feed");
     renderFeed();
   }
   $('.username').on('click', uernameClickHandler);
+  $('li').on('click', uernameClickHandler);
 }
 
 
@@ -101,41 +102,28 @@ var uernameClickHandler = function(event){
 }
 
 
-var enterNewTweet = function(newUser, message) {
-  console.log(`newUser: ${newUser}`);
-  console.log(`message: ${message}`);
-  if (streams.users[newUser] === undefined) {
-    streams.users[newUser] = [];
-    streams.users[newUser].push(message);
-  }
-  else {
-    streams.users[newUser].push(message);
-  }
-  renderFeed();
-  updateFriendList();
-
-}
-
 //Set event listeners
-$button.on('click', buttonClickhandler)
+$button.on('click', buttonClickhandler);
 
 $('.username').on('click', uernameClickHandler)
 
-visitor= document.getElementById('formUserName').value;
-// var formUserName1 = formUserName.value;
-const newTweet = document.getElementById('newTweet').value;
-// var newTweet1 = newTweet.value;
-// console.log(`formUserName ${formUserName} `)
-// console.log(`newTweet ${newTweet} `)
-$('#submit').on('click', writeTweet(newTweet));
+$('#submit').on('click', function(){
+  var newTweet = document.getElementById('newTweet').value
 
-$('li').on('click', uernameClickHandler)
+  visitor= document.getElementById('formUserName').value;
+  writeTweet(newTweet);
+  renderFeed();
+  updateFriendList();
+  document.getElementById('newTweet').value = '';
+  visitor= document.getElementById('formUserName').value = '';
 
+  $('li').on('click', uernameClickHandler);
+  $('.username').on('click', uernameClickHandler);
+});
 
-
-
-
-
+$('li').on('click', uernameClickHandler);
 
 });
+
+ window.isItBeautifulYet = true
 
