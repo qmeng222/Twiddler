@@ -2,12 +2,102 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #abbaab;
+
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+
+  color: black;
+  font-family: 'Dongle';
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: normal;
+  padding: 15px;
+  margin: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: white;
+}
+
+#feed {
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet {
+  border-bottom: 5px solid white;
+  margin: 2px;
+  width: 855px;
+  margin-left: 2px;
+  align-items: center;
+}
+
+.username {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.message {
+  margin: 1rem;
+}
+
+.comment, .retweet, .share, .like {
+  display: inline;
+  margin: 2rem;
+  cursor: pointer;
+  font-size: 15px;
+
+}
+.profile-photo {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 50px;
+  height: 60px;
+}
+
+.timestamp {
+  text-align: end;
+  font-size: .9rem;
+}
+
+.comment:hover, .like:hover, .share:hover, .retweet:hover {
+  color: white
+}
+
+
+/* CSS */
+#update-feed {
+  background-color: rgba(51, 51, 51, 0.5);
+  border-radius: 8px;
+  border-width: 0;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 2rem;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#update-feed:hover {
+  background-color: white;
 }
