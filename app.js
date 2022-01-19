@@ -23,11 +23,24 @@ $(document).ready(function(){
   var newIndex = currentIndex;
 
   //load initial tweets
-    while(index >= 0) {
-      var tweet = streams.home[index]
-      buildTweet(tweet).appendTo($mainFeed)
-      index -= 1
-    }
+  function loadTweets (start, end, firstTime) {
+      while(start >= end) {
+        if (firstTime) {
+          var tweet = streams.home[start]
+          buildTweet(tweet).appendTo($mainFeed)
+          start -= 1
+        } else {
+          start = streams.home.length;
+          while (start > end) {
+            var tweet = streams.home[end + 1]
+            buildTweet(tweet).prependTo($mainFeed)
+            start -= 1
+            end += 1
+          }
+        }
+      }
+  }
+  loadTweets(index, 0, true)
 
 
   function checkTweets(){
@@ -36,8 +49,7 @@ $(document).ready(function(){
     newIndex = streams.home.length
     // if newIndex sees there are more tweets, run loadNewTweets
     if (newIndex > currentIndex) {
-      showMoreTweets()
-
+      loadTweets(newIndex, currentIndex, false)
     }
     // set interval so that page is constantly checking for more tweets
     setTimeout(function() {
@@ -46,16 +58,16 @@ $(document).ready(function(){
   }
   checkTweets()
 
-  function showMoreTweets() {
-    //similar to above, but different starting index
-    newIndex = streams.home.length;
-    while (newIndex > currentIndex) {
-      var tweet = streams.home[currentIndex + 1]
-      buildTweet(tweet).prependTo($mainFeed)
-      newIndex -= 1;
-      currentIndex += 1;
-    }
-  }
+  // function showMoreTweets() {
+  //   //similar to above, but different starting index
+  //   newIndex = streams.home.length;
+  //   while (newIndex > currentIndex) {
+  //     var tweet = streams.home[currentIndex + 1]
+  //     buildTweet(tweet).prependTo($mainFeed)
+  //     newIndex -= 1;
+  //     currentIndex += 1;
+  //   }
+  // }
 
   function buildTweet(currentTweet) {
     var $tweetContainer = $('<div class = "tweetContainer"></div>')
@@ -76,7 +88,7 @@ $(document).ready(function(){
           $like.appendTo($tweetIcons);
           $share.appendTo($tweetIcons);
         //time
-        var $tweetTime =$('<div class = "tweetTime">' + new Date + '</div>')
+        var $tweetTime =$('<div class = "tweetTime">' + currentTweet.created_at + '</div>')
 
         //load into container to build individual tweet
         $tweetPhoto.appendTo($tweetContainer)
