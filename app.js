@@ -8,6 +8,13 @@ $(document).ready(function(){
   var $title = $('<h1>Twiddler</h1>');
   var $updateFeedBtn = $('<button id="update-feed">Update Feed</button>');
   var $feed = $('<div id="feed"></div>');
+  var $header = $('<div class="header"></div>');
+  var $main = $('<div class="main"></div>');
+  var $sidebar = $('<div class="sidebar"></div');
+  var $friendsContainer = $('<div class="friends-container"></div>');
+  var $friendsHeader = $('<h3 class="friends-header">Friends List:</h3>');
+  var $friendsList = $('<ul class="friends-list"></ul>');
+
 
 
   //Create event handler functions
@@ -27,7 +34,6 @@ $(document).ready(function(){
       var $tweet = $('<div class="tweet"></div>');
       var $tweetProfilePhoto = $('<img class="profile-photo" src="' + tweet.profilePhotoURL + '" alt="profile photo">');
       var $tweetUserName = $('<span class="username">' + '@' + tweet.user + '</span>');
-      $tweetUserName.on('click', handleUsernameClick);
       var $tweetMessage = $('<p class="message">' + tweet.message + '</p>');
       var $tweetTimeStamp = $('<span class="timestamp">' + $.timeago(tweet.created_at) + '</span>');
       var $tweetIconContainer = $('<div class="icon-container"></div>');
@@ -35,6 +41,11 @@ $(document).ready(function(){
       var $tweetIconRetweet = $('<i class="icon retweet fas fa-retweet"></i>');
       var $tweetIconLike = $('<i class="icon like far fa-heart"></i>');
       var $tweetIconShare = $('<i class="icon share fas fa-share"></i>');
+
+
+
+      //give the username a click listener
+      $tweetUserName.on('click', handleUsernameClick);
 
       //construct the container of tweetIcons
       $tweetIconContainer.append(
@@ -80,9 +91,12 @@ $(document).ready(function(){
 
 
   //Append new HTML elements to the DOM
-  $title.appendTo($app);
-  $updateFeedBtn.appendTo($app);
-  $feed.appendTo($app);
+  $header.appendTo($app);
+  $title.appendTo($header);
+  $main.appendTo($app);
+  $main.append($sidebar, $feed);
+  $friendsContainer.append($friendsHeader, $friendsList);
+  $sidebar.append($updateFeedBtn, $friendsContainer);
 
 
   //On load invocations
