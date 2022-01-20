@@ -25,6 +25,7 @@ input:focus{
   display: flex;
   min-height: 80vh;
   max-width: 1120px;
+  margin: 0 auto;
   /* width: 80%; */
 }
 
@@ -132,11 +133,7 @@ input:focus{
 
 /* NEWSFEED */
 .newsfeed {
-  margin: 4rem;
-  justify-content: center;
-  /* flex-direction: column; */
-  /* justify-content: flex-start; */
-  /* align-items: center; */
+  margin: 0 auto;
 }
 
 /* TITLE */
@@ -151,7 +148,8 @@ input:focus{
 
 .add-tweet {
   display: block;
-  margin: 0 auto;
+  margin: 13px auto;
+  margin-left: 70px;
 }
 
 .add-tweet input {
@@ -181,6 +179,12 @@ input:focus{
 
 .add-tweet button:active {
   box-shadow: inset -5px 3px 12px rgba(122, 122, 122, 0.3);
+}
+
+#refresh {
+  /* float: right; */
+  display: flex;
+  justify-content: right;
 }
 
 .tweet {

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  jQuery("time.timeago").timeago();
   var $app = $('#app');
   // $app.html('');
 
@@ -38,7 +39,7 @@ $(document).ready(function(){
     </div>\
     <div class="card-info">\
       <span class="user-handle">' + userhandle +'</span> ◆\
-      <span class="timestamp"><em>' + timestamp + '</em></span>\
+      <time class="timeago timestamp"><em>' + timestamp + '</em></time>\
       <div class="message">' + message + '</div>\
       <div class="icons">\
         <i class="far fa-heart"></i>\
@@ -63,7 +64,7 @@ $(document).ready(function(){
   }
 
   // Event Listener for the Refresh Button
-  $('#refresh').click(function() {
+  $('#home').click(function() {
     location.reload();
   });
 
