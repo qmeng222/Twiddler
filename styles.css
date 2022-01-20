@@ -11,3 +11,26 @@ providing a space for you to apply styles to your app's outermost HTML element -
   background-color: green;
   color: yellow;
 }
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  margin-top: 0;
+  font-family: 'Lobster', cursive;
+}
+
+i {
+  color: white;
+  transition: color .15s ease-in;
+}
+
+i:hover {
+  cursor: pointer;
+  color: cyan;
+}
+
+.username {
+  cursor: pointer;
+}
