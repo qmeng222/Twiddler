@@ -1,28 +1,74 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!--Favicon-->
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon_io/favicon-32x32.png"> -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/twiddler-favicon-32x32.png">
+    <!--jQuery-->
     <script src="lib/jquery.js"></script>
+    <!--Data Generator-->
     <script src="dataGenerator.js"></script>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Neonderthaw&family=Poppins:wght@100;400;500;700&display=swap" rel="stylesheet">
+    <!--CSS link-->
     <link rel="stylesheet" href="styles.css">
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/9d8e8e4082.js" crossorigin="anonymous"></script>
+    <title>Twiddler 2.0 by Sabrina Gortz</title>
   </head>
   <body>
-    <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
+    <div id="app">
+      <main class="glass">
+          <!--DASHBOARD-->
+          <section class="dashboard">
+            <br>
+            <br>
+            <br>
+            <div class="user">
+              <div class="circular--portrait">
+                <img src="assets/img/sgortz.png" alt="Profile picture of current user" />
+              </div>
+              <h3>Sabrina Gortz</h3>
+              <h4>@sgortz</h4>
+              <!-- <a href="#" class="logout">logout</a> -->
+            </div>
+            <h2 id="home"><a href="#"><i class="fas fa-home"></i>Home</a></h2>
+            <h2 id="refresh"><a href="#" ><i class="fas fa-sync-alt"></i>Update Feed</a></h2>
 
-    <script>
-      $(document).ready(function(){
-        var $app = $('#app');
-        $app.html('');
+            <div class="friend-list">
+              <h2>Friend List</h2>
+              <div class="filter-user">
+                <input type="text" placeholder="Search username" />
+              </div>
+              <ul class="friends">
+                <li>@sharksforcheap</li>
+                <li>@shawndrost</li>
+                <li>@mracus</li>
+                <li>@douglascalhoun</li>
+              </ul>
+            </div>
+          </section>
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($app);
-          index -= 1;
-        }
+          <!--NEWSFEED-->
+          <section class="newsfeed">
+            <h1 id="title">Welcome to <br/>Twiddler 2.0 !</h1>
+            <div class="add-tweet">
+              <input type="text" class="user-tweet" required placeholder="What's on your mind?" />
+              <button>Post</button>
+            </div>
+          </div>
+            <div id="cards">
+            </div>
+          </section>
+      </main>
 
-      });
+    </div>  <!-- Your Entire Application will be built inside this div! -->
+
+    <script src="app.js">
+
     </script>
   </body>
 </html>

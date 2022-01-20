@@ -8,6 +8,239 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  box-sizing: border-box;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right top, #DAE2F8, #D6A4A4);
+  /* min-height: 80vh; */
+}
+
+input:focus{
+  outline-color: #f7b264;
+}
+
+.glass {
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255,255,255,0.1));
+  border-radius: 25px;
+  display: flex;
+  min-height: 80vh;
+  max-width: 1120px;
+  /* width: 80%; */
+}
+
+/* Rounding the photos */
+.circular--portrait {
+  margin: 10px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.circular--portrait img {
+  width: 100%;
+  height: auto;
+}
+
+/* DASHBOARD */
+.dashboard {
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.1), rgba(255,255,255,0.3));
+  border-radius: 20px;
+  width: 25%;
+  /* display: flex;*/
+  /* align-items: center; */
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+  text-align: center;
+}
+
+.user {
+  padding: 20px 30px;
+}
+
+.user .circular--portrait {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.user h3 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.user h4 {
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 100;
+  margin: 0;
+}
+
+.user a{
+  color:black;
+}
+.logout:active {
+  color:red;
+}
+.logout:visited {
+  color:black;
+}
+
+#home, #refresh {
+  margin: 0;
+}
+
+#home a, #refresh a {
+  text-decoration: none;
+}
+
+#refresh a:visited, #home a:visited{
+  color:black;
+}
+
+.friend-list {
+  display: block;
+}
+
+.filter-user input{
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-style: italic;
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255,255,255,0.3));
+  border: none;
+  padding: 7px;
+  border-radius: 56px;
+  text-align: center;
+}
+
+.friends {
+  text-align: left;
+  font-weight: 100;
+  text-decoration: none;
+  margin-left: 40px;
+}
+
+.friends li:hover {
+  cursor: pointer;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* NEWSFEED */
+.newsfeed {
+  margin: 4rem;
+  justify-content: center;
+  /* flex-direction: column; */
+  /* justify-content: flex-start; */
+  /* align-items: center; */
+}
+
+/* TITLE */
+#title {
+  font-family: 'Neonderthaw', cursive;
+  /* box-shadow:rgba(255, 255, 255, 0.1); */
+  font-size: 90px;
+  color: #ff8800;
+  text-align: center;
+  margin: 0;
+}
+
+.add-tweet {
+  display: block;
+  margin: 0 auto;
+}
+
+.add-tweet input {
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255,255,255,0.3));
+  border: none;
+  border-radius: 25px;
+  box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.2);
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-style: italic;
+  margin: 10px auto;
+  padding: 20px;
+  width: 400px;
+}
+
+.add-tweet button {
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255,255,255,0.3));
+  border: none;
+  border-radius: 1.2rem;
+  box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.2);
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  padding: 15px;
+  margin: 5px;
+}
+
+.add-tweet button:active {
+  box-shadow: inset -5px 3px 12px rgba(122, 122, 122, 0.3);
+}
+
+.tweet {
+  background: linear-gradient(to left top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+  box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.2);
+  border-radius: 1rem;
+  display: flex;
+  margin-bottom: 2rem;
+  padding: 10px;
+}
+
+.tweet .user-handle {
+  font-size: 18px;
+  margin: 10px;
+}
+
+.tweet .timestamp {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 100;
+  margin-left: 10px;
+}
+
+.tweet .message {
+  background: linear-gradient(to left top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+  margin: 10px;
+  padding: 20px;
+  border-radius: 20px;
+  min-width: 450px;
+  max-width: 700px;
+}
+
+.icons {
+  display: flex;
+  justify-content: flex-start;
+  /* margin-left: 15px; */
+  font-size: 20px;
+}
+
+.icons:hover{
+  cursor: pointer;
+}
+
+.fa-heart:hover {
+  color:red;
+}
+
+.fa-comment:hover {
+  color:#2BCAF9
+}
+
+.fa-retweet:hover {
+  color: green;
+}
+
+.fa-share-square:hover {
+  color:blueviolet;
+}
+
+.icons .far, .fas {
+  padding: 5px;
+  margin: 10px;
 }
