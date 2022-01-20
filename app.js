@@ -51,6 +51,27 @@ $(document).ready(function(){
       var $share = $('<i class="fas fa-share-square share"></i>');
       $share.appendTo($tweet);
 
+      $comment.hover(function(){
+        $(this).css('color', 'blue')
+      }, function(){
+        $(this).css('color', '')
+      });
+      $retweet.hover(function(){
+        $(this).css('color', 'blue')
+      }, function(){
+        $(this).css('color', '')
+      });
+      $like.hover(function(){
+        $(this).css('color', 'blue')
+      }, function(){
+        $(this).css('color', '')
+      });
+      $share.hover(function(){
+        $(this).css('color', 'blue')
+      }, function(){
+        $(this).css('color', '')
+      });
+
       $tweet.appendTo($feed);
       index -= 1;
 
@@ -62,7 +83,6 @@ $(document).ready(function(){
             array.push(streams.home[i]);
           }
         }
-        console.log(array);
         $feed.empty();
         $updateFeed.text('Back');
 
@@ -95,6 +115,27 @@ $(document).ready(function(){
           $like.appendTo($tweet);
           var $share = $('<i class="fas fa-share-square share"></i>');
           $share.appendTo($tweet);
+
+          $comment.hover(function(){
+            $(this).css('color', 'blue')
+          }, function(){
+            $(this).css('color', '')
+          });
+          $retweet.hover(function(){
+            $(this).css('color', 'blue')
+          }, function(){
+            $(this).css('color', '')
+          });
+          $like.hover(function(){
+            $(this).css('color', 'blue')
+          }, function(){
+            $(this).css('color', '')
+          });
+          $share.hover(function(){
+            $(this).css('color', 'blue')
+          }, function(){
+            $(this).css('color', '')
+          });
 
           $tweet.appendTo($feed);
           index2 -= 1;
