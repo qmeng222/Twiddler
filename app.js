@@ -12,7 +12,10 @@ $(document).ready(function() {
 
   // create and append update feed button
   var $updateFeedButton = $('<button id="update-feed" class="button">update feed</button>');
-  $updateFeedButton.insertAfter($title);
+  var $updateFeedDiv = $('<div id="update-feed-div"></div>');
+  $updateFeedDiv.insertAfter($title);
+  $updateFeedButton.appendTo($updateFeedDiv);
+
 
   //timeago setup
   jQuery('.timeago').timeago();
@@ -38,6 +41,7 @@ $(document).ready(function() {
       } else {
         var tweet = streams.home[index];
       }
+
       var $tweet = $('<div class="tweet"></div>');
       $tweet.appendTo('#feed');
 
@@ -132,7 +136,8 @@ $(document).ready(function() {
 
   // add new tweet form
   var $newTweetForm = $('<form action="#" onsubmit="" id="new-tweet-form"></form>');
-  $updateFeedButton.before($newTweetForm);
+  $('h1').after($newTweetForm);
+
 
   // add new tweet username input
   var $newTweetUsernameDiv = $('<div id="new-tweet-username" class="new-tweet-divs"></div>');
@@ -157,22 +162,16 @@ $(document).ready(function() {
   $newTweetSubmitDiv.append($newTweetSubmitInput);
 
   // function to add new tweet to feed
-  $($newTweetForm).on('submit', function(event) {
+  $(document).on('submit', $newTweetForm, function(event) {
     event.preventDefault();
-
-    var $newTweetObj = $(this).serializeArray();
-    console.log($newTweetObj);
-    var user = $newTweetObj[0].value;
-    var message = $newTweetObj[1].value;
-    addNewTweet(user, message);
-
+  // add function to add new tweet to feed
   });
 
   // create friends list
   var $friendsListDiv = $('<div id="friends-list-div"></div>');
   var $friendsListHeader = $('<h2 id="friends-header">friend\'s list</h2>');
   var $friendsListUl = $('<ul id="friends-list"></ul>');
-  $friendsListDiv.insertBefore($updateFeedButton);
+  $friendsListDiv.insertBefore($updateFeedDiv);
   $friendsListDiv.append($friendsListHeader);
   $friendsListDiv.append($friendsListUl);
   var friends = streams.users;
