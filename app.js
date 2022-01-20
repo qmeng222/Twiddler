@@ -14,6 +14,10 @@ $(document).ready(function(){
     alert('The title of this page is: ' + event.target.innerText);
   });
 
+  // Create a button to update the feed
+  var $updateFeed = $('<button id="update-feed">Update</button>');
+  $updateFeed.appendTo($app);
+
   // Create an id of feed within app
   var $feed = $('<div id="feed"></div>');
   $feed.appendTo($app);
@@ -27,16 +31,16 @@ $(document).ready(function(){
       var $tweet = $('<div class="tweet"></div>');
       // $tweet.text('@' + tweet.user + ': ' + tweet.message);
 
-      var $message = $('<div class="message"></div>');
-      $message.text(tweet.message);
-      $message.appendTo($tweet);
+      var $profilePhoto = $('<img src="'+tweet.profilePhotoURL+'" class="profile-photo"></img>');
+      $profilePhoto.appendTo($tweet);
 
       var $username = $('<div class="username"></div>');
       $username.text('@' + tweet.user);
       $username.appendTo($tweet);
 
-      var $profilePhoto = $('<img src="'+tweet.profilePhotoURL+'" class="profile-photo"></img>');
-      $profilePhoto.appendTo($tweet);
+      var $message = $('<div class="message"></div>');
+      $message.text(tweet.message);
+      $message.appendTo($tweet);
 
       var $timestamp = $('<div class="timestamp"></div>')
       $timestamp.text(jQuery.timeago(tweet.created_at));
@@ -92,16 +96,16 @@ $(document).ready(function(){
           var $tweet = $('<div class="tweet"></div>');
           // $tweet.text('@' + tweet.user + ': ' + tweet.message);
 
-          var $message = $('<div class="message"></div>');
-          $message.text(tweet.message);
-          $message.appendTo($tweet);
+          var $profilePhoto = $('<img src="'+tweet.profilePhotoURL+'" class="profile-photo"></img>');
+          $profilePhoto.appendTo($tweet);
 
           var $username = $('<div class="username"></div>');
           $username.text('@' + tweet.user);
           $username.appendTo($tweet);
 
-          var $profilePhoto = $('<img src="'+tweet.profilePhotoURL+'" class="profile-photo"></img>');
-          $profilePhoto.appendTo($tweet);
+          var $message = $('<div class="message"></div>');
+          $message.text(tweet.message);
+          $message.appendTo($tweet);
 
           var $timestamp = $('<div class="timestamp"></div>')
           $timestamp.text(jQuery.timeago(tweet.created_at));
@@ -146,10 +150,6 @@ $(document).ready(function(){
 
   renderMessages();
 
-  // Create a button to update the feed
-  var $updateFeed = $('<button id="update-feed">Update</button>');
-  $updateFeed.prependTo($app);
-
   // Functionality of the update button
   $updateFeed.on('click', function(event) {
     $feed.empty();
@@ -158,3 +158,5 @@ $(document).ready(function(){
   })
 
 });
+
+window.isItBeautifulYet = true;
