@@ -27,23 +27,79 @@ $(document).ready(function(){
       var $tweet = $('<div class="tweet"></div>');
       // $tweet.text('@' + tweet.user + ': ' + tweet.message);
 
-      $message = $('<div class="message"></div>');
+      var $message = $('<div class="message"></div>');
       $message.text(tweet.message);
       $message.appendTo($tweet);
 
-      $username = $('<div class="username"></div>');
+      var $username = $('<div class="username"></div>');
       $username.text('@' + tweet.user);
       $username.appendTo($tweet);
 
-      $profilePhoto = $('<img src="assets/icons/placeholder.png" class="profile-photo"></img>');
+      var $profilePhoto = $('<img src="'+tweet.profilePhotoURL+'" class="profile-photo"></img>');
       $profilePhoto.appendTo($tweet);
 
-      $timestamp = $('<div class="timestamp"></div>')
-      $timestamp.text(tweet.created_at);
+      var $timestamp = $('<div class="timestamp"></div>')
+      $timestamp.text(jQuery.timeago(tweet.created_at));
       $timestamp.appendTo($tweet);
+
+      var $comment = $('<i class="fas fa-comment-dots comment"></i>');
+      $comment.appendTo($tweet);
+      var $retweet = $('<i class="fas fa-retweet retweet"></i>');
+      $retweet.appendTo($tweet);
+      var $like = $('<i class="fas fa-thumbs-up like"></i>');
+      $like.appendTo($tweet);
+      var $share = $('<i class="fas fa-share-square share"></i>');
+      $share.appendTo($tweet);
 
       $tweet.appendTo($feed);
       index -= 1;
+
+      $username.on('click', function(event) {
+        var array = [];
+        var name = event.target.innerText.slice(1);
+        for (var i = 0; i < streams.home.length; i++) {
+          if (streams.home[i].user === name) {
+            array.push(streams.home[i]);
+          }
+        }
+        console.log(array);
+        $feed.empty();
+        $updateFeed.text('Back');
+
+        var index2 = array.length - 1
+        while(index2 >= 0){
+          var tweet = array[index2];
+          var $tweet = $('<div class="tweet"></div>');
+          // $tweet.text('@' + tweet.user + ': ' + tweet.message);
+
+          var $message = $('<div class="message"></div>');
+          $message.text(tweet.message);
+          $message.appendTo($tweet);
+
+          var $username = $('<div class="username"></div>');
+          $username.text('@' + tweet.user);
+          $username.appendTo($tweet);
+
+          var $profilePhoto = $('<img src="'+tweet.profilePhotoURL+'" class="profile-photo"></img>');
+          $profilePhoto.appendTo($tweet);
+
+          var $timestamp = $('<div class="timestamp"></div>')
+          $timestamp.text(jQuery.timeago(tweet.created_at));
+          $timestamp.appendTo($tweet);
+
+          var $comment = $('<i class="fas fa-comment-dots comment"></i>');
+          $comment.appendTo($tweet);
+          var $retweet = $('<i class="fas fa-retweet retweet"></i>');
+          $retweet.appendTo($tweet);
+          var $like = $('<i class="fas fa-thumbs-up like"></i>');
+          $like.appendTo($tweet);
+          var $share = $('<i class="fas fa-share-square share"></i>');
+          $share.appendTo($tweet);
+
+          $tweet.appendTo($feed);
+          index2 -= 1;
+        }
+      })
     }
   }
 
@@ -54,11 +110,10 @@ $(document).ready(function(){
   $updateFeed.prependTo($app);
 
   // Functionality of the update button
-  $updateFeed.on('click', function(even) {
+  $updateFeed.on('click', function(event) {
     $feed.empty();
     renderMessages();
+    $updateFeed.text('Update');
   })
-
-
 
 });
