@@ -16,13 +16,11 @@ $(document).ready(function() {
   $updateFeedDiv.insertAfter($title);
   $updateFeedButton.appendTo($updateFeedDiv);
 
-
   //timeago setup
   jQuery('.timeago').timeago();
   $('.timestamp').on('click', function() {
     $('.timeago').timeago('update', new Date());
   });
-  jQuery.timeago.settings.allowFuture = true;
 
   // renders the updated feed with tweets in appropriate format
   var renderFeed = function(user) {
@@ -46,15 +44,7 @@ $(document).ready(function() {
       $tweet.appendTo('#feed');
 
       var $tweetImg = $('<img class="profile-photo">');
-      var profilePhotos = {
-        'douglascalhoun': 'assets/img/douglascalhoun.png',
-        'mracus': 'assets/img/mracus.png',
-        'sharksforcheap': 'assets/img/sharksforcheap.png',
-        'shawndrost': 'assets/img/shawndrost.png',
-        'visitor': 'assets/img/visitor.png'
-      };
-      var imgSrc = profilePhotos[tweet.user];
-      $tweetImg.attr('src', imgSrc);
+      $tweetImg.attr('src', tweet.profilePhotoURL);
       $tweet.append($tweetImg);
 
       var $user = $('<span class="username"></span>');
@@ -135,37 +125,43 @@ $(document).ready(function() {
   });
 
   // add new tweet form
-  var $newTweetForm = $('<form action="#" onsubmit="" id="new-tweet-form"></form>');
+  var $newTweetForm = $('<form method="post" id="new-tweet-form" type="submit"></form>');
   $('h1').after($newTweetForm);
 
+  var newTweet = function() {
+    // add new tweet username input
+    var $newTweetUsernameDiv = $('<div id="new-tweet-username" class="new-tweet-divs"></div>');
+    var $newTweetUsernameLabel = $('<label for="username-input">username</label>');
+    var $newTweetUsernameInput = $('<input type="text" id="username-input" placeholder="@..." class="new-tweet-inputs" name="username" required>');
+    $newTweetForm.append($newTweetUsernameDiv);
+    $newTweetUsernameDiv.append($newTweetUsernameLabel);
+    $newTweetUsernameDiv.append($newTweetUsernameInput);
 
-  // add new tweet username input
-  var $newTweetUsernameDiv = $('<div id="new-tweet-username" class="new-tweet-divs"></div>');
-  var $newTweetUsernameLabel = $('<label for="username-input">username</label>');
-  var $newTweetUsernameInput = $('<input type="text" id="username-input" placeholder="@..." class="new-tweet-inputs" name="username" required>');
-  $newTweetForm.append($newTweetUsernameDiv);
-  $newTweetUsernameDiv.append($newTweetUsernameLabel);
-  $newTweetUsernameDiv.append($newTweetUsernameInput);
+    // add new tweet message input
+    var $newTweetMessageDiv = $('<div id="new-tweet-message" class="new-tweet-divs"></div>')
+    var $newTweetMessageLabel = $('<label for="message-input">what are you thinking about?</label>');
+    var $newTweetMessageInput = $('<input id="message-input" name="message" type="text" class="new-tweet-inputs" placeholder="..." required>');
+    $newTweetForm.append($newTweetMessageDiv);
+    $newTweetMessageDiv.append($newTweetMessageLabel);
+    $newTweetMessageDiv.append($newTweetMessageInput);
 
-  // add new tweet message input
-  var $newTweetMessageDiv = $('<div id="new-tweet-message" class="new-tweet-divs"></div>')
-  var $newTweetMessageLabel = $('<label for="message-input">what are you thinking about?</label>');
-  var $newTweetMessageInput = $('<input id="message-input" name="message" type="text" class="new-tweet-inputs" placeholder="..." required>');
-  $newTweetForm.append($newTweetMessageDiv);
-  $newTweetMessageDiv.append($newTweetMessageLabel);
-  $newTweetMessageDiv.append($newTweetMessageInput);
+    // add new tweet submit form button
+    var $newTweetSubmitDiv = $('<div id="new-tweet-submit" class="new-tweet-divs"></div>')
+    var $newTweetSubmitInput = $('<input type="submit" id="new-tweet-submit-btn" class="new-tweet-inputs button" value="twiddle"></input>');
+    $newTweetForm.append($newTweetSubmitDiv);
+    $newTweetSubmitDiv.append($newTweetSubmitInput);
 
-  // add new tweet submit form button
-  var $newTweetSubmitDiv = $('<div id="new-tweet-submit" class="new-tweet-divs"></div>')
-  var $newTweetSubmitInput = $('<input type="submit" id="new-tweet-submit-btn" class="new-tweet-inputs button" value="twiddle"></input>');
-  $newTweetForm.append($newTweetSubmitDiv);
-  $newTweetSubmitDiv.append($newTweetSubmitInput);
-
-  // function to add new tweet to feed
-  $(document).on('submit', $newTweetForm, function(event) {
-    event.preventDefault();
-  // add function to add new tweet to feed
-  });
+    // add new tweet to feed on form submit
+    $newTweetForm.submit(function(event) {
+      event.preventDefault();
+      window.visitor = $newTweetUsernameInput.val();
+      writeTweet($newTweetMessageInput.val());
+      renderFeed();
+      $newTweetUsernameInput.val('');
+      $newTweetMessageInput.val('');
+    });
+  }
+  newTweet();
 
   // create friends list
   var $friendsListDiv = $('<div id="friends-list-div"></div>');
@@ -174,6 +170,7 @@ $(document).ready(function() {
   $friendsListDiv.insertBefore($updateFeedDiv);
   $friendsListDiv.append($friendsListHeader);
   $friendsListDiv.append($friendsListUl);
+
   var friends = streams.users;
   for (var user in friends) {
     var $friendsListLi = $('<li class="friend username"></li>');
@@ -181,7 +178,6 @@ $(document).ready(function() {
     $friendsListUl.append($friendsListLi);
   }
 
-
-
   window.isItBeautifulYet = true;
+
 });

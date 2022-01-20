@@ -23,12 +23,10 @@ h1 {
   font-style: italic;
   font-weight: 800;
   line-height: 1.1;
-  max-inline-size: 15ch;
   font-size: 4rem;
   color: black;
 
   text-align: center;
-  text-shadow: 1px 1px 1px gray;
 
   padding: 10px;
   margin: 0 auto;
@@ -65,7 +63,6 @@ form {
 
 label {
   font-family: 'Comfortaa', sans-serif;
-
 }
 
 #new-tweet-submit-btn {
@@ -131,7 +128,7 @@ h2 {
 
 #feed {
   grid-area: 1 / 2 / span 2 / span 2;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   margin: 145px auto auto auto;
   width: 40%;
 }
@@ -146,7 +143,7 @@ h2 {
   font-size: 15px;
 
   padding: 10px;
-  margin: 0px 0px 10px 0px;
+  margin-bottom: 10px;
   width: 400px;
   border-radius: 5px;
 
@@ -163,13 +160,12 @@ h2 {
   border-radius: 50px;
 }
 
-
-
 .message {
   grid-column: 1 / span 4;
   grid-row: 2;
 
   align-self: flex-start;
+  padding-left: 10px;
 }
 
 .timestamp {
@@ -177,6 +173,7 @@ h2 {
   grid-row: 2;
   font-size: x-small;
   align-self: flex-end;
+  padding-left: 10px;
 }
 
 #comment-icon {
