@@ -16,14 +16,14 @@ $(document).ready(function(){
   var $friendsList = $('<ul id="friends-list"></ul>');
 
   //NEW TWEET FORM FORMAT:
-  var $formContainer = $('<div class="form-container"></div>');
+  var $formContainer = $('<form id="new-tweet-form" class="form-container"></form>');
   var $formLeft = $('<div class="form-left"></div>');
   var $formPicture = $('<img class=form-image src="assets/img/bird.png" alt="new tweet image">');
   var $formRight = $('<div class="form-right"></div>');
-  var $formUserLabel = $('<label for="username">Username:</label>');
-  var $formUserInput = $('<input type="text" class="user-input" id="name" name="user_name">');
-  var $formMessageLabel = $('<label for="message">Message:</label>');
-  var $formMessageInput = $('<input type="text" class="message-input" id="name" name="user_name">');
+  var $formUserLabel = $('<label for="name">Username</label>');
+  var $formUserInput = $('<input type="text" class="user-input" id="name" name="username">');
+  var $formMessageLabel = $('<label for="message">Message</label>');
+  var $formMessageInput = $('<input type="text" class="message-input" id="name" name="message">');
   var $formSubmitBtn = $('<button class=form-submit>Send Twid</button>');
 
   $formContainer.append($formLeft, $formRight);
@@ -122,9 +122,13 @@ $(document).ready(function(){
     renderFeed(user);
   }
 
-  var sendTwid = function() {
+  var sendTwid = function(e) {
+    e.preventDefault();
     var usernameInput = $formUserInput.val();
     var messageInput = $formMessageInput.val();
+
+    $formUserInput.val('');
+    $formMessageInput.val('');
 
     if (usernameInput[0] === '@') {
       usernameInput = usernameInput.slice(1);
