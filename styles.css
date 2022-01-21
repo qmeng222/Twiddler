@@ -48,7 +48,7 @@ h1 {
   width: 90%;
   display: flex;
   gap: 1em;
-  background-color: #f9f9f9;
+  background-color: #fcfcfc;
   margin-bottom: 1.5em;
   padding: .8em;
   border-radius: 10px;
@@ -58,7 +58,7 @@ h1 {
 
 .tweet:hover {
   /* color: #0C85F5; */
-  background-color: rgb(232, 232, 232);
+  background-color: rgb(242, 242, 242);
 }
 
 .tweet-left {
@@ -74,6 +74,7 @@ h1 {
   width: 100px;
   box-shadow: 2px 2px 1px rgba(0, 0, 0, .25);
   /* box-shadow: 2px 2px 1px #0C85F5; */
+  object-fit: cover;
 }
 
 .tweet-right {
@@ -110,6 +111,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-style: italic;
 }
 
 i {
@@ -165,12 +167,13 @@ i:hover {
   padding: .5em 1.2em;
   outline: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   width: 100%;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   color: #000;
   letter-spacing: .015em;
+  text-align: center;
 }
 
 .friends-container {
@@ -178,6 +181,22 @@ i:hover {
   margin-top: 2em;
   border-radius: 5px;
   padding: 1em;
+}
+
+.friends-header {
+  font-size: 1.2rem;
+}
+
+#friends-list {
+  list-style: none;
+  padding: 0;
+  margin-top: .3em;
+}
+
+.friend {
+  font-size: 1rem;
+  color: #0C85F5;
+  cursor: pointer;
 }
 
 #update-feed,
@@ -195,3 +214,10 @@ i:hover {
   justify-content: flex-start;
 }
 
+
+
+
+.form-container {
+  height: 200px;
+  width: 100%;
+}
