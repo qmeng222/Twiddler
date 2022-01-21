@@ -12,14 +12,14 @@ $(document).ready(function(){
   var $main = $('<div class="main"></div>');
   var $sidebar = $('<div class="sidebar"></div');
   var $friendsContainer = $('<div class="friends-container"></div>');
-  var $friendsHeader = $('<h3 class="friends-header">Friends List:</h3>');
+  var $friendsHeader = $('<h3 class="friends-header">Friends List</h3>');
   var $friendsList = $('<ul id="friends-list"></ul>');
 
   //NEW TWEET FORM FORMAT:
   /*
     Container
     - formLeft
-      - img (placeholder bird image)
+      - img (placeholder image)
     - formRight
       -user label
       -user input field
@@ -28,7 +28,7 @@ $(document).ready(function(){
   */
   var $formContainer = $('<div class="form-container"></div>');
   var $formLeft = $('<div class="form-left"></div>');
-  var $formPicture = $('<img class=form-image src="img/bird.png" alt="new tweet image">');
+  var $formPicture = $('<img class=form-image src="assets/img/placeholderperson.png" alt="new tweet image">');
   var $formRight = $('<div class="form-right"></div>');
   var $formUserLabel = $('<label for="username">Username:</label>');
   var $formUserInput = $('<input type="text" id="name" name="user_name">');

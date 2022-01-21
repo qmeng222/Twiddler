@@ -52,7 +52,7 @@ h1 {
   margin-bottom: 1.5em;
   padding: .8em;
   border-radius: 10px;
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, .25);
+  box-shadow: 3px 4px 3px rgba(0, 0, 0, .25);
   transition: all .3s ease;
 }
 
@@ -185,6 +185,7 @@ i:hover {
 
 .friends-header {
   font-size: 1.2rem;
+  text-align: center;
 }
 
 #friends-list {
