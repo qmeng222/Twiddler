@@ -8,6 +8,55 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color:white;
+  color: black;
+}
+
+
+/* =====================
+        Buttons
+   ===================== */
+
+button {
+
+  width: 200px;
+  height: 200px;
+  position: relative;
+  color: black;
+  margin-bottom: 5px;
+  font-size: 14px;
+  outline: none;
+  background: black;
+  border: 2px solid red;
+}
+#update-feed {
+
+  width: 75px;
+  height: 25px;
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 5px;
+  font-size: 12px;
+  outline: black;
+  background: white;
+  border: 2px solid red;
+}
+
+/* =======================
+            DIV
+   ======================= */
+
+#this-box {
+  width: 300px;
+  height: 300px;
+  position: center;
+  color: purple;
+  margin-bottom: 5px;
+  font-size: 14px;
+  outline: black;
+  background: red;
+  border: 2px solid green;
+
 }
