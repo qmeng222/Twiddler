@@ -28,16 +28,17 @@ $(document).ready(function(){
   */
   var $formContainer = $('<div class="form-container"></div>');
   var $formLeft = $('<div class="form-left"></div>');
-  var $formPicture = $('<img class=form-image src="assets/img/placeholderperson.png" alt="new tweet image">');
+  var $formPicture = $('<img class=form-image src="assets/img/bird.png" alt="new tweet image">');
   var $formRight = $('<div class="form-right"></div>');
   var $formUserLabel = $('<label for="username">Username:</label>');
-  var $formUserInput = $('<input type="text" id="name" name="user_name">');
+  var $formUserInput = $('<input type="text" class="user-input" id="name" name="user_name">');
   var $formMessageLabel = $('<label for="message">Message:</label>');
-  var $formMessageInput = $('<input type="text" id="name" name="user_name">');
+  var $formMessageInput = $('<input type="text" class="message-input" id="name" name="user_name">');
+  var $formSubmitBtn = $('<button class=form-submit>Send Twid</button>');
 
   $formContainer.append($formLeft, $formRight);
   $formLeft.append($formPicture);
-  $formRight.append($formUserLabel, $formUserInput, $formMessageLabel, $formMessageInput);
+  $formRight.append($formUserLabel, $formUserInput, $formMessageLabel, $formMessageInput, $formSubmitBtn);
 
 
 
@@ -156,11 +157,7 @@ $(document).ready(function(){
   $main.appendTo($app);
   $main.append($sidebar, $feed);
   $friendsContainer.append($friendsHeader, $friendsList);
-  $sidebar.append($updateFeedBtn, $friendsContainer);
-
-  //MAKE A NEW DIV THAT CONTAINS FORM AND FEED
-
-  $formContainer.appendTo($feed);
+  $sidebar.append($updateFeedBtn, $friendsContainer, $formContainer);
 
 
   //On load invocations
