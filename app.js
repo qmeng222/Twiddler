@@ -34,49 +34,48 @@ $(document).ready(function(){
 
       // TWEET FORMAT:
       /*
-        Tweet Container
-        - tweetMain (top 90%)
-          -tweetPhoto
-            -img
-          -tweetMessage
-            -username
-            -message
-        - tweetInfo (bottom 10%)
-          -icons (flex-start)
-          -timestamp (flex-end)
+        Tweet Container ($tweet with class .tweet)
+        - tweetLeft ($tweetLeft with class .tweet-left)
+          -img ($tweetProfilePhoto with class .profile-photo)
+        - tweetRight ($tweetRight with class .tweet-right)
+          -username
+          -message
+          -tweetInfo ($tweetInfo with class .tweet-info)
+            -icon container ($tweetIconContainer with class .icon-container)
+              -4 icons
+            -timestamp ($tweetTimeStamp with class .timestamp)
       */
-
       var $tweet = $('<div class="tweet"></div>');
+
+      var $tweetLeft = $('<div class="tweet-left"></div>');
       var $tweetProfilePhoto = $('<img class="profile-photo" src="' + tweet.profilePhotoURL + '" alt="profile photo">');
+
+      var $tweetRight = $('<div class="tweet-right"></div>');
       var $tweetUserName = $('<span class="username">' + '@' + tweet.user + '</span>');
       var $tweetMessage = $('<p class="message">' + tweet.message + '</p>');
-      var $tweetTimeStamp = $('<span class="timestamp">' + $.timeago(tweet.created_at) + '</span>');
+      var $tweetInfo = $('<div class="tweet-info"></div>');
       var $tweetIconContainer = $('<div class="icon-container"></div>');
-      var $tweetIconComment = $('<i class="icon comment fas fa-comments"></i>');
-      var $tweetIconRetweet = $('<i class="icon retweet fas fa-retweet"></i>');
-      var $tweetIconLike = $('<i class="icon like far fa-heart"></i>');
-      var $tweetIconShare = $('<i class="icon share fas fa-share"></i>');
-
-
+      var $tweetIconComment = $('<i class="icon comment fas fa-comments fa-xs"></i>');
+      var $tweetIconRetweet = $('<i class="icon retweet fas fa-retweet fa-xs"></i>');
+      var $tweetIconLike = $('<i class="icon like far fa-heart fa-xs"></i>');
+      var $tweetIconShare = $('<i class="icon share fas fa-share fa-xs"></i>');
+      var $tweetTimeStamp = $('<div class="timestamp">' + $.timeago(tweet.created_at) + '</div>');
 
       //give the username a click listener
       $tweetUserName.on('click', handleUsernameClick);
 
       //construct the container of tweetIcons
       $tweetIconContainer.append(
-        $tweetIconLike,
         $tweetIconComment,
+        $tweetIconLike,
         $tweetIconRetweet,
         $tweetIconShare);
 
       //construct a tweet
-      $tweet.append(
-        $tweetProfilePhoto,
-        $tweetUserName,
-        $tweetMessage,
-        $tweetTimeStamp,
-        $tweetIconContainer
-        );
+      $tweet.append($tweetLeft, $tweetRight);
+      $tweetLeft.append($tweetProfilePhoto);
+      $tweetRight.append($tweetUserName, $tweetMessage, $tweetInfo);
+      $tweetInfo.append($tweetIconContainer, $tweetTimeStamp);
 
       //add the tweet to the feed
       $tweet.appendTo($feed);
