@@ -16,8 +16,7 @@ $(document).ready(function(){
   var index = streams.home.length - 1;
   while(index >= 0){
     var tweet = streams.home[index];
-    var source = "assets/img/" + tweet.user + ".png";
-    var $img = $('<img class="profile-photo" src=source></img>');
+    var img = $('<img class="profile-photo" src="assets/img/" + tweet.user + ".png"></img>');
     var $tweet = $('<div class="tweet"></div>');
     var $message = $('<div class="message">' + tweet.message + '</div>');
     var $username = $('<div class="username">' + '@' + tweet.user + '</div>');
@@ -28,7 +27,7 @@ $(document).ready(function(){
     var $share = $('<img class="share" src="assets/icons/placeholder.png"></img>');
 
     // Append new HTML elements to the DOM
-    $img.appendTo($tweet);
+    img.appendTo($tweet);
     $username.appendTo($tweet);
     $message.appendTo($tweet);
     $timestamp.appendTo($tweet);
