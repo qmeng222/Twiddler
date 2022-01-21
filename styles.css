@@ -121,7 +121,6 @@ aside {
 /* Tweet Form */
 .tweet-form {
   background-color: #3DA5D9;
-  border: 4px solid #706C61;
   border-radius: 10px;
   height: 250px;
   margin: 20px 0 20px 0;
@@ -163,10 +162,18 @@ aside {
   margin-bottom: 15px;
 }
 
+.interactions {
+  display: inline-block;
+}
+
 .interactions i {
   margin-right: 30px;
 }
 
 i:hover {
   color: #3DA5D9;
+}
+
+.timestamp {
+  font-style: italic;
 }

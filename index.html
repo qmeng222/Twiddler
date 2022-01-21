@@ -5,10 +5,9 @@
   <script src="lib/jquery.js"></script>
   <script src="dataGenerator.js"></script>
   <script src="app.js"></script>
+  <script src="https://timeago.yarp.com/jquery.timeago.js" type="text/javascript"></script>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
-
-  <script src="https://timeago.yarp.com/jquery.timeago.js" type="text/javascript"></script>
 
   <title>Twiddler!</title>
 </head>
@@ -18,7 +17,8 @@
     <aside>
       <h1 class="title">Twiddler!</h1>
       <div>
-        <h3 class="btn-side">Home</h3>
+        <h3 class="btn-side" id="home"><i class="fas fa-home"></i> Home</h3>
+        <h3 class="btn-side" id="back"><i class="fas fa-arrow-alt-circle-left"></i> Back</h3>
         <h3 class="btn-side" id="update-feed">Update Feed</h3>
       </div>
       <div>
