@@ -6,8 +6,16 @@ html, body, #app {
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
+body {
+  background-color: black;
+}
 
 #app {
-  background-color: green;
-  color: yellow;
+  /* background-color: black; */
+  color: white;
+}
+
+#update-feed {
+  background-color: rgba(228, 225, 225, 0.726);
+  color: white;
 }
