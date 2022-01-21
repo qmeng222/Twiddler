@@ -19,11 +19,17 @@ function renderFeed(user) {
     var $img = $('<img class="profile-photo"></img>');
     var $timestamp = $('<div class="timestamp">' + tweet.created_at + '</div>');
     var $comment = $('<img class="comment" src="assets/icons/placeholder.png"></img>');
+    var $retweet = $('<img class="retweet" src="assets/icons/placeholder.png"></img>');
+    var $like = $('<img class="like" src="assets/icons/placeholder.png"></img>');
+    var $share = $('<img class="share" src="assets/icons/placeholder.png"></img>');
     $message.appendTo($tweet);
     $username.appendTo($tweet);
     $img.appendTo($tweet);
     $timestamp.appendTo($tweet);
     $comment.appendTo($tweet);
+    $retweet.appendTo($tweet);
+    $like.appendTo($tweet);
+    $share.appendTo($tweet);
     $tweet.appendTo($feed);// app
     index -= 1;
   } // link tweets to log 11
