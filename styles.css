@@ -1,7 +1,18 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
+@font-face {
+  font-family: 'Sans Forgetica Regular';
+  src: local('Sans Forgetica Regular'),
+       local('Sans-Forgetica-Regular'),
+       url('SansForgetica-Regular.woff') format('woff');
+}
+
+/* font-family: 'Montserrat', sans-serif; */
+
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
@@ -11,3 +22,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
   background-color: green;
   color: yellow;
 }
+
+/* .message {
+  font-family: 'Sans Forgetica Regular';
+} */
