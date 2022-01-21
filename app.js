@@ -1,17 +1,37 @@
+"use strict";
 var visitor = '';
 $(document).ready(function() {
   var $app = $('#app');
   $app.html('');
 
-  $('<div id="sidebar"></div>').appendTo($app);
-  $('<header><h1>Twiddler</h1></header>').appendTo('#sidebar');
-  $('<div id="search"><input id="searchbar" type="search" placeholder="Search tweets"><button id="searchbtn" class="button"><i id="searchIcon" class="fas fa-search"></i></button></div>').appendTo('#sidebar');
-  $('<button id="update-feed" class="button">Update Feed</button>').appendTo('#sidebar');
-  $('<button id="friends" class="button has-hover">Friends</button>').appendTo('#sidebar');
-  $('<div id="feed"></div>').appendTo($app);
+  var creator = function(element) {
+    var str = '<' + element;
+    for(var i = 0; i < arguments.length; i++) {
+      if (i > 0) {
+        str += ' ' + arguments[i];
+      }
+    }
+    if (element === 'img') {
+      str +='>';
+    } else {
+      str += '></' + element + '>';
+    }
+    return $(str);
+  };
 
-  $feed = $('#feed');
-  $updateFeed = $('#update-feed');
+  creator('div', 'id="sidebar"').appendTo($app);
+  var $sidebar = $('#sidebar');
+  creator('header').append(creator('h1').append('Twiddler')).appendTo($sidebar);
+  var $searchBar = creator('input', 'id="searchbar"', 'type="search"', 'placeholder="search tweets"');
+  var $searchBtn = creator('button', 'class="button"', 'id="searchbtn"');
+  $searchBtn.append(creator('i', 'class="fas fa-search"', 'id="searchIcon"'));
+  creator('div', 'id="search"').append($searchBar).append($searchBtn).appendTo($sidebar);
+  creator('button', 'class="button"', 'id="update-feed"').append('Update Feed').appendTo($sidebar);
+  creator('button', 'class="button has-hover"', 'id="friends"').append('Friends').appendTo($sidebar);
+  creator('div', 'id="feed"').appendTo($app);
+
+  var $feed = $('#feed');
+  var $updateFeed = $('#update-feed');
 
   var updateFeed = function() {
     var id = $(this).attr('id');
@@ -30,6 +50,7 @@ $(document).ready(function() {
     }
   };
 
+
   var handleUsernameClick = function() {
     $('.friend').removeClass('pressed');
     $(this).addClass('pressed');
@@ -37,10 +58,26 @@ $(document).ready(function() {
     $updateFeed.html('Back');
   };
 
-  //populate feed
-  var renderFeed = function(inputUser, term) {
 
-    //get tweets
+  var newTweetFormCreator = function() {
+    var $tweet = creator('form', 'class="newTweet"', 'id="new-tweet-form"');
+    $tweet.appendTo($feed);
+    $tweet = $('#new-tweet-form');
+    var $leftside = creator('div', 'id="leftside"');
+    var $userLabel = creator('label', 'for="inputUser"', 'id="inputTxt"').text('@');
+    var $userInput = creator('input', 'name="username"', 'id="inputUser"', 'placeholder="Username"');
+    creator('div', 'id="tweetInput"').append($userLabel).append($userInput).appendTo($leftside);
+    $leftside.appendTo($tweet);
+    var $tweetLabel = creator('label', 'for="inputTweet"');
+    var $tweetInput = creator('input', 'name="message"', 'id="inputTweet"', 'placeholder="Type message here"');
+    $tweet.append($tweetLabel);
+    $tweet.append($tweetInput);
+    creator('button', 'class="button"', 'id="submit"').text('Submit').appendTo($leftside);
+    $('#submit').click(createTweet);
+  };
+
+
+  var addTweets = function(inputUser, term) {
     var index = streams.home.length - 1;
     if (term) {
       var tweets = [];
@@ -54,37 +91,35 @@ $(document).ready(function() {
     } else if (inputUser) {
       index = streams.users[inputUser].length - 1;
     }
-
-    //clear feed
-    $($feed).empty();
-
-    //add the create a tweet card to the top of the feed
-    var $tweet = $('<form id="new-tweet-form" class="newTweet"</form>');
-    $tweet.appendTo($feed);
-    $tweet = $('#new-tweet-form');
-    $('<div id="leftside"><label for="inputUser" id="inputTxt">@<input name="username" id="inputUser" placeholder="Username"></label></div>').appendTo($tweet);
-    $('<label for="inputTweet"></label><input name="message" id="inputTweet" placeholder="Type message here"></input>').appendTo($tweet);
-    $('<button id="submit" class="button">Post</button>').appendTo($('#leftside'));
-    $('#submit').click(createTweet);
-
-    //create and add tweet cards to feed
     while (index >= 0) {
       var tweet = inputUser ? streams.users[inputUser][index] : term ? tweets[index] : streams.home[index];
-      var img = '<img src="' + tweet.profilePhotoURL + '" class="profile-photo" width="40px" height="40px">';
-      var user = '<span class="username">@' + tweet.user + '</span>';
-      var message = '<div class="message"><p>' + tweet.message + '</p></div>';
-      var timestamp = '<div class="timestamp">' + $.timeago(tweet.created_at) + '</div>';
-      var icons = '<i class="comment icon far fa-comments fa-lg"></i><i class="retweet icon fas fa-retweet fa-lg"></i>';
-      icons += '<i class="like icon far fa-heart fa-lg"></i><i class="share icon far fa-share-square fa-lg"></i>';
-      var $tweet = $('<div class="tweet"></div>');
-      $tweet.append('<div class="leftside">' + img + user + '</div>');
-      $tweet.append(message);
-      $tweet.append('<div class="break"></div>');
-      $tweet.append('<div class="rightside">' + timestamp + '<div class="iconcontainer">' + icons + '</div></div>');
+      var $img = creator('img', 'src="' + tweet.profilePhotoURL + '"', 'class="profile-photo"','width="40px"', 'height="40px"');
+      var $user = creator('span', 'class="username"').text('@' + tweet.user);
+      var $message = creator('div', 'class="message"').append(creator('p').text(tweet.message));
+      var $timestamp = creator('div', 'class="timestamp"').text($.timeago(tweet.created_at));
+      var $iconComment = creator('i', 'class="comment icon far fa-comments fa-lg"');
+      var $iconRetweet = creator('i', 'class="retweet icon fas fa-retweet fa-lg"');
+      var $iconLike = creator('i', 'class="like icon far fa-heart fa-lg"');
+      var $iconShare = creator('i', 'class="share icon far fa-share-square fa-lg"');
+      var $icons = creator('div', 'class="iconcontainer"').append($iconComment).append($iconRetweet).append($iconLike).append($iconShare);
+      var $tweet = creator('div', 'class="tweet"');
+      $tweet.append(creator('div', 'class="leftside"').append($img).append($user));
+      $tweet.append($message);
+      $tweet.append(creator('div', 'class="rightside"').append($timestamp).append($icons));
       $tweet.appendTo($feed);
       index -= 1;
     }
     $('.leftside').click(handleUsernameClick);
+  };
+
+  //populate feed
+  var renderFeed = function(inputUser, term) {
+    //clear feed
+    $($feed).empty();
+    //add the create a tweet form to the top of the feed
+    newTweetFormCreator();
+    //create and add tweets cards to feed
+    addTweets(inputUser, term);
   };
 
   //friends dropdown on sidebar
@@ -93,16 +128,17 @@ $(document).ready(function() {
       $('#friends-list').remove();
       $(this).removeClass('pressed');
     } else {
-      var $friends = $('<ul id="friends-list"></ul>');
+      var $friends = creator('ul', 'id="friends-list"');
       var count = 0;
       for (var key in streams.users) {
         if (count < 4) {
-          var image = '<img src="assets/img/' + key + '.png" class="profile-photo">';
+          var $image = creator('img', 'src="assets/img/' + key + '.png"', 'class="profile-photo"');
         } else {
-          var image = '<img src="assets/img/visitor.png" class="profile-photo">';
+          var $image = creator('img', 'src="assets/img/visitor.png"', 'class="profile-photo"');
         }
         var user = '@' + key;
-        var $friend = $('<li class="friend button">' + image + user + '</li>');
+        console.log($image);
+        var $friend = creator('li', 'class="friend button"').append($image).append(user);
         $friends.append($friend);
         count++;
       }
