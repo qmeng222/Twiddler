@@ -31,6 +31,21 @@ $(document).ready(function(){
       var tweet = stream[index];
 
       //create new elements for tweet component
+
+      // TWEET FORMAT:
+      /*
+        Tweet Container
+        - tweetMain (top 90%)
+          -tweetPhoto
+            -img
+          -tweetMessage
+            -username
+            -message
+        - tweetInfo (bottom 10%)
+          -icons (flex-start)
+          -timestamp (flex-end)
+      */
+
       var $tweet = $('<div class="tweet"></div>');
       var $tweetProfilePhoto = $('<img class="profile-photo" src="' + tweet.profilePhotoURL + '" alt="profile photo">');
       var $tweetUserName = $('<span class="username">' + '@' + tweet.user + '</span>');

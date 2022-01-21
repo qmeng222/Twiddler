@@ -11,9 +11,12 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 
 #app {
-  background-color: #e5e5e5;
+  background-color: #fff;
   color: black;
   font-size: 1.25rem;
+}
+
+#app, .main {
   min-height: 100vh;
 }
 
@@ -23,11 +26,12 @@ body {
 
 .header {
   height: 130px;
-  background-color: #D1D1D1;
+  background-color: #0C85F5;
+  border-bottom: 1px solid #0967BE;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 2px rgba(0, 0, 0, .25);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .25);
   position: sticky;
   top: 0;
   width: 100%;
@@ -36,20 +40,20 @@ body {
 h1 {
   margin: 0;
   font-family: 'Lobster', cursive;
-  color: #000;
+  color: #fff;
   font-size: 5rem;
   text-shadow: 2px 4px 3px rgba(0, 0, 0, .25);
 }
 
 i {
-  color: black;
   transition: color .15s ease-in;
+  color: #a922bd;
   padding-right: .5em;
 }
 
 i:hover {
+  color: black;
   cursor: pointer;
-  color: #d50cf5;
 }
 
 .username {
@@ -72,7 +76,7 @@ i:hover {
   align-items: center;
   width: 20%;
   max-width: 250px;
-  background-color: #B8B8B8;
+  background-color: #0C85F5;
 }
 
 #update-feed {
@@ -84,6 +88,10 @@ i:hover {
   border: none;
   font-size: 1.5rem;
   width: 100%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #000;
+  letter-spacing: .015em;
 }
 
 .profile-photo {
@@ -97,8 +105,8 @@ i:hover {
 }
 
 #update-feed, .friends-container {
-  box-shadow: 0 4px 2px rgba(0, 0, 0, .25);
-  background-color: #e0e0e0;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .25);
+  background-color: #f1f1f1;
 }
 
 #feed {
@@ -107,7 +115,7 @@ i:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .tweet {
