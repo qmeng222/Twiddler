@@ -35,6 +35,10 @@ $(document).ready(function(){
   var $formMessageLabel = $('<label for="message">Message:</label>');
   var $formMessageInput = $('<input type="text" id="name" name="user_name">');
 
+  $formContainer.append($formLeft, $formRight);
+  $formLeft.append($formPicture);
+  $formRight.append($formUserLabel, $formUserInput, $formMessageLabel, $formMessageInput);
+
 
 
 
@@ -87,10 +91,10 @@ $(document).ready(function(){
       var $tweetMessage = $('<p class="message">' + tweet.message + '</p>');
       var $tweetInfo = $('<div class="tweet-info"></div>');
       var $tweetIconContainer = $('<div class="icon-container"></div>');
-      var $tweetIconComment = $('<i class="icon comment fas fa-comments fa-xs"></i>');
-      var $tweetIconRetweet = $('<i class="icon retweet fas fa-retweet fa-xs"></i>');
-      var $tweetIconLike = $('<i class="icon like far fa-heart fa-xs"></i>');
-      var $tweetIconShare = $('<i class="icon share fas fa-share fa-xs"></i>');
+      var $tweetIconComment = $('<i class="icon comment fas fa-comments fa-sm"></i>');
+      var $tweetIconRetweet = $('<i class="icon retweet fas fa-retweet fa-sm"></i>');
+      var $tweetIconLike = $('<i class="icon like far fa-heart fa-sm"></i>');
+      var $tweetIconShare = $('<i class="icon share fas fa-share fa-sm"></i>');
       var $tweetTimeStamp = $('<div class="timestamp">' + $.timeago(tweet.created_at) + '</div>');
 
       //give the username a click listener
@@ -154,10 +158,8 @@ $(document).ready(function(){
   $friendsContainer.append($friendsHeader, $friendsList);
   $sidebar.append($updateFeedBtn, $friendsContainer);
 
+  //MAKE A NEW DIV THAT CONTAINS FORM AND FEED
 
-  $formContainer.append($formLeft, $formRight);
-  $formLeft.append($formPicture);
-  $formRight.append($formUserLabel, $formUserInput, $formMessageLabel, $formMessageInput);
   $formContainer.appendTo($feed);
 
 
