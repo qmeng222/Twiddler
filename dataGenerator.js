@@ -13,6 +13,8 @@ streams.users.mracus = [];
 streams.users.douglascalhoun = [];
 window.users = Object.keys(streams.users);
 
+var visitor = 'kylenissley';
+
 // utility function for adding tweets to our data structures
 var addTweet = function(newTweet) {
   var username = newTweet.user;
@@ -72,6 +74,6 @@ var writeTweet = function(message) {
   tweet.user = visitor;
   tweet.message = message;
   tweet.created_at = new Date();
-  tweet.profilePhotoURL = './assets/img/visitor.png';
+  tweet.profilePhotoURL = './assets/img/kylenissley.png';
   addTweet(tweet);
 };

@@ -159,8 +159,8 @@ i:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20%;
-  max-width: 250px;
+  width: 25%;
+  max-width: 300px;
   background-color: #0C85F5;
 }
 
@@ -221,12 +221,13 @@ i:hover {
 }
 
 #feed {
-  width: 80%;
+  width: 90%;
   padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  margin: 0 auto;
 }
 
 .form-container {

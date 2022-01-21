@@ -16,16 +16,6 @@ $(document).ready(function(){
   var $friendsList = $('<ul id="friends-list"></ul>');
 
   //NEW TWEET FORM FORMAT:
-  /*
-    Container
-    - formLeft
-      - img (placeholder image)
-    - formRight
-      -user label
-      -user input field
-      -message label
-      -message input field
-  */
   var $formContainer = $('<div class="form-container"></div>');
   var $formLeft = $('<div class="form-left"></div>');
   var $formPicture = $('<img class=form-image src="assets/img/bird.png" alt="new tweet image">');
@@ -41,13 +31,10 @@ $(document).ready(function(){
   $formRight.append($formUserLabel, $formUserInput, $formMessageLabel, $formMessageInput, $formSubmitBtn);
 
 
-
-
-  //TO-DO add profile photo next to friend name
-
   //Create event handler functions
   var populateFriendsList = function() {
     $friendsList.html('');
+    window.users = Object.keys(streams.users);
 
     window.users.forEach(function(user) {
       var $currentLi = $('<li class="friend">' + '@' + user + '</li>');
@@ -67,24 +54,28 @@ $(document).ready(function(){
       //alias the current tweet
       var tweet = stream[index];
 
-      //create new elements for tweet component
 
       // TWEET FORMAT:
       /*
-        Tweet Container ($tweet with class .tweet)
-        - tweetLeft ($tweetLeft with class .tweet-left)
-          -img ($tweetProfilePhoto with class .profile-photo)
-        - tweetRight ($tweetRight with class .tweet-right)
-          -username
-          -message
-          -tweetInfo ($tweetInfo with class .tweet-info)
-            -icon container ($tweetIconContainer with class .icon-container)
-              -4 icons
-            -timestamp ($tweetTimeStamp with class .timestamp)
+      Tweet Container ($tweet with class .tweet)
+      - tweetLeft ($tweetLeft with class .tweet-left)
+      -img ($tweetProfilePhoto with class .profile-photo)
+      - tweetRight ($tweetRight with class .tweet-right)
+      -username
+      -message
+      -tweetInfo ($tweetInfo with class .tweet-info)
+      -icon container ($tweetIconContainer with class .icon-container)
+      -4 icons
+      -timestamp ($tweetTimeStamp with class .timestamp)
       */
+
+     //create new elements for tweet component
       var $tweet = $('<div class="tweet"></div>');
 
       var $tweetLeft = $('<div class="tweet-left"></div>');
+
+      var tweetPictureUrl = tweet.profilePhotoURL || 'assets/img/visitor.png';
+
       var $tweetProfilePhoto = $('<img class="profile-photo" src="' + tweet.profilePhotoURL + '" alt="profile photo">');
 
       var $tweetRight = $('<div class="tweet-right"></div>');
@@ -131,6 +122,21 @@ $(document).ready(function(){
     renderFeed(user);
   }
 
+  var sendTwid = function() {
+    var usernameInput = $formUserInput.val();
+    var messageInput = $formMessageInput.val();
+
+    if (usernameInput[0] === '@') {
+      usernameInput = usernameInput.slice(1);
+    }
+
+    writeTweet(messageInput);
+    renderFeed();
+    populateFriendsList();
+    console.log(streams.users);
+    console.log(window.users);
+  }
+
   //Set up event listeners
   $updateFeedBtn.on('click', function() {
     if($updateFeedBtn.text() === 'Back') {
@@ -148,7 +154,9 @@ $(document).ready(function(){
     }
 
     renderFeed(friendClicked);
-  })
+  });
+
+  $formSubmitBtn.on('click', sendTwid);
 
 
   //Append new HTML elements to the DOM
