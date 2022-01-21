@@ -11,3 +11,40 @@ providing a space for you to apply styles to your app's outermost HTML element -
   background-color: green;
   color: yellow;
 }
+
+#update-feed {
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: .5px;
+  margin: 0;
+  text-transform: uppercase;
+ }
+
+ .tweet {
+  color: yellow;
+ } /* class */
+
+ #update-feed {
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: .5px;
+  margin: 0;
+  text-transform: uppercase;
+ } /* id */
+
+ .profile-photo {
+  color: blue;
+ }
+
+ .comment {
+   color: red; 
+ }
+
+
+
