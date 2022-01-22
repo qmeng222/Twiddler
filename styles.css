@@ -2,12 +2,97 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  padding: 0;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
-
-#app {
-  background-color: green;
-  color: yellow;
+* {
+  box-sizing: border-box;
+  font-family: 'IBM Plex Mono', monospace;
 }
+
+h1, h2 {
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  background-color: rgb(105,105,105);
+}
+h3 {
+  font-weight: 700;
+}
+ul{
+  list-style-type: none;
+  border: 1px solid black;
+}
+.small-panel {
+  vertical-align: top;
+  background-color: rgb(105,105,105);
+  display: inline-flex;
+  flex-direction: column;
+  align-content: flex-start;
+  width: 20%;
+  height: 100vh;
+}
+.large-panel {
+  vertical-align: top;
+  background-color: rgb(192,192,192);
+  display: inline-block;
+  width: 60%;
+  height: 100vh;
+  overflow: scroll;
+}
+.icon{
+  margin: 0px 10px;
+}
+.icon:hover {
+  color:darkorange;
+}
+.tweet {
+  margin: 10px;
+  border: 1px solid darkgray;
+  padding-right: 10px;
+}
+.profile_photo {
+  height: 20px;
+  width: 20px;
+  overflow:hidden;
+  border-radius: 50%;
+}
+.message {
+  vertical-align: top;
+  height: 30px;
+  width: 300px;
+  margin: 10px;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+.btn {
+  border-radius: 15px;
+  margin: 0 auto;
+}
+.btn:hover {
+  color: darkorange;
+}
+.timestamp {
+  font-style: italic;
+}
+.image-and-username {
+  width: 20%;
+  vertical-align: top;
+  display:inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  font-size: 12px;
+  padding: 10px, 10px, 3px;
+}
+.message-and-links{
+  width: 80%;
+  display: inline-block;
+}
+.timestamp{
+  float:right;
+  font-size: 10px;
+}
+
