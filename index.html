@@ -26,29 +26,30 @@
       </div>
       <div>
         <h4>Friend List</h4>
-        <ul class="friends-list">
-          <li class="douglascalhoun">@douglascalhoun</li>
-          <li class="mracus">@mracus</li>
-          <li class="sharksforcheap">@sharksforcheap</li>
-          <li class="shawndrost">@shawndrost</li>
+        <ul id="friends-list">
+          <li class="douglascalhoun friend">@douglascalhoun</li>
+          <li class="mracus friend">@mracus</li>
+          <li class="sharksforcheap friend">@sharksforcheap</li>
+          <li class="shawndrost friend">@shawndrost</li>
         </ul>
       </div>
     </aside>
 
     <section>
-      <div class="tweet-form">
-        <form>
-          <label class="username-input">
-            Username
-            <input type="text" name="username" id="username">
-          </label>
-          <textarea class="text-input" name="twiddler">twiddler your thoughts here</textarea>
-          <input class="btn-submit" type="submit" name="submit" value="Post Twiddler">
-        </form>
-      </div>
+      <form id="new-tweet-form">
+        <label class="twiddlerInput" for="username">
+          Username
+          <input type="text" name="username" id="username">
+        </label>
+        <label class="twiddlerInput" for="message">
+          Twiddler
+          <input type="text" name="message" id="message" placeholder="twiddler your thoughts...">
+        </label>
+        <input class="btn-submit" type="submit" name="submit" value="Post Twiddler">
+      </form>
     </section>
 
-    <section class='feed-content'>
+    <section class="feed-content">
       <div class="feed-container" id="feed"></div>
     </section>
 

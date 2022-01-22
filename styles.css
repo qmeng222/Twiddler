@@ -127,20 +127,20 @@ aside {
   color: #3DA5D9;
 }
 
-.friends-list {
+#friends-list {
   font-size: 20px;
 }
 
-li {
+.friend {
   margin-bottom: 15px;
 }
 
-li:hover {
+.friend:hover {
   color: #3DA5D9;
 }
 
 /* Tweet Form */
-.tweet-form {
+#new-tweet-form {
   background-color: #706C61;
   border-radius: 10px;
   height: 250px;
@@ -148,7 +148,7 @@ li:hover {
   padding: 30px 40px 30px 40px;
 }
 
-.username-input {
+.twiddlerInput {
   color: #F5F0F6;
   display: block;
   font-weight: bold;
@@ -158,13 +158,10 @@ li:hover {
 #username {
   margin-left: 10px;
 }
-
-.text-input {
-  background-color: #F5F0F6;
-  display: block;
-  width: 100%;
-  height: 100px;
-  margin-bottom: 15px;
+#message {
+  margin-left: 22px;
+  width: 50%;
+  height: 50px;
 }
 
 .btn-submit {
