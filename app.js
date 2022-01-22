@@ -41,10 +41,10 @@ $(document).ready(function(){
       var $tweet = $('<div class="tweet"></div>');
       var $user = $('<div class="user"></div>');
       var $msg = $('<div class="msg"></div>');
-      var $comment = $('<i id="com" class="far fa-comments"></i>');
-      var $retweet = $('<i class="fas fa-retweet"></i>');
-      var $like = $('<i class="far fa-heart"></i>');
-      var $share = $('<i class="far fa-share-square"></i>');
+      var $comment = $('<i id="icon" class="far fa-comments"></i>');
+      var $retweet = $('<i id="icon" class="fas fa-retweet"></i>');
+      var $like = $('<i id="icon" class="far fa-heart"></i>');
+      var $share = $('<i id="icon" class="far fa-share-square"></i>');
       var tweet = data[index];
       $msg.text(tweet.message);
       $user.text('@' + tweet.user);
