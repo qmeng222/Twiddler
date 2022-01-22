@@ -3,14 +3,16 @@ $(document).ready(function () {
   var $feed = $('#feed');
   var $home = $('#home');
   var $update = $('#update-feed');
-  var $form = $('.tweet-form');
+  var $form = $('#new-tweet-form');
 
   var updateFeed = function (selectedUser) {
     var index = selectedUser ? streams.users[selectedUser].length - 1 : streams.home.length - 1;
+    var friends = ['shawndrost', 'sharksforcheap', 'mracus', 'douglascalhoun'];
+
     while (index >= 0) {
       var tweet = selectedUser ? streams.users[selectedUser][index] : streams.home[index];
       var $tweet = $('<div class="tweet"></div>');
-      var $img = $('<img class="profile-photo" src="assets/img/' + tweet.user + '.png" alt="User Profile Picture"/>');
+      var $img = $('<img class="profile-photo" src="' + tweet.profilePhotoURL + '" alt="User Profile Picture"/>');
       var $twiddlerContainer = $('<div class="twiddler-container"></div>');
       var $username = $('<div class="username ' + tweet.user + '">' + '@' + tweet.user + '</div>');
       var $message = $('<div class="message">' + tweet.message + '</div>');
@@ -19,8 +21,14 @@ $(document).ready(function () {
 
       $twiddlerContainer.append($username).append($message).append($interactions).append($timeStamp);
       $tweet.prepend($img).append($twiddlerContainer);
-      $tweet.appendTo($feed);
-      index -= 1;
+
+      if (selectedUser && friends.indexOf(selectedUser) === -1) {
+        $tweet.prependTo($feed);
+        index = -1;
+      } else {
+        $tweet.appendTo($feed);
+        index -= 1;
+      }
     }
     $("time.timeago").timeago();
   };
@@ -33,10 +41,10 @@ $(document).ready(function () {
     updateFeed(selectedUser);
   }
 
-  $('.feed-container, .friends-list').on('click', '.shawndrost', function () { userFeed('shawndrost') });
-  $('.feed-container, .friends-list').on('click', '.sharksforcheap', function () { userFeed('sharksforcheap') });
-  $('.feed-container, .friends-list').on('click', '.mracus', function () { userFeed('mracus') });
-  $('.feed-container, .friends-list').on('click', '.douglascalhoun', function () { userFeed('douglascalhoun') });
+  $('.feed-container, #friends-list').on('click', '.shawndrost', function () { userFeed('shawndrost') });
+  $('.feed-container, #friends-list').on('click', '.sharksforcheap', function () { userFeed('sharksforcheap') });
+  $('.feed-container, #friends-list').on('click', '.mracus', function () { userFeed('mracus') });
+  $('.feed-container, #friends-list').on('click', '.douglascalhoun', function () { userFeed('douglascalhoun') });
 
   $update.on('click', function (event) {
     $feed.empty();
@@ -58,5 +66,31 @@ $(document).ready(function () {
     updateFeed();
   });
 
+  $('#new-tweet-form').submit(function (event) {
+    event.preventDefault();
+    var $usernameInput = $('#username').val();
+    var $messageInput = $('#message').val();
+
+    if (!$usernameInput || !$messageInput) {
+      return;
+    }
+
+    var newUser = {
+      user: $usernameInput,
+      message: $messageInput,
+      created_at: new Date(),
+      profilePhotoURL: './assets/img/visitor.png'
+    };
+
+    streams.home[streams.home.length] = newUser;
+
+    streams.users[$usernameInput] = streams.users[$usernameInput] ? streams.users[$usernameInput] : [];
+    streams.users[$usernameInput].push(newUser);
+
+    updateFeed($usernameInput);
+  });
+
   updateFeed();
+
+  window.isItBeautifulYet = true;
 });
