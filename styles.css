@@ -8,6 +8,238 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  display: grid;
+  height:100%;
+  grid-template-columns: 2fr 1.2fr;
+  grid-template-rows: 150px 400px 500px 100%;
+  grid-template-areas:
+    "title title"
+    "feed friends"
+    "feed ."
+    "feed .";
+  background-color: #32323c;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+html {
+  background-color: #32323c;
+}
+
+/* twiddler title */
+.title {
+  border-bottom-style: solid;
+  border-bottom-color: white;
+  grid-area: title;
+  text-align: center;
+}
+
+/* feed */
+.tweet {
+  grid-area: feed;
+  border-style: solid;
+  border-color: white;
+
+  border-radius: 05px;
+  margin: 10px;
+  margin-top: 0px;
+  padding: 5px;
+
+  display: grid;
+  grid-template-columns: 1fr 2fr 50px;
+  grid-template-rows: 2fr 1fr 1fr 100px 50px;
+  grid-template-areas:
+    "profilePic username icon"
+    "tweet tweet icon"
+    "tweet tweet icon"
+    ". . icon"
+    ". time time"
+}
+
+.tweet:hover {
+  background-color: #4d4f54;
+}
+
+.profile-photo {
+  grid-area: profilePic;
+  max-width: 60px;
+  border: solid;
+  border-width: 1px;
+  border-color: black;
+}
+
+.username {
+  grid-area: username;
+}
+
+.message {
+  grid-area: tweet;
+}
+
+.timestamp {
+  grid-area: time;
+  text-align: right;
+}
+
+.icon {
+  grid-area: icon;
+  writing-mode: vertical-rl;
+  text-align: center;
+  letter-spacing: 40px;
+}
+
+/* friends list */
+.friends-list {
+  text-align: center;
+  margin-right: 10px;
+  border-radius: 05px;
+  background-color: #726c78;
+  font-size: 110%;
+  grid-area: friends;
+}
+
+.friend {
+  text-align: left;
+  font-size: 15px;
+}
+
+.friend:hover {
+  color: #c25fd9;
+  font-size: 105%;
+}
+
+.fa-comment:hover {
+  color: #c25fd9;
+  font-size: 120%;
+}
+
+.fa-retweet:hover {
+  color: #c25fd9;
+  font-size: 120%;
+}
+.fa-heart:hover {
+  color: #c25fd9;
+  font-size: 120%
+}
+
+.fa-share-square:hover {
+  color: #c25fd9;
+  font-size: 120%;
+}
+
+.username:hover {
+  color: #c25fd9;
+  font-size: 105%;
+}
+
+button {
+  text-transform: uppercase;
+}
+button {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  height: 9%;
+  width: 10%;
+  border: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16px;
+  transition: color 0.5s, transform 0.2s, background-color 0.2s;
+  outline: none;
+  border-radius: 3px;
+  margin: 0 10px;
+  padding: 23px 33px;
+  border: 3px solid transparent;
+}
+button:active {
+  transform: translateY(3px);
+}
+button::after, button::before {
+  border-radius: 3px;
+}
+.shrink-border {
+  background-color: transparent;
+  color: #1b1b20;
+}
+.shrink-border:hover {
+  background-color: transparent;
+  box-shadow: none;
+  color: #e6e6e6;
+}
+.shrink-border::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #1b1b20;
+  transition: opacity 0.3s, border 0.3s;
+}
+.shrink-border:hover::before {
+  opacity: 0;
+}
+.shrink-border::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: 3px solid #e6e6e6;
+  opacity: 0;
+  z-index: -1;
+  transform: scaleX(1.1) scaleY(1.3);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.shrink-border:hover::after {
+  opacity: 1;
+  transform: scaleX(1) scaleY(1);
+}
+
+.material-bubble {
+  background-color: transparent;
+  color: #1b1b20;
+  border: none;
+  overflow: hidden;
+  box-shadow: none;
+}
+.material-bubble:hover {
+  color: #e6e6e6;
+}
+.material-bubble::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #1b1b20;
+  transition: opacity 0.3s, border 0.3s;
+}
+.material-bubble:hover::before {
+  opacity: 0;
+}
+.material-bubble::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background-color: #494958;
+  border-color: transparent;
+  border-radius: 50%;
+  transform: translate(-10px, -70px) scale(0.1);
+  opacity: 0;
+  z-index: -1;
+  transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+}
+.material-bubble:hover::after {
+  opacity: 1;
+  transform-origin: 100px 100px;
+  transform: scale(1) translate(-10px, -70px);
 }
