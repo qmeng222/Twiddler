@@ -69,8 +69,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
   border-radius: 10px;
   width: 90%;
 
-  padding: 1%;
-  margin: 2px;
+
+  margin: 10px 0 10px 0;
 
 
 }
@@ -81,27 +81,47 @@ providing a space for you to apply styles to your app's outermost HTML element -
   align-items: left
 
 }
+
+.photo {
+  float:left;
+  height:fit-content;
+  margin-right:5%;
+
+
+
+
+}
 .user {
-  padding: 2%;
+  padding-left: 1%;
   font-size: 24px;
   font-weight: bold;
-}
-p.photo {
-  float:left;
-  margin-right:20px;
+  padding-top: 20px;
 }
 
 .message {
   display: flex;
   font-size: 21px;
   justify-content: right;
-  padding: 4px;
+  align-content: right;
+  padding:auto;
   float:right;
   width:100%;
 
 }
+.tweetFooter {
+  display: flex;
+}
 .icons {
-  margin-top: 15px;
+  padding: 25px;
+  float:right;
+  justify-content:right;
+  align-content:right;
+  display: flex;
+  justify-content: right;
+  align-content: right;
+  float:right;
+  width:100%;
+
 }
 
 .icons img {
@@ -109,11 +129,10 @@ p.photo {
 
 }
 
-.tweetFooter {
-  display: flex;
-}
+
 
 .timeStamp {
   float: right;
-  margin-left: 40px;
+  margin-left: 15px;
+  width:330px;
 }

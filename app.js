@@ -59,7 +59,7 @@ $(document).ready(function(){
       var $tweetFooter = $('<div class = "tweetFooter"></>')
       $tweetFooter.appendTo($tweet)
         var $icons = $('<div class = "icons"></div>')
-        $icons.appendTo($tweetFooter)
+
         $('<img  src = assets/icons/like-fill-1-16.png>').appendTo($icons)
         $('<img  src = assets/icons/comment-29-16.png>').appendTo($icons)
         $('<img  src = assets/icons/share-82-16.png>').appendTo($icons)
@@ -67,6 +67,7 @@ $(document).ready(function(){
 
         var $timeStamp = $('<p class = "timeStamp"></p>')
         $timeStamp.text(tweet.created_at).appendTo($tweetFooter)
+        $icons.appendTo($tweetFooter)
 
         return $tweet
   }
@@ -127,19 +128,19 @@ $(document).ready(function(){
   })
 
   // ------------------------------------------------------------------------------------------------
-  function checkTweets() {
-    newCount = streams.home.length;
-    if (newCount >= currentCount) {
-      loadTweet(false)
-      if (filter !== ""){
-        filterTweets(filter)
-      }
-    }
-    setTimeout(function() {
-      checkTweets();
-    }, 10000);
-  }
-  checkTweets()
+  // function checkTweets() {
+  //   newCount = streams.home.length;
+  //   if (newCount >= currentCount) {
+  //     loadTweet(false)
+  //     if (filter !== ""){
+  //       filterTweets(filter)
+  //     }
+  //   }
+  //   setTimeout(function() {
+  //     checkTweets();
+  //   }, 10000);
+  // }
+  // checkTweets()
   // ------------------------------------------------------------------------------------------------
 
   // ------------------------------------------------------------------------------------------------
