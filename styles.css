@@ -12,7 +12,6 @@ providing a space for you to apply styles to your app's outermost HTML element -
   padding: 20px;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(to right top, #DAE2F8, #D6A4A4);
-  /* min-height: 80vh; */
 }
 
 input:focus{
@@ -22,6 +21,7 @@ input:focus{
 .glass {
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255,255,255,0.1));
   border-radius: 25px;
+  box-sizing: border-box;
   display: flex;
   min-height: 80vh;
   max-width: 1120px;
@@ -49,90 +49,112 @@ input:focus{
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.1), rgba(255,255,255,0.3));
   border-radius: 20px;
   width: 25%;
-  /* display: flex;*/
-  /* align-items: center; */
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
   text-align: center;
 }
 
-.user {
-  padding: 20px 30px;
-}
-
-.user .circular--portrait {
-  width: 200px;
-  height: 200px;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 15px;
-}
-
-.user h3 {
-  font-size: 24px;
-  margin: 0;
-  padding: 0 10px;
-}
-
-.user h4 {
-  font-size: 20px;
-  font-style: italic;
-  font-weight: 100;
-  margin: 0;
-}
-
-.user a{
-  color:black;
-}
-.logout:active {
-  color:red;
-}
-.logout:visited {
-  color:black;
-}
-
-#home, #refresh {
-  margin: 0;
-}
-
-#home a, #refresh a {
-  text-decoration: none;
-}
-
-#refresh a:visited, #home a:visited{
-  color:black;
-}
-
-.friend-list {
-  display: block;
-}
-
-.filter-user input{
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  font-style: italic;
+#update-feed {
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255,255,255,0.3));
   border: none;
-  padding: 7px;
-  border-radius: 56px;
-  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  display: block;
+  font-family: 'Poppins';
+  font-size: 15px;
+  margin: 15px auto;
+  padding: 15px;
+  width: 211px;
 }
 
-.friends {
-  text-align: left;
-  font-weight: 100;
+#friends-list {
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255,255,255,0.3));
+  border: none;
+  border-radius: 10px;
+  display: block;
+  margin: 15px;
+  padding: 10px 0;
   text-decoration: none;
-  margin-left: 40px;
+  text-align: center;
+  width: 211px;
 }
 
-.friends li:hover {
+.friend {
+  font-weight: 100;
+  font-style: italic;
+  font-weight: 100;
+  display: block;
+  margin: 5px auto;
+}
+
+.friend:hover {
   cursor: pointer;
   font-style: italic;
   font-weight: 500;
 }
 
+.menu {
+  margin-top: 20px;
+}
+
+.menu button {
+  box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.2);
+}
+
+#draggable {
+  width: 211px;
+  height: 250px;
+  padding: 0.5em;
+}
+
+/* #new-tweet-form { */
+  form {
+  background: linear-gradient(to left top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
+  border-radius: 1rem;
+  box-shadow: -5px -4px 23px rgba(122, 122, 122, 0.2);
+  box-sizing: border-box;
+  display: block;
+  margin: 60px auto;
+  padding: 10px;
+}
+
+form input {
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255,255,255,0.3));
+  border: none;
+  border-radius: 10px;
+  box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.2);
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-style: italic;
+  margin: 0 auto 22px;
+  padding: 6px;
+  text-align: center;
+}
+
+form #message {
+  width: 185px;
+}
+
+form button {
+  background: #DDDDDD;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.3);
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  padding: 15px;
+  margin: 5px;
+}
+
+button:active {
+  box-shadow: inset -6px -5px 10px rgba(122, 122, 122, 0.3);
+}
+
 /* NEWSFEED */
-.newsfeed {
+#feed {
   margin: 0 auto;
 }
 
@@ -146,64 +168,28 @@ input:focus{
   margin: 0;
 }
 
-.add-tweet {
-  display: block;
-  margin: 13px auto;
-  margin-left: 70px;
-}
-
-.add-tweet input {
-  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255,255,255,0.3));
-  border: none;
-  border-radius: 25px;
-  box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.2);
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  font-style: italic;
-  margin: 10px auto;
-  padding: 20px;
-  width: 400px;
-}
-
-.add-tweet button {
-  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255,255,255,0.3));
-  border: none;
-  border-radius: 1.2rem;
-  box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.2);
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  padding: 15px;
-  margin: 5px;
-}
-
-.add-tweet button:active {
-  box-shadow: inset -5px 3px 12px rgba(122, 122, 122, 0.3);
-}
-
-#refresh {
-  /* float: right; */
-  display: flex;
-  justify-content: right;
-}
-
 .tweet {
   background: linear-gradient(to left top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
   box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.2);
   border-radius: 1rem;
   display: flex;
+  justify-content: flex-start;
   margin-bottom: 2rem;
   padding: 10px;
+  /* width: 80%; */
 }
 
-.tweet .user-handle {
+.tweet .username {
   font-size: 18px;
   margin: 10px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .tweet .timestamp {
   margin: 0;
   font-size: 13px;
+  font-style: italic;
   font-weight: 100;
   margin-left: 10px;
 }
@@ -244,7 +230,7 @@ input:focus{
   color:blueviolet;
 }
 
-.icons .far, .fas {
+.icons .far, .icons .fas {
   padding: 5px;
   margin: 10px;
 }

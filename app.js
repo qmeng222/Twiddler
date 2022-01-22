@@ -1,121 +1,117 @@
 $(document).ready(function(){
-  jQuery("time.timeago").timeago();
   var $app = $('#app');
-  // $app.html('');
+  jQuery("time.timeago").timeago();
+  window.visitor = "Visitor";
 
-  // Helper Function that calculates the timestamp
-  var calcTimestamp = function (time) {
-    var secondsNow = Math.floor(Date.now() / 1000);
-    var timestamp = secondsNow - time;
+  var $glass = $('<main class="glass"></main>').appendTo($app);
 
-    if (timestamp < 10) {
-      return 'a few seconds ago';
-    } else if (timestamp > 10 && timestamp < 60) {
-      return '' + timestamp + ' seconds ago';
-    }
+  //Dashboard Selectors
+  var $dashboard = $('<section class="dashboard"></section>').appendTo($glass);
+  // var $buttonMenu = $('<div class="menu"></div>').appendTo($dashboard);
+  var $updateFeedBtn = $('<button id="update-feed"></button>').text('Update Feed').appendTo($dashboard);
+  // var $friendListBtn = $('<button id="btn-friend-list"></button>').text('Friend List').appendTo($buttonMenu);
+  var $friendList = $('<ul id="friends-list"></ul>').text('Friend\'s List').appendTo($dashboard);
 
-    timestamp = Math.floor(timestamp / 60); //converted into minutes
-    if (timestamp === 1) {
-      return "1 minute ago";
-    } else if (timestamp > 1 && timestamp < 60) {
-      return  '' + timestamp + ' minutes ago';
-    }
+  //Form
+  var $draggableDiv = $('<div id="draggable"></div>').appendTo($dashboard);
+  var $addTweet = $('<form id="new-tweet-form"></form>').appendTo($draggableDiv);
+  $('<label for="username"></label>').text('Username').appendTo($addTweet);
+  var $usernameInput = $('<input id="username" name="username" label="username" type="text" placeholder="hackreactor" /><br>').appendTo($addTweet);
+  $('<label for="message"></label>').text('Tweet').appendTo($addTweet);
+  var $tweetInput = $('<input id="message" type="text" name="message" label="message" placeholder="What\'s on your mind?" />').appendTo($addTweet);
+  var $formButton = $('<button class="form-submit"></button>').text('Post').appendTo($addTweet);
 
-    timestamp = Math.floor(timestamp / 60); // converted into hours
-    if (timestamp >= 1 && timestamp < 23) {
-      return  '' + timestamp + ' hours ago';
+  // Feed Selectors
+  var $feed = $('<section id="feed"></section>').appendTo($glass);
+  var $title = $('<h1 id="title"></h1>').text('Twiddler 2.0').appendTo($feed);
+  var $cards = $('<div id="cards"></div>').appendTo($feed)
+
+  //Helper Function to populate friend's list
+  var renderFriendList = function(newUser){
+    $('#friends-list').empty().text('Friend\'s List');
+    users.forEach(function(friend) {
+      var $friend = $('<li class="friend username"></li>');
+      $friend.text('@' + friend);
+      $friend.appendTo($friendList);
+    });
+
+    if (newUser){
+      $('<li class="friend username"></li>').text('@' + newUser).appendTo($friendList);
     }
   }
 
-  //Helper Function for creating a new Tweet
-  var createTweet = function(tweetObj){
-    // console.log('tweet obj from creator: ', tweetObj);
-    var userhandle = '@' + tweet.user;
-    var timestamp = calcTimestamp(tweet.unixInSeconds);
-    var message = tweet.message;
+  //Helper Function to generate feed
+  var renderFeed = function(user){
+    var tweet;
 
-    return '<div class="circular--portrait user-photo">\
-      <img src="' + tweet.profilePhotoURL +'" alt="user\'s profile picture"/>\
-    </div>\
-    <div class="card-info">\
-      <span class="user-handle">' + userhandle +'</span> ◆\
-      <time class="timeago timestamp"><em>' + timestamp + '</em></time>\
-      <div class="message">' + message + '</div>\
-      <div class="icons">\
-        <i class="far fa-heart"></i>\
-        <i class="far fa-comment"></i>\
-        <i class="fas fa-retweet"></i>\
-        <i class="far fa-share-square"></i>\
-      </div>\
-  </div>'
+    if(user){
+      user = user.slice(1);
+      $cards.empty();
+      tweet = streams.users[user];
+      $updateFeedBtn.toggleClass('highlighted');
+      $('.highlighted').text('Back');
+    } else {
+      tweet = streams.home;
+    }
+
+    var index = tweet.length - 1;
+    while(index >= 0){
+        var $tweet = $('<div class="tweet"></div>');
+        var $profilePhoto = $('<div class="circular--portrait"></div>').html('<img class="profile-photo" src="' + tweet[index].profilePhotoURL + '" />').appendTo($tweet);
+        var $cardInfo = $('<div class="card-info"></div>').appendTo($tweet);
+        var $username = $('<span class="username"></span>').text('@' + tweet[index].user).appendTo($cardInfo);
+        var $timestamp = $('<time class="timestamp timeago"></time>').text(jQuery.timeago(tweet[index].created_at)).appendTo($cardInfo);
+        var $message = $('<div class="message"></div>').text(tweet[index].message).appendTo($cardInfo);
+        var $icons = $('<div class="icons"></div>').html('<i class="far fa-heart like"></i><i class="far fa-comment comment"></i><i class="fas fa-retweet retweet"></i><i class="far fa-share-square share"></i>').appendTo($cardInfo);
+        $tweet.appendTo($cards);
+      index --;
+    }
+
+    renderFriendList();
+
+    $(".username").click(function (event) {
+      event.preventDefault();
+      var userClicked = event.target.innerText;
+
+      renderFeed(userClicked);
+    });
   }
 
-  // Tweet Element
-  var index = streams.home.length - 1;
-  while(index >= 0){
-    var tweet = streams.home[index];
-    var $tweet = $('<div class="tweet"></div>');
-    $tweet.html(createTweet(tweet));
-
-    // var $cards = $('#cards');
-    // console.log('$cards: ', $cards);
-    $tweet.appendTo('#cards');
-    index -= 1;
+  //Event Handler Function
+  var buttonHandler = function(event) {
+    event.preventDefault();
+    $cards.empty();
+    $updateFeedBtn.text('Update Feed');
+    renderFeed();
   }
 
-  // Event Listener for the Refresh Button
-  $('#home').click(function() {
-    location.reload();
-  });
+  //Update Feed event handler
+  $updateFeedBtn.click(buttonHandler);
 
+  //Form event handler
+  $formButton.click(function(event){
+    event.preventDefault();
+    var newUser = $usernameInput.val();
+    var message =  $tweetInput.val();
 
-  // Creating new tweet from form
-  $('.add-tweet').on('click', 'button', function() {
-    // when I finish with this, use addTweet({})
-    //create an object with user, message, created_at, unixInSeconds, profilePhotoURL
-    //invoke
-    var userTweet = {};
-    userTweet.message = $('.add-tweet input').val();
-    // userTweet.user =
+    window.visitor = newUser;
+    streams.users[newUser] = [];
+    // users.push(newUser);
 
-    var timestamp = Math.floor(Date.now() / 1000);
-    var user = $('.user').last();
-    console.log('user: ', user)
+    $usernameInput.val('');
+    $tweetInput.val('');
 
-    var html = '<div class="tweet">\
-    <div class="circular--portrait user-photo"><img ' + '/>\
-    </div>\
-    <div class="card-info">\
-      <span class="user-handle">' + '@' + user + '</span> ◆\
-      <span class="timestamp"><em>' + calcTimestamp(timestamp) + '</em></span>\
-      <div class="message">' + value + '</div>\
-      <div class="icons">\
-        <i class="far fa-heart"></i>\
-        <i class="far fa-comment"></i>\
-        <i class="fas fa-retweet"></i>\
-        <i class="far fa-share-square"></i>\
-      </div>\
-    </div>\
-  </div>';
-  //  $(html).appendTo(".cards");
+    writeTweet(message);
+    renderFeed();
+    renderFriendList(newUser);
   })
+
+  // Draggable tweet form
+  $( function() {
+    $( "#draggable" ).draggable();
+  } );
+
+  renderFeed();
 });
 
-  // TO DO LIST:
-    // make the tweet form work
-    // add event listener to the button post to add to html
-      // make sure the tweet appears with main profile picture
-      //make sure tweet appears with main user handle
-
-    // make the search username form work by filtering the user out while typing
-      //when that happens, refresh button toggles to become the home button
-
-    // clicking in a friend's name will show all his tweets
-      //when that happens, refresh button toggles to become the home button
-
-    // event listener to logout
-      //popup window shows up to change the name and handle
-
-    //if new user gets added, the last username gets added to the friend's list
-
-    //make friend's list in order of tweets added -- instead of hard code
+window.isItBeautifulYet = true;

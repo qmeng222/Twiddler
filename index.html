@@ -2,12 +2,12 @@
 <html>
   <head>
     <!--Favicon-->
-    <!-- <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon_io/favicon-32x32.png"> -->
-
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/twiddler-favicon-32x32.png">
     <!--jQuery-->
     <script src="lib/jquery.js"></script>
-    <script src="jquery.timeago.js" type="text/javascript"></script>
+    <script src="lib/timeago.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui.css">
     <!--Data Generator-->
     <script src="dataGenerator.js"></script>
     <!--Google Fonts-->
@@ -21,47 +21,7 @@
     <title>Twiddler 2.0 by Sabrina Gortz</title>
   </head>
   <body>
-    <div id="app">
-      <main class="glass">
-          <!--DASHBOARD-->
-          <section class="dashboard">
-            <div class="user">
-              <div class="circular--portrait">
-                <img src="assets/img/sgortz.png" alt="Profile picture of current user" />
-              </div>
-              <h3>Sabrina Gortz</h3>
-              <h4>@sgortz</h4>
-              <a href="#" class="logout">logout</a>
-            </div>
-            <h2 id="home"><a href="#"><i class="fas fa-home"></i></a></h2>
-            <div class="friend-list">
-              <h2>Friend List</h2>
-              <div class="filter-user">
-                <input type="text" placeholder="Search username" />
-              </div>
-              <ul class="friends">
-                <li>@sharksforcheap</li>
-                <li>@shawndrost</li>
-                <li>@mracus</li>
-                <li>@douglascalhoun</li>
-              </ul>
-            </div>
-          </section>
-
-          <!--NEWSFEED-->
-          <section class="newsfeed">
-            <h1 id="title">Welcome to <br/>Twiddler 2.0 !</h1>
-            <div class="add-tweet">
-              <input type="text" class="user-tweet" required placeholder="What's on your mind?" />
-              <button>Post</button>
-            </div>
-            <h2 id="refresh"><a href="#" ><i class="fas fa-sync-alt"></i></a></h2>
-            <div id="cards">
-            </div>
-          </section>
-      </main>
-    </div>  <!-- Your Entire Application will be built inside this div! -->
-    <script src="app.js">
-    </script>
+    <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
+    <script src="app.js"></script>
   </body>
 </html>
