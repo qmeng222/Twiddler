@@ -30,15 +30,15 @@ var htmlHasHardcodedContents = false;
  */
 function getCSSRules(ruleFilter) {
   var styleSheet = Array.from(_document.styleSheets)
-    .filter(function(s) { return s.href && s.href.endsWith(CSS_PATH); })
+    .filter(function (s) { return s.href && s.href.endsWith(CSS_PATH); })
     .pop();
   return Array.from(styleSheet.rules)
     .filter(ruleFilter);
 }
 
 function getNewestRenderedTweetIndex() {
-  return new Promise(function(resolve, reject) {
-    cy.get('.tweet').first().then(function($tweet) {
+  return new Promise(function (resolve, reject) {
+    cy.get('.tweet').first().then(function ($tweet) {
       var text = $tweet.text();
       for (var i = _window.streams.home.length - 1; i >= 0; i--) {
         if (text.includes(_window.streams.home[i].message)) {
@@ -63,23 +63,23 @@ function formatOrdinal(num) {
  * Tests used in multiple places
  */
 var sharedTests = {
-  noDuplicateTweetsRendered: function() {
-    it('does not render duplicate Tweets', function() {
+  noDuplicateTweetsRendered: function () {
+    it('does not render duplicate Tweets', function () {
       // A Set is an object which stores unique values:
       // each value may only occur in a Set once.
       // Adding a value that already exists in the Set will do nothing.
       var renderedTweets = new Set();
-      cy.get('.tweet').each(function($tweet) {
+      cy.get('.tweet').each(function ($tweet) {
         expect(renderedTweets.has($tweet.text())).to.eq(false);
         renderedTweets.add($tweet.text());
       });
     });
   },
-  
-  tweetsRenderInReverseChronologicalOrder: function() {
-    it('displays Tweets in reverse chronological order (newest first)', function() {
-        cy.get('.tweet').each(function($tweet, index) {
-        cy.wrap(getNewestRenderedTweetIndex()).then(function(firstTweetIndex) {
+
+  tweetsRenderInReverseChronologicalOrder: function () {
+    it('displays Tweets in reverse chronological order (newest first)', function () {
+      cy.get('.tweet').each(function ($tweet, index) {
+        cy.wrap(getNewestRenderedTweetIndex()).then(function (firstTweetIndex) {
           var expectedTweet = _window.streams.home[firstTweetIndex - index];
           var errorMessage = [
             `The first .tweet found on the page was found at streams.home[${firstTweetIndex}],`,
@@ -92,9 +92,9 @@ var sharedTests = {
     });
   },
 
-  pageDoesNotRefreshAfter: function(callback) {
-    it('does not refresh the browser window', function() {
-      cy.intercept('index.html*', function() {
+  pageDoesNotRefreshAfter: function (callback) {
+    it('does not refresh the browser window', function () {
+      cy.intercept('index.html*', function () {
         expect(false, 'A page reload has been detected').to.eq(true);
       });
       callback();
@@ -105,7 +105,7 @@ var sharedTests = {
 
 // Fail fast: stop the test suite when a single test has failed
 // Disable with Cypress env ALL_TESTS
-afterEach(function() {
+afterEach(function () {
   if (!Cypress.env('ALL_TESTS') && this.currentTest.state === 'failed') {
     if (!this.currentTest._retries || this.currentTest._currentRetry === this.currentTest._retries - 1) {
       Cypress.runner.stop();
@@ -115,20 +115,20 @@ afterEach(function() {
 
 // Load the page once before the suite begins
 function countElementsWithClass(node, className) {
-  return Array.prototype.reduce.call(node.childNodes, function(sum, child) {
+  return Array.prototype.reduce.call(node.childNodes, function (sum, child) {
     return countElementsWithClass(child, className) + sum;
   }, node.classList && node.classList.contains(className) ? 1 : 0);
 }
-before(function() {
+before(function () {
   cy.visit(INDEX_PATH, {
-    onBeforeLoad: function(contentWindow) {
+    onBeforeLoad: function (contentWindow) {
       // Store persistent references, since this is the only cy.visit call
       _window = contentWindow;
       _document = contentWindow.document;
       // Update numberOfTweetsAtLastRender when tweets are added to the page
-      var tweetCountObserver = new MutationObserver(function(mutations) {
-        if (mutations.some(function(mutation) {
-          return Array.from(mutation.addedNodes).some(function(node) {
+      var tweetCountObserver = new MutationObserver(function (mutations) {
+        if (mutations.some(function (mutation) {
+          return Array.from(mutation.addedNodes).some(function (node) {
             return countElementsWithClass(node, 'tweet') > 0;
           });
         })) {
@@ -138,9 +138,9 @@ before(function() {
       tweetCountObserver.observe(contentWindow.document, { childList: true, subtree: true });
 
       var isBodyInitialized;
-      var initialHtmlObserver = new MutationObserver(function(mutations) {
+      var initialHtmlObserver = new MutationObserver(function (mutations) {
         if (contentWindow.document.body && !isBodyInitialized) {
-          htmlHasHardcodedContents = Array.from(_document.body.children).some(function(elem) {
+          htmlHasHardcodedContents = Array.from(_document.body.children).some(function (elem) {
             return elem.id !== 'app' && elem.nodeName !== 'SCRIPT';
           });
           isBodyInitialized = true;
@@ -154,17 +154,17 @@ before(function() {
 /**
  * The test suite begins!
  */
-describe('Project', function() {
-  it('does not throw an error when loading the page', function() {
+describe('Project', function () {
+  it('does not throw an error when loading the page', function () {
     // empty block: runtime errors will fail on the first test
   });
 
-  it('contains the JavaScript in its own ' + APP_FILENAME + ' file', function() {
+  it('contains the JavaScript in its own ' + APP_FILENAME + ' file', function () {
     cy.get('script[src$="' + APP_FILENAME + '"]').should('exist');
   });
 
-  it('does not contain JavaScript in the HTML, only in .js files', function() {
-    cy.get('script').each(function($script) {
+  it('does not contain JavaScript in the HTML, only in .js files', function () {
+    cy.get('script').each(function ($script) {
       var scriptContent = $script.text().trim();
       // avoid asserting against test runner code
       if (scriptContent.includes('window.Cypress')) return;
@@ -172,63 +172,63 @@ describe('Project', function() {
     });
   });
 
-  it('does not contain any hardcoded HTML elements', function() {
+  it('does not contain any hardcoded HTML elements', function () {
     const message = [
       'The only HTML elements that should be hardcoded (coded into your .html file)',
       'are a div with an ID of app, and a script tag to load app.js.',
       'All other elements should be created from JavaScript within your app.js.\n'
-    ].join('\n');                  
+    ].join('\n');
     expect(htmlHasHardcodedContents, message).not.to.be.true;
   });
 });
 
-describe('Home Feed', function() {
-  it('exists with an ID of "feed" within #app', function() {
+describe('Home Feed', function () {
+  it('exists with an ID of "feed" within #app', function () {
     cy.get('#app #feed').should('exist');
   });
 
-  it('contains one element with a class of "tweet" for every Tweet', function() {
+  it('contains one element with a class of "tweet" for every Tweet', function () {
     cy.get('#feed .tweet').should('have.length', numberOfTweetsAtLastRender);
   });
-  
+
   sharedTests.tweetsRenderInReverseChronologicalOrder();
 
-  describe('Update Feed button', function() {
-    it('exists with an ID of "update-feed"', function() {
+  describe('Update Feed button', function () {
+    it('exists with an ID of "update-feed"', function () {
       cy.get('#update-feed').should('exist');
     });
 
-    it('is not empty', function() {
-      cy.get('#update-feed').should(function($elem) {
+    it('is not empty', function () {
+      cy.get('#update-feed').should(function ($elem) {
         expect($elem.text()).to.not.be.empty;
       });
     });
 
-    context('when clicked', function() {
-      sharedTests.pageDoesNotRefreshAfter(function() {
+    context('when clicked', function () {
+      sharedTests.pageDoesNotRefreshAfter(function () {
         cy.get('#update-feed').click();
       });
 
-      it('makes the Feed grow larger', function() {
+      it('makes the Feed grow larger', function () {
         var initialNumTweets = Cypress.$('.tweet').length;
         _window.generateRandomTweet();
-        cy.get('#update-feed').click().then(function() {
+        cy.get('#update-feed').click().then(function () {
           expect(Cypress.$('.tweet').length).to.be.greaterThan(initialNumTweets);
         });
       });
-      
+
       sharedTests.noDuplicateTweetsRendered();
       sharedTests.tweetsRenderInReverseChronologicalOrder();
 
-      it('does not affect any other elements on the page except #feed', function() {
+      it('does not affect any other elements on the page except #feed', function () {
         function getFeedSiblings() {
           return Array.from(_document.getElementById('feed').parentElement.children)
-            .filter(function(elem) {
+            .filter(function (elem) {
               return elem.id !== 'feed';
             });
         }
         var before = getFeedSiblings();
-        cy.get('#update-feed').click().then(function() {
+        cy.get('#update-feed').click().then(function () {
           var after = getFeedSiblings();
           expect(before).to.deep.eq(after);
         });
@@ -237,10 +237,10 @@ describe('Home Feed', function() {
   });
 });
 
-describe('Tweet UI Component', function() {
+describe('Tweet UI Component', function () {
   var newestTweetIndex;
-  before(function() {
-    getNewestRenderedTweetIndex().then(function(tweetIndex) {
+  before(function () {
+    getNewestRenderedTweetIndex().then(function (tweetIndex) {
       newestTweetIndex = tweetIndex;
     });
   });
@@ -250,8 +250,8 @@ describe('Tweet UI Component', function() {
   // If no callback is provided, assert existence of the selector,
   // otherwise, the callback is invoked with the element and the associated data
   function assertEveryTweet(testName, selector, callback) {
-    it(testName, function() {
-      cy.get(selector).each(function($elem, index) {
+    it(testName, function () {
+      cy.get(selector).each(function ($elem, index) {
         var expectedTweet = _window.streams.home[newestTweetIndex - index];
         expect(expectedTweet).not.to.be.undefined;
         if (callback) {
@@ -269,16 +269,16 @@ describe('Tweet UI Component', function() {
   assertEveryTweet(
     'contains the message in the child with a class of "message"',
     '.tweet .message',
-    function($message, tweet) {
+    function ($message, tweet) {
       expect($message).to.contain(tweet.message);
     }
   );
-  
+
   assertEveryTweet('contains a child with a class of "username"', '.tweet .username');
   assertEveryTweet(
     'contains the username, prefixed by "@", in the child with a class of "username"',
     '.tweet .username',
-    function($username, tweet) {
+    function ($username, tweet) {
       expect($username).to.contain('@' + tweet.user);
     }
   );
@@ -286,9 +286,9 @@ describe('Tweet UI Component', function() {
   assertEveryTweet(
     'has no text nodes as direct descendants',
     '.tweet',
-    function($tweet, tweet) {
+    function ($tweet, tweet) {
       var textNodeChildren = Array.from($tweet.get(0).childNodes)
-        .filter(function(node) {
+        .filter(function (node) {
           return node.nodeType === 3 && node.textContent.trim().length > 0
         });
       expect(textNodeChildren.length).to.eq(0);
@@ -301,7 +301,7 @@ describe('Tweet UI Component', function() {
   assertEveryTweet(
     'contains the timestamp in the child with a class of "timestamp"',
     '.tweet .timestamp',
-    function($timestamp, tweet, _window) {
+    function ($timestamp, tweet, _window) {
       if (_window.jQuery.timeago) {
         expect($timestamp, 'timeago should be used to format the timestamp text.\n')
           .to.contain(_window.jQuery.timeago(tweet.created_at));
@@ -311,29 +311,29 @@ describe('Tweet UI Component', function() {
     }
   );
 
-  it('uses the time from the Tweet data, not the current time', function() {
+  it('uses the time from the Tweet data, not the current time', function () {
     var propertyAccessCount = 0;
     var propertySpy = {
-      get: function(target, prop) {
+      get: function (target, prop) {
         if (prop === 'created_at') propertyAccessCount++;
         return target[prop];
       },
     };
-    _window.streams.home.forEach(function(tweet, index) {
+    _window.streams.home.forEach(function (tweet, index) {
       _window.streams.home[index] = new Proxy(tweet, propertySpy);
     });
 
     var numberOfTweetsBeforeUpdate = numberOfTweetsAtLastRender;
-    cy.get('#update-feed').click().then(function() {
+    cy.get('#update-feed').click().then(function () {
       var numberOfNewTweets = numberOfTweetsAtLastRender - numberOfTweetsBeforeUpdate;
       expect(propertyAccessCount).to.be.at.least(numberOfNewTweets);
     });
   });
 
-  describe('icons', function() {
+  describe('icons', function () {
     var iconClasses = ['comment', 'retweet', 'like', 'share'];
-    iconClasses.forEach(function(iconClass) {
-      it('contains a ' + iconClass + ' icon with a class of "' + iconClass + '"', function() {
+    iconClasses.forEach(function (iconClass) {
+      it('contains a ' + iconClass + ' icon with a class of "' + iconClass + '"', function () {
         var hasFontAwesome = _window.FontAwesome || _window.FontAwesomeKitConfig;
         if (hasFontAwesome) {
           cy.log('Since FontAwesome is present, this icon should be an I tag with a FontAwesome class applied.');
@@ -347,9 +347,9 @@ describe('Tweet UI Component', function() {
   });
 });
 
-describe('Libraries', function() {
-  describe('timeago', function() {
-    it('is included as a library in the project', function() {
+describe('Libraries', function () {
+  describe('timeago', function () {
+    it('is included as a library in the project', function () {
       var message = [
         'timeago is a jQuery plugin that can be used to format timestamps.',
         'Visit its website for instructions on downloading and using it:',
@@ -360,11 +360,11 @@ describe('Libraries', function() {
       expect(_window.jQuery.timeago, message).to.not.be.undefined;
     });
 
-    it('is used at least once', function() {
+    it('is used at least once', function () {
       cy.spy(_window.jQuery, 'timeago');
       cy.spy(_window.jQuery.prototype, 'timeago');
       _window.generateRandomTweet();
-      cy.get('#update-feed').click().then(function() {
+      cy.get('#update-feed').click().then(function () {
         expect(
           Math.max(
             _window.jQuery.timeago.callCount,
@@ -375,8 +375,8 @@ describe('Libraries', function() {
     });
   });
 
-  describe('FontAwesome', function() {
-    it('is included', function() {
+  describe('FontAwesome', function () {
+    it('is included', function () {
       var message = [
         'FontAwesome is a library which provides icons for use in web apps.',
         'Visit its website for more information on using it:',
@@ -389,15 +389,15 @@ describe('Libraries', function() {
       expect(_window.FontAwesome || _window.FontAwesomeKitConfig, message).to.not.be.undefined;
     });
 
-    it('is used', function() {
+    it('is used', function () {
       cy.get('[class*="fa-"]').should('exist');
     });
   });
 
-  describe('Google Fonts', function() {
-    it('is included', function() {
+  describe('Google Fonts', function () {
+    it('is included', function () {
       // check for CSS @import first
-      var hasGoogleFontsImport = getCSSRules(function(rule) {
+      var hasGoogleFontsImport = getCSSRules(function (rule) {
         return rule.href && rule.href.includes('fonts.googleapis.com');
       }).length > 0;
       if (!hasGoogleFontsImport) {
@@ -408,40 +408,40 @@ describe('Libraries', function() {
   });
 });
 
-describe('User Feed', function() {
-  context('clicking on a username in a Tweet', function() {
+describe('User Feed', function () {
+  context('clicking on a username in a Tweet', function () {
     var selectedUsername;
     var originalButtonText;
-    before(function() {
-      cy.get('#update-feed').then(function($button) {
+    before(function () {
+      cy.get('#update-feed').then(function ($button) {
         originalButtonText = $button.text();
       });
-      cy.get('.tweet .username').first().then(function($username) {
+      cy.get('.tweet .username').first().then(function ($username) {
         selectedUsername = $username.text();
         $username.click();
       });
     });
 
-    it('changes the Feed so only the clicked user\'s Tweets show', function() {
-      cy.get('.tweet .username').each(function($username) {
+    it('changes the Feed so only the clicked user\'s Tweets show', function () {
+      cy.get('.tweet .username').each(function ($username) {
         expect($username.text()).to.eq(selectedUsername);
       });
     });
-  
-    it('changes the "Update Feed" button into a "Back" button', function() {
+
+    it('changes the "Update Feed" button into a "Back" button', function () {
       cy.get('#update-feed').contains('Back', { matchCase: false });
     });
 
-    describe('"Back" button', function() {
-      before(function() {
+    describe('"Back" button', function () {
+      before(function () {
         cy.get('#update-feed').click();
       });
 
-      it('switches from the User Feed back to the Home Feed', function() {
+      it('switches from the User Feed back to the Home Feed', function () {
         expect(Cypress.$('.tweet').length).to.eq(numberOfTweetsAtLastRender);
       });
 
-      it('switches its text from "Back" to its original value', function() {
+      it('switches its text from "Back" to its original value', function () {
         cy.get('#update-feed').contains(originalButtonText);
       });
 
@@ -450,8 +450,8 @@ describe('User Feed', function() {
   });
 });
 
-describe('Styling and Layout', function() {
-  describe('Properties', function() {
+describe('Styling and Layout', function () {
+  describe('Properties', function () {
     var requiredProperties = [
       'background-color',
       'border-radius',
@@ -465,31 +465,31 @@ describe('Styling and Layout', function() {
       'text-align',
       'width',
     ];
-    requiredProperties.forEach(function(propertyName) {
-      it('uses the "' + propertyName + '" CSS property with a valid value', function() {
-        expect(getCSSRules(function(rule) {
+    requiredProperties.forEach(function (propertyName) {
+      it('uses the "' + propertyName + '" CSS property with a valid value', function () {
+        expect(getCSSRules(function (rule) {
           return rule.style && rule.style.getPropertyValue(propertyName);
         })).not.to.be.empty;
       })
     });
 
-    it('uses one or more border CSS properties (besides border-radius)', function() {
-      expect(getCSSRules(function(rule) {
-        return rule.style && Array.from(rule.style).some(function(ruleName) {
+    it('uses one or more border CSS properties (besides border-radius)', function () {
+      expect(getCSSRules(function (rule) {
+        return rule.style && Array.from(rule.style).some(function (ruleName) {
           return ruleName === 'border' || (ruleName !== 'border-radius' && ruleName.startsWith('border-'));
         });
       })).not.to.be.empty;
     });
   });
 
-  it('includes a hover effect for icons', function() {
-    cy.get('.comment').eq(1).then(function($comment) {
+  it('includes a hover effect for icons', function () {
+    cy.get('.comment').eq(1).then(function ($comment) {
       var elem = $comment.get(0);
       // check for CSS :hover rule
-      var matchingRules = getCSSRules(function(rule) {
+      var matchingRules = getCSSRules(function (rule) {
         if (!(rule instanceof _window.CSSStyleRule)) return false;
         var selectors = rule.selectorText.split(',');
-        return rule.cssText && selectors.some(function(selector) {
+        return rule.cssText && selectors.some(function (selector) {
           return selector.trim().endsWith(':hover') &&
             elem.matches(selector.trim().replace(/:hover$/, ''));
         });
@@ -498,19 +498,19 @@ describe('Styling and Layout', function() {
         expect(true, 'A CSS :hover rule is included').to.eq(true);
         return;
       }
-  
+
       // check for JS hover handler instead if CSS rule isn't present
       var styles = getComputedStyle(elem);
       var stylesBefore = {};
       var stylesAfter = {};
       Object.assign(stylesBefore, styles);
-      
-      cy.get('.comment').eq(1).trigger('mouseover').then(function() {
+
+      cy.get('.comment').eq(1).trigger('mouseover').then(function () {
         var mouseOverMessage = 'The CSS of an icon should change on hover';
         Object.assign(stylesAfter, styles);
         cy.wrap(stylesBefore).should('not.deep.equal', stylesAfter, mouseOverMessage);
-  
-        cy.get('.comment').eq(1).trigger('mouseout').then(function() {
+
+        cy.get('.comment').eq(1).trigger('mouseout').then(function () {
           var mouseOutMessage = 'The CSS of an icon should change back to its initial value after hover';
           Object.assign(stylesAfter, styles);
           cy.wrap(stylesBefore).should('deep.equal', stylesAfter, mouseOutMessage);
@@ -520,8 +520,8 @@ describe('Styling and Layout', function() {
   });
 
   if (!Cypress.env('SKIP_FLAVOR_TEST')) {
-    describe('Finishing up', function() {
-      it('the page is as beautiful as you want it to be', function() {
+    describe('Finishing up', function () {
+      it('the page is as beautiful as you want it to be', function () {
         var message = [
           'Nice work, you\'ve completed the Bare Minimum Requirements!',
           'Once you\'re satisfied with how your page looks, set',
@@ -544,20 +544,20 @@ describe('Styling and Layout', function() {
 });
 
 if (!Cypress.env('SKIP_EXTRA_CREDIT')) {
-  xdescribe('Extra credit', function() {
-    describe('Friends list', function() {
-      it('exists as a UL tag with an ID of "friends-list"', function() {
+  describe('Extra credit', function () {
+    describe('Friends list', function () {
+      it('exists as a UL tag with an ID of "friends-list"', function () {
         cy.get('ul#friends-list').should('exist');
       });
 
-      it('has an LI element with a class of "friend" for each user', function() {
+      it('has an LI element with a class of "friend" for each user', function () {
         var numUsers = Object.keys(_window.streams.users).length;
         cy.get('#friends-list li.friend').should('have.length', numUsers);
       });
 
-      context('when a user is clicked', function() {
+      context('when a user is clicked', function () {
         var selectedUsername;
-        before(function() {
+        before(function () {
           for (var user in _window.streams.users) {
             if (_window.streams.users[user].length > 0) {
               selectedUsername = '@' + user;
@@ -567,72 +567,72 @@ if (!Cypress.env('SKIP_EXTRA_CREDIT')) {
           cy.get('#friends-list li.friend').contains(selectedUsername).click();
         });
 
-        after(function() {
+        after(function () {
           // return to home stream
           cy.get('#update-feed').click();
         });
 
-        it('opens the user\'s feed', function() {
-          cy.get('.tweet .username').each(function($username) {
+        it('opens the user\'s feed', function () {
+          cy.get('.tweet .username').each(function ($username) {
             expect($username.text()).to.eq(selectedUsername);
           });
         });
       });
     });
 
-    describe('New Tweet form', function() {
-      it('exists with an ID of "new-tweet-form"', function() {
+    describe('New Tweet form', function () {
+      it('exists with an ID of "new-tweet-form"', function () {
         cy.get('form#new-tweet-form').should('exist');
       });
 
       var inputNames = ['username', 'message'];
-      inputNames.forEach(function(inputName) {
-        it('has an input with a name attribute of "' + inputName + '"', function() {
+      inputNames.forEach(function (inputName) {
+        it('has an input with a name attribute of "' + inputName + '"', function () {
           cy.get('#new-tweet-form input[name="' + inputName + '"]').should('exist');
         });
 
-        it('has a label for the ' + inputName + ' input', function() {
-          cy.get('#new-tweet-form input[name="' + inputName + '"]').invoke('attr', 'id').then(function(id) {
+        it('has a label for the ' + inputName + ' input', function () {
+          cy.get('#new-tweet-form input[name="' + inputName + '"]').invoke('attr', 'id').then(function (id) {
             expect(id).not.to.be.undefined;
             cy.get('label[for="' + id + '"]').should('exist');
           });
         });
       });
 
-      it('has a button to submit the form', function() {
+      it('has a button to submit the form', function () {
         var submitButton;
-        cy.get('#new-tweet-form').then(function($form) {
+        cy.get('#new-tweet-form').then(function ($form) {
           submitButton = $form.find('button');
           if (!submitButton.length) submitButton = $form.find('input[type="submit"]');
           expect(submitButton.length).to.not.equal(0);
         });
       });
 
-      sharedTests.pageDoesNotRefreshAfter(function() {
+      sharedTests.pageDoesNotRefreshAfter(function () {
         cy.get('#new-tweet-form input[name="username"]').invoke('val', 'foo');
         cy.get('#new-tweet-form input[name="message"]').invoke('val', 'bar');
         var submitButton;
-        cy.get('#new-tweet-form').then(function($form) {
+        cy.get('#new-tweet-form').then(function ($form) {
           submitButton = $form.find('button');
           if (!submitButton.length) submitButton = $form.find('input[type="submit"]');
           expect(submitButton.length).to.not.equal(0);
           submitButton.click();
         });
-        
+
       });
 
-      context('when submitted', function() {
+      context('when submitted', function () {
         var testUsername = 'Test User';
         var testMessages = [
           'This is a test message, stay in school!',
           'Always tip your bartender #kindness',
         ];
-        before(function() {
-          testMessages.forEach(function(testMessage) {
+        before(function () {
+          testMessages.forEach(function (testMessage) {
             cy.get('#new-tweet-form input[name="username"]').invoke('val', testUsername);
             cy.get('#new-tweet-form input[name="message"]').invoke('val', testMessage);
             var submitButton;
-            cy.get('#new-tweet-form').then(function($form) {
+            cy.get('#new-tweet-form').then(function ($form) {
               submitButton = $form.find('button');
               if (!submitButton.length) submitButton = $form.find('input[type="submit"]');
               expect(submitButton.length).to.not.equal(0);
@@ -641,21 +641,21 @@ if (!Cypress.env('SKIP_EXTRA_CREDIT')) {
           });
         });
 
-        it('adds the tweet data to the user\'s stream array', function() {
+        it('adds the tweet data to the user\'s stream array', function () {
           expect(_window.streams.users[testUsername]).to.not.be.undefined;
           expect(_window.streams.users[testUsername]).to.have.lengthOf(testMessages.length);
         });
 
-        it('adds the tweet data to the home stream array', function() {
-          testMessages.forEach(function(testMessage) {
-            expect(_window.streams.home.some(function(tweet) {
+        it('adds the tweet data to the home stream array', function () {
+          testMessages.forEach(function (testMessage) {
+            expect(_window.streams.home.some(function (tweet) {
               return tweet.user === testUsername && tweet.message === testMessage;
             })).to.be.true;
           });
         });
 
-        it('renders the new tweet immediately', function() {
-          testMessages.forEach(function(testMessage) {
+        it('renders the new tweet immediately', function () {
+          testMessages.forEach(function (testMessage) {
             expect(cy.get('.tweet').contains(testMessage)).to.exist;
           });
         });
