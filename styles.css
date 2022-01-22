@@ -11,11 +11,15 @@ body {
 }
 
 #app {
-  /* background-color: black; */
+  /* background-color: white; */
   color: white;
 }
 
 #update-feed {
   background-color: rgba(228, 225, 225, 0.726);
   color: white;
+}
+
+#title {
+  color:pink;
 }
