@@ -11,7 +11,8 @@ $(document).ready(function(){
     render();
   }
 
-  function user(user) {
+  function userClick(user) {
+    // console.log('inside here');
     $('#update-feed').text('Back');
     render(user.data);
   }
@@ -26,17 +27,23 @@ $(document).ready(function(){
     $feed.empty();
     var data = [];
     if (user) {
-      alert("clicked user");
       data = streams.users[user];
     } else {
       data = streams.home;
     }
     var index = data.length - 1;
     while(index >= 0){
-      var tweet = data[index];
       var $tweet = $('<div class="tweet"></div>');
-      $tweet.text('@' + tweet.user + ': ' + tweet.message);
+      var $user = $('<div class="user"></div>');
+      var $msg = $('<div class="msg"></div>');
+      var tweet = data[index];
+      $msg.text(tweet.message);
+      $user.text('@' + tweet.user);
+      // $tweet.text('@' + tweet.user + ': ' + tweet.message);
       $tweet.appendTo($feed);
+      $user.appendTo($tweet);
+      $msg.appendTo($tweet);
+      $user.click(tweet.user, userClick);
       index -= 1;
     }
   }
