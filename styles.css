@@ -1,26 +1,24 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
-html, body, #app {
-  min-height: 100vh;
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #abbaab;
-
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-
-  color: black;
+  display: grid;
+  /* grid understands i want 2 columns */
+  grid-template-columns: auto 80%;
+  margin: 0 auto;
   font-family: 'Dongle';
   font-size: 1.5rem;
   font-style: normal;
   font-weight: normal;
-  padding: 15px;
-  margin: 20px;
   text-align: center;
+  height: 100vh;
 }
 
 h1 {
@@ -28,22 +26,57 @@ h1 {
 }
 
 #feed {
-  display: flex;
   flex-direction: column;
+  background-color: #ffd8c5;
+}
+
+#friends-list {
+ color: white;
+ margin-top: 50px;
+}
+
+.friend:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.twiddler-section {
+  background-color: skyblue;
+  width: 100px auto;
 }
 
 .tweet {
-  border-bottom: 5px solid white;
+  border-bottom: thin solid white;
+  color: black;
   margin: 2px;
-  width: 855px;
   margin-left: 2px;
   align-items: center;
+}
+
+#message, #username-title {
+width: 50%;
+}
+
+#new-tweet-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.friend-title {
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: white;
 }
 
 .username {
   cursor: pointer;
   display: inline-block;
   vertical-align: top;
+}
+
+.username:hover{
+  text-decoration: underline;
 }
 
 .message {
@@ -62,6 +95,7 @@ h1 {
   border: 1px solid black;
   border-radius: 50px;
   height: 60px;
+  color: white;
 }
 
 .timestamp {
@@ -75,8 +109,8 @@ h1 {
 
 
 /* CSS */
-#update-feed {
-  background-color: rgba(51, 51, 51, 0.5);
+#update-feed, #submit-tweet {
+  background-color: plum;
   border-radius: 8px;
   border-width: 0;
   color: black;
