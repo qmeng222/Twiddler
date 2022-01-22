@@ -3,15 +3,15 @@ $(document).ready(function () {
 
   // new elements
   var $app = $('#app');
-  var $title = $('<h1 class="title">Twiddler</h1>');
+  var $title = $('<h1 class="title">TWIDDLER</h1>');
   var $updateFeed = $('<button id="update-feed"></button>');
   var $feed = $('<div id="feed"></div>');
 
   // modify elements
   $app.html('');
-  $updateFeed.html('Update Feed');
+  $updateFeed.html('UPDATE FEED');
 
-  // event handler functions
+  // utility functions
   var renderFeed = function (user) {
     var index = (user) ? streams.users[user].length - 1 : streams.home.length - 1;
 
@@ -21,6 +21,7 @@ $(document).ready(function () {
 
       // new elements
       var $tweet = $('<div class="tweet"></div>');
+      var $userDataContainer = $('<div class="user-data-container"></div>');
       var $profilePhoto = $('<img class="profile-photo">');
       var $username = $('<span class="username"></span>');
       var $message = $('<p class="message"></p>');
@@ -34,14 +35,15 @@ $(document).ready(function () {
       // modify elements
       $profilePhoto.attr("src", "assets/img/" + tweet.user + ".png");
       $username.text('@' + tweet.user);
-      $timestamp.text(jQuery.timeago(tweet.created_at));
+      $timestamp.text('• ' + jQuery.timeago(tweet.created_at));
       $message.text(tweet.message);
 
       // append elements to the DOM
       $tweet.appendTo($feed);
-      $profilePhoto.appendTo($tweet);
-      $username.appendTo($tweet);
-      $timestamp.appendTo($tweet);
+      $profilePhoto.appendTo($userDataContainer);
+      $username.appendTo($userDataContainer);
+      $timestamp.appendTo($userDataContainer);
+      $userDataContainer.appendTo($tweet);
       $message.appendTo($tweet);
       $iconContainer.appendTo($tweet);
       $comment.appendTo($iconContainer);
@@ -49,11 +51,9 @@ $(document).ready(function () {
       $like.appendTo($iconContainer);
       $share.appendTo($iconContainer);
 
-      //event handlers
-
-
       // event listeners
       $username.on("click", handleUsernameClick);
+      $(".icon").hover(handleIconHoverIn, handleIconHoverOut);
 
       index -= 1;
     }
@@ -64,8 +64,8 @@ $(document).ready(function () {
     $feed.empty();
     renderFeed();
 
-    if ($updateFeed.html() === 'Back') {
-      $updateFeed.html('Update Feed');
+    if ($updateFeed.html() === 'BACK') {
+      $updateFeed.html('UPDATE FEED');
     }
   };
 
@@ -79,9 +79,17 @@ $(document).ready(function () {
     $feed.empty();
     renderFeed(user);
 
-    if ($updateFeed.html() === 'Update Feed') {
-      $updateFeed.html('Back');
+    if ($updateFeed.html() === 'UPDATE FEED') {
+      $updateFeed.html('BACK');
     }
+  }
+
+  var handleIconHoverIn = function () {
+    $(this).addClass("icon-hover");
+  }
+
+  var handleIconHoverOut = function () {
+    $(this).removeClass("icon-hover");
   }
 
   // event listeners

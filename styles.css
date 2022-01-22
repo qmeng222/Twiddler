@@ -19,10 +19,79 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F7F7F7;
+  color: #355070;
 }
+
+#feed {
+  width: 475px;
+}
+
+.tweet {
+  background-color: white;
+  color: #444444;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #C9CBCB;
+  border-width: 0.5px;
+}
+
+.user-data-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: #355070;
+}
+
+.icon-hover {
+  color: #279AF1;
+}
+
+.profile-photo {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.username {
+  margin-right: 10px;
+  color: black;
+  font-weight: 500;
+}
+
+.timestamp {
+  font-size: smaller;
+}
+
+.message {
+  padding-left: 65px;
+  padding-right: 65px;
+  margin-top: 0;
+  font-style: normal;
+  text-align: left;
+}
+
+
 
 /* .message {
   font-family: 'Sans Forgetica Regular';
+}
+
+.tweet {
+  background-color: #444444;
+  color: #C9CBCB
 } */
