@@ -10,7 +10,7 @@ $(document).ready(function(){
 
   var $header = $('<div class = "header"></div>');
     //Title
-    var $title = $('<h1 id = "title"><a href ="index.html">Twiddler<br>2.0<br></a></h1>');
+    var $title = $('<a id = "title" href ="index.html">Twiddler 2.0</a>');
     var $topbutton = $('<h3 class = "topButton"><input class = "button" type = "submit" value = "Back To Top"></input></h3>')
     //show New Tweets button
     $topbutton.appendTo($navigation)
@@ -22,18 +22,18 @@ $(document).ready(function(){
   //navigation
   var $navigation = $('<section class = "topNav"></section>')
     //Back to Top Button
-    var $showNew = $('<input class = "showNew" type = "button" type="submit" value="Latest Tweet">')
-    var $home = $('<input class = "home" type = "button" type="submit" href = "index.html" value="Home">')
+    var $showNew = $('<input class = "showNew" type = "button"  type="submit" value="Latest Tweet">')
+    // var $PauseResume = $('<input class = "PauseResume" type = "button" type="submit" value="Pause">')
+    var $homeBack = $('<input class = "homeBack" type = "button" type="submit" href = "index.html" value="Home">')
     $showNew.appendTo($navigation)
-    $home.appendTo($navigation)
+    $homeBack.appendTo($navigation)
+    // $PauseResume.appendTo($navigation)
   $navigation.appendTo($app)
   // ------------------------------------------------------------------------------------------------
   // mainFeed
+  var $mainFeed = $('<section class = "mainFeed"></section>') // contains all tweets
+  $mainFeed.attr("id", "feed").appendTo($app)
 
-  var $timeline = $('<section class = "timeline"></section>') // contains mainfeed of all tweets and unique user tweets
-    var $mainFeed = $('<section class = "mainFeed"></section>') // contains all tweets
-    $mainFeed.appendTo($timeline)
-  $timeline.appendTo($app)
   // ------------------------------------------------------------------------------------------------
 
   //keeping track of current size of feed
@@ -44,24 +44,29 @@ $(document).ready(function(){
   function buildTweet(tweetObj) {
     var tweet = tweetObj
     var $tweet = $('<div class = "tweet"></div>')
-        var $photo = $('<img class = photo src = ' + tweet.profilePhotoURL + ' >')
-        var $user = $('<p class = "user"></p>')
+    $tweet.attr('id', "" + tweet.user + "")
+
+      var $tweetHeader = $('<div class = "tweetHeader"></div>')
+      $tweetHeader.appendTo($tweet)
+        var $photo = $('<img class = photo src = ' + tweet.profilePhotoURL + ' >').attr('id', "" + tweet.user + "")
+        var $user = $('<div class = "user"></div>')
+        $photo.appendTo($tweetHeader)
+        $user.attr('id', "" + tweet.user + "").data('userName', tweet.user).text('@' + tweet.user).appendTo($tweetHeader)
+
         var $message = $('<p class = "message"></p>')
+        $message.text(tweet.message).appendTo($tweetHeader)
+
+      var $tweetFooter = $('<div class = "tweetFooter"></>')
+      $tweetFooter.appendTo($tweet)
         var $icons = $('<div class = "icons"></div>')
-          $('<img class = "photo" src = assets/icons/like-fill-1-16.png>').appendTo($icons)
-          $('<img class = "comment" src = assets/icons/comment-29-16.png>').appendTo($icons)
-          $('<img class = "share" src = assets/icons/share-82-16.png>').appendTo($icons)
-          $('<img class = "retweet" src = assets/icons/retweet-1-16.png>').appendTo($icons)
+        $icons.appendTo($tweetFooter)
+        $('<img  src = assets/icons/like-fill-1-16.png>').appendTo($icons)
+        $('<img  src = assets/icons/comment-29-16.png>').appendTo($icons)
+        $('<img  src = assets/icons/share-82-16.png>').appendTo($icons)
+        $('<img  src = assets/icons/retweet-1-16.png>').appendTo($icons)
+
         var $timeStamp = $('<p class = "timeStamp"></p>')
-
-        $photo.appendTo($tweet)
-        $user.addClass(tweet.user).data('userName', tweet.user).text('@' + tweet.user).appendTo($tweet)
-        $tweet.addClass(tweet.user)
-        $message.text(tweet.message).appendTo($tweet)
-        $icons.appendTo($tweet)
-        $timeStamp.text(tweet.created_at).appendTo($tweet)
-
-    // console.log(streams.home.indexOf(tweet), newCount, currentCount)
+        $timeStamp.text(tweet.created_at).appendTo($tweetFooter)
 
         return $tweet
   }
@@ -84,37 +89,58 @@ $(document).ready(function(){
         currentCount += 1
       }
     }
+    $(".user").on("click", function(){
+      $(".homeBack").prop("value", "Back")
+      var userName = $(this).data('userName')
+      filter = userName
+      filterTweets(userName)
+    })
   }
   loadTweet(true) // intial load tweets
+
+  // ------------------------------------------------------------------------------------------------
+  // Turn on filter and makes sure that each new tweet is filtered until var filter is cleared
+  var filter = "";
+
+  function filterTweets (userNameToFilter){
+    $(".tweet").not("#" + userNameToFilter + "").hide()
+  }
   // ------------------------------------------------------------------------------------------------
 
-  $(".user").on("click", function(){
-    $(".home").prop("value", "Back")
-    var userName = $(this).data('userName')
-    $(".tweet").hide()
+
+  //BUTTONS
+  $(".homeBack").on("click", function() {
+    if ($(this).val() === "Back") {
+      $(this).prop("value", "Home")
+    }
+    $(".tweet").show()
+    filter = ""
   })
-  // ------------------------------------------------------------------------------------------------
-  // set newCount to new size of stream,
-  // function checkTweets() {
-  //   newCount = streams.home.length;
-  //   if (newCount >= currentCount) {
-  //     loadTweet(false)
-  //   }
-  //   setTimeout(function() {
-  //     checkTweets();
-  //   }, 10000);
-  // }
-  // checkTweets()
-  // ------------------------------------------------------------------------------------------------
+
 
   $('.showNew').on("click", function() {
     newCount = streams.home.length;
     loadTweet(false)
+    if (filter !== ""){
+      filterTweets(filter)
+    }
   })
-  $('.home').on("click", function() {
-    $(".tweet").show()
 
+  // ------------------------------------------------------------------------------------------------
+  function checkTweets() {
+    newCount = streams.home.length;
+    if (newCount >= currentCount) {
+      loadTweet(false)
+      if (filter !== ""){
+        filterTweets(filter)
+      }
+    }
+    setTimeout(function() {
+      checkTweets();
+    }, 10000);
+  }
+  checkTweets()
+  // ------------------------------------------------------------------------------------------------
 
-  })
   // ------------------------------------------------------------------------------------------------
 });
