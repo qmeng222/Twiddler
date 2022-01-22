@@ -23,3 +23,13 @@ body {
 #title {
   color:pink;
 }
+/*
+.tweet {
+  background-color: gray;
+} */
+.user {
+  color:  rgb(51,102,187);
+}
+.user:hover {
+  text-decoration: underline;
+}
