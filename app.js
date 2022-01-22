@@ -21,10 +21,12 @@ $(document).ready(function(){
     var $message = $('<div class="message">' + tweet.message + '</div>');
     var $username = $('<div class="username">' + '@' + tweet.user + '</div>');
     var $timestamp = $('<div class="timestamp">' + jQuery.timeago(new Date(tweet.created_at)) + '</div>');
-    var $comment = $('<img class="comment" src="assets/icons/placeholder.png"></img>');
-    var $retweet = $('<img class="retweet" src="assets/icons/placeholder.png"></img>');
-    var $like = $('<img class="like" src="assets/icons/placeholder.png"></img>');
-    var $share = $('<img class="share" src="assets/icons/placeholder.png"></img>');
+    var $comment = $('<i class="comment far fa-comment"></i>');
+    //console.log('<i class="far fa-comment"></i>');
+    //console.log(var comment = $0);
+    var $retweet = $('<i class="retweet fas fa-retweet"></i>');
+    var $like = $('<i class="like far fa-heart"></i>');
+    var $share = $('<i class="share far fa-share-square"></i>');
 
 
     // Append new HTML elements to the DOM
