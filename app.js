@@ -128,19 +128,19 @@ $(document).ready(function(){
   })
 
   // ------------------------------------------------------------------------------------------------
-  // function checkTweets() {
-  //   newCount = streams.home.length;
-  //   if (newCount >= currentCount) {
-  //     loadTweet(false)
-  //     if (filter !== ""){
-  //       filterTweets(filter)
-  //     }
-  //   }
-  //   setTimeout(function() {
-  //     checkTweets();
-  //   }, 10000);
-  // }
-  // checkTweets()
+  function checkTweets() {
+    newCount = streams.home.length;
+    if (newCount >= currentCount) {
+      loadTweet(false)
+      if (filter !== ""){
+        filterTweets(filter)
+      }
+    }
+    setTimeout(function() {
+      checkTweets();
+    }, 10000);
+  }
+  checkTweets()
   // ------------------------------------------------------------------------------------------------
 
   // ------------------------------------------------------------------------------------------------
