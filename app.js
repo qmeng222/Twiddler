@@ -16,15 +16,16 @@ $(document).ready(function(){
   var index = streams.home.length - 1;
   while(index >= 0){
     var tweet = streams.home[index];
-    var img = $('<img class="profile-photo" src="assets/img/' + tweet.user + '.png"> </img>');
+    var img = $('<img class="profile-photo" src="assets/img/'+ tweet.user + '.png"> </img>');
     var $tweet = $('<div class="tweet"></div>');
     var $message = $('<div class="message">' + tweet.message + '</div>');
     var $username = $('<div class="username">' + '@' + tweet.user + '</div>');
-    var $timestamp = $('<div class="timestamp">' + tweet.created_at + '</div>');
+    var $timestamp = $('<div class="timestamp">' + jQuery.timeago(new Date(tweet.created_at)) + '</div>');
     var $comment = $('<img class="comment" src="assets/icons/placeholder.png"></img>');
     var $retweet = $('<img class="retweet" src="assets/icons/placeholder.png"></img>');
     var $like = $('<img class="like" src="assets/icons/placeholder.png"></img>');
     var $share = $('<img class="share" src="assets/icons/placeholder.png"></img>');
+
 
     // Append new HTML elements to the DOM
     img.appendTo($tweet);
