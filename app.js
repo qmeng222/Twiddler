@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  jQuery("time.timeago").timeago();
   var $app = $('#app');
 
   // App Title
@@ -56,24 +57,16 @@ $(document).ready(function(){
     $message.appendTo($tweet);
     // Time
     var $timestamp = $('<div class="timestamp"></div>');
-    var timestamp = tweet.created_at;
+    var timestamp = jQuery.timeago(tweet.created_at);
     $timestamp.appendTo($tweet);
     // Icons
-    var $comment = $('<img class="comment" src="assets/icons/placeholder.png"></img>');
-    var $icon_1 = $('<img class="icon" src="assets/icons/placeholder.png"></img>');
-    $icon_1.appendTo($comment);
+    var $comment = $('<i class="fas fa-comment"></i>');
     $comment.appendTo($tweet);
-    var $retweet = $('<img class="retweet" src="assets/icons/placeholder.png"></img>');
-    var $icon_2 = $('<img class="icon" src="assets/icons/placeholder.png"></img>');
-    $icon_2.appendTo($retweet);
+    var $retweet = $('<i class="fas fa-retweet"></i>');
     $retweet.appendTo($tweet);
-    var $like = $('<img class="like" src="assets/icons/placeholder.png"></img>');
-    var $icon_3 = $('<img class="icon" src="assets/icons/placeholder.png"></img>');
-    $icon_3.appendTo($like);
+    var $like = $('<i class="fas fa-heart"></i>');
     $like.appendTo($tweet);
-    var $share = $('<img class="share" src="assets/icons/placeholder.png"></img>');
-    var $icon_4 = $('<img class="icon" src="assets/icons/placeholder.png"></img>');
-    $icon_4.appendTo($share);
+    var $share = $('<i class="fas fa-share"></i>');
     $share.appendTo($tweet);
 
     $username.text(username);
