@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  // Add timeago liab
+  jQuery("time.timeago").timeago();
+
   // Select the div with the ID #app
   var $app = $('#app');
   //$app.html('');
@@ -22,12 +25,43 @@ $(document).ready(function(){
     while(index >= 0){
       // Get the length of all the tweet array
       var tweet = streams.home[index];
+
       // Create a $tweet element with class of "tweet"
       var $tweet = $('<div class="tweet"></div>');
+
+
+      // Contain a child with classes
+      var $message = $('<div class="message"></div>');
+      var $username = $('<div class="username"></div>');
+      var $profilePhoto = $('<img class="profile-photo"></img>');
+      var $timestamp = $('<div class="timestamp">' + jQuery.timeago(tweet.created_at) + '</div>');
+      var $comment = $('<img class="comment" src=assets/icons/placeholder.png></img>');
+      var $retweet = $('<img class="retweet" src=assets/icons/placeholder.png></img>');
+      var $like = $('<img class="like" src=assets/icons/placeholder.png></img>');
+      var $share = $('<img class="share" src=assets/icons/placeholder.png></img>');
+
+
       // Set the format of how to dispaly tweet, with username and message
-      $tweet.text('@' + tweet.user + ': ' + tweet.message);
+     // $tweet.text('@' + username+ ': ' + tweet.message);
+      // Contain the messgae in the child with a class of "message"/"username"
+      $message.text(tweet.message);
+      // Contain the username prefix by @, in the child with a class of "username"
+      $username.text('@' + tweet.user);
+
+
+      // Append childs to tweet
+      $message.appendTo($tweet);
+      $username.appendTo($tweet);
+      $profilePhoto.appendTo($tweet);
+      $timestamp.appendTo($tweet);
+      $comment.appendTo($tweet);
+      $retweet.appendTo($tweet);
+      $like.appendTo($tweet);
+      $share.appendTo($tweet);
+
       // Append tweet to feed
       $tweet.appendTo($feed);
+
       // Displays Tweets in reverse chronological order (newest first)
       index -= 1;
     }
