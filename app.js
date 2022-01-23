@@ -3,10 +3,6 @@ $(document).ready(function(){
   var $app = $('#app');
   $app.html('');
 
-  // create twiddler title jQuery var and add to app variable
-  var $title = $('<h1>Twiddler</h1>');
-  $title.appendTo($app);
-
   // create post variables
   var $createPost = $('<div id="tweet-form"></div>');
   var $form = $('<form target="" id="new-tweet-form"></form>');
@@ -19,19 +15,31 @@ $(document).ready(function(){
   // add all create post variables to their respective jQuery variables
   $form.append($yourUser, $userLabel, $tweetContent, $tweetContentLabel, $postButton);
   $form.appendTo($createPost);
-  $createPost.appendTo($app);
+  $createPost.appendTo($sideBar);
 
   // create update feed button in a container (to make formatting easier) and add it to app
   var $updateFeed = $('<button class="btn" id="update-feed">Update Feed</button>');
   var $btnSpan = $('<span id="btn-span"></span');
   $btnSpan.append($updateFeed);
-  $btnSpan.appendTo($app);
+  $btnSpan.appendTo($sideBar);
 
   // create contianers for main, sidebar, and feed
   var $main = $('<div id="main"></div>')
-  var $sideBar = $('<div id="sidebar"><strong>Friends List</strong></div>');
+  var $sideBar = $('<div id="sidebar"></div>');
   var $feed = $('<div id="feed"></div>')
+
+  // create h1 for title
+  var $title = $('<h1>Twiddler</h1>');
+
+  // append title, btnSpan(update feed), and create post to sideBar
+  $title.appendTo($sideBar);
+  $btnSpan.appendTo($sideBar);
+  $createPost.appendTo($sideBar);
+
+  // append sidebar and feed to main
   $main.append($sideBar, $feed);
+
+  // append main to app(window)
   $main.appendTo($app);
 
   // create tweet function
@@ -116,7 +124,9 @@ $(document).ready(function(){
     $liUser.text(user);
     $liUser.appendTo($friendsList);
   }
-  // add friendsList to the sidebar container
+  // add f2 for friendslist title and friendsList to the sidebar container
+  $friendsListTitle = $('<h2>Friends List</h2>')
+  $($friendsListTitle).appendTo($sideBar);
   $friendsList.appendTo($sideBar);
 
   // helper function for username click
