@@ -115,6 +115,15 @@ providing a space for you to apply styles to your app's outermost HTML element -
     background-color: #5BC0BE;
   }
 
+  /* dropdown for friends list, needs more work */
+  /* .dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + .25rem);
+  } */
   #friends-list {
     display: flex;
     box-sizing: border-box;

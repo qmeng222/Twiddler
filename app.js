@@ -126,8 +126,12 @@ $(document).ready(function(){
   }
   // add f2 for friendslist title and friendsList to the sidebar container
   $friendsListTitle = $('<h2>Friends List</h2>')
-  $($friendsListTitle).appendTo($sideBar);
+  // $friendsDropdown = $('<div class="dropdown"></div');
+  // $dropdownMenu = $('<div class="dropdown-menu">dropdown content</div>');
+  $friendsListTitle.appendTo($sideBar);
+  // $dropdownMenu.appendTo($friendsDropdown);
   $friendsList.appendTo($sideBar);
+  // $friendsDropdown.appendTo($sideBar);
 
   // helper function for username click
   var handleUsernameClick = function() {
