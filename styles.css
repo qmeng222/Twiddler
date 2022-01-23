@@ -8,47 +8,71 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
   #app {
-    display: flex;
-    flex-direction: column;
     background-color: #121212;
     color: lightgray;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
   }
 
-  h1 {
+  #main {
     display: flex;
-    justify-content: center;
     margin: auto;
-    font-weight: 100;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+  }
+
+  /* Sidebar Styles */
+  #sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    align-items: flex-start;
+    justify-content: flex-start;
     opacity: 70%;
+  }
+
+  h1 {
+    font-weight: 100;
+    align-self: center;
+    border-bottom: 1px solid #5BC0BE;
+    border-width: 100%;
+    opacity: 90%;
+  }
+
+  h2 {
+    font-weight: 100;;
+    align-self: center;;
+    opacity: 70%;
+    margin-bottom: 0%;
+    border-bottom: 1px solid #5BC0BE;
+    border-width: 100%;
   }
 
   #tweet-form {
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
-    align-self: center;
-    width: 40%;
+    align-self: flex-start;
+    width: 100%;
     border-radius: .12em;
-    border-top: 1px solid #5BC0BE;
     padding-top: 20px;
   }
 
   #new-tweet-form {
-    display: flex;
-    flex-direction: column;
+    align-self: center;
+    width: 95%;
   }
 
   #username {
     margin-bottom: 2px;
-    width: 50%;
+    width: 100%;
     background-color: #d3d3d3;
     font-family: 'Roboto', sans-serif;
   }
 
   #message {
-    width: 99.5%;
+    width: 100%;
     font-family: 'Roboto', sans-serif;
   }
 
@@ -61,15 +85,12 @@ providing a space for you to apply styles to your app's outermost HTML element -
   }
 
   #tweet-form .btn {
-    align-self: flex-end;
+    align-self: flex-start;
+    width: 100%;
   }
 
   #btn-span {
-    display: flex;
-    justify-content: right;
-    width: 50rem;
-    margin: auto;
-    padding-top: 30px;
+    align-self: center;
   }
 
   .btn {
@@ -88,49 +109,41 @@ providing a space for you to apply styles to your app's outermost HTML element -
     text-align:center;
     transition: all 0.2s;
   }
+
   .btn:hover{
     color: #0B132B;
     background-color: #5BC0BE;
-    }
-
-  #sidebar {
-    display: flex;
-    flex: 0 1 10px;
-    align-items: center;
-    flex-direction: column;
-    margin-right: 25px;
-    opacity: 70%;
-  }
-
-  #main {
-    display: flex;
-    margin: auto;
-    align-content: center;
-    max-width: 75rem;
   }
 
   #friends-list {
     display: flex;
+    box-sizing: border-box;
     flex-direction: column;
-    align-items: flex-start;
-    border-top: 1px solid #5BC0BE;
+    align-items: center;
+    align-self: center;
+    width: 100%;
+    list-style: none;
     line-height: 1.6;
-    margin: auto;
-    margin-top: 5px;
+    font-size: .8em;
+    padding: 0%;
+    padding-top: 5%;
   }
+
   #friends-list .friend:hover {
     color: #5BC0BE;
     font-style: italic;
   }
 
+  /* Feed Styles */
   #feed {
     display: flex;
     flex: 1;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     width: 75%;
     margin: auto;
+    padding-top: 5%;
   }
 
   #tweet-header {
@@ -149,23 +162,25 @@ providing a space for you to apply styles to your app's outermost HTML element -
     display: flex;
     justify-content: space-around;
   }
+
   .tweet {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    width: 630px;
+    width: 90%;
     border-bottom: 1px solid #5BC0BE;
     background-color: #121212;
     opacity: 70%;
-    margin: 20px;
     padding: 20px;
-    border-radius: .12em;
-    margin-left: 0;
-    padding-left: 0;
+    border-radius: .20em;
   }
-  .tweet:hover {
+
+  .tweet:hover, .tweet:active {
     opacity: 100%;
+    box-shadow: 0 0 5px #5BC0BE;
+    transition: all 0.2s;
   }
+
   .profile-photo {
     width: 50px;
     height: 50px;
@@ -177,6 +192,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
   }
 
   .username:hover {
+    opacity: 100%;
     color: #5BC0BE;
     font-style: italic;
   }
@@ -200,7 +216,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
     text-align: right;
   }
 
-  @media (max-width: 767.98px) {
+  @media (max-width: 840px) {
     #main {
       flex-direction: column;
       margin: auto;
