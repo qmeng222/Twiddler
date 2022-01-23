@@ -54,3 +54,6 @@ body {
 #icon:hover {
   color: rgb(51,102,187);
 }
+.time {
+  font-size: 8px;
+}
