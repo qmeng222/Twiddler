@@ -6,7 +6,7 @@ $(document).ready(function(){
   $app.html('');
   $title.appendTo($app);
   $title.on("click", function(event) {
-    console.log(event);
+    //console.log(event);
     alert('The title of this page is: ' + event.target.innerText);
 });
 
@@ -27,6 +27,36 @@ $(document).ready(function(){
     var $retweet = $('<i class="retweet fas fa-retweet"></i>');
     var $like = $('<i class="like far fa-heart"></i>');
     var $share = $('<i class="share far fa-share-square"></i>');
+    //var $text = $('<div class="text"></div>');
+
+    //var $text = $('<button id="username">' + tweet.user + '</button>');
+
+    // function renderUser(user) {
+    //   // populate a feed with only the users tweets
+    //   // if a username is referenced
+    //   // use that username to populate only that users feed
+    //   var i = streams.users.length - 1;
+
+    //   while(i >= 0){
+    //     var userX = streams.users[index];
+    //     //streams.users
+    //     console.log(userX=== 'shawndrost');
+
+    //     if (streams.users === 'shawndrost') {
+    //       streams.users.shawndrost;
+    //     }
+    //   }
+
+    // };
+
+    $username.click("#username", function (event) {
+      // if the username is clicked
+      // render a feed with only that usernames tweets
+      $feed.empty();
+      renderUser();
+
+
+    });
 
 
     // Append new HTML elements to the DOM
@@ -39,6 +69,7 @@ $(document).ready(function(){
     $like.appendTo($tweet);
     $share.appendTo($tweet);
     $tweet.appendTo($feed);// app
+    //$text.appendTo($username);
     index -= 1;
   } // link tweets to log 11
 };
@@ -50,6 +81,8 @@ $button.click("#update-feed", function (event) {
   renderFeed();
 
 });
+
+
 
 
   var $feed = $('<div id="feed"></div>');

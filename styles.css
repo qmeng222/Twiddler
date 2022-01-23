@@ -23,8 +23,20 @@ providing a space for you to apply styles to your app's outermost HTML element -
   text-transform: uppercase;
  }
 
+ #username {
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: .5px;
+  margin: 0;
+  text-transform: uppercase;
+ }
+
  .tweet {
   color: yellow;
+  /* font-family: 'Mochiy Pop P One', sans-serif; */
  } /* class */
 
  #update-feed {
