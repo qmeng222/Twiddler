@@ -11,3 +11,15 @@ providing a space for you to apply styles to your app's outermost HTML element -
   background-color: green;
   color: yellow;
 }
+
+.btn-styled {
+  font-size: 14px;
+  margin: 8px;
+  padding: 0 10px;
+  line-height: 2;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+}
