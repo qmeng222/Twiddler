@@ -1,7 +1,12 @@
+@font-face {
+  font-family: 'Russo One', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap')
+}
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  /*font-family: "Russo One", sans-serif;*/
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
@@ -10,4 +15,12 @@ providing a space for you to apply styles to your app's outermost HTML element -
 #app {
   background-color: green;
   color: yellow;
+}
+
+.icon:hover {
+  color: orange;
+}
+
+.username {
+  background-color: black;
 }
