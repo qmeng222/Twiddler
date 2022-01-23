@@ -12,7 +12,7 @@ $(document).ready(function(){
   }
 
   function userClick(user) {
-    // console.log('inside here');
+    // console.log(user);
     $('#update-feed').text('Back');
     render(user.data);
   }
@@ -47,13 +47,16 @@ $(document).ready(function(){
       var $like = $('<i id="icon" class="far fa-heart"></i>');
       var $share = $('<i id="icon" class="far fa-share-square"></i>');
       var $time = $('<div class="time">' + jQuery.timeago(tweet.created_at) + '</div>');
+      var $profile = $('<img class="pfp" src="' + tweet.profilePhotoURL + '">');
       $msg.text(tweet.message);
       $user.text('@' + tweet.user);
+      console.log(tweet);
       // $tweet.text('@' + tweet.user + ': ' + tweet.message);
       $tweet.appendTo($feed);
+      $profile.appendTo($tweet);
       $user.appendTo($tweet);
-      $msg.appendTo($tweet);
       $time.appendTo($tweet);
+      $msg.appendTo($tweet);
       $comment.appendTo($tweet);
       $retweet.appendTo($tweet);
       $like.appendTo($tweet);

@@ -16,8 +16,12 @@ body {
 }
 
 #update-feed {
+  width: 80px;
+  margin-left: 200px;
+  margin-top: 10px;
+  position: fixed;
   background-color: rgba(228, 225, 225, 0.726);
-  /* color: white; */
+  font-family: 'Oleo Script', cursive;
 }
 
 #title {
@@ -38,10 +42,13 @@ body {
   width: 400px;
   background-color: darkgrey;
   border-radius: 30px;
+  border: 1px solid white;
   padding: 15px;
   margin: 10px;
 }
 .user {
+  float: left;
+  font-weight: bold;
   color:  rgb(51,102,187);
 }
 .user:hover {
@@ -55,5 +62,17 @@ body {
   color: rgb(51,102,187);
 }
 .time {
+  /* width: 35px; */
+  float: right;
   font-size: 8px;
+  font-style: italic;
+}
+.msg {
+  padding-top: 35px;
+  text-align: left;
+  font-family: 'Oleo Script', cursive;
+}
+.pfp {
+  float: left;
+  width: 30px;
 }
