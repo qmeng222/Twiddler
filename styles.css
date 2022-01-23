@@ -1,13 +1,192 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
-  min-height: 100vh;
-  margin: 0;
+  height: 100vh;
+  margin: auto;
+  max-width: 900px;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  display: flex;
+  width: 100%;
+  background-color: white;
+  color: black;
+  flex-direction: row;
 }
+
+.left {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 25%;
+  height: 300px;
+  font-family: 'Mochiy Pop P One', sans-serif;
+  align-items: center;
+
+}
+
+.page-header {
+  text-align: center;
+  font-size: 40px;
+  height: 85px;
+}
+
+h1 {
+  margin: auto;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #1DA1F2;
+  border: solid;
+  border-radius: 15px;
+}
+
+button {
+  background-color: white;
+  font-size: 15px;
+  text-align: center;
+  margin: 5px;
+  border-radius: 15px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.friends-list {
+  margin: 8px 10px;
+}
+
+h4 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 0 0 10px;
+}
+
+li {
+  margin-left: 11px;
+  font-size: 13px;
+  font-weight: lighter;
+  margin: 7px 0;
+}
+
+li:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 75%;
+  overflow: scroll;
+}
+
+.tweet {
+  display: flex;
+  outline: solid;
+  margin: 1% 1.5%;
+  height: 100px;
+  border-style: solid;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.profile-photo {
+  flex-basis: 12%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 88%;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.username {
+  flex-basis: 10%;
+  color: #1DA1F2;
+}
+
+.username:hover {
+  cursor: pointer;
+}
+
+.timestamp {
+  display: flex;
+}
+
+.message {
+  display: flex;
+  flex-basis: 70%;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  flex-basis: 10%;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+i:hover {
+  color: #1DA1F2;
+  cursor: pointer;
+}
+
