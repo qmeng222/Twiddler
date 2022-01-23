@@ -1,10 +1,9 @@
 $(document).ready(function(){
-  // Add timeago liab
+  // Add timeago liabrary
   jQuery("time.timeago").timeago();
 
   // Select the div with the ID #app
   var $app = $('#app');
-  //$app.html('');
 
   // Create new html elements
   var $title = $('<h1>Twiddler</h1>');
@@ -14,26 +13,31 @@ $(document).ready(function(){
 
   // Append elements to the DOM, nested inside of the #app div
   $title.appendTo($app);
-  $feed.appendTo($app);
   $updateFeed.appendTo($app);
+  $feed.appendTo($app);
 
 
   // Create event handler
+  var handleUsernameClick = function(user) {
+    if ($updateFeed.text() === 'Update Feed') {
+      $updateFeed.text('Back');
+    }
+  };
+
+
   var render = function () {
     var index = streams.home.length - 1;
 
     while(index >= 0){
       // Get the length of all the tweet array
       var tweet = streams.home[index];
-
+      var username = tweet.user;
       // Create a $tweet element with class of "tweet"
       var $tweet = $('<div class="tweet"></div>');
-
-
       // Contain a child with classes
       var $message = $('<div class="message"></div>');
       var $username = $('<div class="username"></div>');
-      var $profilePhoto = $('<img class="profile-photo"></img>');
+      var $profilePhoto = $('<img class="profile-photo" src=assets/img/' + tweet.user + '.png></img>');
       var $timestamp = $('<div class="timestamp">' + jQuery.timeago(tweet.created_at) + '</div>');
       var $comment = $('<i class="fas fa-comment comment"</i>');
       var $retweet = $('<i class="fas fa-retweet retweet"></i>');
@@ -65,8 +69,47 @@ $(document).ready(function(){
       // Displays Tweets in reverse chronological order (newest first)
       index -= 1;
     }
-  };
-  render();
+
+    $(".username").on('click', function (event) {
+      $feed.empty();
+
+      var userTweet = streams.users[username];
+      var userIndex = userTweet.length - 1;
+
+      while (userIndex >= 0) {
+        var user = event.target.innerText.slice(1);
+        var userMessage = userTweet[userIndex]["message"];
+        var userTime = userTweet[userIndex]["created_at"];
+
+        var $tweet = $('<div class="tweet"></div>');
+        var $message = $('<div class="message"></div>');
+        var $username = $('<div class="username"></div>');
+        var $profilePhoto = $('<img class="profile-photo" src=assets/img/' + user + '.png></img>');
+        var $timestamp = $('<div class="timestamp">' + jQuery.timeago(userTime) + '</div>');
+        var $comment = $('<i class="fas fa-comment comment"</i>');
+        var $retweet = $('<i class="fas fa-retweet retweet"></i>');
+        var $like = $('<i class="fas fa-heart like"></i>');
+        var $share = $('<i class="fas fa-share share"></i>');
+
+        $message.text(userMessage);
+        $username.text('@' + user);
+
+        $message.appendTo($tweet);
+        $username.appendTo($tweet);
+        $profilePhoto.appendTo($tweet);
+        $timestamp.appendTo($tweet);
+        $comment.appendTo($tweet);
+        $retweet.appendTo($tweet);
+        $like.appendTo($tweet);
+        $share.appendTo($tweet);
+        $tweet.appendTo($feed);
+
+        userIndex -= 1;
+      }
+      handleUsernameClick();
+    });
+
+  }; render();
 
 
 
@@ -81,7 +124,9 @@ $(document).ready(function(){
     $feed.empty();
     // invoke render function to generate tweet
     render();
+    if ($updateFeed.text() === 'Back') {
+      $updateFeed.text('Update Feed');
+    }
   });
-
 
 });
