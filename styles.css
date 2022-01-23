@@ -17,8 +17,8 @@ body {
 
 #update-feed {
   width: 80px;
-  margin-left: 200px;
-  margin-top: 10px;
+  height: 25px;
+  right: 20%;
   position: fixed;
   background-color: rgba(228, 225, 225, 0.726);
   font-family: 'Oleo Script', cursive;
@@ -37,6 +37,30 @@ body {
   width: 450px;
   padding: 2px;
   margin: auto;
+}
+.indivFr {
+  text-decoration: none;
+  font-weight: bolder;
+  color: purple;
+  margin: 3px;
+}
+#friends {
+  text-align: center;
+  text-decoration: underline;
+  color: blue;
+  background-color: sandybrown;
+  border-radius: 30px;
+  width: 150px;
+  height: 200px;
+  margin-top: 50px;
+  margin-left: 15px;
+  float: left;
+  position: absolute;
+}
+#myTweet {
+  width: 150px;
+  margin-left: 15px;
+  float: left;
 }
 .tweet {
   width: 400px;

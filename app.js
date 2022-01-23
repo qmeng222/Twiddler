@@ -5,27 +5,62 @@ $(document).ready(function(){
   var $title = $('<h1 id="title">Twiddler</h1>');
   var $updatefeed = $('<button id="update-feed">Update Feed</button>');
   var $feed = $('<div id="feed"></div>');
+  var $myTweet = $('<input type="text" id="myTweet" value="Enter Tweet...">');
+  var $friends = $('<div id="friends">Friends List</div>');
+  var $send = $('<button id="send">Send Tweet</button>');
+  var list = [];
 
   function update() {
     $('#update-feed').text('Update Feed');
     render();
   }
+  function chirp() {
+    if (!streams.users.user123456) {
+      streams.users.user123456 = [];
+    }
+    var text = document.getElementById("myTweet").value;
+    document.getElementById("myTweet").value = '';
+    // dummy user
+    var birbChirp = {
+      user: 'user123456',
+      message: text,
+      created_at: new Date(),
+      profilePhotoURL: './assets/img/douglascalhoun.png'
+    };
+    streams.home.push(birbChirp);
+    streams.users.user123456.push(birbChirp);
+    render();
+  }
 
   function userClick(user) {
-    // console.log(user);
     $('#update-feed').text('Back');
+    var $fl = $('<div class="indivFr">' + user.data + '</div>');
+    var here = false;
+    for (var i = 0; i < list.length; i++) {
+      if (list[i] === user.data) {
+        here = true;
+        break;
+      }
+    }
+    if (!here) {
+      $fl.appendTo($friends);
+      list.push(user.data);
+    }
     render(user.data);
   }
 
   function clickAdv($this) {
-    // console.log(this);
     $(this).toggleClass("far fas");
   }
 
   $updatefeed.on("click", update);
+  $send.on("click", chirp)
 
   $title.appendTo($app);
   $updatefeed.appendTo($app);
+  $friends.appendTo($app);
+  $myTweet.appendTo($app);
+  $send.appendTo($app);
   $feed.appendTo($app);
 
   var render = function(user) {
@@ -50,7 +85,6 @@ $(document).ready(function(){
       var $profile = $('<img class="pfp" src="' + tweet.profilePhotoURL + '">');
       $msg.text(tweet.message);
       $user.text('@' + tweet.user);
-      console.log(tweet);
       // $tweet.text('@' + tweet.user + ': ' + tweet.message);
       $tweet.appendTo($feed);
       $profile.appendTo($tweet);
