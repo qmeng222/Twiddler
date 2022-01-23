@@ -14,9 +14,11 @@ $(document).ready(function(){
 
     var $icons = $('<div></div>');
     var iconClasses = ['comment', 'retweet', 'like', 'share'];
+    var faNames = ['comment', 'retweet', 'heart', 'share']
 
     for (var x = 0; x < iconClasses.length; x++){
-      var $icon = $(`<img src='assets/icons/placeholder.png' class=${iconClasses[x]}></img>`);
+      // var $icon = $(`<img src='assets/icons/placeholder.png' class=${iconClasses[x]}></img>`);
+      var $icon = $(`<i class="fas fa-${faNames[x]} ${iconClasses[x]}"></i>`);
       $icon.appendTo($icons);
     }
     $icons.appendTo($tweet);
@@ -24,7 +26,7 @@ $(document).ready(function(){
     // $tweet.text('@' + tweet.user + ': ' + tweet.message);
     $tweet.appendTo($feed);
 
-    $timestamp.text(tweet.created_at);
+    $timestamp.text(jQuery.timeago(tweet.created_at));
     $timestamp.appendTo($tweet);
 
     $avi.attr('src', tweet.profilePhotoURL);
@@ -55,9 +57,11 @@ $(document).ready(function(){
 
       var $icons = $('<div></div>');
       var iconClasses = ['comment', 'retweet', 'like', 'share'];
+      var faNames = ['comment', 'retweet', 'heart', 'share']
 
       for (var x = 0; x < iconClasses.length; x++){
-        var $icon = $(`<img src='assets/icons/placeholder.png' class=${iconClasses[x]}></img>`);
+        // var $icon = $(`<img src='assets/icons/placeholder.png' class=${iconClasses[x]}></img>`);
+        var $icon = $(`<i class="fas fa-${faNames[x]} ${iconClasses[x]}"></i>`);
         $icon.appendTo($icons);
       }
       $icons.appendTo($tweet);
@@ -65,7 +69,7 @@ $(document).ready(function(){
       // $tweet.text('@' + tweet.user + ': ' + tweet.message);
       $tweet.prependTo($feed);
 
-      $timestamp.text(tweet.created_at);
+      $timestamp.text(jQuery.timeago(tweet.created_at));
       $timestamp.appendTo($tweet);
 
       $avi.attr('src', tweet.profilePhotoURL);
