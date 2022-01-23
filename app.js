@@ -1,16 +1,17 @@
 $(document).ready(function(){
+  // Select already existing elements
   var $app = $('#app');
   $app.html('');
 
+  // Create new HTML elements
   var $title = $('<h1>Twiddler</h1>');
-  $title.appendTo($app);
+  var $feed = $('<div id="feed"></div>');
+  var $updateFeed = $('<button id="update-feed">Update Feed</button>');
+
+  // Create event handler functions
   $title.on("click", function(event) {
-    console.log(event);
     alert('The title of this page is: ' + event.target.innerText);
   });
-
-  var $feed = $('<div id="feed"></div>');
-  $feed.appendTo($app);
 
   var renderFeed = function() {
     $($feed).html('');
@@ -24,13 +25,13 @@ $(document).ready(function(){
     }
   };
 
-  // Posts displayed on the feed when the page is ready
+  // Set event listeners (providing appropriate handlers as input)
   renderFeed();
-
-  // Posts added to the feed when the page is updated
-  var $updateFeed = $('<button id="update-feed">Update Feed</button>');
-  $updateFeed.appendTo($app);
   $updateFeed.on("click", renderFeed);
 
+  // Append new HTML elements to the DOM
+  $title.appendTo($app);
+  $feed.appendTo($app);
+  $updateFeed.appendTo($app);
 
 });
