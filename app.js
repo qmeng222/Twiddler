@@ -35,10 +35,10 @@ $(document).ready(function(){
       var $username = $('<div class="username"></div>');
       var $profilePhoto = $('<img class="profile-photo"></img>');
       var $timestamp = $('<div class="timestamp">' + jQuery.timeago(tweet.created_at) + '</div>');
-      var $comment = $('<img class="comment" src=assets/icons/placeholder.png></img>');
-      var $retweet = $('<img class="retweet" src=assets/icons/placeholder.png></img>');
-      var $like = $('<img class="like" src=assets/icons/placeholder.png></img>');
-      var $share = $('<img class="share" src=assets/icons/placeholder.png></img>');
+      var $comment = $('<i class="fas fa-comment comment"</i>');
+      var $retweet = $('<i class="fas fa-retweet retweet"></i>');
+      var $like = $('<i class="fas fa-heart like"></i>');
+      var $share = $('<i class="fas fa-share share"></i>');
 
 
       // Set the format of how to dispaly tweet, with username and message
