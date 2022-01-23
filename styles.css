@@ -11,47 +11,46 @@ providing a space for you to apply styles to your app's outermost HTML element -
   box-sizing: border-box;
   font-family: 'IBM Plex Mono', monospace;
 }
-
+/* Headings----------------*/
 h1, h2 {
   margin: 0 auto;
   padding: 10px;
   text-align: center;
-  background-color: rgb(105,105,105);
+  background-color: rgb(32, 33, 36);
+  color: rgb(255, 140, 0);
 }
-h3 {
-  font-weight: 700;
-}
-ul{
-  list-style-type: none;
-  border: 1px solid black;
-}
-.small-panel {
-  vertical-align: top;
-  background-color: rgb(105,105,105);
-  display: inline-flex;
-  flex-direction: column;
-  align-content: flex-start;
-  width: 20%;
-  height: 100vh;
-}
+/* Main Feed ----------------*/
 .large-panel {
   vertical-align: top;
-  background-color: rgb(192,192,192);
+  background-color: rgb(32, 33, 36);
   display: inline-block;
   width: 60%;
   height: 100vh;
   overflow: scroll;
 }
-.icon{
-  margin: 0px 10px;
+::-webkit-scrollbar,
+::-webkit-scrollbar-corner {
+  background: rgb(32, 33, 36);
 }
-.icon:hover {
-  color:darkorange;
+/* Side Panels ----------------*/
+.small-panel {
+  vertical-align: top;
+  background-color: rgb(32, 33, 36);
+  display: inline-flex;
+  flex-direction: column;
+  align-content: flex-start;
+  width: 20%;
+  height: 100vh;
+  text-align: center;
 }
+/* Tweets ----------------*/
 .tweet {
   margin: 10px;
-  border: 1px solid darkgray;
-  padding-right: 10px;
+  background-color: rgb(44, 46, 50);
+  border: 1px solid rgb(169, 169, 169);
+  border-radius: 15px;
+  padding: 10px;
+  color: 	rgb(255, 255, 255);
 }
 .profile_photo {
   height: 20px;
@@ -67,12 +66,13 @@ ul{
   font-size: 15px;
   margin-bottom: 20px;
 }
-.btn {
-  border-radius: 15px;
-  margin: 0 auto;
+.icon:hover,
+.username:hover {
+  color:rgb(255, 140, 0);
+  cursor: pointer;
 }
-.btn:hover {
-  color: darkorange;
+.icon{
+  margin: 0px 10px;
 }
 .timestamp {
   font-style: italic;
@@ -95,4 +95,27 @@ ul{
   float:right;
   font-size: 10px;
 }
-
+/* New Tweet and Menu Panel ----------------*/
+h3 {
+  font-weight: 700;
+  color: rgb(169,169,169)
+}
+.btn {
+  border-radius: 15px;
+  margin: 0 auto;
+}
+.btn:hover {
+  color: rgb(255, 140, 0);
+}
+form {
+  color: rgb(169,169,169);
+}
+textarea {
+  resize: none;
+}
+/* Friends List ----------------*/
+ul{
+  list-style-type: none;
+  padding-right: 40px;
+  color: rgb(169,169,169);
+}

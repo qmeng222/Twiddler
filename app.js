@@ -12,9 +12,9 @@ $(document).ready(function(){
   var $newTweet = $('<form id="new-tweet-form"></form>');
   $newTweet.append($('<h3>Submit New Tweet</h3>'));
   $newTweet.append('<label for="form-username">Username:</label><br>');
-  $newTweet.append('<input type="text" id="form-username" name="username" value="@username"><br>');
+  $newTweet.append('<input type="text" id="form-username" name="username" placeholder="@username"><br>');
   $newTweet.append('<label for="form-message">Message:</label><br>');
-  $newTweet.append('<input type="textarea" id="form-message" name="message" value="Message"><br><br>');
+  $newTweet.append('<input type="text" id="form-message" name="message" rows="6" placeholder="Message">');
   $newTweet.append('<input class="btn" type="submit" value="Submit">');
 
   //Create event handler functions
