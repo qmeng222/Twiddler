@@ -5,10 +5,10 @@ $(document).ready(function(){
   var $title = $('<h1 id="title">Twiddler</h1>');
   var $updatefeed = $('<button id="update-feed">Update Feed</button>');
   var $feed = $('<div id="feed"></div>');
-  var $myTweet = $('<input type="text" id="myTweet" value="Enter Tweet...">');
-  var $friends = $('<div id="friends">Friends List</div>');
+  var $myTweet = $('<input type="text" id="new-tweet-form" value="Enter Tweet...">');
+  var $friends = $('<ul id="friends-list">Friends List</ul>');
   var $send = $('<button id="send">Send Tweet</button>');
-  var list = [];
+  var list = ['shawndrost', 'douglascalhoun', 'mracus', 'sharksforcheap'];
 
   function update() {
     $('#update-feed').text('Update Feed');
@@ -18,8 +18,8 @@ $(document).ready(function(){
     if (!streams.users.user123456) {
       streams.users.user123456 = [];
     }
-    var text = document.getElementById("myTweet").value;
-    document.getElementById("myTweet").value = '';
+    var text = document.getElementById("new-tweet-form").value;
+    document.getElementById("new-tweet-form").value = '';
     // dummy user
     var birbChirp = {
       user: 'user123456',
@@ -32,9 +32,16 @@ $(document).ready(function(){
     render();
   }
 
+  function renderFriends() {
+    for (var i = 0; i < list.length; i++) {
+      var $fl = $('<li class="friend">@' + list[i] + '</li>');
+      $fl.appendTo($friends);
+    }
+  }
+
   function userClick(user) {
     $('#update-feed').text('Back');
-    var $fl = $('<div class="indivFr">' + user.data + '</div>');
+    var $fl = $('<li class="friend">@' + user.data + '</li>');
     var here = false;
     for (var i = 0; i < list.length; i++) {
       if (list[i] === user.data) {
@@ -75,22 +82,22 @@ $(document).ready(function(){
     while(index >= 0){
       var tweet = data[index];
       var $tweet = $('<div class="tweet"></div>');
-      var $user = $('<div class="user"></div>');
-      var $msg = $('<div class="msg"></div>');
-      var $comment = $('<i id="icon" class="far fa-comments"></i>');
-      var $retweet = $('<i id="icon" class="fas fa-retweet"></i>');
-      var $like = $('<i id="icon" class="far fa-heart"></i>');
-      var $share = $('<i id="icon" class="far fa-share-square"></i>');
-      var $time = $('<div class="time">' + jQuery.timeago(tweet.created_at) + '</div>');
-      var $profile = $('<img class="pfp" src="' + tweet.profilePhotoURL + '">');
-      $msg.text(tweet.message);
-      $user.text('@' + tweet.user);
+      var $user = $('<div class="username">@' + tweet.user + '</div>');
+      var $message = $('<div class="message"></div>');
+      var $comment = $('<i id="icon" class="comment far fa-comments"></i>');
+      var $retweet = $('<i id="icon" class="retweet fas fa-retweet"></i>');
+      var $like = $('<i id="icon" class="like far fa-heart"></i>');
+      var $share = $('<i id="icon" class="share far fa-share-square"></i>');
+      var $time = $('<div class="timestamp">' + jQuery.timeago(tweet.created_at) + '</div>');
+      var $profile = $('<img class="profile-photo" src="' + tweet.profilePhotoURL + '">');
+      $message.text(tweet.message);
+      // $user.text('@' + tweet.user);
       // $tweet.text('@' + tweet.user + ': ' + tweet.message);
       $tweet.appendTo($feed);
       $profile.appendTo($tweet);
       $user.appendTo($tweet);
       $time.appendTo($tweet);
-      $msg.appendTo($tweet);
+      $message.appendTo($tweet);
       $comment.appendTo($tweet);
       $retweet.appendTo($tweet);
       $like.appendTo($tweet);
@@ -102,5 +109,7 @@ $(document).ready(function(){
       index -= 1;
     }
   }
+  renderFriends();
   render();
+  window.isItBeautifulYet = true;
 });

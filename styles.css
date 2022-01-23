@@ -38,19 +38,20 @@ body {
   padding: 2px;
   margin: auto;
 }
-.indivFr {
+.friend {
   text-decoration: none;
   font-weight: bolder;
   color: purple;
   margin: 3px;
+  /* text-align: left; */
 }
-#friends {
-  text-align: center;
+#friends-list {
+  text-align: left;
   text-decoration: underline;
   color: blue;
   background-color: sandybrown;
   border-radius: 30px;
-  width: 150px;
+  width: 135px;
   height: 200px;
   margin-top: 50px;
   margin-left: 15px;
@@ -70,12 +71,12 @@ body {
   padding: 15px;
   margin: 10px;
 }
-.user {
+.username {
   float: left;
   font-weight: bold;
   color:  rgb(51,102,187);
 }
-.user:hover {
+.username:hover {
   text-decoration: underline;
 }
 #icon {
@@ -85,18 +86,18 @@ body {
 #icon:hover {
   color: rgb(51,102,187);
 }
-.time {
+.timestamp {
   /* width: 35px; */
   float: right;
   font-size: 8px;
   font-style: italic;
 }
-.msg {
+.message {
   padding-top: 35px;
   text-align: left;
   font-family: 'Oleo Script', cursive;
 }
-.pfp {
+.profile-photo {
   float: left;
   width: 30px;
 }
