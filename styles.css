@@ -1,13 +1,102 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
-  margin: 0;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  background-color: #EFDAD7;
 }
 
-/* Continue building out the CSS styling for your Twiddler app below! We got you started by
-providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
+h1 {
+  text-align: center;
+  color: #694E4E;
+  font-family: 'Oswald', sans-serif;
+  font-size: 50pt;
+  padding-top: 50px;
 
-#app {
-  background-color: green;
-  color: yellow;
 }
+
+#feed {
+  padding-top: 160px;
+}
+
+.updatebutton {
+  /* display: inline-block; */
+  border: #694E4E;
+  color: #694E4E;
+  size: 30px;
+  /* margin: 160px; */
+  position: relative;
+  top: 250px;
+  left: 10%;
+}
+
+.updatebutton:hover {
+  background-color: #886F6F;
+  color: azure;
+}
+
+
+
+.wrapper {
+  border-bottom: 3px solid #886F6F;
+  padding-left: 45%;
+  padding-right: 100%;
+
+  background: -webkit-linear-gradient(#C1A3A3, #EFDAD7);
+  background:    -moz-linear-gradient(#C1A3A3, #EFDAD7);
+  background:         linear-gradient(#C1A3A3, #EFDAD7);
+  position: fixed;
+  height: 150px;
+}
+
+.profile-photo {
+  float: left;
+  width: 80px;
+}
+
+.content {
+  display: inline-block;
+  text-align: left;
+  width: 400px;
+
+}
+
+.username {
+  font-weight: 800;
+}
+
+.message, .username{
+  padding: 5px;
+}
+
+.message {
+  margin-bottom: 0;
+}
+
+.timestamp, .icon {
+  display: block;
+  text-align: right;
+  font-style: italic;
+  color: #a85656;
+}
+
+.comment, .retweet, .like, .share{
+  display: inline-block;
+  padding: 5px;
+  font-size: 1.5rem;
+}
+
+.comment:hover, .retweet:hover, .like:hover, .share:hover{
+  color: brown;
+}
+
+.tweet {
+  border-radius: 10px;
+  background-color: #EDEDED;
+  padding: 5px;
+  text-align: center;
+  width: 30%;
+  margin: auto;
+  margin-top: 10px;
+  border: solid 2px #C1A3A3;
+}
+
