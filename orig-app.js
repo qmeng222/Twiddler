@@ -16,15 +16,18 @@ $(document).ready(function(){
   var $subtitle = $('<h4>"Personal remarks are rude?" - Mad Hatter, \'Alice in Wonderland\'</h4>');
   var $updateButton = $('<button id="update-feed">Update Feed</button>');
   var $feed = $('<div id="feed"></div>');
+  // var $tweet = $('.tweet');
+  var $icon = $('.icon');
+  var $username = $('.username');
 
-  var $icons = $('<div class="icon-basket"></div>');
+  var $icons = $('<div></div>');
   var $commentIcon = $('<i class="icon comment far fa-comment-dots" src="assets/icons/comment-dots-regular.svg"></i>');
   var $retweetIcon = $('<i class="icon retweet fas fa-retweet" src="assets/icons/retweet-solid.svg"></i>');
   var $likeIcon = $('<i class="icon like far fa-heart" src="assets/icons/heart-regular.svg"></i>');
   var $shareIcon = $('<i class="icon share far fa-share-square" src="assets/icons/share-square-regular.svg"></i>');
 
   // ----------------------------------------------------------------------------------------------
-  // HTML rendering functions
+  // Create main functions
   // ----------------------------------------------------------------------------------------------
 
   var renderFeed = function(user) {
@@ -32,12 +35,14 @@ $(document).ready(function(){
     user ? (stream = streams.users[user]) : (stream = streams.home);
     var index = stream.length - 1;
     $('.tweet').remove();
-    $.each(stream, function(index, tweet) {
+    while(index >= 0){
+      var tweet = stream[index];
       var timestamp = $.timeago(tweet.created_at);
       var username = '@' + tweet.user;
-      tweet = renderTweet(tweet.profilePhotoURL, username, tweet.message, timestamp);
-      tweet.prependTo($feed);
-    });
+      var $currentTweet = renderTweet(tweet.profilePhotoURL, username, tweet.message, timestamp);
+      $currentTweet.appendTo($feed);
+      index -= 1;
+    }
     $('.tweet').append($icons);
   };
 
@@ -53,6 +58,7 @@ $(document).ready(function(){
 
   var renderIcons = function() {
     $icons.append($commentIcon, $retweetIcon, $likeIcon, $shareIcon);
+    return $icons;
   };
 
   // ----------------------------------------------------------------------------------------------
@@ -65,7 +71,7 @@ $(document).ready(function(){
   };
 
   var handleUpdateButtonClick = function(event) {
-    if (this.innerText === 'Back') {
+    if (this.textContent === 'Back') {
       $updateButton.text('Update Feed');
     }
     renderFeed();
@@ -81,9 +87,9 @@ $(document).ready(function(){
   };
 
   var handleUsernameClick = function() {
+    $updateButton.text("Back");
     var user = this.textContent.slice(1);
     renderFeed(user);
-    $updateButton.text("Back");
     setEventListenersOn();
   };
 
@@ -109,7 +115,7 @@ $(document).ready(function(){
   };
 
   // ----------------------------------------------------------------------------------------------
-  // Initiate the page
+  // Misc
   // ----------------------------------------------------------------------------------------------
 
   renderIcons();

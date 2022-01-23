@@ -16,12 +16,15 @@ $(document).ready(function(){
   var $subtitle = $('<h4>"Personal remarks are rude?" - Mad Hatter, \'Alice in Wonderland\'</h4>');
   var $updateButton = $('<button id="update-feed">Update Feed</button>');
   var $feed = $('<div id="feed"></div>');
+  var $username = $('.username');
+  // var $tweet = $('.tweet');
 
   var $icons = $('<div class="icon-basket"></div>');
   var $commentIcon = $('<i class="icon comment far fa-comment-dots" src="assets/icons/comment-dots-regular.svg"></i>');
   var $retweetIcon = $('<i class="icon retweet fas fa-retweet" src="assets/icons/retweet-solid.svg"></i>');
   var $likeIcon = $('<i class="icon like far fa-heart" src="assets/icons/heart-regular.svg"></i>');
   var $shareIcon = $('<i class="icon share far fa-share-square" src="assets/icons/share-square-regular.svg"></i>');
+  // var $icon = $('.icon');
 
   // ----------------------------------------------------------------------------------------------
   // HTML rendering functions
@@ -109,7 +112,7 @@ $(document).ready(function(){
   };
 
   // ----------------------------------------------------------------------------------------------
-  // Initiate the page
+  // Misc
   // ----------------------------------------------------------------------------------------------
 
   renderIcons();
