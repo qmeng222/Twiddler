@@ -38,6 +38,7 @@ $(document).ready(function(){
     }
     var index = data.length - 1;
     while(index >= 0){
+      var tweet = data[index];
       var $tweet = $('<div class="tweet"></div>');
       var $user = $('<div class="user"></div>');
       var $msg = $('<div class="msg"></div>');
@@ -45,7 +46,7 @@ $(document).ready(function(){
       var $retweet = $('<i id="icon" class="fas fa-retweet"></i>');
       var $like = $('<i id="icon" class="far fa-heart"></i>');
       var $share = $('<i id="icon" class="far fa-share-square"></i>');
-      var tweet = data[index];
+      // var $time = $('<div class="time">' + jQuery.timeago(tweet.created_at) + '</div>');
       $msg.text(tweet.message);
       $user.text('@' + tweet.user);
       // $tweet.text('@' + tweet.user + ': ' + tweet.message);
@@ -56,6 +57,7 @@ $(document).ready(function(){
       $retweet.appendTo($tweet);
       $like.appendTo($tweet);
       $share.appendTo($tweet);
+      // $time.appendTo($tweet);
       $user.click(tweet.user, userClick);
       $comment.click(clickAdv);
       $like.click(clickAdv);
