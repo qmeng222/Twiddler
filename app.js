@@ -13,32 +13,16 @@ $(document).ready(function(){
   var $friendslist = $('<div class="friends-list"></div>');
 
   var $friendsheader = $('<h4>Friends List</h4>');
-  var $shawndrost = $('<li>shawndrost</li>');
-  var $sharksforcheap = $('<li>sharksforcheap</li>');
-  var $mracus = $('<li>mracus</li>');
-  var $douglascalhoun = $('<li>douglascalhoun</li>');
-
-  $shawndrost.click(function(){
-    updateFeed($(this).text());
-  })
-
-  $sharksforcheap.click(function(){
-    updateFeed($(this).text());
-  })
-
-  $mracus.click(function(){
-    updateFeed($(this).text());
-  })
-
-  $douglascalhoun.click(function(){
-    updateFeed($(this).text());
-  })
 
   $friendsheader.appendTo($friendslist);
-  $shawndrost.appendTo($friendslist);
-  $sharksforcheap.appendTo($friendslist);
-  $mracus.appendTo($friendslist);
-  $douglascalhoun.appendTo($friendslist);
+  for (var user in streams.users) {
+    var $user = $('<li></li>');
+    $user.text(user);
+    $user.appendTo($friendslist);
+    $user.click(function(){
+      updateFeed($(this).text());
+    })
+  }
 
   $updatefeed.appendTo($sidebar);
   $friendslist.appendTo($sidebar);
