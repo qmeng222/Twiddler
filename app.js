@@ -16,6 +16,7 @@ $(document).ready(function(){
   var index = streams.home.length - 1;
   while(index >= 0){
     var tweet = streams.home[index];
+    //console.log(tweet);
     var img = $('<img class="profile-photo" src="assets/img/'+ tweet.user + '.png"> </img>');
     var $tweet = $('<div class="tweet"></div>');
     var $message = $('<div class="message">' + tweet.message + '</div>');
@@ -31,32 +32,6 @@ $(document).ready(function(){
 
     //var $text = $('<button id="username">' + tweet.user + '</button>');
 
-    // function renderUser(user) {
-    //   // populate a feed with only the users tweets
-    //   // if a username is referenced
-    //   // use that username to populate only that users feed
-    //   var i = streams.users.length - 1;
-
-    //   while(i >= 0){
-    //     var userX = streams.users[index];
-    //     //streams.users
-    //     console.log(userX=== 'shawndrost');
-
-    //     if (streams.users === 'shawndrost') {
-    //       streams.users.shawndrost;
-    //     }
-    //   }
-
-    // };
-
-    $username.click("#username", function (event) {
-      // if the username is clicked
-      // render a feed with only that usernames tweets
-      $feed.empty();
-      renderUser();
-
-
-    });
 
 
     // Append new HTML elements to the DOM
@@ -72,7 +47,40 @@ $(document).ready(function(){
     //$text.appendTo($username);
     index -= 1;
   } // link tweets to log 11
+
+  console.log(user);
+
+
 };
+
+    function handleUsernameClick(user) {
+      // populate a feed with only the users tweets
+      // if a username is referenced
+      // use that username to populate only that users feed
+      var i = streams.users.length - 1;
+
+      while(i >= 0){
+        var shawndrost = streams.users.shawndrost;
+        //streams.users
+        console.log('@', shawndrost);
+        // if (shawndrost) {
+        //   $message;
+        //   console.log($message);
+        // }
+      }
+
+    };
+
+
+var $username = $('<button id="username"></button>');
+$username.click("#username", function (event) {
+  // if the username is clicked
+  // render a feed with only that usernames tweets
+  $feed.empty();
+  handleUsernameClick(streams.users);
+
+
+});
 
 var $button = $('<button id="update-feed">Update Feed</button>');
 $button.appendTo($app);
@@ -83,12 +91,10 @@ $button.click("#update-feed", function (event) {
 });
 
 
-
-
   var $feed = $('<div id="feed"></div>');
   $feed.appendTo($app);
-
-  renderFeed();
+//console.log(user);
+  renderFeed(streams.users);
 
 });
 
