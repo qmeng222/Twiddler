@@ -7,7 +7,174 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
-#app {
-  background-color: green;
-  color: yellow;
+html {
+  background-color: #5CDB95;
+}
+
+/* title */
+h1 {
+  color: #05386B;
+  font: 700 60px 'Bungee', cursive;
+  letter-spacing: .2em;
+  text-align: center;
+  padding: 0 20px 30px 20px;
+  border-bottom: 5px dashed #05386B;
+}
+
+/* nav bar */
+button {
+  background-color: #EDF5E1;
+  color: #05386B;
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  font: 15px 'Bungee', cursive;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+}
+
+#home {
+  margin: 0 0 0 20px;
+}
+
+#update-feed {
+  margin: 0 0 0 190px;
+}
+
+/* friend list*/
+ul {
+  background-color: #05386B;
+  color: #EDF5E1;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  display: inline-block;
+  width: 200px;
+  border-radius: 5%;
+  padding: 20px;
+  margin: 30px 100px 0 20px;
+}
+
+li {
+  display: block;
+  font-size: 15px;
+  font-weight: 300px;
+  text-decoration: underline;
+  padding: 10px 0;
+}
+
+/* new tweet*/
+#new-tweet {
+  background-color: #EDF5E1;
+  color: #05386B;
+  border-radius: 5px;
+  width: 660px;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+form {
+  font-family: 'Work Sans', sans-serif;
+}
+
+form h2 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 20px;
+  font-weight: 300px;
+  padding: 30px 5px;
+  vertical-align: top;
+}
+
+input {
+  vertical-align: top;
+  margin: 0 0 20px 15px;
+}
+
+#tweet {
+  margin-left: 55px;
+}
+
+.btn {
+  background-color: #05386B;
+  color: #EDF5E1;
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  font: 15px 'Bungee', cursive;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+  margin: 20px 0 10px 30px;
+}
+
+/* grid*/
+#friend-list,
+#new-tweet {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* tweet feed */
+#feed {
+  color: #EDF5E1;
+  width: 700px;
+  font-family: 'Work Sans', sans-serif;
+  position: relative;
+  left: 360px;
+}
+
+.tweet {
+  background-color: #05386B;
+  margin: 30px 0;
+  padding: 20px 20px 10px 20px;
+  border-radius: 10px;
+}
+
+.profile-photo {
+  border-radius: 50%;
+  height: 100%;
+  float: left;
+}
+
+.username {
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: underline;
+  margin: 20px;
+}
+
+.timestamp {
+  font-style: italic;
+  font-size: 10px;
+  font-weight: 200;
+}
+
+.message {
+  position: relative;
+  left: 20px;
+  font-weight: 300;
+}
+
+.icon {
+  position: relative;
+  left: 65px;
+}
+
+i {
+  margin: 0 20px;
+}
+
+/* hover action: icon */
+i:hover {
+  background-color: #EDF5E1;
+  color: #05386B;
+}
+
+/* hover action: username, button */
+button:hover,
+.username:hover {
+  cursor: pointer;
 }
