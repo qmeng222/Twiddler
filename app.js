@@ -5,8 +5,9 @@ $(document).ready(function(){
   jQuery.timeago.settings.allowFuture = true;
 
   // Create new HTML elements
+  var $rightBanner = $('<aside class="col-1-3"></aside>');
   var $title = $('<h1>Twiddler</h1>');
-  var $feed = $('<div id="feed"></div>');
+  var $feed = $('<div id="feed" class="col-2-3"></div>');
   var $updateFeed = $('<button id="update-feed">Update Feed</button>');
 
   // Create event handler functions
@@ -23,9 +24,10 @@ $(document).ready(function(){
 
       var $tweet = $('<div class="tweet"></div>');
       var $userPhoto = $('<img class="profile-photo">');
-      var $username = $('<span class="username"></span>');
-      var $message = $('<p class="message"></p>');
       var $timestamp = $('<span class="timestamp"></span>');
+      var $username = $('<span class="username"></span>');
+      var $message = $('<br><p class="message"></p>');
+      var $social = $('<section class="social"></section>');
       var $commentIcon = $('<i class="icon comment fas fa-comment"></i>');
       var $retweetIcon = $('<i class="icon retweet fas fa-share"></i>');
       var $likeIcon = $('<i class="icon like fas fa-heart"></i>');
@@ -34,7 +36,6 @@ $(document).ready(function(){
 
       $($userPhoto).attr('src', `${tweet.profilePhotoURL}`);
       $username.text(`@${tweet.user}`);
-      $username.text(`@${tweet.user}`);
       $message.text(`${tweet.message}`);
       $timestamp.text(jQuery.timeago(tweet.created_at));
 
@@ -42,12 +43,13 @@ $(document).ready(function(){
         $tweet.appendTo($feed);
         $userPhoto.appendTo($tweet);
         $username.appendTo($tweet);
-        $message.appendTo($tweet);
         $timestamp.appendTo($tweet);
-        $commentIcon.appendTo($tweet);
-        $retweetIcon.appendTo($tweet);
-        $likeIcon.appendTo($tweet);
-        $shareIcon.appendTo($tweet);
+        $message.appendTo($tweet);
+        $social.appendTo($tweet)
+        $shareIcon.appendTo($social);
+        $likeIcon.appendTo($social);
+        $retweetIcon.appendTo($social);
+        $commentIcon.appendTo($social);
       }
 
       if (typeof username === 'string') {
@@ -79,33 +81,12 @@ $(document).ready(function(){
   });
 
 
-  /*$($feed).on('click', '.username', function(event) {
-    $updateFeed.text('Back');
-    return renderFeed(event.target.innerText);
-  });*/
-
-
-
   // Append new HTML elements to the DOM
-  $title.appendTo($app);
+  $rightBanner.appendTo($app);
+  $title.appendTo($rightBanner);
   $feed.appendTo($app);
-  $updateFeed.appendTo($app);
+  $updateFeed.appendTo($rightBanner);
 
-  //Trigger: click on a username
-  //I: a string (username)
-  //O: a feed with only the tweets from that username
-
-  //Strategy: if there is a click on an element with a class username (event listener)
-  //modify renderFeed so that it filters the tweets which are appended to the feed
-  //with only the ones of that username
-
-  //Get the elements with a class of username and save it in a jQuery var
-  //Set an event listener on click on that var, create a handler function
-    //Return renderFeed with the username as an argument (event.target.innerText)
-  //Add a parameter of username inside renderfeed
-    //If username
-      //Filter the tweets with only the ones of that username
-    // Else
-      // Get all the tweets
+  window.isItBeautifulYet = true
 
 });
