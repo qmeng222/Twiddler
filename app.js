@@ -11,6 +11,8 @@ $(document).ready(function(){
   var $sidebar = $('<div class="sidebar"></div>');
   var $friendslist = $('<ul id="friends-list"></ul>');
   var $friendstitle = $('<h3>Friends List</h3>');
+  var $tweettitle = $('<h3>New Tweet</h3>')
+  var $tweetform = $('<form id="new-tweet-form" action="#"></form>');
 
   // Create event handler function
   var renderFeed = function(user) {
@@ -36,7 +38,7 @@ $(document).ready(function(){
       var $like = $('<i class="far fa-heart like"></i>');
       var $share = $('<i class="fas fa-share share"></i>');
 
-      $photo.attr('src', 'assets/img/' + tweet.user + '.png')
+      $photo.attr('src', tweet.profilePhotoURL);
       $user.text('@' + tweet.user);
       $user.on('click', function(event) {
         handleUsernameClick(event.target.innerText.slice(1));
@@ -52,11 +54,13 @@ $(document).ready(function(){
     }
   };
 
+  renderFeed();
+
   var handleUsernameClick = function(username) {
     $('div.tweet').remove();
     $updatebutton.text('Back');
     renderFeed(username);
-  }
+  };
 
   var renderFriendsList = function() {
     for (var user in streams.users) {
@@ -69,6 +73,41 @@ $(document).ready(function(){
     }
   };
 
+  renderFriendsList();
+
+  var renderTweetForm = function() {
+    var $fieldset = $('<fieldset class="tweet-form"></fieldset>');
+    var $userlabel = $('<label for="user-input">username</label>');
+    var $userinput = $('<input type="text" id="user-input" name="username" placeholder="@username" required>');
+    var $tweetlabel = $('<label for="tweet-input">message</label>');
+    var $tweetinput = $('<input type="text" id="tweet-input" name="message" placeholder="your twidd" required>');
+    var $tweetbutton = $('<button type="submit" id="tweet-button">Twidd</button>');
+
+    $fieldset.append($userlabel, $userinput, $tweetlabel, $tweetinput);
+    $tweetform.append($fieldset, $tweetbutton);
+
+    $tweetform.submit(function(event) {
+      $('div.tweet').remove();
+      event.preventDefault();
+      var username = $userinput.val();
+      var message = $tweetinput.val();
+      var visitor = {
+        user: username,
+        message: message,
+        created_at: new Date(),
+        profilePhotoURL: './assets/img/visitor.png'
+      };
+      if (streams.users[visitor.user] === undefined) {
+        streams.users[visitor.user] = [];
+      }
+      streams.users[visitor.user].push(visitor)
+      streams.home.push(visitor);
+      renderFeed();
+    });
+  };
+
+  renderTweetForm();
+
   // Set event listeners
   $updatebutton.on('click', function() {
     $('div.tweet').remove();
@@ -76,18 +115,13 @@ $(document).ready(function(){
     renderFeed();
   });
 
+
   // Call functions
-  renderFeed();
-  renderFriendsList();
 
   // Append new HTML elements to the DOM
   $title.appendTo($header);
-  $updatebutton.appendTo($sidebar);
-  $friendstitle.appendTo($sidebar);
-  $friendslist.appendTo($sidebar);
-  $sidebar.appendTo($app);
-  $header.appendTo($app);
-  $feed.appendTo($app);
+  $sidebar.append($updatebutton, $friendstitle, $friendslist, $tweettitle, $tweetform);
+  $app.append($sidebar, $header, $feed);
 
   window.isItBeautifulYet = true;
 
