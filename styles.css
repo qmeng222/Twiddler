@@ -25,6 +25,8 @@ h1 {
   font-family: 'HelveticaNeue-light';
   text-transform: uppercase;
   color: #293241;
+  font-style: normal;
+  font-weight: 400;
 }
 
 /* button */
@@ -96,6 +98,7 @@ h1 {
 
 #new-tweet {
   font-family: 'HelveticaNeue-light';
+  font-weight: 100;
   color: #293241;
   padding: 1%;
   justify-content: center;
@@ -143,6 +146,7 @@ h2{
 
 #list {
   font-family: 'HelveticaNeue-light';
+  font-weight: 100;
   text-align: center;
   padding: 1%;
 }
@@ -153,7 +157,7 @@ h2{
 
 /* feed */
 
-.feed{
+#feed{
   display: flex;
   flex-direction: column;
   align-items: center;

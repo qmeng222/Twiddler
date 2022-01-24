@@ -89,7 +89,7 @@ $(document).ready(function(){
   populateFriendsList();
 
   /* feed */
-  var $feed = $('<div class="feed"></div>');
+  var $feed = $('<div id="feed"></div>');
 
   $feed.appendTo($aside);
 
