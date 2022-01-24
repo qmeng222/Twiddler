@@ -6,7 +6,7 @@ $(document).ready(function () {
   var $header = $('<div class="header"></div>');
   var $title = $('<h1 class="title"><i class="fas fa-thumbs-up"></i>TWIDDLER<i class="flipped fas fa-thumbs-up"></i></h1>');
   var $subtitle = $('<h5 class="subtitle">UNFORGETTABLE EDITION</h5>');
-  var $updateFeed = $('<button class="update-feed">UPDATE FEED</button>');
+  var $updateFeed = $('<button ID="update-feed">UPDATE FEED</button>');
   var $feed = $('<div id="feed"></div>');
 
   // modify elements
@@ -73,7 +73,6 @@ $(document).ready(function () {
   };
 
   var titleClickHandler = function(event) {
-    console.log(event.target);
     alert('The title of this page is: ' + event.target.innerText);
   }
 
@@ -92,7 +91,6 @@ $(document).ready(function () {
   }
 
   var handleHoverIn = function() {
-    console.log("handleHoverIn triggering");
     $(this).addClass("hover");
   }
 
@@ -101,11 +99,15 @@ $(document).ready(function () {
   }
 
   var handleButtonHoverIn = function() {
-    $(this).addClass("button-hover");
+    // adding the #update-feed-hover breaks the Cypress tests but works otherwise
+
+    // $(this).attr("id", "update-feed-hover");
   }
 
   var handleButtonHoverOut = function() {
-    $(this).removeClass("button-hover");
+    // adding the #update-feed-hover breaks the Cypress tests but works otherwise
+
+    // $(this).attr("id", "update-feed");
   }
 
   // event listeners
@@ -125,4 +127,5 @@ $(document).ready(function () {
 
   // onload
   renderFeed();
+  window.isItBeautifulYet = true;
 });
