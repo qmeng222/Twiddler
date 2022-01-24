@@ -1,3 +1,52 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
@@ -8,6 +57,284 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  font-family: 'Sora', sans-serif;
+  font-weight: 200;
+  background-color: black;
+  color: white;
+}
+
+/*
+  ========================================
+  Grid
+  ========================================
+*/
+
+#app {
+  display: grid;
+  grid-template-columns: [start] auto [title] 200px [feed-start] 600px [feed-end] 400px [sidebar] auto [end];
+  grid-template-rows: [start] 34px [new-tweet-start] 130px [feed-start] auto [end];
+}
+
+/*
+  ========================================
+  Title / Update Feed
+  ========================================
+*/
+
+h1 {
+  grid-area: start / title / new-tweet-start / feed-start;
+  justify-self: left;
+  align-self: top;
+  padding-left: 20px;
+  padding-top: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+h1:hover {
+  cursor: pointer;
+}
+
+#update-feed {
+  grid-area: new-tweet-start / title / feed-start / feed-start;
+  justify-self: center;
+  margin-top: 10px;
+  height: 40px;
+  width: 160px;
+  border: 0 solid black;
+  border-radius: 20px;
+  background-color: rgb(85, 172, 238);
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+}
+
+/*
+  ========================================
+  Home / New Tweet
+  ========================================
+*/
+
+#home {
+  grid-area: start / feed-start / new-tweet-start / feed-end;
+  align-self: bottom;
+  padding-left: 16px;
+  padding-top: 16px;
+  border-left: 1px solid rgb(47, 51, 54);
+  border-right: 1px solid rgb(47, 51, 54);
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+#new-tweet-form {
+  grid-area: new-tweet-start / feed-start / feed-start / feed-end;
+  padding-left: 16px;
+  padding-right: 16px;
+  display: grid;
+  grid-template-columns: [start] 48px [new-tweet-photo-end] 16px [new-message-start] 420px [twid-button-start] auto [end];
+  grid-template-rows: [start] 16px [new-tweet-username-start] 20px [new-tweet-message-start] 45px [twid-button-start] 36px [twid-button-end] auto [end];
+  border: 1px solid rgb(47, 51, 54);
+  border-top-width: 0px;
+}
+
+#username {
+  grid-area: new-tweet-username-start / new-message-start / new-tweet-message-start / end;
+  padding-bottom: 10px;
+  border: 0;
+  margin: 0;
+  background: transparent;
+  outline: none;
+  background-color: black;
+  font-family: 'Sora', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgb(110, 118, 125);
+}
+
+#message {
+  grid-area: new-tweet-message-start / new-message-start / twid-button-start / end;
+  padding-bottom: 30px;
+  border: 0;
+  margin: 0;
+  background: transparent;
+  outline: none;
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: white;
+}
+
+#twid {
+  grid-area: twid-button-start / twid-button-start / twid-button-end / end;
+  text-align: center;
+  height: 30px;
+  border: 0 solid black;
+  border-radius: 15px;
+  background-color: rgb(85, 172, 238);
+  font-family: 'Sora', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+}
+
+#twid:disabled {
+  background-color: rgba(85, 172, 238, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/*
+  ========================================
+  Friends List
+  ========================================
+*/
+
+#friends-list {
+  grid-area: start / feed-end / end / sidebar;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.friend {
+  display: grid;
+  grid-template-columns: [friend-photo-start] 48px [friend-photo-end] 16px [friend-name-start] 115px [friend-name-end] auto [end];
+  grid-template-rows: [start] 16px [friend-name-start] 22px [friend-username-start] 12px [friend-username-end] auto [end];
+  height: 80px;
+}
+
+.friend-photo {
+  grid-area: friend-name-start / friend-photo-start / end / friend-photo-end;
+  align-self: start;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+}
+
+.friend-name {
+  grid-area: friend-name-start / friend-name-start / friend-username-start / friend-name-end;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  cursor: default;
+}
+
+.friend-username {
+  grid-area: friend-username-start / friend-name-start / end / friend-name-end;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgb(110, 118, 125);
+  cursor: pointer;
+}
+
+.friend-username:hover {
+  color: rgb(85, 172, 238);
+}
+
+/*
+  ========================================
+  Twiddler Feed
+  ========================================
+*/
+
+#feed {
+  grid-area: feed-start / feed-start / end / feed-end;
+  border-left: 1px solid rgb(47, 51, 54);
+  border-right: 1px solid rgb(47, 51, 54);
+}
+
+.tweet {
+  display: grid;
+  grid-template-columns: [photo-start] 48px [photo-end] 16px [message-start] 115px [username-end] 185px [timestamp-start] 140px [end];
+  grid-template-rows: [start] 16px [username-start] 20px [message-start] 42px [icon-start] 20px [icon-end] auto [end];
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 110px;
+  border-bottom: 1px solid rgb(47, 51, 54);
+  background-color: black;
+}
+
+.tweet:hover {
+  background-color: rgb(15, 15, 15);
+}
+
+.profile-photo {
+  grid-area: username-start / photo-start / icon-start / photo-end;
+  align-self: start;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+}
+
+.username {
+  grid-area: username-start / message-start / message-start / username-end;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgb(110, 118, 125);
+  cursor: pointer;
+}
+
+.username:hover {
+  color: rgb(85, 172, 238);
+}
+
+.timestamp {
+  grid-area: username-start / timestamp-start / message-start / message-end;
+  text-align: right;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgb(110, 118, 125);
+  cursor: default;
+}
+
+.message {
+  grid-area: message-start / message-start / icon-start / message-end;
+  text-align: start;
+  font-size: 14px;
+  font-weight: 300;
+  color: white;
+  cursor: default;
+}
+
+/*
+  ========================================
+  Icons
+  ========================================
+*/
+
+div.icon {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  grid-area: icon-start / message-start / icon-end / end;
+  align-items: center;
+  font-size: 12px;
+  color: rgb(110, 118, 125);
+}
+
+.comment,
+.retweet,
+.like,
+.share {
+  cursor: pointer;
+}
+
+.comment:hover {
+  color: rgb(85, 172, 238, 0.8);
+}
+.retweet:hover {
+  color: rgb(119, 178, 85, 0.8);
+}
+.like:hover {
+  color: rgb(221, 46, 68, 0.8);
+}
+.share:hover {
+  color: rgb(85, 172, 238, 0.8);
 }

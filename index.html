@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Home / Twiddler</title>
     <script src="lib/jquery.js"></script>
+    <script src="lib/timeago.js"></script>
     <script src="dataGenerator.js"></script>
+    <script src="https://kit.fontawesome.com/9f2977d4a8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
 
-    <script>
-      $(document).ready(function(){
-        var $app = $('#app');
-        $app.html('');
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($app);
-          index -= 1;
-        }
-
-      });
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>
