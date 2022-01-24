@@ -17,13 +17,11 @@ $(document).ready(function(){
     var faNames = ['comment', 'retweet', 'heart', 'share']
 
     for (var x = 0; x < iconClasses.length; x++){
-      // var $icon = $(`<img src='assets/icons/placeholder.png' class=${iconClasses[x]}></img>`);
       var $icon = $(`<i class="fas fa-${faNames[x]} ${iconClasses[x]}"></i>`);
       $icon.appendTo($icons);
     }
     $icons.appendTo($tweet);
 
-    // $tweet.text('@' + tweet.user + ': ' + tweet.message);
     $tweet.appendTo($feed);
 
     $timestamp.text(jQuery.timeago(tweet.created_at));
@@ -43,11 +41,10 @@ $(document).ready(function(){
   var $updateFeed = $('#update-feed');
 
   $updateFeed.click(function() {
-    console.log(streams.home.length);
-    console.log($feed.children().length);
 
-    index = streams.home.length - 1;
-    while(index >= $feed.children().length) {
+    index = $feed.children().length;
+
+    while(index <= streams.home.length - 1) {
       tweet = streams.home[index];
       var $tweet = $('<div class="tweet"></div>');
       var $message = $('<div class="message"></div>');
@@ -60,13 +57,11 @@ $(document).ready(function(){
       var faNames = ['comment', 'retweet', 'heart', 'share']
 
       for (var x = 0; x < iconClasses.length; x++){
-        // var $icon = $(`<img src='assets/icons/placeholder.png' class=${iconClasses[x]}></img>`);
         var $icon = $(`<i class="fas fa-${faNames[x]} ${iconClasses[x]}"></i>`);
         $icon.appendTo($icons);
       }
       $icons.appendTo($tweet);
 
-      // $tweet.text('@' + tweet.user + ': ' + tweet.message);
       $tweet.prependTo($feed);
 
       $timestamp.text(jQuery.timeago(tweet.created_at));
@@ -80,7 +75,7 @@ $(document).ready(function(){
 
       $message.text(tweet.message);
       $message.appendTo($tweet);
-      index -= 1;
+      index += 1;
     }
   });
 
