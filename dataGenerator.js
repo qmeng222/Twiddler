@@ -44,6 +44,7 @@ var generateRandomTweet = function() {
   tweet.message = randomMessage();
   tweet.created_at = new Date();
   tweet.profilePhotoURL = './assets/img/' + tweet.user + '.png';
+  //console.log(tweet);
   addTweet(tweet);
 };
 
