@@ -12,7 +12,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 #app {
   background-color: #00BCD4;
-
+  font-family: 'Lato';
+  font-style: normal;
   line-height: 1.15;
 }
 
@@ -55,7 +56,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 
 
-.mainFeed {
+.homeFeed, .userFeed {
   background-color: #00BCD4;
   color: white;
   width: 70%;
@@ -82,12 +83,12 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 }
 
-.photo {
+.profile-photo {
   float:left;
   height:fit-content;
   margin-right:5%;
 }
-.user {
+.username {
   padding-left: 1%;
   font-size: 24px;
   font-weight: bold;
@@ -96,7 +97,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 .message {
   display: flex;
-  font-size: 21px;
+  font-size: 18px;
   justify-content: right;
   align-content: right;
   padding:auto;
@@ -118,14 +119,35 @@ div.icons {
 
 }
 
-.icons img {
+.icons i {
   margin-left:10px;
+}
 
+.comment {
+  background-color:blue;
+}
+
+i:hover {
+  background-color:red;
+
+}
+.like {
+  background-color:blue;
+}
+.retweet {
+  background-color:blue;
+}
+.share {
+  background-color:blue;
+}
+
+#hover {
+  background-color:red;
 }
 
 
 
-.timeStamp {
+.timeago {
   float: right;
   margin-left: 15px;
   width:70%;

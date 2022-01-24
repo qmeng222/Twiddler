@@ -2,82 +2,72 @@ $(document).ready(function(){
   var $app = $('#app');
   $app.html('');
 
-  $(".userFeed").hide()
-
-  // ------------------------------------------------------------------------------------------------
-
-  // Header Title Back to Top Button
 
   var $header = $('<div class = "header"></div>');
-    //Title
     var $title = $('<a id = "title" href ="index.html">Twiddler 2.0</a>');
-    var $topbutton = $('<h3 class = "topButton"><input class = "button" type = "submit" value = "Back To Top"></input></h3>')
-    //show New Tweets button
-    $topbutton.appendTo($navigation)
     $title.appendTo($header)
   $header.appendTo($app)
 
-  // ------------------------------------------------------------------------------------------------
 
-  //navigation
   var $navigation = $('<section class = "topNav"></section>')
-    //Back to Top Button
-    var $showNew = $('<input class = "showNew" type = "button"  type="submit" value="Latest Tweet">')
-    // var $PauseResume = $('<input class = "PauseResume" type = "button" type="submit" value="Pause">')
-    var $homeBack = $('<input class = "homeBack" type = "button" type="submit" href = "index.html" value="Home">')
+    var $showNew = $('<input class = "showNew" id = "update-feed" type = "button"  type="submit" value="Update Tweet">')
+      var $showNewButtonText = $('<h4>Update Tweet</h4>')
+      $showNewButtonText.appendTo($showNew)
     $showNew.appendTo($navigation)
-    $homeBack.appendTo($navigation)
-    // $PauseResume.appendTo($navigation)
   $navigation.appendTo($app)
-  // ------------------------------------------------------------------------------------------------
-  // mainFeed
-  var $mainFeed = $('<section class = "mainFeed"></section>') // contains all tweets
-  $mainFeed.attr("id", "feed").appendTo($app)
 
-  // ------------------------------------------------------------------------------------------------
+  var $feedContainer = $('<section></section>')
+  $feedContainer.prop("id", "feed").appendTo($app)
+    var $homeFeed = $('<div class = "homeFeed"></div>')
+    $homeFeed.appendTo($feedContainer)
+    var $userFeed = $('<div class = "userFeed"></div>')
+    $userFeed.appendTo($feedContainer)
 
-  //keeping track of current size of feed
-  var currentCount = streams.home.length;  // initial size of feed,
-  var newCount = currentCount              // later set newCount to currentCount to compare if there are new tweets
 
-  // ------------------------------------------------------------------------------------------------
-  function buildTweet(tweetObj) {
-    var tweet = tweetObj
-    var $tweet = $('<div class = "tweet"></div>')
-    $tweet.attr('id', "" + tweet.user + "")
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+    function buildTweet(tweetObj) {
+      var tweet = tweetObj
+      var $tweet = $('<div class = "tweet"></div>')
+      // $tweet.attr('id', "" + tweet.user + "")
 
-      var $tweetHeader = $('<div class = "tweetHeader"></div>')
-      $tweetHeader.appendTo($tweet)
-        var $photo = $('<img class = photo src = ' + tweet.profilePhotoURL + ' >').attr('id', "" + tweet.user + "")
-        var $user = $('<div class = "user"></div>')
-        $photo.appendTo($tweetHeader)
-        $user.attr('id', "" + tweet.user + "").data('userName', tweet.user).text('@' + tweet.user).appendTo($tweetHeader)
+        var $tweetHeader = $('<div class = "tweetHeader"></div>')
+        $tweetHeader.appendTo($tweet)
+          var $photo = $('<img class = profile-photo src = ' + tweet.profilePhotoURL + ' >').attr('id', "" + tweet.user + "")
+          $photo.appendTo($tweetHeader)
+          var $user = $('<div class = "username"></div>')
+          $user.attr('id', "" + tweet.user + "").text('@' + tweet.user).appendTo($tweetHeader)
 
-        var $message = $('<p class = "message"></p>')
-        $message.text(tweet.message).appendTo($tweetHeader)
+          var $message = $('<p class = "message"></p>')
+          $message.text(tweet.message).appendTo($tweetHeader)
 
-      var $tweetFooter = $('<div class = "tweetFooter"></>')
-      $tweetFooter.appendTo($tweet)
-        var $icons = $('<div class = "icons"></div>')
+        var $tweetFooter = $('<div class = "tweetFooter"></>')
+        $tweetFooter.appendTo($tweet)
+          var $icons = $('<div class = "icons"></div>')
 
-        $('<img  src = assets/icons/like-fill-1-16.png>').appendTo($icons)
-        $('<img  src = assets/icons/comment-29-16.png>').appendTo($icons)
-        $('<img  src = assets/icons/share-82-16.png>').appendTo($icons)
-        $('<img  src = assets/icons/retweet-1-16.png>').appendTo($icons)
+          $('<i class = "like fas fa-thumbs-up" src = assets/icons/placeholder.png>').appendTo($icons)
+          $('<i class = "comment fas fa-comment-alt" src = assets/icons/placeholder.png>').appendTo($icons)
+          $('<i class = "share fas fa-share-alt" src = assets/icons/placeholder.png>').appendTo($icons)
+          $('<i class = "retweet fas fa-retweet" src = assets/icons/placeholder.png>').appendTo($icons)
 
-        var $timeStamp = $('<p class = "timeStamp"></p>')
-        $timeStamp.text(tweet.created_at).appendTo($tweetFooter)
-        $icons.appendTo($tweetFooter)
 
-        return $tweet
-  }
-  // ------------------------------------------------------------------------------------------------
-  function loadTweet (firstTime) { // passing in boolean, pass in false if I want to load additional tweets
+          var $timeStamp = $('<time class = "timestamp" ><time class = "timeago"> ' + $.timeago(tweet.created_at) + ' </time>')
+
+          $timeStamp.appendTo($tweetFooter)
+          $icons.appendTo($tweetFooter)
+
+          return $tweet
+    }
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  var currentCount = streams.home.length;
+  var newCount = currentCount
+
+  function loadTweet (firstTime) {
     var index = streams.home.length -1
     if (firstTime === true) {
       while (index >= 0) {
         var tweet = streams.home[index];
-        buildTweet(tweet).appendTo($mainFeed)
+        buildTweet(tweet).appendTo($homeFeed)
 
         index -= 1
       }
@@ -85,63 +75,48 @@ $(document).ready(function(){
     if (firstTime === false){
       while (newCount > currentCount) {
         var tweet = streams.home[currentCount]
-        buildTweet(tweet).prependTo($mainFeed)
+        buildTweet(tweet).prependTo($homeFeed)
 
         currentCount += 1
       }
     }
-    $(".user").on("click", function(){
-      $(".homeBack").prop("value", "Back")
-      var userName = $(this).data('userName')
-      filter = userName
-      filterTweets(userName)
-    })
+
   }
-  loadTweet(true) // intial load tweets
 
-  // ------------------------------------------------------------------------------------------------
-  // Turn on filter and makes sure that each new tweet is filtered until var filter is cleared
-  var filter = "";
+  loadTweet(true)
 
-  function filterTweets (userNameToFilter){
-    $(".tweet").not("#" + userNameToFilter + "").hide()
-  }
-  // ------------------------------------------------------------------------------------------------
+  $('#update-feed').on("click", function() {
 
 
-  //BUTTONS
-  $(".homeBack").on("click", function() {
-    if ($(this).val() === "Back") {
-      $(this).prop("value", "Home")
-    }
-    $(".tweet").show()
-    filter = ""
-  })
-
-
-  $('.showNew').on("click", function() {
-    newCount = streams.home.length;
-    loadTweet(false)
-    if (filter !== ""){
-      filterTweets(filter)
-    }
-  })
-
-  // ------------------------------------------------------------------------------------------------
-  function checkTweets() {
-    newCount = streams.home.length;
-    if (newCount >= currentCount) {
+    if ($(this).val() === "Update Tweet"){
+      newCount = streams.home.length;
       loadTweet(false)
-      if (filter !== ""){
-        filterTweets(filter)
-      }
     }
-    setTimeout(function() {
-      checkTweets();
-    }, 10000);
-  }
-  checkTweets()
-  // ------------------------------------------------------------------------------------------------
+    if ($(this).val() === "Back"){
+      $(".userFeed div.tweet").remove()
+      $("#update-feed").prop("value", "Update Tweet").text("Update Tweet")
+      $($(".homeFeed div.remove")).removeClass("remove").addClass("tweet")
+      $(".homeFeed").show()
 
-  // ------------------------------------------------------------------------------------------------
+    }
+  })
+
+  $(".homeFeed").on("click", ".tweet .username", function (){
+      $(".userFeed").show()
+      $("#update-feed").prop("value", "Back").text("Back")
+      $($(".homeFeed div.tweet")).removeClass("tweet").addClass("remove")
+      $(".homeFeed").hide()
+
+      var userName = $(this).attr("id")
+      var userStream = streams.users[userName]
+      var index = userStream.length - 1
+
+      while (index >= 0) {
+        var tweet = userStream[index];
+          buildTweet(tweet).appendTo($userFeed)
+          index -= 1
+      }
+  })
+  window.isItBeautifulYet = true
+
 });
