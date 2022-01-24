@@ -2,15 +2,97 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  font-family: 'Source Serif Pro', serif;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: beige;
+  color: green;
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Source Serif Pro', serif;
+  height: 100%;
+  width: 100%;
+}
 
-  /* font-family: 'Open Sans', sans-serif;
-  font-family: 'Source Serif Pro', serif; */
+
+
+.profile-photo {
+  border-radius: 50%;
+  display: block;
+  width: 70px;
+  height: 70px;
+  display: block;
+  position: relative;
+  right:200;
+  margin-bottom: 10;
+  top:100;
+}
+
+
+h1 {
+  margin-top: 2%;
+  text-align: center;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+#feed {
+  border: 1px solid;
+  border-radius: 0.5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 0%;
+  padding-bottom: 5%;
+  margin-top: 1%;
+}
+
+.tweet {
+  border: 1px solid green;
+  border-radius: 1%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top:2%;
+  box-sizing: border-box;
+  background-color: rgba(141, 227, 248, 0.61);
+}
+
+.username {
+  display: block;
+  position: relative;
+  margin-bottom: 10;
+  right: -50;
+}
+
+.message {
+  font-weight:bold;
+  font-size: large;
+  padding-top: 50px;
+  display: block;
+}
+
+.timestamp {
+  font-style: italic;
+  position: relative;
+  top: 10px;
+  left: 200px;
+}
+
+i{
+  color:rgba(3, 146, 58, 0.911);
+  position: relative;
+  top: -10px;
+  right: 200px;
+  padding: 5px;
+}
+i:hover {
+  color:pink;
+}
+
+.username:hover {
+  color: pink;
 }

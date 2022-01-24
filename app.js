@@ -10,7 +10,6 @@ $(document).ready(function(){
   var $feed = $('<div id="feed"></div>');
   var $updateFeed = $('<button id="update-feed">Update Feed</button>');
 
-
   // Append elements to the DOM, nested inside of the #app div
   $title.appendTo($app);
   $updateFeed.appendTo($app);
@@ -54,9 +53,9 @@ $(document).ready(function(){
 
 
       // Append childs to tweet
-      $message.appendTo($tweet);
-      $username.appendTo($tweet);
       $profilePhoto.appendTo($tweet);
+      $username.appendTo($tweet);
+      $message.appendTo($tweet);
       $timestamp.appendTo($tweet);
       $comment.appendTo($tweet);
       $retweet.appendTo($tweet);
@@ -94,9 +93,9 @@ $(document).ready(function(){
         $message.text(userMessage);
         $username.text('@' + user);
 
-        $message.appendTo($tweet);
-        $username.appendTo($tweet);
         $profilePhoto.appendTo($tweet);
+        $username.appendTo($tweet);
+        $message.appendTo($tweet);
         $timestamp.appendTo($tweet);
         $comment.appendTo($tweet);
         $retweet.appendTo($tweet);
@@ -130,3 +129,5 @@ $(document).ready(function(){
   });
 
 });
+
+window.isItBeautifulYet = true
