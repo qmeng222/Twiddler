@@ -20,11 +20,11 @@ $(document).ready(function(){
   var $updateButton = $('<button class="btn btn-alt" id="update-feed">Update Feed</button>');
   var $feed = $('<div class="col-1-3" id="feed"></div>');
 
-  var $icons = $('<div class="icon-container"></div>');
-  var $commentIcon = $('<i class="icon comment far fa-comment-dots" src="assets/icons/comment-dots-regular.svg"></i>');
-  var $retweetIcon = $('<i class="icon retweet fas fa-retweet" src="assets/icons/retweet-solid.svg"></i>');
-  var $likeIcon = $('<i class="icon like far fa-heart" src="assets/icons/heart-regular.svg"></i>');
-  var $shareIcon = $('<i class="icon share far fa-share-square" src="assets/icons/share-square-regular.svg"></i>');
+  var $icons = $('<div class="grid icon-container"></div>');
+  var $commentIcon = $('<i class="col-1-4 icon comment far fa-comment-dots" src="assets/icons/comment-dots-regular.svg"></i>');
+  var $retweetIcon = $('<i class="col-1-4 icon retweet fas fa-retweet" src="assets/icons/retweet-solid.svg"></i>');
+  var $likeIcon = $('<i class="col-1-4 icon like far fa-heart" src="assets/icons/heart-regular.svg"></i>');
+  var $shareIcon = $('<i class="col-1-4 icon share far fa-share-square" src="assets/icons/share-square-regular.svg"></i>');
 
   // ----------------------------------------------------------------------------------------------
   // HTML rendering functions
@@ -50,11 +50,17 @@ $(document).ready(function(){
 
   var renderTweet = function(profilePhoto, username, message, timestamp) {
     var $currentTweet = $('<div class="tweet"></div>');
+    var $tweeterInfo = $('<aside class="col-1-3 tweeter-info"></aside>');
     var $profilePhoto = $('<img class="profile-photo" src=' + profilePhoto + ' alt="no profile photo">');
-    var $timestamp = $('<span class="timestamp">' + timestamp + '</span>');
-    var $username = $('<span class="username">' + username + '</span>');
+    var $username = $('<div class="username">' + username + '</div>');
+    var $messageInfo = $('<div class="col-2-3 message-info"></div>');
+    var $timestamp = $('<div class="timestamp">' + timestamp + '</div>');
     var $message = $('<p class="message">' + message + '</p>');
-    $currentTweet.append($profilePhoto, $timestamp, $username, $message);
+
+    $tweeterInfo.append($profilePhoto, $username);
+    $messageInfo.append($timestamp, $message);
+    $currentTweet.append($tweeterInfo, $messageInfo);
+    // $currentTweet.append($profilePhoto, $timestamp, $username, $message);
     return $currentTweet;
   };
 
@@ -80,7 +86,7 @@ $(document).ready(function(){
   };
 
   var handleIn = function() {
-    $(this).css('background-color', 'gray');
+    $(this).css('background-color', 'grey');
   };
 
   var handleOut = function() {
@@ -126,4 +132,5 @@ $(document).ready(function(){
   renderFeed();
   setEventListenersOn();
 
+  window.isItBeautifulYet = true;
 });

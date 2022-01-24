@@ -68,69 +68,12 @@ Custom Styles
 ===================================================================================================
 */
 
-/* #app {
-  background-color: #e6f5d0;
-  color: #59514c;
-  font: 400 16px/22px 'Solway', serif, Arial, sans-serif;
-} */
-
 #app {
   background: #cbe2c1;
   background: -webkit-linear-gradient(to right, #a1d3b0, #f6f1d3);
   background: -moz-linear-gradient(to right, #a1d3b0, #f6f1d3);
   background: linear-gradient(to right, #a1d3b0, #f6f1d3);
-  /* color: #59514c; */
   font: 400 16px/22px 'Solway', serif, Arial, sans-serif;
-}
-
-/*
-===================================================================================================
-Primary Header
-===================================================================================================
-*/
-
-/*
-.logo {
-  border-top: 4px solid #648880;
-  float: left;
-  font-size: 48px;
-  font-weight: 100;
-  letter-spacing: .5px;
-  line-height: 44px;
-  padding: 40px 0 22px 0;
-  text-transform: uppercase;
-}
-*/
-
-.primary-header {
-  color: #fff;
-  background: #0b88e5 url("assets/img/background-blue.jpeg") 0 60% no-repeat;
-  /* background-color: #0f91e9;
-  background-image: url("assets/img/background-blue.jpeg");
-  background-position: 0 60%;
-  background-repeat: no-repeat; */
-  background-size: cover;
-	border-bottom: 4px solid #648880;
-  font: 400 24px/18px 'Grechen Fuemen', cursive;
-  height: 400px;
-}
-
-.title {
-  font-size: 150px;
-	letter-spacing: 1px;
-	line-height: 48px;
-	padding: 48px 10%;
-}
-
-.tagline {
-  color: #877664;
-  font: 400 24px/18px 'Grechen Fuemen', cursive;
-  /* font-size: 18px; */
-	letter-spacing: .5px;
-	line-height: 18px;
-  margin: 12px 24px 12px 0;
-  text-align: right;
-	/* padding: 48px 24px 24px 0; */
 }
 
 /*
@@ -155,12 +98,20 @@ Grid
 	padding-left: 30px;
 	padding-right: 30px;
 }
+.col-1-4 {
+	width: 25%;
+}
+.col-2-4 {
+	width: 50%;
+}
 .col-1-3 {
 	width: 33.33%;
 }
 .col-2-3 {
 	width: 66.66%;
 }
+.col-1-4,
+.col-2-4,
 .col-1-3,
 .col-2-3 {
 	display: inline-block;
@@ -194,29 +145,6 @@ Clearfix
 
 /*
 ===================================================================================================
-Rows
-===================================================================================================
-*/
-
-.row,
-.row-alt {
-	min-width: 960px;
-}
-.row {
-	background: #fff;
-	padding: 66px 0 44px 0;
-}
-.row-alt {
-	background: #cbe2c1;
-  background: -webkit-linear-gradient(to right, #a1d3b0, #f6f1d3);
-  background: -moz-linear-gradient(to right, #a1d3b0, #f6f1d3);
-  background: linear-gradient(to right, #a1d3b0, #f6f1d3);
-  padding: 44px 0 22px 0;
-}
-
-
-/*
-===================================================================================================
 Typography
 ===================================================================================================
 */
@@ -225,7 +153,7 @@ h1, h3, h4, h5, p {
 	margin-bottom: 22px;
 }
 h1, h2, h3, h4 {
-	/* color: #fff; */
+	color: #fff;
 }
 h1 {
 	font-size: 36px;
@@ -242,10 +170,7 @@ h4 {
 	font-size: 18px;
 }
 h5 {
-	color: #a9b2b9;
-	font-size: 14px;
-	font-weight: 400;
-	text-transform: uppercase;
+	font-size: 15px;
 }
 strong {
 	font-weight: 700;
@@ -256,33 +181,15 @@ cite, em {
 
 /*
 ===================================================================================================
-Tweets
-===================================================================================================
-*/
-
-.tweet {
-  border: 2px 2px 1px 2px solid #877664;
-  border-radius: 10px;
-  box-shadow: 5px 10px 18px #888888;
-  display: block;
-  padding: 8px 8px;
-	text-align: left;
-}
-.icon-container {
-}
-
-/*
-===================================================================================================
 Buttons
 ===================================================================================================
 */
 
 .btn {
+	background: #cbe2c1;
+  border: 5px solid #cbe2c1;
 	border-radius: 10px;
-	/* color: #fff; */
-  background: #cbe2c1;
-  border: 5px solid #0b88e5;
-  box-shadow: 5px 10px 18px #888888;
+  box-shadow: 5px 10px 18px #888;
 	cursor: pointer;
 	display: inline-block;
 	font-weight: 700;
@@ -291,50 +198,13 @@ Buttons
 	text-transform: uppercase;
 }
 .btn-alt {
-	border: 5px solid #0b88e5;
+	border: 5px solid #cbe2c1;
+	color: #0b88e5;
 	padding: 10px 30px;
 }
 .btn-alt:hover {
 	border: none;
-	color: #000;
-}
-/* .btn-default {
-	border: 0;
-	background: #648880;
-	padding: 11 px 30px;
-	font-size: 14px;
-}
-.btn-default:hover {
-	background: #77a198;
-} */
-
-/*
-===================================================================================================
-Home
-===================================================================================================
-*/
-
-.hero {
-	color: #fff;
-	line-height: 44px;
-	padding: 22px 80px 66px 80px;
-	text-align: center;
-}
-.hero h2 {
-	font-size: 36px;
-}
-.hero p {
-	font-size: 24px;
-	font-weight: 100;
-}
-.teaser a:hover h3 {
-	color: #a9b2b9;
-}
-.teaser img {
-	border-radius: 5px;
-	display: block;
-	margin-bottom: 22px;
-	max-width: 100%;
+	color: #888;
 }
 
 /*
@@ -343,22 +213,30 @@ Primary Header
 ===================================================================================================
 */
 
-
-/*
-===================================================================================================
-Primary Footer
-===================================================================================================
-*/
-
-.primary-footer {
-	color: #648880;
-	font-size: 14px;
-	padding-bottom: 44px;
-	padding-top: 44px;
+.primary-header {
+  color: #fff;
+  background: #0b88e5 url("assets/img/background-blue.jpeg") 0 60% no-repeat;
+  background-size: cover;
+	border-bottom: 4px solid #0b88e5;
+  font: 400 24px/18px 'Grechen Fuemen', cursive;
+  height: 400px;
 }
-.primary-footer small {
-	float: left;
-	font-weight: 400;
+
+.title {
+	border-bottom: none;
+  font-size: 150px;
+	letter-spacing: 1px;
+	line-height: 48px;
+	padding: 48px 10%;
+}
+
+.tagline {
+  color: #877664;
+  font: 400 24px/18px 'Grechen Fuemen', cursive;
+	letter-spacing: .5px;
+	line-height: 18px;
+  margin: 12px 24px 24px 0;
+  text-align: right;
 }
 
 /*
@@ -387,179 +265,59 @@ p a {
 
 /*
 ===================================================================================================
-Primary Navigation
+Tweets
 ===================================================================================================
 */
 
-.primary-nav {
-	font-size: 14px;
-	font-weight: 400;
-	letter-spacing: .5px;
-	text-transform: uppercase;
+.tweet {
+  border: 2px 2px 1px 2px solid #877664;
+  border-radius: 10px;
+  box-shadow: 5px 10px 18px #888888;
+  display: block;
+  padding: 16px 16px;
+	text-align: left;
 }
-
-/*
-===================================================================================================
-Navigation
-===================================================================================================
-*/
-
-.nav {
+.message {
+	border: 2px 2px 1px 2px solid #877664;
+  border-radius: 10px;
+  box-shadow: 5px 10px 18px #888888;
+  display: block;
+  padding: 8px 8px;
+	text-align: left;
+}
+.timestamp {
+	font-size: 14px;
 	text-align: right;
 }
-.nav li {
-  display: inline-block;
-  margin: 0 10px;
-  vertical-align: top;
-}
-.nav li:last-child {
-  margin-right: 0;
-}
-
-/*
-===================================================================================================
-Speakers
-===================================================================================================
-*/
-
-.speaker-info {
+.tweeter-info {
 	border: 1px solid #dfe2e5;
 	border-radius: 5px;
-	margin-top: 88px;
+	font-size: 14px;
+	margin-top: 22px;
 	padding-bottom: 22px;
 	text-align: center;
 }
-.speaker {
-	margin-bottom: 44px;
-}
-.speaker-info img {
+.tweeter-info img {
 	border-radius: 50%;
-	height: 130px;
-	margin: -66px 0 22px 0;
+	height: 70px;
+	margin: -25px 0 22px 0;
 	vertical-align: top;
 }
 
 /*
 ===================================================================================================
-Schedule
+Icons
 ===================================================================================================
 */
 
-table {
-	margin-bottom: 44px;
-	width: 100%;
+.icon-container {
+	height: 24px;
+	margin-top: 6px;
 }
-table:last-child {
-	margin-bottom: 0;
-}
-th,
-td {
-  padding-bottom: 22px;
-  vertical-align: top;
-}
-th {
-  padding-right: 45px;
-  text-align: right;
-  width: 20%;
-}
-td {
-  width: 40%;
-}
-thead {
-  line-height: 44px;
-}
-thead th {
-  color: #648880;
-  font-size: 24px;
-}
-tbody th {
-  color: #a9b2b9;
-  font-size: 14px;
-  font-weight: 400;
-  padding-top: 22px;
-  text-transform: uppercase;
-}
-tbody td {
-  border-top: 1px solid #dfe2e5;
-  padding-top: 21px;
-}
-tbody td:first-of-type {
-  padding-right: 15px;
-}
-tbody td:last-of-type {
-  padding-left: 15px;
-}
-tbody td:only-of-type {
-  padding-left: 0;
-  padding-right: 0;
-}
-table a {
-  color: #888;
-}
-table h4 {
-  margin-bottom: 0;
-}
-.schedule-offset {
-  color: #a9b2b9;
-}
-
-/*
-===================================================================================================
-Venue
-===================================================================================================
-*/
-
-.venue-theatre {
-	margin-bottom: 66px;
-}
-.venue-hotel {
-	margin-bottom: 22px;
-}
-.venue-map {
-	height: 264px;
-}
-
-/*
-===================================================================================================
-Register
-===================================================================================================
-*/
-
-.why-attend {
-	list-style: square;
-	margin: 0 0 22px 30px;
-}
-form {
-	margin-bottom: 22px;
-}
-input,
-select,
-textarea {
-  font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.register-group label {
-  color: #648880;
-  cursor: pointer;
-  font-weight: 400;
-}
-.register-group input,
-.register-group select,
-.register-group textarea {
-  border: 1px solid #c6c9cc;
-  border-radius: 5px;
-  color: #888;
-  display: block;
-  margin: 5px 0 27px 0;
-  padding: 5px 8px;
-}
-.register-group input,
-.register-group textarea {
-  width: 100%;
-}
-.register-group select {
-  height: 34px;
-  width: 60px;
-}
-.register-group textarea {
-  height: 78px;
-}
+.icon {
+	color: blue;
+	cursor: pointer;
+	display: inline-block;
+	padding: 4px 4px;
+	text-align: center;
+};
