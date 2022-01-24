@@ -8,8 +8,45 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: #dedede;
+  color: #000;
+  font-family: 'Roboto', sans-serif;
 }
 
-/* font-family: 'Roboto', sans-serif; */
+.tweet {
+  /* border: 3px solid #ffb0fe; */
+  border-radius: 5px;
+  background-color: white;
+  height: 150px;
+  width: 60vw;
+  margin: 1vh 18vw;
+  padding: 1vh 2vw;
+}
+.profile-photo {
+  border: 3px solid #ffb0fe;
+  border-radius: 5px;
+}
+.username {
+  font-size: 0.75em;
+}
+.message {
+  font-weight: 400;
+  text-align: center;
+}
+.timestamp {
+  font-style: italic;
+  font-size: 0.65em;
+  color: #474747;
+  text-align: right;
+}
+
+.icons{
+  display: flex;
+  justify-content: right;
+}
+
+.icon:hover {
+  border: 1px solid black;
+  border-radius: 2px;
+}
+

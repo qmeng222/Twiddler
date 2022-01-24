@@ -29,32 +29,33 @@ $(document).ready(function(){
       var $avi = $('<img class="profile-photo"></img>');
       var $timestamp = $('<div class="timestamp"></div>');
 
-      var $icons = $('<div></div>');
+      var $icons = $('<div class="icons"></div>');
       var iconClasses = ['comment', 'retweet', 'like', 'share'];
       var faNames = ['comment', 'retweet', 'heart', 'share']
 
       for (var x = 0; x < iconClasses.length; x++){
-        var $icon = $(`<i class="fas fa-${faNames[x]} ${iconClasses[x]}"></i>`);
+        var $icon = $(`<i class="fas fa-${faNames[x]} ${iconClasses[x]} icon"></i>`);
         $icon.appendTo($icons);
       }
-      $icons.appendTo($tweet);
 
       $tweet.appendTo($feed);
 
       $timestamp.text(jQuery.timeago(tweet.created_at));
-      $timestamp.appendTo($tweet);
 
       $avi.attr('src', tweet.profilePhotoURL);
-      $avi.appendTo($tweet);
 
       $username.text('@' + tweet.user);
       $username.click(function() {
         renderFeed(this.textContent.slice(1));
       })
-      $username.appendTo($tweet);
 
       $message.text(tweet.message);
+
+      $avi.appendTo($tweet);
+      $username.appendTo($tweet);
       $message.appendTo($tweet);
+      $timestamp.appendTo($tweet);
+      $icons.appendTo($tweet);
       index -= 1;
     }
   }
@@ -108,3 +109,5 @@ $(document).ready(function(){
   appendUpdateFeedFn();
   renderFeed();
 });
+
+window.isItBeautifulYet = true
