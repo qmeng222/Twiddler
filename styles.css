@@ -34,7 +34,7 @@ h1 {
   display: flex;
   justify-content: center;
   margin: 0;
-
+  text-align: center;
 }
 
 #update-feed{
@@ -48,8 +48,6 @@ h1 {
   border: none;
   padding: .6em 1.4em;
   background-color: white;
-
-
 }
 #update-feed:hover{
   background-color:  #f1effa;
