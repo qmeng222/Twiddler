@@ -69,7 +69,7 @@ var writeTweet = function(message) {
     streams.users[visitor] = [];
   }
   var tweet = {};
-  tweet.user = visitor;
+  tweet.user = username;
   tweet.message = message;
   tweet.created_at = new Date();
   tweet.profilePhotoURL = './assets/img/visitor.png';

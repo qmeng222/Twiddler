@@ -2,6 +2,7 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  text-align: center;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
@@ -10,4 +11,19 @@ providing a space for you to apply styles to your app's outermost HTML element -
 #app {
   background-color: green;
   color: yellow;
+}
+
+header {
+  position: absolute;
+  font-family: ;
+}
+
+h1 {
+  font-size: 100px;
+  font-family: 'Beth Ellen', 'Schoolbell';
+}
+
+.feed_container {
+  text-align: left;
+  padding-left: 20vh;
 }
