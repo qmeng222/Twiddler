@@ -10,6 +10,18 @@ console.log(event);
 alert('The title of this page is: ' + event.target.innerText);
 });
 
+var $updatebutton = $('<h2><button id="update-feed">Update Feed</button></h2>');
+$updatebutton.appendTo($app);
+
+
+var $friendslist = $('<ul></ul>')
+$('<h3>Friend List:</h3>').appendTo($friendslist)
+$('<li>@sharksforcheap</li>').appendTo($friendslist);
+$('<li>@shawndrost</li>').appendTo($friendslist);
+$('<li>@mracus</li>').appendTo($friendslist);
+$('<li>@douglascalhoun</li>').appendTo($friendslist);
+$friendslist.appendTo($app);
+
 var $feed = $('<div id="feed"></div>');
 
 var $tweet = $('<div class="tweet"></div>');
@@ -21,9 +33,6 @@ var $username = $('<div class="username"></div>');
 var $profilephoto = $('<img class="profile-photo"/>');
 
 var $timestamp = $('<div class="timestamp"></div>');
-
-var $updatebutton = $('<button id="update-feed">Update Feed</button>');
-$updatebutton.appendTo($app);
 
 var index = streams.home.length - 1;
   while(index >= 0){
