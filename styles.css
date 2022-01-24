@@ -115,17 +115,17 @@ providing a space for you to apply styles to your app's outermost HTML element -
     background-color: #5BC0BE;
   }
 
-  /* dropdown for friends list, needs more work */
-  /* .dropdown {
-    position: relative;
+  /* Friends List */
+  #friends-list-container {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
   }
 
-  .dropdown-menu {
-    position: absolute;
-    top: calc(100% + .25rem);
-  } */
   #friends-list {
-    display: flex;
+    display: none;
     box-sizing: border-box;
     flex-direction: column;
     align-items: center;
@@ -136,6 +136,13 @@ providing a space for you to apply styles to your app's outermost HTML element -
     font-size: .8em;
     padding: 0%;
     padding-top: 5%;
+  }
+
+  #friends-list-container:hover #friends-list {
+    display: flex;
+    opacity: 100%;
+    box-shadow: 0 5px 5px -5px #5BC0BE;
+    transition: all 0.2s;
   }
 
   #friends-list .friend:hover {
