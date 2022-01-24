@@ -8,6 +8,6 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: rgb(40, 185, 221);
+  color: rgb(5, 5, 2);
 }

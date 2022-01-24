@@ -14,16 +14,16 @@ streams.users.douglascalhoun = [];
 window.users = Object.keys(streams.users);
 
 // utility function for adding tweets to our data structures
-var addTweet = function(newTweet) {
-  var username = newTweet.user;
-  streams.users[username].push(newTweet);
-  streams.home.push(newTweet);
+var addTweet = function(newTweet) { // sets param of newTweet
+  var username = newTweet.user; // given param should have prop of .user, username assigned to .user
+  streams.users[username].push(newTweet); // push given tweet to User Stream based on given tweet.user name
+  streams.home.push(newTweet); // push newTweet to Home Stream (no accounting for username)
 };
 
 // utility function
-var randomElement = function(array) {
-  var randomIndex = Math.floor(Math.random() * array.length);
-  return array[randomIndex];
+var randomElement = function(array) { //sets param to array
+  var randomIndex = Math.floor(Math.random() * array.length); //selects random integer(rounded down) from array length
+  return array[randomIndex]; // returns a random element from given array
 };
 
 // random tweet generator
@@ -35,43 +35,45 @@ var tags = ['#techlife', '#burningman', '#sf', 'but only i know how', 'for real'
 
 var randomMessage = function() {
   return [randomElement(opening), randomElement(verbs), randomElement(objects), randomElement(nouns), randomElement(tags)].join(' ');
-};
+}; // function returns random message composed of randomElements from structure above
+
+
 
 // generate random tweets on a random schedule
-var generateRandomTweet = function() {
-  var tweet = {};
-  tweet.user = randomElement(users);
-  tweet.message = randomMessage();
-  tweet.created_at = new Date();
-  tweet.profilePhotoURL = './assets/img/' + tweet.user + '.png';
-  addTweet(tweet);
+var generateRandomTweet = function() { //takes no param
+  var tweet = {}; // tweet is an object
+  tweet.user = randomElement(users); // selects a random user from user data structure and assigns it to user property within tweet object
+  tweet.message = randomMessage(); // assigns tweet key of message to value of randomMessage function
+  tweet.created_at = new Date(); // assigns tweet key of created_at to current time capture
+  tweet.profilePhotoURL = './assets/img/' + tweet.user + '.png'; //assigns profile photo using concat'd string that utilizes relative path and value of tweet.user
+  addTweet(tweet); //calls addTweet function and passs newly created tweet object with keys a user, message, created at, and profile photo
 };
 
 for (var i = 0; i < 10; i++) {
-  generateRandomTweet();
+  generateRandomTweet(); //loops function generateRandomTweet ten times
 }
 
 var scheduleNextTweet = function() {
-  if (streams.home.length < 500) {
-    generateRandomTweet();
-    setTimeout(scheduleNextTweet, 250 + (Math.random() * 1250));
+  if (streams.home.length < 500) { //if there are fewer then 500 elements on Home Stream,
+    generateRandomTweet(); // call function to make tweets
+    setTimeout(scheduleNextTweet, 250 + (Math.random() * 1250)); //calls itself again at a variable millisecond interval
   }
 };
-scheduleNextTweet();
+scheduleNextTweet();// IIFE, calls itself the first time
 
 // utility function for letting students add "write a tweet" functionality
 // (note: not used by the rest of this file.)
-var writeTweet = function(message) {
-  if (!visitor) {
+var writeTweet = function(message) { //sets param to message
+  if (!visitor) { //sets condition on if user is a visitor?
     throw new Error('set the global visitor property!');
   }
-  if (!streams.users[visitor]) {
-    streams.users[visitor] = [];
+  if (!streams.users[visitor]) { //checks if visitor key in users is undefined (undefined would return false but !)
+    streams.users[visitor] = []; // sets visitor key in users to an empty array
   }
-  var tweet = {};
-  tweet.user = visitor;
-  tweet.message = message;
-  tweet.created_at = new Date();
-  tweet.profilePhotoURL = './assets/img/visitor.png';
-  addTweet(tweet);
+  var tweet = {}; // assigns twwet to empty object
+  tweet.user = visitor; // user key in tweet is equal to visitor
+  tweet.message = message; // message key = message parma input
+  tweet.created_at = new Date(); // date key at current date
+  tweet.profilePhotoURL = './assets/img/visitor.png'; //assigns profile photo prop to visitor image in local file
+  addTweet(tweet); // calls function tweet and passes newly created tweet
 };
