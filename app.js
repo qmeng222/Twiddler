@@ -12,12 +12,15 @@ $(document).ready(function(){
   // Create new HTML elements
   // ----------------------------------------------------------------------------------------------
 
-  var $title = $('<h1>Twiddler</h1>');
-  var $subtitle = $('<h4>"Personal remarks are rude?" - Mad Hatter, \'Alice in Wonderland\'</h4>');
-  var $updateButton = $('<button id="update-feed">Update Feed</button>');
-  var $feed = $('<div id="feed"></div>');
+  var $header = $('<header class="primary-header container"></header>');
+  var $title = $('<h1 class="title"><a href="index.html">Twiddler</a></h1>');
+  var $tagline = $('<h3 class="tagline"><strong>"Personal remarks are rude?"</strong> - Mad Hatter, \'Alice in Wonderland\'</h3>');
+  var $grid = $('<div class="grid"></div>');
+  var $friends = $('<div class="col-1-3" id="friends"></div>');
+  var $updateButton = $('<button class="btn btn-alt" id="update-feed">Update Feed</button>');
+  var $feed = $('<div class="col-1-3" id="feed"></div>');
 
-  var $icons = $('<div class="icon-basket"></div>');
+  var $icons = $('<div class="icon-container"></div>');
   var $commentIcon = $('<i class="icon comment far fa-comment-dots" src="assets/icons/comment-dots-regular.svg"></i>');
   var $retweetIcon = $('<i class="icon retweet fas fa-retweet" src="assets/icons/retweet-solid.svg"></i>');
   var $likeIcon = $('<i class="icon like far fa-heart" src="assets/icons/heart-regular.svg"></i>');
@@ -26,6 +29,10 @@ $(document).ready(function(){
   // ----------------------------------------------------------------------------------------------
   // HTML rendering functions
   // ----------------------------------------------------------------------------------------------
+
+  // var renderHeader = function() {
+  //   $header.append($title, $tagline);
+  // };
 
   var renderFeed = function(user) {
     var stream;
@@ -44,10 +51,10 @@ $(document).ready(function(){
   var renderTweet = function(profilePhoto, username, message, timestamp) {
     var $currentTweet = $('<div class="tweet"></div>');
     var $profilePhoto = $('<img class="profile-photo" src=' + profilePhoto + ' alt="no profile photo">');
+    var $timestamp = $('<span class="timestamp">' + timestamp + '</span>');
     var $username = $('<span class="username">' + username + '</span>');
     var $message = $('<p class="message">' + message + '</p>');
-    var $timestamp = $('<span class="timestamp">' + timestamp + '</span>');
-    $currentTweet.append($profilePhoto, $username, $message, $timestamp);
+    $currentTweet.append($profilePhoto, $timestamp, $username, $message);
     return $currentTweet;
   };
 
@@ -65,7 +72,7 @@ $(document).ready(function(){
   };
 
   var handleUpdateButtonClick = function(event) {
-    if (this.innerText === 'Back') {
+    if (this.textContent === 'Back') {
       $updateButton.text('Update Feed');
     }
     renderFeed();
@@ -91,10 +98,13 @@ $(document).ready(function(){
   // Append new HTML elements to the DOM
   // ----------------------------------------------------------------------------------------------
 
-  $title.appendTo($app);
-  $subtitle.appendTo($app);
-  $updateButton.appendTo($app);
-  $feed.appendTo($app);
+  $header.appendTo($app);
+  $title.appendTo($header);
+  $tagline.appendTo($app);
+  $grid.appendTo($app);
+  $friends.appendTo($grid);
+  $updateButton.appendTo($friends);
+  $feed.appendTo($grid);
 
   // ----------------------------------------------------------------------------------------------
   // Set event listeners (providing appropriate handlers as input)
