@@ -22,7 +22,6 @@ $(document).ready(function(){
 
     while(index >= 0){
       var tweet = username === undefined ? streams.home[index] : streams.users[username][index];
-      // console.log(tweet);
       var $tweet = $('<div class="tweet"></div>');
       var $message = $('<div class="message"></div>');
       var $username = $('<div class="username"></div>');
