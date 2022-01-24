@@ -7,7 +7,212 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Custom Styles */
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+}
+
+/* Grid */
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 #app {
-  background-color: green;
-  color: yellow;
+  display: grid;
+  grid-template-columns: 260px 600px 100px;
+  grid-template-rows: 100px auto;
+  background-color: #707174;
+  color: black;
+}
+
+#feed {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  border-left: 2px solid #98CEFF;
+}
+
+/* Header */
+
+header {
+  background-color: #C9D8D7;
+  grid-column: span 4;
+}
+
+h1 {
+  padding-top: 30px;
+  padding-left: 30px;
+  font-size: 60px;
+  text-transform: uppercase;
+  color: #707174;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Icons */
+
+.comment:hover, .retweet:hover, .like:hover, .share:hover {
+  color: #98CEFF;
+}
+
+/* Tweets */
+
+.tweet {
+  display: inline-block;
+  border-bottom: solid 2px #98CEFF;
+  color: #C9D8D7;
+  width: 100%;
+  grid-column: 2 / 3;
+}
+
+.profile-photo {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.message {
+  position: relative;
+  left: 20px;
+  text-align: left;
+  font-size: 1em;
+}
+
+.timestamp {
+  position: relative;
+  left: 20px;
+  top: 20px;
+  font-size: 0.9em;
+}
+
+.username {
+  position: relative;
+  bottom: 35px;
+  left: 80px;
+  font-size: 0.9em;
+  color: #98CEFF;
+}
+
+.comment {
+  margin-right: 10px;
+  padding-right: 10px;
+}
+.retweet {
+  margin-right: 10px;
+  padding: 10px;
+}
+.like {
+  margin-right: 10px;
+  padding: 10px;
+}
+.share {
+  margin-right: 10px;
+  padding: 10px;
+}
+.icon {
+  position: relative;
+  left: 20px;
+  top: 25px;
+  margin-bottom: 20px;
+}
+
+/* Button */
+
+#update-feed {
+  width: 150px;
+  height: 50px;
+  margin-left: 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background-color: #C9D8D7;
+  color: #707174;
+}
+
+/* Friends List */
+
+.sidebar {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  margin-right: 30px;
+  padding-left: 10px;
+  padding-top: 20px;
+  border-right: 2px solid #C9D8D7;
+}
+
+ul {
+  font-size: 0.9em;
+  margin-left: 30px;
+  margin-top: 10px;
+  padding-left: 10px;
+  color: #98CEFF
+}
+
+li {
+  padding-bottom: 10px;
+}
+
+h3 {
+  margin-top: 20px;
+  margin-left: 30px;
+  font-size: 1.5em;
+  color: #C9D8D7;
+  border-bottom: 2px solid #C9D8D7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
