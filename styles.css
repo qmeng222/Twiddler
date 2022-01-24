@@ -2,12 +2,198 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  font-family: 'Nunito';
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
-
-#app {
-  background-color: green;
-  color: yellow;
+body {
+  /* background-image: url('assets/img/triangle-mosaic.png'); */
+  min-height:100%;
+  background:linear-gradient(0deg, #2F5670, #66BAF2), url('assets/img/triangle-mosaic.png');
+  background-size:cover;
 }
+#app {
+  /* background-color: white; */
+  color: #2F5670;
+}
+
+
+#header {
+  /* padding:20px; */
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(29, 155, 240);
+  color:white;
+  box-shadow: 0px 0px 9px 3px rgba(41,41,41,.25);
+}
+
+#header *{
+  padding:10px;
+}
+
+h1 {
+  font-size: 5em;
+}
+
+#mainContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+#update-feed {
+  position:fixed;
+  border-radius: 15px;
+  border-color: rgba(0,0,0,0);
+  right:20px;
+  width:100px;
+  color:#2F5670;
+}
+
+#friendsBox {
+  /* position:fixed; */
+  margin: 30px;
+  /* border: 1px solid #2F5670; */
+  width:auto;
+  /* min-width:200px; */
+  /* min-height: 500px; should probably skip this when content is added */
+  background: #2F5670;
+  border-radius:25px;
+  font-size: 1.2em;
+  height: 100%;
+}
+#friendsBox img{
+  border-radius: 50%;
+}
+#friendsBox h2 {
+  width:100%;
+  color:white;
+  text-align:Center;
+  margin-top:15px;
+  margin-bottom:0px;
+}
+
+#friends-list {
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-color: rgba(0,0,0,0);
+  background:white;
+  list-style: none;
+  padding: 5px;
+  align-items: center;
+  margin-bottom:0;
+}
+#friends-list *{
+  padding:5px;
+}
+.friendItem {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#feed {
+  width:30%;
+  margin-top:10px;
+  /* margin-left:auto;
+  margin-right:auto; */
+}
+
+.tweet {
+  background: white;
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  width:100%;
+  /* border: 1px solid #2F5670; */
+  border-radius: 25px;
+  padding:20px;
+  padding-left:0;
+  margin:20px;
+  margin-left:0;
+}
+
+.tweet *{
+  margin-right:5px;
+  margin-left:5px;
+  /* height:auto; */
+}
+
+.tweet .content {
+  width:100%;
+}
+.tweet .profileContainer {
+  margin-left:15px;
+  /* position: re; */
+  height:100%;
+  min-height: 100%;
+}
+
+.tweet .profileContainer img{
+  border-radius: 50%;
+  width:64px;
+  height:64px;
+}
+
+.tweet .username{
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
+.tweet .message {
+  width:100%;
+  text-align:left;
+  font-size: 1.5em;
+  font-style: normal;
+}
+
+.tweet .iconContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.icon {
+  color: #2F5670;
+}
+
+.icon:hover {
+  color:#66BAF2;
+}
+
+#new-tweet-form {
+  margin:30px;
+  padding:15px;
+  border-radius: 15px;
+  background: #0D4970;
+  /* min-width:300px; */
+  height: 100%;
+}
+
+#new-tweet-form * {
+  width:97%;
+  font-size: 1.5em;
+  margin-top:5px;
+  border-radius: 15px;
+  padding:5px;
+  border-color:rgba(0,0,0,0);
+}
+
+#new-tweet-form textarea {
+  min-height:150px;
+  margin-top:15px;
+  margin-bottom:15px;
+}
+
+
+
+#submit-button{
+  width:100%;
+  color:#FFFFFF;
+  background:rgb(29, 155, 240);
+  font-weight: 800;
+  font-size: 1.7em;
+}
+
