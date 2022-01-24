@@ -56,7 +56,7 @@ LEFT COLUMN
 h1 {
   font-family: 'Exo', 'Rajdhani', sans-serif;
   text-transform: uppercase;
-  font-size: 50px;
+  font-size: 70px;
   letter-spacing: -1px;
   font-weight: 800;
   text-align: center;
@@ -66,9 +66,88 @@ h1 {
 
 /*
 ===============================
-FEED (RIGHT COLUMN)
+TOP BANNER
 ===============================
 */
+
+.top-banner {
+  background-color: #1c1c1c;
+  height: 200px;
+  width: 66%;
+  position: fixed;
+  z-index: 10;
+  color: #eeeef2;
+}
+
+.top-banner-item {
+  display: inline-block;
+  width: 48%;
+}
+
+/* Form */
+
+form.top-banner-item {
+  margin: 30px;
+}
+
+form input {
+  display: block;
+  border: none;
+  border-radius: 50px;
+  width: 40%;
+  margin: 0 auto 10px;
+  padding-left: 7px;
+}
+
+form label {
+  display: inline-block;
+  margin: 0 30% 2px;
+}
+
+/* Friends List */
+
+#friends-list {
+  width: 30%;
+  padding: 15px 5px 10px 50px;
+}
+
+#friends-list:after {
+  background-image: url('assets/img/twiddlerBanner.jpg');
+  background-size: cover;
+  background-position: bottom;
+  opacity: 0.1;
+}
+
+.friend:hover {
+  color: #ff715b;
+  cursor: pointer;
+}
+
+.top-banner-item ul {
+  margin-bottom: 30px;
+}
+
+.top-banner-item li {
+  font-size: 18px;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.top-banner-item li:first-child {
+  padding-top: 10px;
+}
+
+
+/*
+===============================
+FEED
+===============================
+*/
+
+#feed {
+  clear: both;
+  position: relative;
+  top: 230px;
+}
 
 .tweet {
   border-radius: 7px;
@@ -89,6 +168,10 @@ FEED (RIGHT COLUMN)
 .username {
   color: #ff715b;
   font-size: 15px;
+}
+
+.username:hover {
+  cursor: pointer;
 }
 
 .timestamp {
@@ -143,20 +226,29 @@ BUTTONS
 ===============================
 */
 
-button {
+.btn {
   border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
+  padding: 3px 10px 3px;
+  border-radius: 40px;
   text-transform: uppercase;
-  font-size: 16px;
   font-family: 'Exo', 'Rajdhani', sans-serif;
-  position: relative;
-  left: 38%;
-  background-color: #ff715b;
+  background-color: #fff;
   color: #1c1c1c;
+  box-shadow: 2px 2px #1c1c1ca8;
 }
 
-button:hover {
-  color: #fff;
+.btn:hover {
+  background-color: #ff715b;
   cursor: pointer;
+}
+
+input.btn {
+  margin-top: 20px;
+}
+
+.main-btn {
+  position: relative;
+  font-size: 16px;
+  margin: 0 10px;
+  left: 30%;
 }

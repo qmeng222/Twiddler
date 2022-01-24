@@ -7,17 +7,19 @@ $(document).ready(function(){
   // Create new HTML elements
   var $leftBanner = $('<aside class="col-1-3"></aside>');
   var $title = $('<h1>Twiddler</h1>');
-  var $rightColumn = $('<div class="col-2-3"></div>');
+  var $rightCol = $('<div class="col-2-3"></div>');
+  var $topBanner = $('<div class="top-banner"></div>');
   var $feed = $('<div id="feed"></div>');
-  var $updateFeed = $('<button id="update-feed">Update Feed</button>');
-  var $friendsList = $('<ul id="friends-list"></ul>');
+  var $homeButton = $('<a href="index.html"><button class="btn main-btn">Home</button></a>');
+  var $updateFeed = $('<button id="update-feed" class="btn main-btn">Update Feed</button>');
+  var $friendsList = $('<ul id="friends-list" class="top-banner-item">My Friends</ul>');
 
-  var $newTweetForm = $('<form id="new-tweet-form" action="#" onsubmit="return false"></form>');
+  var $newTweetForm = $('<form id="new-tweet-form" class="top-banner-item" action="#" onsubmit="return false"></form>');
   var $usernameLabel = $('<label for="username">Username</label>');
   var $username = $('<input type="text" name="username" id="username" required>');
   var $message = $('<input type="text" name="message" id="message" required>');
   var $messageLabel = $('<label for="message">Write your message</label>');
-  var $submitNewTweetForm = $('<input type="submit" name="submit" value="Post">');
+  var $submitNewTweetForm = $('<input type="submit" name="submit" value="Post" class="btn">');
 
   var updateFriendsList = function() {
     for (var user in streams.users) {
@@ -92,7 +94,7 @@ $(document).ready(function(){
       user: username.value,
       message: message.value,
       created_at: new Date(),
-      profilePhotoURL: `.assets/img/${username.value}.png` || `.assets/img/${visitor}.png`
+      profilePhotoURL: `./assets/img/${username.value}.png` || './assets/img/visitor.png'
     }
 
     if (!streams.users[username.value]) {
@@ -125,14 +127,17 @@ $(document).ready(function(){
 
   // Append new HTML elements to the DOM
   $leftBanner.appendTo($app);
-  $rightColumn.appendTo($app);
+  $rightCol.appendTo($app);
 
   $title.appendTo($leftBanner);
+  $homeButton.appendTo($leftBanner);
   $updateFeed.appendTo($leftBanner);
 
-  $newTweetForm.appendTo($rightColumn);
-  $friendsList.appendTo($rightColumn);
-  $feed.appendTo($rightColumn);
+  $topBanner.appendTo($rightCol);
+  $feed.appendTo($rightCol);
+
+  $newTweetForm.appendTo($topBanner);
+  $friendsList.appendTo($topBanner);
 
   $usernameLabel.appendTo($newTweetForm);
   $username.appendTo($newTweetForm);
