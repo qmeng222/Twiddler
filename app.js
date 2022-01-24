@@ -5,10 +5,29 @@ $(document).ready(function(){
   jQuery.timeago.settings.allowFuture = true;
 
   // Create new HTML elements
-  var $rightBanner = $('<aside class="col-1-3"></aside>');
+  var $leftBanner = $('<aside class="col-1-3"></aside>');
   var $title = $('<h1>Twiddler</h1>');
-  var $feed = $('<div id="feed" class="col-2-3"></div>');
+  var $rightColumn = $('<div class="col-2-3"></div>');
+  var $feed = $('<div id="feed"></div>');
   var $updateFeed = $('<button id="update-feed">Update Feed</button>');
+  var $friendsList = $('<ul id="friends-list"></ul>');
+
+  var $newTweetForm = $('<form id="new-tweet-form" action="#" onsubmit="return false"></form>');
+  var $usernameLabel = $('<label for="username">Username</label>');
+  var $username = $('<input type="text" name="username" id="username" required>');
+  var $message = $('<input type="text" name="message" id="message" required>');
+  var $messageLabel = $('<label for="message">Write your message</label>');
+  var $submitNewTweetForm = $('<input type="submit" name="submit" value="Post">');
+
+  var updateFriendsList = function() {
+    for (var user in streams.users) {
+      var $friend = $('<li class="friend"></li>');
+      $friend.text(`@${user}`);
+      $friend.appendTo($friendsList);
+    }
+  }
+
+  updateFriendsList();
 
   // Create event handler functions
   $title.on('click', function(event) {
@@ -32,7 +51,6 @@ $(document).ready(function(){
       var $retweetIcon = $('<i class="icon retweet fas fa-share"></i>');
       var $likeIcon = $('<i class="icon like fas fa-heart"></i>');
       var $shareIcon = $('<i class="icon share fas fa-share-alt"></i>');
-
 
       $($userPhoto).attr('src', `${tweet.profilePhotoURL}`);
       $username.text(`@${tweet.user}`);
@@ -67,7 +85,25 @@ $(document).ready(function(){
   var handleUsernameClick = function(event) {
     $updateFeed.text('Back');
     return renderFeed(event.target.innerText);
-  }
+  };
+
+  var saveNewTweet = function() {
+    var tweetComponents = {
+      user: username.value,
+      message: message.value,
+      created_at: new Date(),
+      profilePhotoURL: `.assets/img/${username.value}.png` || `.assets/img/${visitor}.png`
+    }
+
+    if (!streams.users[username.value]) {
+      streams.users[username.value] = [];
+    }
+
+    streams.users[username.value].push(tweetComponents);
+    streams.home.push(tweetComponents);
+    renderFeed();
+    return false;
+  };
 
   // Set event listeners (providing appropriate handlers as input)
   renderFeed();
@@ -80,13 +116,30 @@ $(document).ready(function(){
     return handleUsernameClick(event);
   });
 
+  $($friendsList).on('click', '.friend', function(event) {
+    return handleUsernameClick(event);
+  });
+
+  $($submitNewTweetForm).on('click', saveNewTweet);
+
 
   // Append new HTML elements to the DOM
-  $rightBanner.appendTo($app);
-  $title.appendTo($rightBanner);
-  $feed.appendTo($app);
-  $updateFeed.appendTo($rightBanner);
+  $leftBanner.appendTo($app);
+  $rightColumn.appendTo($app);
 
-  window.isItBeautifulYet = true
+  $title.appendTo($leftBanner);
+  $updateFeed.appendTo($leftBanner);
+
+  $newTweetForm.appendTo($rightColumn);
+  $friendsList.appendTo($rightColumn);
+  $feed.appendTo($rightColumn);
+
+  $usernameLabel.appendTo($newTweetForm);
+  $username.appendTo($newTweetForm);
+  $messageLabel.appendTo($newTweetForm);
+  $message.appendTo($newTweetForm);
+  $submitNewTweetForm.appendTo($newTweetForm);
+
+  window.isItBeautifulYet = true;
 
 });
