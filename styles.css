@@ -1,29 +1,44 @@
-/* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
+/* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html
 html, body, #app {
   min-height: 100vh;
-  margin: 0;
   text-align: center;
+  font-family: monospace;
+  font-size: 20px;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
-#app {
+/* #app {
   background-color: green;
   color: yellow;
 }
 
 header {
   position: absolute;
-  font-family: ;
+  padding-top: 20px;
 }
 
 h1 {
   font-size: 100px;
-  font-family: 'Beth Ellen', 'Schoolbell';
+  font-family: fantasy;
 }
 
 .feed_container {
   text-align: left;
   padding-left: 20vh;
 }
+
+.tweet {
+  height: 200px;
+}
+
+.shawndrost {
+height: 50px;
+width: 60px;
+}
+
+i.share {
+  background-image: url(images/share.png);
+
+} */ */

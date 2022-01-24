@@ -23,11 +23,11 @@ $(document).ready(function(){
   }
 }
 
-var getUserTweets = function() {
+var getUserTweets = function(username) {
   console.log('clicked');
-  var index = streams.home.length - 1;
+  var index = streams.users[username].length - 1;
   while(index >= 0){
-    var tweet = streams.home[index];
+    var tweet = streams.users[username][index];
     var $tweet = $('<div class="tweet"></div>');
     var time = tweet.created_at.toString().slice(0,15)
     $tweet.html('@' + '<a class="user_access" href=#>' + tweet.user + '</a>' + ': ' + tweet.message + '@' + time);
@@ -47,9 +47,12 @@ $updateButton.on('click', function(){
 })
 
 $('.user_access').on('click', function(event){
+  console.log(event)
   $updateButton.text('Home')
   $feed.html('')
-  getUserTweets()
+  var username = event.target.innerText;
+  console.log(username)
+  getUserTweets(username)
 })
 
 });
