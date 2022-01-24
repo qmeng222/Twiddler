@@ -114,7 +114,7 @@ $(document).ready(function(){
   }
 
   // friends list unordered list
-  var $friendsList = $('<ul id="friends-list" aria-label="Friends List"></ul>');
+  var $friendsList = $('<ul id="friends-list"></ul>');
   // loop over streams.users
   for (var user in streams.users) {
     // add @ at beginning of user text
@@ -125,17 +125,12 @@ $(document).ready(function(){
     $liUser.appendTo($friendsList);
   }
   // add f2 for friendslist title and friendsList to the sidebar container
-  $friendsListTitle = $('<h2>Friends List</h2>')
+  $friendsListContainer = $('<div id="friends-list-container"></div>');
+  $friendsListTitle = $('<h2>Friends List</h2>');
+  $friendsListTitle.appendTo($friendsListContainer);
+  $friendsList.appendTo($friendsListContainer);
+  $friendsListContainer.appendTo($sideBar);
 
-  $friendsListTitle.appendTo($sideBar);
-
-  $friendsList.appendTo($sideBar);
-
-  // dropdown functionality (more complex than I thought)
-  // $friendsDropdown = $('<div class="dropdown"></div');
-  // $dropdownMenu = $('<div class="dropdown-menu">dropdown content</div>');
-  // $dropdownMenu.appendTo($friendsDropdown);
-  // $friendsDropdown.appendTo($sideBar);
 
   // helper function for username click
   var handleUsernameClick = function() {
