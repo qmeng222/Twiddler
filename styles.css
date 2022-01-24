@@ -8,6 +8,264 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: white;
+}
+
+
+/* title */
+.header{
+  padding: 1%;
+  background-color: #3d5a80;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 70px;
+  font-family: 'HelveticaNeue-light';
+  text-transform: uppercase;
+  color: #293241;
+}
+
+/* button */
+.nav{
+  background-color: #98C1D9;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+
+}
+
+#update-feed{
+  background-color:#98C1D9;
+  border: 1px solid #293241;
+  height: 50px;
+  width: 200px;
+  font-family: 'HelveticaNeue-light';
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #293241;
+  margin-right: 40px;
+}
+
+#home-button{
+  background-color:#98C1D9;
+  border: 1px solid #293241;
+  height: 50px;
+  width: 200px;
+  font-family: 'HelveticaNeue-light';
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #293241;
+  margin-left: 40px;
+}
+
+/* side bar */
+.aside{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.container{
+  /* background-color: #3d5a80; */
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 600px;
+  border: 1px solid #293241;
+  padding: 10px;
+  margin: 40px;
+  margin-left: 120px;
+  margin-right: 10px;
+}
+
+#new-tweet-form{
+  font-family: 'HelveticaNeue-light';
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 320px;
+  width: auto;
+  margin: 2%;
+  color: #293241;
+  /* border: 1px solid black; */
+  padding: 10px;
+  margin: 10px;
+}
+
+#new-tweet {
+  font-family: 'HelveticaNeue-light';
+  color: #293241;
+  padding: 1%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h2{
+  background-color: #98C1D9;
+  margin: 0;
+}
+
+#new-tweet-button{
+  margin:0;
+  padding: 2px 12px;
+  border: 1px solid black;
+  font-family: 'HelveticaNeue-light';
+  background-color: white;
+
+}
+
+/* friend list */
+
+#friends-list-entries {
+  font-family: 'HelveticaNeue-light';
+  display: flex;
+  flex-direction: column;
+  height: 320px;
+  width: auto;
+  justify-content: space-evenly;
+  margin: 2%;
+  color: #293241;
+  /* border: 1px  solid black; */
+  padding: 10px;
+  margin: 10px;
+}
+
+#friends-list {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  list-style-type: none;
+  padding: 1%;
+}
+
+#list {
+  font-family: 'HelveticaNeue-light';
+  text-align: center;
+  padding: 1%;
+}
+
+.friend{
+  margin: 5px;
+}
+
+/* feed */
+
+.feed{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 40px;
+  margin-right: 520px;
+  margin-left: 20px;
+}
+
+/* tweet */
+.tweet {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 70%;
+  color: midnightblue;
+  flex-wrap: wrap;
+  padding: 1%;
+  margin: 1%;
+}
+
+.tweetHeader{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: 'HelveticaNeue-light';
+}
+
+.username{
+  margin: 5px;
+  margin-bottom: 40px;
+}
+
+.tweetBody{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2%;
+  margin: 5px;
+  font-size: large;
+  font-family: 'HelveticaNeue-light';
+}
+
+.tweetFooter{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  margin: 5px;
+  font-size: small;
+  font-family: 'HelveticaNeue-light';
+}
+
+.profile-photo{
+  border-radius: 50%;
+}
+
+/* Hover */
+
+.header:hover{
+  background-color: #EE6C4D;
+}
+
+#update-feed:hover{
+  color: #EE6C4D;
+  border: 2px solid #EE6C4D;
+}
+
+#new-tweet:hover{
+  background-color: #EE6C4D;
+
+}
+
+#list:hover{
+  background-color:#EE6C4D;
+}
+
+.friend:hover{
+  color:#EE6C4D;
+}
+
+#new-tweet-button:hover{
+  border: 1.5px solid #EE6C4D;
+  color: #EE6C4D;
+}
+
+.tweet:hover{
+  border: 1px solid #EE6C4D;
+  box-shadow: 1px 1px 1px 1px #EE6C4D;
+}
+
+#home-button:hover{
+  color: #EE6C4D;
+  border: 2px solid #EE6C4D;
+}
+
+.container:hover{
+  border: 1px solid #EE6C4D;
+  box-shadow: 1px 1px 1px 1px #EE6C4D;
+}
+
+.comment:hover{
+  color: #EE6C4D;
+}
+
+.retweet:hover{
+  color: #EE6C4D;
+}
+
+.like:hover{
+  color: #EE6C4D;
+}
+
+.share:hover{
+  color: #EE6C4D;
 }
