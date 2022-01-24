@@ -65,7 +65,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
   font-family: 'Sans Forgetica Regular';
 }
 
-#update-feed {
+.update-feed {
   width: auto;
   height: auto;
   background-color: #355070;
@@ -129,6 +129,12 @@ providing a space for you to apply styles to your app's outermost HTML element -
   flex-direction: row;
   justify-content: space-evenly;
   color: #355070;
+}
+
+.button-hover {
+  font-weight: 700;
+  background-color: #279AF1;
+  cursor: pointer;
 }
 
 .hover {
