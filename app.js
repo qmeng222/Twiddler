@@ -1,8 +1,15 @@
 $(document).ready(function(){
-  //selects selector with id app
+  //selects elements with id app using css selector
   var $app = $('#app');
   //clears html
   $app.html('');
+
+  var $title = $('<h1>Twiddler</h1>');
+  $title.appendTo($app);
+  $title.on('click', function(event) {
+    console.log(event);
+    alert('The title of this page: ' + event.target.innerText);
+  })
 
   //index of last tweet in collection
   var index = streams.home.length - 1;
