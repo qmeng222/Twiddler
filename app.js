@@ -5,6 +5,7 @@ $(document).ready(function(){
     $app.html('');
 
     // Create new HTML elements
+  var $header = $('<header></header>')
   var $title = $('<h1>Twiddler</h1>')
   var $updateFeedBtn = $('<button id="update-feed" type="button">Update Feed</button>')
   var $feed = $('<section id="feed">Feed</section>');
@@ -46,7 +47,6 @@ $(document).ready(function(){
     }
 
   renderFeed();
-  $users=$('.username')
 
     // Create event handler functions
 
@@ -64,7 +64,6 @@ $(document).ready(function(){
   };
 
   var handleUsernameClick = function(event) {
-      alert('clicked user');
       renderFeed(event.target.innerText.split('@')[1]);
       $updateFeedBtn.text('back');
   }
@@ -73,12 +72,13 @@ $(document).ready(function(){
 
   $title.on("click", handleTitleClick);
 
-  $users.on("click", handleUsernameClick);
+  $feed.on("click", ".username", handleUsernameClick);
 
     // Append new HTML elements to the DOM
-  $title.appendTo($app);
-  $updateFeedBtn.appendTo($app);
+  $header.appendTo($app);
+  $title.appendTo($header);
+  $updateFeedBtn.appendTo($header);
   $feed.appendTo($app);
-  $users.appendTo($app);
 
+  window.isItBeautifulYet = true;
 });

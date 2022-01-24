@@ -1,11 +1,12 @@
 @font-face {
-  font-family: 'Russo One', sans-serif;
-  src: url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap')
+  font-family: 'Raleway', sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;1,100;1,400&family=Russo+One&display=swap")
 }
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  background-color: #95caed;
   /*font-family: "Russo One", sans-serif;*/
 }
 
@@ -13,14 +14,121 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+
+  font-family: 'Raleway', sans-serif;
+  color: rgb(241, 241, 98);
+  display: grid;
+  grid-template-columns: 1 fr 2 fr;
+}
+/* ============================
+   header
+   =============================
+*/
+
+header {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  margin: 10px 5px 0 10px;
+  display: grid;
+  grid-template-rows: 100px 50px;
 }
 
-.icon:hover {
-  color: orange;
+h1 {
+  text-align: center;
+  grid-row: 1/2;
+}
+
+#update-feed {
+  justify-self: center;
+  align-items: center;
+  grid-row: 2/3;
+  background-color: rgb(241, 241, 98);
+  border-radius: 200px;
+  border-style: none;
+  color: black;
+  width: 80%;
+  height: 30px;
+  box-shadow: inset 1px -2px 15px -1px grey;;
+}
+
+/* ============================
+   Tweets
+   =============================
+*/
+
+#feed {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  padding: 10px 10px 0 0;
+}
+
+.tweet {
+  border: 2px solid grey;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin-bottom: 1em;
+  margin-left: 20px;
+  background: radial-gradient(#b5e2f5 1%, #95caed);
+}
+.tweet :first-child {
+  margin-top: 10px;
+}
+
+
+.profile-photo {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  justify-self: center;
+  border-radius: 50%;
+  width: 50%;
+  height: auto;
+}
+.username {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  font-style: italic;
+}
+.message {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 4;
+}
+.icon-container {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  align-self: center;
+}
+.icon {
+  margin-right: 10px;
+}
+.timestamp {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  font-weight: lighter;
+  font-size: .8em;
+  align-self: center;
 }
 
 .username {
-  background-color: black;
+  text-align: left;
+  font-size: 2em;
 }
+
+
+
+
+.icon:hover {
+  color: blue;
+}
+
