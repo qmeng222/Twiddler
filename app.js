@@ -3,13 +3,15 @@ $(document).ready(function () {
 
   // new elements
   var $app = $('#app');
-  var $title = $('<h1 class="title">TWIDDLER</h1>');
-  var $updateFeed = $('<button id="update-feed"></button>');
+  var $header = $('<div class="header"></div>');
+  var $title = $('<h1 class="title"><i class="fas fa-thumbs-up"></i>TWIDDLER<i class="flipped fas fa-thumbs-up"></i></h1>');
+  var $subtitle = $('<h5 class="subtitle">UNFORGETTABLE EDITION</h5>');
+  var $updateFeed = $('<button id="update-feed">UPDATE FEED</button>');
   var $feed = $('<div id="feed"></div>');
 
   // modify elements
   $app.html('');
-  $updateFeed.html('UPDATE FEED');
+
 
   // utility functions
   var renderFeed = function (user) {
@@ -35,6 +37,7 @@ $(document).ready(function () {
       // modify elements
       $profilePhoto.attr("src", "assets/img/" + tweet.user + ".png");
       $username.text('@' + tweet.user);
+      $username.hover(handleHoverIn, handleHoverOut);
       $timestamp.text('• ' + jQuery.timeago(tweet.created_at));
       $message.text(tweet.message);
 
@@ -53,7 +56,7 @@ $(document).ready(function () {
 
       // event listeners
       $username.on("click", handleUsernameClick);
-      $(".icon").hover(handleIconHoverIn, handleIconHoverOut);
+      $(".icon").hover(handleHoverIn, handleHoverOut);
 
       index -= 1;
     }
@@ -70,8 +73,12 @@ $(document).ready(function () {
   };
 
   var titleClickHandler = function (event) {
-    console.log(event);
+    console.log(event.target);
     alert('The title of this page is: ' + event.target.innerText);
+  }
+
+  var subtitleClickHandler = function () {
+    window.open('https://sansforgetica.rmit.edu.au/', '_blank');
   }
 
   var handleUsernameClick = function (event) {
@@ -84,20 +91,26 @@ $(document).ready(function () {
     }
   }
 
-  var handleIconHoverIn = function () {
-    $(this).addClass("icon-hover");
+  var handleHoverIn = function () {
+    $(this).addClass("hover");
   }
 
-  var handleIconHoverOut = function () {
-    $(this).removeClass("icon-hover");
+  var handleHoverOut = function () {
+    $(this).removeClass("hover");
   }
 
   // event listeners
   $title.on('click', titleClickHandler);
+  $title.hover(handleHoverIn, handleHoverOut);
+  $subtitle.on('click', subtitleClickHandler);
+  $subtitle.hover(handleHoverIn, handleHoverOut);
   $updateFeed.on('click', updateFeedHandler);
+  $updateFeed.hover(handleHoverIn, handleHoverOut);
 
   // append elements to the DOM
-  $title.appendTo($app);
+  $header.appendTo($app);
+  $title.appendTo($header);
+  $subtitle.appendTo($header);
   $updateFeed.appendTo($app);
   $feed.appendTo($app);
 

@@ -21,10 +21,58 @@ providing a space for you to apply styles to your app's outermost HTML element -
 #app {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: #F7F7F7;
   color: #355070;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin: 0 0 10px 0;
+  background-color: white;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 0;
+  padding: 10px 0 0 0;
+}
+
+.fa-thumbs-up {
+  margin: 0 3px 0 3px;
+}
+
+.flipped {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.subtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 0;
+  padding: 0 0 10px 0;
+  font-family: 'Sans Forgetica Regular';
+}
+
+#update-feed {
+  width: auto;
+  height: auto;
+  background-color: #355070;
+  color: white;
+  font-weight: 400;
+  border-radius: 5px;
+  border: none;
 }
 
 #feed {
@@ -49,17 +97,6 @@ providing a space for you to apply styles to your app's outermost HTML element -
   justify-content: flex-start;
 }
 
-.icon-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  color: #355070;
-}
-
-.icon-hover {
-  color: #279AF1;
-}
-
 .profile-photo {
   height: 50px;
   width: 50px;
@@ -70,7 +107,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
 .username {
   margin-right: 10px;
   color: black;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .timestamp {
@@ -83,9 +120,21 @@ providing a space for you to apply styles to your app's outermost HTML element -
   margin-top: 0;
   font-style: normal;
   text-align: left;
+  font-family: 'Sans Forgetica Regular';
+  font-size: smaller;
 }
 
+.icon-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: #355070;
+}
 
+.hover {
+  color: #279AF1;
+  cursor: pointer;
+}
 
 /* .message {
   font-family: 'Sans Forgetica Regular';
