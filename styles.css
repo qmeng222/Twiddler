@@ -10,21 +10,86 @@ body,
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-}
-
-#feed {
   background-color: rgba(255, 255, 255, 0);
-  color: rgb(0, 0, 0);
+  color: rgba(0, 0, 0, 0);
+  text-align: center;
+  background: url(assets/img/mood.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #title {
-  background-color: rgba(255, 255, 255, 0);
-  color: rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.247);
+  color: rgba(255, 255, 255, 0.644);
+  height: 10px;
+  background:rgb(0, 0, 0);
+  text-shadow: rgb(0, 0, 0);
+  background: linear-gradient(white, rgba(0, 0, 0, 0));
+  font-size: 60px;
 }
 
 #subtitle {
   background-color: rgba(255, 255, 255, 0);
+  color: rgba(255, 255, 255, 0.644);
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: 20px;
+  padding-top: 20px;
+  height: 20px;
+}
+
+#update-feed {
+  background-color: rgba(0, 0, 0, 0.151);
   color: rgb(0, 0, 0);
+  font-family: 'Saira Condensed', sans-serif;
+  font-style: bold;
+  font-size: 13px;
+  border-radius: 10px;
+  border: none;
+}
+
+#feed {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(0, 0, 0);
+}
+
+img.profile-photo {
+  width: 50px;
+  border-radius: 25px;
+  padding-top: 10px;
+}
+
+div.username {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(231, 231, 231, 0.781);
+  text-shadow: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 14px;
+  height: 7px;
+}
+
+p.message {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(255, 255, 255, 0.788);
+  text-shadow: rgb(0, 0, 0);
+  font-weight: lighter;
+  font-size: 18px;
+  height: 10px;
+}
+
+div.timestamp {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(231, 231, 231, 0.911);
+  text-shadow: rgb(0, 0, 0);
+  font-style: italic;
+  font-size: 13px;
+  padding: 10px;
+}
+
+i.share, i.retweet, i.like, i.comment {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  text-shadow: rgb(0, 0, 0);
+  padding: 10px;
 }
