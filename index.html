@@ -4,25 +4,14 @@
     <script src="lib/jquery.js"></script>
     <script src="dataGenerator.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <title>Twiddler</title>
   </head>
   <body>
+
     <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
 
-    <script>
-      $(document).ready(function(){
-        var $app = $('#app');
-        $app.html('');
+      <div id="feed"></div>
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($app);
-          index -= 1;
-        }
-
-      });
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>

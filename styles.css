@@ -1,5 +1,6 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
+  background-color: #F7F1F0;
   min-height: 100vh;
   margin: 0;
 }
@@ -8,6 +9,14 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: #F7F1F0;
+  color: #262220;
+  font-family: monospace;
 }
+
+.tweet {
+  background-color: #C3A6A0;
+  color: #A15C38;
+  font-family: monospace;
+}
+
