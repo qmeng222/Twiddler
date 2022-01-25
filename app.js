@@ -1,22 +1,31 @@
 $(document).ready(function(){
   var $app = $('#app');
-  $app.html('');
 
   var $title = $('<h1>Twiddler</h1>');
-  $title.appendTo($app);
+  var $updateFeedBtn = $('<button id="update-feed">Update Feed</button>');
+  var $feed = $('<div id="feed"></div>');
+
+  var renderFeed = function() {
+    $('#feed').empty();
+    for (var i = streams.home.length - 1; i >= 0; i--) {
+      var tweet = streams.home[i];
+      var $tweet = $('<div class="tweet"></div>');
+      $tweet.text('@' + tweet.user + ': ' + tweet.message);
+      $tweet.appendTo('#feed');
+    }
+  };
 
   $title.on('click', function(event) {
     console.log(event);
     alert('The title of this page is: ' + event.target.innerText);
-  })
+  });
+  $($updateFeedBtn).on('click', renderFeed);
 
-  var index = streams.home.length - 1;
-  while(index >= 0){
-    var tweet = streams.home[index];
-    var $tweet = $('<div class="tweet"></div>');
-    $tweet.text('@' + tweet.user + ': ' + tweet.message);
-    $tweet.appendTo($app);
-    index -= 1;
-  }
+  $app.html('');
+  $title.appendTo($app);
+  $updateFeedBtn.appendTo($app);
+  $($feed).appendTo($app);
+
+  renderFeed();
 
 });
