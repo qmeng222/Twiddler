@@ -1,139 +1,100 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
-  margin: 0;
+  margin: 20px;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
-}
-
-
-body{
   --twitter-color: #50b7f5;
   --twitter-backgroud: #e6ecf0;
+  font-family: 'Libre Franklin', sans-serif;
+  font-style: italic;
+  text-align: left;
 }
-
-/****sidebar styling****/
-.sidebarOption{
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.sidebarOption .material-icons,
-fa-twitter{
-  padding: 20px;
-}
-
-.sidebarOption h2{
-  font-weight: 800;
-  font-size: 20px;
-  margin-right: 20px;
-}
-
-.sidebarOption.active{
-  color: var(--twitter-color);
-}
-
-.sidebarOption :hover{
-  background-color: var(--twitter-backgroud);
-  border-radius: 30px;
-  color: var(--twitter-color);
-  transition: color 100ms ease-out;
-}
-
-.sidebar_tweet{
-  width: 100%;
-  background-color: var(--twitter-color);
-  border:none;
-  color: white;
-  font-weight: 900;
-  border-radius: 30px;
-  height: 50px;
-  margin-top: 20px;
-}
-
-body{
-  display: flex;
-  height: 100vh;
-  max-width: 1300px;
-  margin-left:auto;
-  margin-right:auto;
-  padding: 0 10px;
-}
-
-.sidebar{
-  border-right: 1px solid var(--twitter-backgroud);
-  flex: 0.2;
-  min-width: 250px;
-  margin-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.fa-twitter{
+.twitterlogo{
   color: var(--twitter-color);
   font-size: 30px;
+  display: block;
 }
-
- h1 {
-  font-size: 20px;
-  font-weight: 800;
-}
-#update_feed{
-  background-color: var(--twitter-color);
-  border:none;
-  color:white;
-  font-weight: 900;
-  border-radius: 30px;
-  width: 80px;
-  height: 40px;
-  margin-top: 20px;
-  margin-left:auto;
-  font-size: 15px;
-}
-/*new username and tweet message*/
-.newTweetForm{
-  flex: 0.5;
-  border-right: 1px solid var(--twitter-backgroud);
-  min-width: fit-content;
-  overflow-y: scroll;
-}
-
-.feed_header{
+/**Styling heading**/
+h1 {
   position:sticky;
   top: 0;
   background-color: white;
   z-index: 100;
   border: 1px solid var(--twitter-backgroud);
   padding: 15px 20px;
-}
-
-/* .feed_header h1 {
+  margin-top:20px;
   font-size: 20px;
   font-weight: 800;
-} */
 
-/*hide the scroll*/
-.feed::-webkit-scrollbar{
-  display:none;
-}
-.feed{
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
-/**Tweetbox**/
-
-.tweetbox_input img{
-  border-radius: 50%;
+/**update feed button**/
+ #update-feed{
+  background-color: var(--twitter-color);
+  color:white;
+  font-weight: 900;
+  border-radius: 30px;
+  width: 100px;
   height: 40px;
+  margin-top: 20px;
+  margin-left:auto;
+  font-size: 15px;
+  display: block;
+
 }
+#update-feedButton :hover{
+  color: var(--twitter-backgroud);
+}
+
+/**Styling UpdateFeed**/
+
+/***styling the tweetpost**/
+#feed {
+  display: flex;
+  flex-direction: column;
+  border-bottom : 1px solid var(--twitter-color);
+  margin: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#feed .icon{
+  margin: 5px;
+  display:block;
+}
+
+.fa-comments:hover{
+  background-color: var(--twitter-backgroud);
+  border-radius: 30px;
+  color: var(--twitter-color);
+  transition: color 100ms ease-out;
+}
+
+.fa-retweet:hover{
+  background-color: var(--twitter-backgroud);
+  border-radius: 30px;
+  color: var(--twitter-color);
+  transition: color 100ms ease-out;
+}
+.fa-heart :hover{
+  background-color: var(--twitter-backgroud);
+  border-radius: 30px;
+  color: var(--twitter-color);
+  transition: color 100ms ease-out;
+}
+.fa-share :hover{
+  background-color: var(--twitter-backgroud);
+  border-radius: 30px;
+  color: var(--twitter-color);
+  transition: color 100ms ease-out;
+}
+/*
+/**styling for tweetBox**/
+
 .tweetBox {
   padding-bottom:10px;
   border-bottom: 8px solid var(--twitter-backgroud);
@@ -141,109 +102,14 @@ body{
 }
 
 .tweetBox form{
-  /* display: flex; */
+  display: flex;
   flex-direction: column;
 }
 
-.tweetbox_input{
-  display:flex;
-  padding: 20px;
-}
-
-.tweetbox_input input[type=username], input[type=tweetmessage]{
+/* .tweetBox input[type=username], input[type=tweetmessage]{
   display: block;
   flex: 1;
   margin-left: 20px;
   font-size: 20px;
   border:none;
-
-}
-
-.tweetbox_tweetButon{
-  background-color: var(--twitter-color);
-  border:none;
-  color:white;
-  font-weight: 900;
-  border-radius: 30px;
-  width: 80px;
-  height: 40px;
-  margin-top: 20px;
-  margin-left:auto;
-  font-size: 15px;
-}
-.tweetbox_tweetButon:hover {
-  opacity: 0.7;
-}
-
-
-/***styling the tweet post*/
-.post_profilepic img{
-  border-radius: 50% ;
-  height: 40px;
-}
-
-.TweetPost {
-  display: flex;
-  align-items: flex-start;
-  padding-bottom: 10px;
-  border-bottom : 1px solid var(--twitter-color);
-}
-
-.post_footer {
-  display:flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.post_badge{
-  font-size:14px !important;
-  color: var(--twitter-color);
-  margin-right: 5px;
-}
-
-.post_headerUsername{
-  font-weight: 600;
-  font-size:12px;
-  color:grey;
-}
-
-.post_headerText h3{
-  font-size:15px;
-  margin-bottom: 5px;
-}
-
-.post_headerDescription{
-  margin-bottom: 10px;
-  font-size:15px;
-}
-.post_body{
-  flex:1;
-  padding: 10px;
-}
-.post_profilepic{
-  padding: 20px;
-}
-
-
-/*friendslist*/
-.friendslist {
-  flex: 0.3;
-}
-.friendslist_input{
-  display: flex;
-  align-items: center;
-  background-color: var(--twitter-backgroud);
-  padding: 10px;
-  border-radius: 1opx;
-  margin-top: 10px;
-  margin-left: 20px;
-}
-.friendslist_input input{
-  border:none;
-  background-color: var(--twitter-backgroud);
-  outline:none;
-}
-
-.friendslist_searchIcon{
-  color: grey;
-}
+} */

@@ -5,8 +5,8 @@
 
 // set up data structures
 window.streams = {};
-streams.home = [];
-streams.users = {};
+streams.home = [];//array of objects and each object has all users and messages as its property
+streams.users = {};//object of arrays of specifc users
 streams.users.shawndrost = [];
 streams.users.sharksforcheap = [];
 streams.users.mracus = [];
