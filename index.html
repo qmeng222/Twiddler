@@ -4,25 +4,25 @@
     <script src="lib/jquery.js"></script>
     <script src="dataGenerator.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
+    <script src="lib/timeago.js"></script>
+    <script src="https://kit.fontawesome.com/6325fcc27a.js" crossorigin="anonymous"></script>
+    <title>Twiddler</title>
   </head>
   <body>
-    <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
-
-    <script>
-      $(document).ready(function(){
-        var $app = $('#app');
-        $app.html('');
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($app);
-          index -= 1;
-        }
-
-      });
-    </script>
+    <div id="app">
+      <div class="title">
+        <h1>Twiddler</h1>
+        <span class="mypic"></span>
+        <span class="mypic"></span>
+        <span class="mypic"></span>
+        <span class="mypic"></span>
+        <span class="mypic"></span>
+        <div id="updateButton"></div>
+      </div>
+      <div id="feed"></div>
+    </div>  <!-- Your Entire Application will be built inside this div! -->
   </body>
+  <script src="app.js"></script>
 </html>

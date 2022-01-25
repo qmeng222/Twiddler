@@ -8,6 +8,64 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: white;
+  color: black;
+}
+
+
+.user {
+  display: inline;
+  font-weight: bold;
+}
+
+.mypic {
+  height: 10px;
+  width: 10px;
+  display: inline-block;
+  background-color: red;
+  margin: 15px 15px;
+}
+
+#update-feed {
+  padding: 10px 25px;
+  background: transparent;
+  outline: none;
+}
+
+.idk {
+  margin: 15px 15px
+
+}
+
+.title {
+  font-style: italic;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+  margin: 10px 10px;
+}
+
+
+i:hover {
+  background-color: yellow;
+}
+
+.tweet {
+  border-radius: 20px;
+  background-color: yellowgreen;
+  margin: 25px 150px;
+}
+
+.username {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#app {
+  text-align: center;
+}
+
+.timestamp {
+  margin: 25px 25px;
 }
