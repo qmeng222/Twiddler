@@ -1,44 +1,99 @@
-/* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html
 html, body, #app {
   min-height: 100vh;
   text-align: center;
   font-family: monospace;
   font-size: 20px;
-}
-
-/* Continue building out the CSS styling for your Twiddler app below! We got you started by
-providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
-
-/* #app {
-  background-color: green;
-  color: yellow;
+  background-color: #d7b4f3;
+  border: 10px solid #eee2fa;
+  color: rgb(103, 1, 100);
+  font-weight: bold;
 }
 
 header {
-  position: absolute;
-  padding-top: 20px;
+  position: fixed;
 }
 
 h1 {
   font-size: 100px;
   font-family: fantasy;
+  margin-top: 25px;
+  margin-bottom: 0px;
+  color: #c1fdc1;
 }
 
-.feed_container {
+#feed {
   text-align: left;
-  padding-left: 20vh;
+  padding-left: 10vh;
+  padding-right: 10vh;
+}
+
+.message {
+  padding-left: 85px;
 }
 
 .tweet {
-  height: 200px;
+  height: 70px;
+  border: 5px solid #eee2fa;
+  padding-bottom: 8%;
+  margin: 3%;
+  border-radius: 25px;
+  padding-top: 10px;
+  padding-left: 10px;
 }
 
-.shawndrost {
-height: 50px;
-width: 60px;
+
+
+#update-feed {
+  margin-top: 0px;
+  margin-bottom: 25px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: rgb(99, 30, 96);
+  color: green;
+  font-weight: bold;
+  color:#d6fdd6;
 }
 
-i.share {
-  background-image: url(images/share.png);
+.retweet {
+  padding-bottom: 10px;
+  height: 2px;
+  width: 2px;
+}
 
-} */ */
+.user_access:hover {
+  color: antiquewhite;
+  text-shadow: 2px 2px 5px gray;
+}
+
+img.icon {
+  height: 25px;
+  width: 25px;
+  border-radius: 50px;
+  border: 1px 1px gray;
+  padding-bottom: 1px;
+}
+.like {
+  position: absolute;
+  margin-left: 5%;
+}
+
+.comment {
+ margin-left: 25%;
+}
+
+.share {
+  margin-left: 25%;
+ }
+
+ .retweet {
+  margin-left: 25%;
+ }
+ .retweet:hover, .share:hover, .comment:hover,  .like:hover{
+  box-shadow: 10px 10px 10px 10px yellow;
+}
+
+  img{
+  height: 75px;
+  width: 80px;
+  position: absolute;
+  }
