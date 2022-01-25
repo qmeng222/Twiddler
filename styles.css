@@ -23,6 +23,27 @@ providing a space for you to apply styles to your app's outermost HTML element -
   text-transform: uppercase;
  }
 
+ #update-user {
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: .5px;
+  margin: 0;
+  text-transform: uppercase;
+ }
+
+ .tweet-container {
+  width: 600px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 10px 0;
+  /*border: 1px solid white;*/
+  background-color: #222;
+  font-family: sans-serif;
+}
+
  #username {
   border-radius: 5px;
   color: #fff;

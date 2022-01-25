@@ -7,13 +7,19 @@ $(document).ready(function(){
   $title.appendTo($app);
   $title.on("click", function(event) {
     //console.log(event);
-    alert('The title of this page is: ' + event.target.innerText);
+    alert('The title of this page is: ' + event.target.innerText); // for each username click 
 });
+
 
   // Create handler functions
   function renderFeed(user) {
   //$feed.html(''); // .empty?
-  var index = streams.home.length - 1;
+  var index = streams.users.length - 1;
+    // if the username is not undefined
+    // eecute for streams user
+
+    //else use streams home --> generate all users
+  // streams.users[user] access users tweets
   while(index >= 0){
     var tweet = streams.home[index];
     //console.log(tweet);
@@ -28,10 +34,6 @@ $(document).ready(function(){
     var $retweet = $('<i class="retweet fas fa-retweet"></i>');
     var $like = $('<i class="like far fa-heart"></i>');
     var $share = $('<i class="share far fa-share-square"></i>');
-    //var $text = $('<div class="text"></div>');
-
-    //var $text = $('<button id="username">' + tweet.user + '</button>');
-
 
 
     // Append new HTML elements to the DOM
@@ -53,34 +55,62 @@ $(document).ready(function(){
 
 };
 
+
     function handleUsernameClick(user) {
       // populate a feed with only the users tweets
       // if a username is referenced
       // use that username to populate only that users feed
-      var i = streams.users.length - 1;
+      // var i = streams.users.length - 1;
+      // var index = streams.home.length - 1;
+      // while(index >= 0){
+      //   var tweet = streams.home[index];
+      //   var $tweet = $('<div class="tweet"></div>');
+      //   var $message = $('<div class="message">' + tweet.message + '</div>');
+      //   var $username = $('<div class="username">' + '@' + tweet.user + '</div>');
+      //   var $timestamp = $('<div class="timestamp">' + jQuery.timeago(new Date(tweet.created_at)) + '</div>');
+      //   if(tweet.user === 'shawndrost') {
+      //     $tweet.addClass(tweet.user);
+      //     $username.appendTo($tweet);
+      //     $message.appendTo($tweet);
+      //     $timestamp.appendTo($tweet);
+      //   }
+      //   index -= 1;
 
-      while(i >= 0){
-        var shawndrost = streams.users.shawndrost;
-        //streams.users
-        console.log('@', shawndrost);
-        // if (shawndrost) {
-        //   $message;
-        //   console.log($message);
-        // }
-      }
+      //   $tweet.appendTo($feed);
+      // }
+      if (tweet.user === 'shawndrost') {
+       // console.log(tweet.user);
+        renderFeed('shawndrost');
+        } else if (tweet.user === 'sharksforcheap'){
+          renderFeed(tweet.user);
+        } else if (tweet.user === 'douglascalhoun') {
+          renderFeed(tweet.user);
+        } else if (tweet.user === 'mracus') {
+          renderFeed(tweet.user);
+        }
 
     };
 
 
-var $username = $('<button id="username"></button>');
-$username.click("#username", function (event) {
+    var index = streams.home.length - 1;
+    var tweet = streams.home[index];
+var $tweet = $('<div class="tweet"></div>');
+var $username = $('<button id="update-user">' + '@' + tweet.user + '</button>'); //'<button id="update-user">Update Feed</button>'
+$username.appendTo($app);
+//$tweet.appendTo($feed);
+$username.click("#update-user", function (event) {
   // if the username is clicked
   // render a feed with only that usernames tweets
   $feed.empty();
-  handleUsernameClick(streams.users);
-
-
+  handleUsernameClick();
 });
+
+// turn the username into a button/ clickable item
+// append the username to the tweet
+// when you click the clickable item (username)
+  // run the handle click function
+
+
 
 var $button = $('<button id="update-feed">Update Feed</button>');
 $button.appendTo($app);
@@ -94,7 +124,7 @@ $button.click("#update-feed", function (event) {
   var $feed = $('<div id="feed"></div>');
   $feed.appendTo($app);
 //console.log(user);
-  renderFeed(streams.users);
+  renderFeed();
 
 });
 
