@@ -2,12 +2,125 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
-#app {
-  background-color: green;
-  color: yellow;
+h1 {
+		color: rgb(238, 255, 5);
+		text-align: 0 1px 1px;
+		-webkit-text-stroke: 2px rgb(158, 48, 48);
+		text-shadow:black;
+		transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
+#update-feed {
+  margin-left: 600px;
+  margin-bottom: 25px;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #0059ff;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  border-radius: 10% 60% 60% 60%;
+
+}
+
+
+#app {
+  background-color:rgba(74, 236, 247, 0.534);
+  color: black;
+}
+
+.tweet {
+  color: royalblue;
+  /* font-family: 'Martel', serif; */
+  background-color:wheat;
+  width: 450px;
+  height: 200px;
+  margin: auto;
+  border-radius: 0% 30% 30% 20%;
+  padding: 1em;
+
+  margin-bottom: 50px;
+
+
+}
+
+.message {
+ border-radius: 30%;
+ margin-inline-end:0em;
+ margin-inline-start: 20%;
+ text-align: center;
+ color: black;
+ font-weight: bolder;
+ font-style: italic;
+ width: max-content;
+ font-size: 150%;
+ flex-wrap: wrap;
+ max-width: 250px;
+}
+
+.timestamp {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.fas {
+  margin: auto;
+  margin-right: 30px;
+  transform: scale(1.5);
+
+
+}
+
+.username {
+color:slategrey;
+font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 15px;
+  margin-top: 5px;
+text-align: top;
+
+}
+
+.fas:hover {
+  transform: scale(2.0);
+}
+
+
+
+/* Icon colors below */
+.fa-heart:hover {
+  color: red
+}
+
+.fa-comments:hover {
+  color: blue
+}
+
+.fa-retweet:hover {
+  color: orange
+}
+
+.fa-share:hover {
+  color: purple
+}
+
+
+
+
+
+/* .tweet{
+  margin-top:30px;/* or adjust it the way you want  */
+/* } */
+
+
+
