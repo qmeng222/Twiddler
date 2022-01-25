@@ -7,7 +7,22 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
+
+/*-----Home Page-----*/
 #app {
   background-color: rgb(40, 185, 221);
   color: rgb(5, 5, 2);
+
 }
+
+/*Icons-------*/
+i:hover{
+color: #f0f3f3
+}
+
+
+/*Fonts------*/
+/* #app {
+  font-family: 'Arimo', sans-serif;
+  font-family: 'Lato', sans-serif;
+} */

@@ -38,29 +38,28 @@ $(document).ready(function(){
       $username.prependTo($tweet);
 
       //icon var
-      var $commentIcon = $('<img class="icon comment" src="assets/icons/placeholder.png"></img>');
+      var $commentIcon = $('<i class="icon fas fa-comment-dots"></i>');
       //icon class/class comment
       //icon src
       //icon add to DOM
       $commentIcon.appendTo($tweet);
 
-
        //icon var
-       var $retweetIcon = $('<img class="icon retweet" src="assets/icons/placeholder.png"></img>');
+       var $retweetIcon = $('<i class="icon fas fa-retweet"></i>');
       //icon class/class retweet
       //icon src
       //icon add to DOM
       $retweetIcon.appendTo($tweet);
 
       //icon var
-      var $likeIcon = $('<img class="icon like" src="assets/icons/placeholder.png"></img>');
+      var $likeIcon = $('<i class="icon fab fa-gratipay"></i>');
       //icon class/class like
       //icon src
       //icon add to DOM
       $likeIcon.appendTo($tweet);
 
          //icon var
-         var $shareIcon = $('<img class="icon share" src="assets/icons/placeholder.png"></img>');
+         var $shareIcon = $('<i class="icon fas fa-external-link-square-alt"></i>');
       //icon class/class share
       //icon src
       //icon add to DOM
@@ -80,7 +79,13 @@ $(document).ready(function(){
     updateFeed();
 });
 
+// {/* <img class="icon share" src="assets/icons/placeholder.png"></img> */}
 
+// {/* <img class="icon retweet" src="assets/icons/placeholder.png"></img> */}
+
+// {/* <img class="icon comment" src="assets/icons/placeholder.png"></img> */}
+
+// {/* <img class="icon like" src="assets/icons/placeholder.png"></img> */}
 
 // $('#' + tweet.user).attr("src", tweet.profilePhotoURL);
 
