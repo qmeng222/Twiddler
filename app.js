@@ -12,8 +12,8 @@ $(document).ready(function(){
 
     var $tweetHeader = $('<div class="tweet-header"></div>');
     var $name = $('<span class="twiddler-name"></span>');
-    var $userName = $('<span class="user-name"></span>');
-    var $timeStamp = $('<span class="time-stamp"></span>');
+    var $userName = $('<span class="username"></span>');
+    var $timeStamp = $('<span class="timestamp"></span>');
 
     var $messageContainer = $('<div class="message-container"></div>');
     var $message = $('<p class="message"></p>');
