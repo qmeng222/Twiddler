@@ -35,7 +35,7 @@ $(document).ready(function(){
 
     $name.text(data.user);
     $userName.text('@' + data.user);
-    $timeStamp.text(data.created_at);
+    $timeStamp.text(jQuery.timeago(data.created_at));
 
     $profilePhoto.appendTo($tweet);
     $contentContainer.appendTo($tweet);
