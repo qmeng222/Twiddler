@@ -8,7 +8,91 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: white;
+  background-color: lightblue;
   color: black;
   font-family: 'Zilla Slab', serif;
+}
+
+/* =========== Feed ============= */
+
+#feed {
+  position: relative;
+  align-content: center;
+  text-align: right;
+  background-color: skyblue;
+}
+
+/* ============ Title ============ */
+
+.title {
+  border-color: black;
+  background-color: coral;
+  border: 5px solid navy;
+  text-align: center;
+  font-weight: bolder;
+  border-radius: 25px;
+
+}
+
+/* ============== Button ======== */
+
+#update-feed {
+  text-align: center;
+  background-color: coral;
+  font-weight: bold;
+  border: 5px solid navy;
+  border-radius: 25px;
+}
+
+/* ============ Username ======== */
+
+.username {
+  border: 2px solid navy;
+  text-align: center;
+  width: 150px;
+  margin-right: 5%;
+  border-radius: 25px;
+}
+
+/* ============= Message =========== */
+
+.message {
+  border: 2px solid navy;
+  text-align: center;
+  width: 400px;
+  margin-right: 5%;
+  border-radius: 25px;
+}
+
+/* ============ Icons =============== */
+
+.icon {
+  height: 20px;
+  border: 2px solid navy;
+  text-align: center;
+  width: 20px;
+  border-radius: 25px;
+
+}
+
+/* ============= Timestamp ============ */
+
+.timestamp {
+  border: 2px solid navy;
+  text-align: center;
+  width: 150px;
+  margin-right: 5%;
+  border-radius: 25px;
+}
+
+/* ============= Picture ============= */
+
+.profile-photo {
+  height: 100px;
+  width: 100px;
+  border: 2px solid navy;
+  text-align: center;
+  border-radius: 50px;
+  margin-right: 5%;
+
 }
