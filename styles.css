@@ -14,9 +14,38 @@ providing a space for you to apply styles to your app's outermost HTML element -
   font-family: monospace;
 }
 
-.tweet {
-  background-color: #C3A6A0;
-  color: #A15C38;
-  font-family: monospace;
+h1 {
+  font-weight: bolder;
 }
 
+.tweet {
+  background-color: #C3A6A0;
+  border: 5px;
+  border-color: #262220;
+  border-radius: 10px;
+  border-style: round;
+  color: #A15C38;
+  font-family: monospace;
+  padding: 5px;
+  text-align: center;
+}
+
+.profile-photo {
+  text-align: left;
+}
+
+.message {
+  margin-left: 5px;
+}
+
+.username {
+  color: #262220;
+}
+
+.timestamp {
+
+}
+
+.icon {
+
+}
