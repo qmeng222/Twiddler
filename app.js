@@ -1,104 +1,133 @@
-
 $(document).ready(function(){
+  // Select already existing elements
   var $app = $('#app');
   $app.html('');
 
-  var $header = $('<div class="header"></div>')
-  $header.appendTo($app)
-  var $title = $('<h1>Twiddler</h1>')
-  $title.appendTo($app)
-  $title.on('click', function(event){
-    console.log(event)
+  // Create new HTML elements
+  var $header = $('<div class="header"></div>');
+  var $title = $('<h1>Twiddler</h1>');
+  var $updateButton = $('<button id="update-feed">Update Feed</button>');
+  var $feed = $('<div id="feed"></div>');
+
+
+  // Create event handler functions
+
+  var alertTitle = function(event) {
     alert('The title of this page is: ' + event.target.innerText);
-  })
+  };
+
+  var renderFeed = function(user) {
+    if (user) {
+      getUserTweets(user);
+    } else {
+      getTweets();
+    }
+  }
 
   var getTweets = function(){
-  var index = streams.home.length - 1;
-  while(index >= 0){
-    var tweet = streams.home[index];
-    var $tweet = $('<div class="tweet"></div>');
-    var $timestamp = $('<p class="timestamp">' + tweet.created_at + '</p>')
-    // var $username = $('<p class="username"></p>');
-    // $username.html('@' + tweet.user);
-    var $message = $('<div class="message">' + '@' + '<a class="username" href=#>' + tweet.user + '</a>' + ': ' + tweet.message + '<br>' + '@' + $timestamp + '</div>');
-    var image = function(name){
-      if(name === 'douglascalhoun'){
-        var $douglascalhoun = $('<img class="profile-picture" src="images/cute_puppy.jpeg"></img>')
-        $douglascalhoun.prependTo($tweet)
-      } else if(name === 'shawndrost'){
-        var $shawndrost = $('<img class="profile-picture" src="images/turtle.jpeg"></img>')
-        $shawndrost.prependTo($tweet)
-      } else if(name === 'mracus'){
-        var $mracus = $('<img class="profile-picture" src="images/polar_bear.jpeg"></img>')
-        $mracus.prependTo($tweet)
-      } else if(name === 'sharksforcheap'){
-        var $sharksforcheap = $('<img class="profile-picture" src="images/hedgehog.jpeg"></img>')
-        $sharksforcheap.prependTo($tweet)
-      }
+    var index = streams.home.length - 1;
+
+    while(index >= 0){
+      // Access Tweets
+      var tweet = streams.home[index];
+
+      // Create new HTML elements
+      var $tweet = $('<div class="tweet"></div>');
+      var $message = $('<p class="message">' + tweet.message + '<br>' + '</p>');
+      var $username = $('<div class="username">' + '@' + tweet.user + '</div>');
+      var $photo = $('<img class="profile-photo" src="./assets/img/' + tweet.user + '.png"></img>');
+      var $timestamp = $('<p class="timestamp">' + jQuery.timeago(tweet.created_at) + '</p>');
+      var $like = $('<i class="fa fa-solid fa-heart like"></i>');
+      var $comment = $('<i class="fa fa-solid fa-comments comment"></i>');
+      var $share = $('<i class="fa fa-solid fa-arrow-up-right-from-square share"></i>');
+      var $retweet = $('<i class="fa fa-solid fa-retweet retweet"></i>');
+
+     // Append new HTML elements to the Tweet
+     $photo.appendTo($tweet);
+     $username.appendTo($tweet);
+     $message.appendTo($tweet);
+     $timestamp.appendTo($tweet);
+     $comment.appendTo($tweet);
+     $retweet.appendTo($tweet);
+     $like.appendTo($tweet);
+     $share.appendTo($tweet);
+
+      // Append Tweet to Feed
+      $tweet.appendTo($feed);
+
+      index -= 1;
     }
-    image(tweet.user)
-    var $icons = $('<div class="icons">' + '<br>' + '<i class="like"><img src="images/like.jpeg" class="icon"></img></i>' + ' ' + '<i class="comment"><img src="images/comment.png" class="icon"></img></i>' + ' ' + '<i class="share"><img src="images/share.png" class="icon"></img></i>' + ' ' + '<i class="retweet"><img src="images/retweet.png" class="icon"></img>></i>' + '</div>')
-    $message.appendTo($tweet)
-    $icons.appendTo($tweet)
-    $tweet.appendTo($feed);
-    index -= 1;
-  }
-}
+  };
 
-var getUserTweets = function(username) {
-  console.log('clicked');
-  var index = streams.users[username].length - 1;
-  while(index >= 0){
-    var tweet = streams.users[username][index];
-    var $tweet = $('<div class="tweet"></div>');
-    var time = tweet.created_at.toString().slice(0,15)
-    var $message = $('<div class="message">' + '@' + '<a class="user_access" href=#>' + tweet.user + '</a>' + ': ' + tweet.message + '<br>' + '@' + time + '</div>');
-    var image = function(name){
-      if(name === 'douglascalhoun'){
-        var $douglascalhoun = $('<img class="images" src="images/cute_puppy.jpeg" ></img>')
-        $douglascalhoun.prependTo($tweet)
-      } else if(name === 'shawndrost'){
-        var $shawndrost = $('<img class="images" src="images/turtle.jpeg" class="></img>')
-        $shawndrost.prependTo($tweet)
-      } else if(name === 'mracus'){
-        var $mracus = $('<img class="images" src="images/polar_bear.jpeg" class="></img>')
-        $mracus.prependTo($tweet)
-      } else if(name === 'sharksforcheap'){
-        var $sharksforcheap = $('<img class="images" src="images/hedgehog.jpeg"></img>')
-        $sharksforcheap.prependTo($tweet)
-      }
+  var getUserTweets = function(username){
+    var index = streams.users[username].length - 1;
+
+    while(index >= 0){
+      // Access User Tweets
+      var tweet = streams.users[username][index];
+
+      // Create new HTML elements
+      var $tweet = $('<div class="tweet"></div>');
+      var $message = $('<p class="message">' + tweet.message + '<br>' + '</p>');
+      var $username = $('<div class="username">' + '@' + tweet.user + '</div>');
+      var $photo = $('<img class="profile-photo" src="./assets/img/' + tweet.user + '.png"></img>');
+      var $timestamp = $('<p class="timestamp">' + jQuery.timeago(tweet.created_at) + '</p>');
+      var $like = $('<i class="fa fa-solid fa-heart like"></i>');
+      var $comment = $('<i class="fa fa-solid fa-comments comment"></i>');
+      var $share = $('<i class="fa fa-solid fa-arrow-up-right-from-square share"></i>');
+      var $retweet = $('<i class="fa fa-solid fa-retweet retweet"></i>');
+
+     // Append new HTML elements to the Tweet
+     $photo.appendTo($tweet);
+     $username.appendTo($tweet);
+     $message.appendTo($tweet);
+     $timestamp.appendTo($tweet);
+     $comment.appendTo($tweet);
+     $retweet.appendTo($tweet);
+     $like.appendTo($tweet);
+     $share.appendTo($tweet);
+
+     // Append Tweet to Feed
+     $tweet.appendTo($feed);
+
+     index -= 1;
+
+      index -= 1;
     }
-    image(tweet.user)
-    var $icons = $('<div class="icons">' + '<br>' + '<i class="like"><img src="images/like.jpeg" class="icon"></img></i>' + ' ' + '<i class="comment"><img src="images/comment.png" class="icon"></img></i>' + ' ' + '<i class="share"><img src="images/share.png" class="icon"></img></i>' + ' ' + '<i class="retweet"><img src="images/retweet.png" class="icon"></img>></i>' + '</div>')
-    $message.appendTo($tweet)
-    $icons.appendTo($tweet)
-    $tweet.prependTo($feed);
-    index -= 1;
-  }
-};
+  };
 
-//need to find out why buttons are clickable once
-var $updateButton = $('<button id="update-feed">Update Twiddler Feed</button>')
-$updateButton.appendTo($app)
-var $feed = $('<div id="feed"></div>')
-$feed.appendTo($app)
-getTweets()
-$updateButton.on('click', function(){
-  if($updateButton.text() === "Back"){
-    $updateButton.text('Update Twiddler Feed')
-  }
-  $feed.html('')
-  getTweets()
-})
+  var flipButtonText = function(){
+    if ($updateButton.text() === 'Back'){
+      $updateButton.text('Update Feed');
+    }
 
-$('.user_access').on('click', function(event){
-  console.log(event)
-  $updateButton.text('Back')
-  $feed.html('')
-  var username = event.target.innerText;
-  console.log(username)
-  getUserTweets(username)
-})
+    $feed.html('');
+    renderFeed();
+  };
 
+  // Set event listeners (providing appropriate handlers as input)
+  $updateButton.on('click', function(){
+    flipButtonText();
+  });
+
+  $title.on('click', function(event){
+    alertTitle(event);
+  });
+
+  $feed.on('click', '.username', function(event) {
+    var user = event.target.innerText;
+    var username = user.slice(1);
+
+    $updateButton.text('Back');
+    $feed.html('');
+    renderFeed(username);
+  });
+
+  // Append new HTML elements to the DOM
+  $header.appendTo($app);
+  $title.appendTo($header);
+  $updateButton.appendTo($app);
+  $feed.appendTo($app);
+
+  renderFeed();
 });
-
