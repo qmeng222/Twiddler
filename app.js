@@ -1,40 +1,40 @@
 $(document).ready(function(){
+
+  // Select already existing elements
   var $app = $('#app');
   $app.html('');
 
+  // Create new HTML elements
   var $title = $('<h1>Twiddler</h1>');
-  $title.appendTo($app);
-  $title.on("click", function(event) {
+  var $button = $('<button type="button" id="update-feed">Update Feed</button>');
+  var $feed = $('<div id="feed"></div>');
+  $feed.html('');
+
+  // Create event handler functions
+  var handleTitleClick = function(event) {
     console.log(event);
     alert('The title of this page is: ' + event.target.innerText);
-  });
-
-  var $button = $('<button type="button" id="update-feed">Update Feed</button>');
-  $button.appendTo($app);
-  $("#update-feed").on("click", function(event) {
-    generateRandomTweet();
+  }
+  var renderFeed = function(event) {
     var index = streams.home.length - 1;
     $('#feed').html('');
     while(index >= 0){
-      var tweet = streams.home[index];
-      var $tweet = $('<div class="tweet"></div>');
-      $tweet.text('@' + tweet.user + ': ' + tweet.message);
-      $tweet.appendTo($feed);
-      index -= 1;
+     var tweet = streams.home[index];
+     var $tweet = $('<div class="tweet"></div>');
+     $tweet.text('@' + tweet.user + ': ' + tweet.message);
+     $tweet.appendTo($feed);
+     index -= 1;
     }
-  });
+  };
+   renderFeed();
 
-  var $feed = $('<div id="feed"></div>');;
-  $feed.html('');
+  // Set event listeners (providing appropriate handlers as input)
+  $title.on('click', handleTitleClick);
+  $button.on('click', renderFeed);
+
+  // Append new HTML elements to the DOM
+  $title.appendTo($app);
+  $button.appendTo($app);
   $feed.appendTo($app);
-
-  var index = streams.home.length - 1;
-  while(index >= 0){
-    var tweet = streams.home[index];
-    var $tweet = $('<div class="tweet"></div>');
-    $tweet.text('@' + tweet.user + ': ' + tweet.message);
-    $tweet.appendTo($feed);
-    index -= 1;
-  }
 
 });
