@@ -34,32 +34,52 @@ $(document).ready(function() {
     var $timestamp = $('<div class="timestamp"></div>');
     var $tweet = $('<div class="tweet"></div>');
 
-    var user = $username.text('@' + obj.user);
-    var message = $message.text(obj.message);
+    $username.text('@' + obj.user);
+    $message.text(obj.message);
     var timeAgo = jQuery.timeago(obj.created_at);
-    console.log(timeAgo);
-    var timestamp = $timestamp.text(timeAgo);
-    console.log(timestamp);
+    $timestamp.text(timeAgo);
 
-    $($tweet).append($profilePic, $username, $message, $timestamp, $comment, $retweet, $like, $share, $profilePic);
+    $tweet.append($profilePic, $username, $message, $timestamp, $comment, $retweet, $like, $share);
       $tweet.appendTo($feed);
 
-    $('.username').on("click", function() {
+    $username.on("click", function(event) {
       $( "#feed" ).empty();
       $refreshFeed.text('Back');
       for (var y = streamArray.length - 1; y >= 0; y--) {
-        if ('@' + streamArray[y].user === event.target.outerText) {
+        if (('@' + streamArray[y].user) === event.target.innerText) {
         appender(streamArray[y]);
         }
       }
     });
 
-    $(".icon").hover(function(){
-      $(this).css("color", "black");
+  $(".share").hover(function(){
       $(this).css("color", "blue");
   });
+  $('.share').mouseleave(function() {
+    $(this).css('color', 'black');
+  });
+  $(".comment").hover(function(){
+    $(this).css("color", "blue");
+  });
+  $('.comment').mouseleave(function() {
+    $(this).css('color', 'black');
+  });
+  $(".like").hover(function(){
+    $(this).css("color", "blue");
+  });
+  $('.like').mouseleave(function() {
+  $(this).css('color', 'black');
+  });
+  $(".retweet").hover(function(){
+    $(this).css("color", "blue");
+  });
+  $('.retweet').mouseleave(function() {
+  $(this).css('color', 'black');
+  });
+
   }
   $(window).load(tweetWriter);
   $refreshFeed.click(tweetWriter);
 });
 
+window.isItBeautifulYet = true;
