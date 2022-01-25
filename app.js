@@ -14,7 +14,7 @@ $(document).ready(function(){
   $("#update-feed").on("click", function(event) {
     generateRandomTweet();
     var index = streams.home.length - 1;
-    $( "#feed" ).empty();
+    $('#feed').html('');
     while(index >= 0){
       var tweet = streams.home[index];
       var $tweet = $('<div class="tweet"></div>');
