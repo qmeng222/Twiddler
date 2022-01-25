@@ -37,7 +37,9 @@ $(document).ready(function() {
     var user = $username.text('@' + obj.user);
     var message = $message.text(obj.message);
     var timeAgo = jQuery.timeago(obj.created_at);
+    console.log(timeAgo);
     var timestamp = $timestamp.text(timeAgo);
+    console.log(timestamp);
 
     $($tweet).append($profilePic, $username, $message, $timestamp, $comment, $retweet, $like, $share, $profilePic);
       $tweet.appendTo($feed);
@@ -52,11 +54,9 @@ $(document).ready(function() {
       }
     });
 
-    $('.icon').hover(function () {
-      $(this).addClass('red');
-  },
-  function () {
-      $(this).removeClass('red');
+    $(".icon").hover(function(){
+      $(this).css("color", "black");
+      $(this).css("color", "blue");
   });
   }
   $(window).load(tweetWriter);

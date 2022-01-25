@@ -16,7 +16,6 @@ providing a space for you to apply styles to your app's outermost HTML element -
 /* =========== Feed ============= */
 
 #feed {
-  position: relative;
   align-content: center;
   text-align: right;
   background-color: skyblue;
@@ -31,6 +30,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
   text-align: center;
   font-weight: bolder;
   border-radius: 25px;
+  margin-bottom: 5px;
 
 }
 
@@ -38,10 +38,13 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 #update-feed {
   text-align: center;
+  padding-block: 10px;
   background-color: coral;
   font-weight: bold;
   border: 5px solid navy;
   border-radius: 25px;
+  margin-bottom: 5px;
+
 }
 
 /* ============ Username ======== */
@@ -50,8 +53,10 @@ providing a space for you to apply styles to your app's outermost HTML element -
   border: 2px solid navy;
   text-align: center;
   width: 150px;
-  margin-right: 5%;
   border-radius: 25px;
+  margin-bottom: 5px;
+  font-style: italic;
+
 }
 
 /* ============= Message =========== */
@@ -60,8 +65,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
   border: 2px solid navy;
   text-align: center;
   width: 400px;
-  margin-right: 5%;
   border-radius: 25px;
+  margin-bottom: 5px;
 }
 
 /* ============ Icons =============== */
@@ -72,6 +77,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
   text-align: center;
   width: 20px;
   border-radius: 25px;
+  margin-bottom: 5px;
+
 
 }
 
@@ -81,8 +88,9 @@ providing a space for you to apply styles to your app's outermost HTML element -
   border: 2px solid navy;
   text-align: center;
   width: 150px;
-  margin-right: 5%;
   border-radius: 25px;
+  margin-bottom: 5px;
+
 }
 
 /* ============= Picture ============= */
@@ -93,6 +101,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
   border: 2px solid navy;
   text-align: center;
   border-radius: 50px;
-  margin-right: 5%;
+  margin-bottom: 5px;
+
 
 }
