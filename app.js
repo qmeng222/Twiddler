@@ -51,7 +51,6 @@ $(document).ready(function(){
         $iconContainer.appendTo($tweetIconsContainer);
       })(i);
     }
-
     $($profilePhoto).attr('src', data.profilePhotoURL);
     $($profilePhoto).attr('alt', 'User ' + data.user);
     $($message).text(data.message);
@@ -71,10 +70,14 @@ $(document).ready(function(){
     return $tweet;
   }
 
-  var renderFeed = function() {
+  var renderFeed = function(user) {
     $('#feed').empty();
-    for (var i = streams.home.length - 1; i >= 0; i--) {
-      var tweet = streams.home[i];
+
+    var tweetsArr;
+    typeof user !== 'string' ? tweetsArr = streams.home : tweetsArr = streams.users[user];
+
+    for (var i = tweetsArr.length - 1; i >= 0; i--) {
+      var tweet = tweetsArr[i];
       var $tweet = createTweet(tweet);
       $tweet.appendTo('#feed');
     }
