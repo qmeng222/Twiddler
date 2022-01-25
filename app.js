@@ -4,69 +4,61 @@ $(document).ready(function(){
   $app.html('');
 
   $("time.timeago").timeago();
+
   // Create new HTML elements
-  var $title = $('<h1>Twiddler!</h1>');
-  $title.appendTo($app);
+  var $title = $('<h1 class="title">Twiddler!</h1>');
 
   var $updateFeedButton = $('<button id="update-feed"> Update Feed</button>');
-  $updateFeedButton.appendTo($app);
-
-  var $tweetFeed = $('<div class="tweet feed"></div');
-  $tweetFeed.appendTo($app);
-
-    // Set event listeners (providing appropriate handlers as input)
-
-  $updateFeedButton.on("click", function(){
-    $(".tweet").empty();
-    updateFeed();
-  });
+  var $tweetFeed = $('<div id="feed"></div');
+  var $username;
+  var $message;
+  var $tweet;
+  var $profilePhoto;
 
 
   // Create event handler functions
-  var updateFeed = function() {
-    $.each(streams.home, function (index) {
-      var tweet = streams.home[index];
-      var $tweet = $('<div class="tweet"></div>');
+  var renderFeed = function(username) {
+    $('#feed').empty();
+    var list;
+    //if name provided
+    if(username){
+      list = streams.users[username];
+    // access streams.users.name
+    }
+    if(username === undefined){
+      list = streams.home
+      $updateFeedButton.text('Update Feed')
+    }
+    //if no name provided
+    //access streams.home
+    $.each(list, function (index) {
+      var tweet = list[index];
+      $tweet = $('<div class="tweet"></div>');
       $tweet.prependTo($tweetFeed);
 
-      var $message = $('<span class="message"></span');
+      $message = $('<span class="message"></span');
       $message.text(tweet.message);
       $message.prependTo($tweet);
 
-      var $username = $('<span class="username"></span');
+      $username = $('<span class="username" name=' +tweet.user + '></span');
       $username.text('@' + tweet.user);
       $username.prependTo($tweet);
 
-      //icon var
-      var $commentIcon = $('<i class="icon fas fa-comment-dots"></i>');
-      //icon class/class comment
-      //icon src
-      //icon add to DOM
+
+      var $commentIcon = $('<i class="icon comment fas fa-comment-dots"></i>');
       $commentIcon.appendTo($tweet);
 
-       //icon var
-       var $retweetIcon = $('<i class="icon fas fa-retweet"></i>');
-      //icon class/class retweet
-      //icon src
-      //icon add to DOM
+      var $retweetIcon = $('<i class="icon retweet fas fa-retweet"></i>');
       $retweetIcon.appendTo($tweet);
 
-      //icon var
-      var $likeIcon = $('<i class="icon fab fa-gratipay"></i>');
-      //icon class/class like
-      //icon src
-      //icon add to DOM
+      var $likeIcon = $('<i class="icon like fab fa-gratipay"></i>');
       $likeIcon.appendTo($tweet);
 
-         //icon var
-         var $shareIcon = $('<i class="icon fas fa-external-link-square-alt"></i>');
-      //icon class/class share
-      //icon src
-      //icon add to DOM
+      var $shareIcon = $('<i class="icon share fas fa-external-link-square-alt"></i>');
       $shareIcon.appendTo($tweet);
 
 
-      var $profilePhoto = $('<img class="profile-photo" id=' + tweet.user + ' src=' + tweet.profilePhotoURL + '></img>');
+      $profilePhoto = $('<img class="profile-photo" id=' + tweet.user + ' src=' + tweet.profilePhotoURL + '></img>');
       $profilePhoto.prependTo($tweet);
 
       var $tweetTimestamp = $('<span class="timestamp"></span>');
@@ -76,7 +68,33 @@ $(document).ready(function(){
 
     });
   };
-    updateFeed();
+    renderFeed();
+
+  // Set event listeners (providing appropriate handlers as input)
+
+  $updateFeedButton.on('click', function(){
+    renderFeed();
+  });
+
+  var handleUsernameClick = function(event){
+    var user = event.target.innerText.replace('@', '');
+    renderFeed(user);
+    $updateFeedButton.text('Back')
+  }
+  $('div').on('click', ".username", handleUsernameClick);
+
+
+  //Append elements to the DOM
+
+  $title.appendTo($app);
+  $updateFeedButton.appendTo($app);
+  $tweetFeed.appendTo($app);
+
+
+
+
+
+
 });
 
 // {/* <img class="icon share" src="assets/icons/placeholder.png"></img> */}
