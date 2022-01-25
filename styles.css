@@ -3,12 +3,42 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  background-color: #d8bcf4;
+  color: #685094;
+  border: 5px solid antiquewhite;
+  text-align: center;
 }
 
-/* Continue building out the CSS styling for your Twiddler app below! We got you started by
-providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
-
-#app {
-  background-color: green;
-  color: yellow;
+h1 {
+  font-family: fantasy;
+  font-size: 150px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  font-style: italic;
 }
+
+.tweet {
+  margin: 10px;
+  border: 5px solid antiquewhite;
+  margin-left: 5vh;
+  margin-right: 5vh;
+  border-radius: 25px;
+}
+
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  margin-top: 15px;
+}
+
+i:hover {
+  color: green;
+}
+
+button {
+  padding: 10px;
+}
+
+
+
+

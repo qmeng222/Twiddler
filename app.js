@@ -131,3 +131,4 @@ $(document).ready(function(){
 
   renderFeed();
 });
+window.isItBeautifulYet = true
