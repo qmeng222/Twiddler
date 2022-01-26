@@ -123,5 +123,5 @@ $(document).ready(function(){
   $($feed).appendTo($middleContainer);
 
   renderFeed();
-
+  window.isItBeautifulYet = true
 });
