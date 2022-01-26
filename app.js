@@ -114,10 +114,10 @@ $(document).ready(function(){
   $($updateFeedBtn).on('click', renderFeed);
 
   $($app).html('');
-  $($updateFeedBtn).appendTo($app);
   $($masterContainer).appendTo($app);
   $($leftContainer).appendTo($masterContainer);
   $($title).appendTo($leftContainer);
+  $($updateFeedBtn).appendTo($leftContainer);
   $($middleContainer).appendTo($masterContainer);
   $($rightContainer).appendTo($masterContainer);
   $($feed).appendTo($middleContainer);
