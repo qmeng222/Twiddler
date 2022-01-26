@@ -82,7 +82,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
   height: 50px;
 }
 
-.tweet-content .low-importance-elem {
+.low-importance-elem {
   color: var(--clr-slate);
   font-size: .9rem;
 }
@@ -103,7 +103,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
   border-radius: 50%;
 }
 
-.tweet-content .username {
+.username {
   cursor: pointer;
 }
 
