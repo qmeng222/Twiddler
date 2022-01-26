@@ -3,6 +3,10 @@ $(document).ready(function(){
 
   var $title = $('<h1>Twiddler</h1>');
   var $updateFeedBtn = $('<button id="update-feed">Update Feed</button>');
+  var $masterContainer = $('<div id="master-container"></div>')
+  var $leftContainer = $('<div id="left-container"></div>')
+  var $middleContainer = $('<div id="middle-container"></div>')
+  var $rightContainer = $('<div id="right-container"></div>')
   var $feed = $('<div id="feed"></div>');
 
   var createTweet = function(data) {
@@ -110,9 +114,14 @@ $(document).ready(function(){
   $($updateFeedBtn).on('click', renderFeed);
 
   $app.html('');
-  $title.appendTo($app);
-  $updateFeedBtn.appendTo($app);
-  $($feed).appendTo($app);
+
+  $($updateFeedBtn).appendTo($app);
+  $($masterContainer).appendTo($app);
+  $($leftContainer).appendTo($masterContainer);
+  $($title).appendTo($leftContainer);
+  $($middleContainer).appendTo($masterContainer);
+  $($rightContainer).appendTo($masterContainer);
+  $($feed).appendTo($middleContainer);
 
   renderFeed();
 
