@@ -38,11 +38,10 @@ $(document).ready(function(){
       var $pp = $('<img class="profile-photo" src="assets/img/' + tweet.user + '.png">');
       var $tweetMsg = $('<div class="message">' + tweet.message + '</div>');
       var $timeStamp = $('<div class="timestamp">' + jQuery.timeago(tweet.created_at) + '</div>');
-      var $comment = $('<img class="icon comment" src="assets/icons/placeholder.png">');
-      var $retweet = $('<img class="icon retweet" src="assets/icons/placeholder.png">');
-      var $like = $('<img class="icon like" src="assets/icons/placeholder.png">');
-      var $share = $('<img class="icon share" src="assets/icons/placeholder.png">');
-
+      var $comment = $('<i class="far fa-comment comment"></i>');
+      var $retweet = $('<i class="fas fa-retweet retweet"></i>');
+      var $like = $('<i class="fas fa-thumbs-up like"></i>');
+      var $share = $('<i class="fas fa-share share"></i>');
 
       $pp.appendTo($tweet)
       $username.appendTo($tweet)
