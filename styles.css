@@ -7,7 +7,13 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
+:root {
+  --clr-black: #000000;
+  --clr-white: #ffffff;
+}
+
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: var(--clr-white);
+  color: var(--clr-black);
+  font-family: 'Roboto';
 }
