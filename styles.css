@@ -4,6 +4,31 @@ html, body, #app {
   margin: 0;
 }
 
+#feed {
+  margin: 5% 0;
+  text-align: center;
+}
+
+.tweet {
+  font-family: 'Lato', sans-serif;
+  border-style: solid;
+  border-radius: 30px;
+  height: 150px;
+  width: 300px;
+  margin: 5%;
+}
+
+.message {
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  padding: 1em;
+}
+
+.username {
+  color: navy;
+}
+
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
