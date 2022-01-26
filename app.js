@@ -76,8 +76,9 @@ $(document).ready(function(){
     return $tweet;
   }
 
-  var createFriend = function(name) {
-    var data = streams.users[name][0];
+  var createFriend = function(name, obj) {
+    var data;
+    obj !== undefined ? data = obj : data = streams.users[name][0];
     var $friendContainer = $('<li class="friend"></li>');
     var $profilePhoto = $('<img class="profile-photo"/>');
     var $nameContainer = $('<div class="name-container"></div>');
@@ -108,11 +109,17 @@ $(document).ready(function(){
     var $title = $('<h2 class="sub-title">Friends List</h2>');
     var $friendsList = $('<ul id="friends-list"></ul>');
     $($title).appendTo($container);
-    for (var name in streams.users) {
-      (function(name) {
-        var $friend = createFriend(name);
+    var users = [
+      {user: 'shawndrost', profilePhotoURL: './assets/img/shawndrost.png'},
+      {user: 'sharksforcheap', profilePhotoURL: './assets/img/sharksforcheap.png'},
+      {user: 'mracus', profilePhotoURL: './assets/img/mracus.png'},
+      {user: 'douglascalhoun', profilePhotoURL: './assets/img/douglascalhoun.png'},
+    ];
+    for (var i = 0; i < users.length; i++) {
+      (function(i) {
+        var $friend = createFriend(users[i].user, users[i]);
         $($friend).appendTo($friendsList);
-      })(name);
+      })(i);
     }
     $friendsList.appendTo($container);
     return $container;
