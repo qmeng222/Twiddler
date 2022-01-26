@@ -4,10 +4,20 @@ html, body, #app {
   margin: 0;
 }
 
+/* font-family: 'Josefin Sans', sans-serif; */
+
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
   background-color: green;
   color: yellow;
+}
+
+.icon:hover{
+  color:red !important;
+}
+
+p {
+  font-family: 'Josefin Sans', sans-serif;
 }
