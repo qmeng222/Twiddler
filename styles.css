@@ -13,6 +13,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
   --clr-cloud: #c4c4c4;
   --clr-slate: rgb(83, 100, 113);
   --clr-azure: #1DA1F2;
+  --clr-azure-dark: 	hsl(203, 89%, 45%);
 }
 
 /* Helpful styling */
@@ -23,6 +24,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 .logo {
   margin: 10px auto 10px auto;
+  font-style: normal;
 }
 
 /* Main Containers */
@@ -41,11 +43,11 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 
 #left-container {
-  min-width: 350px;
+  width: 350px;
 }
 
 #middle-container {
-  min-width: 700px;
+  width: 700px;
   height: 100%;
   border-left: 1px solid var(--clr-cloud);
   border-right: 1px solid var(--clr-cloud);
@@ -61,7 +63,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 
 #right-container {
-  min-width: 350px;
+  width: 350px;
 }
 
 /* Tweet Styling */
@@ -103,4 +105,25 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 .tweet-content .username {
   cursor: pointer;
+}
+
+/* Left Container */
+
+#update-feed {
+  background-color: var(--clr-azure);
+  color: var(--clr-white);
+  font-family: 'Roboto';
+  font-size: 1rem;
+  border: none;
+  padding: 15px 70px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color .2s;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+#update-feed:hover {
+  background-color: var(--clr-azure-dark);
 }
