@@ -27,10 +27,10 @@ $(document).ready(function(){
     var iconsArr = [$commentIcon, $retweetIcon, $likeIcon, $shareIcon];
     // activeClrBg stands for Active color background
     var iconColors = [
-      {defaultClr: 'rgb(83, 100, 113)', defaultClrBg: '#fff', activeClrIcon: 'rgb(29, 155, 240)', activeClrBg: 'rgba(29, 155, 240, 0.1)'},
-      {defaultClr: 'rgb(83, 100, 113)', defaultClrBg: '#fff', activeClrIcon: 'rgb(0, 186, 124)', activeClrBg: 'rgba(0, 186, 124, 0.1)'},
-      {defaultClr: 'rgb(83, 100, 113)', defaultClrBg: '#fff', activeClrIcon: 'rgb(249, 24, 128)', activeClrBg: 'rgba(249, 24, 128, 0.1)'},
-      {defaultClr: 'rgb(83, 100, 113)', defaultClrBg: '#fff', activeClrIcon: 'rgb(29, 155, 240)', activeClrBg: 'rgba(29, 155, 240, 0.1)'}
+      {activeClrIcon: 'rgb(29, 155, 240)', activeClrBg: 'rgba(29, 155, 240, 0.1)'},
+      {activeClrIcon: 'rgb(0, 186, 124)', activeClrBg: 'rgba(0, 186, 124, 0.1)'},
+      {activeClrIcon: 'rgb(249, 24, 128)', activeClrBg: 'rgba(249, 24, 128, 0.1)'},
+      {activeClrIcon: 'rgb(29, 155, 240)', activeClrBg: 'rgba(29, 155, 240, 0.1)'}
     ]
     for (var i = 0; i < iconsArr.length; i++) {
       $(iconsArr[i]).attr('src', './assets/icons/placeholder.png');
@@ -43,8 +43,9 @@ $(document).ready(function(){
           $(iconsArr[i]).css('color', iconColors[i].activeClrIcon);
           $($iconContainer).css('cursor', 'pointer');
         }, function() {
-          $($iconContainer).css('background-color', iconColors[i].defaultClrBg);
-          $(iconsArr[i]).css('color', iconColors[i].defaultClr);
+          $($iconContainer).css('background-color', '');
+          $(iconsArr[i]).css('color', '');
+          $($iconContainer).css('cursor', '');
         });
 
         iconsArr[i].appendTo($iconContainer);
