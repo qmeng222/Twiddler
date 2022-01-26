@@ -38,24 +38,30 @@ border-radius: 50px;
   border: 1px solid blue;
 }
 
-.profile__photo {
- width: 55px;
- height: 55px;
-border: 1px solid black;
-}
-
-.username {
-border: 1px solid black;
-}
-
-.tweet__message {
-border: 1px solid black;
-}
-
 .tweet {
 border: 1px solid red;
 padding: 25px;
-text-align: center;
 margin: 20px;
+position: relative;
+}
+
+.profile__photo {
+ width: 55px;
+ height: 55px;
+}
+
+.icons {
+  width: 20px;
+  height: 20px;
+  padding: 10px;
 
 }
+
+.username {
+
+}
+
+.tweet__message {
+
+}
+
