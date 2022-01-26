@@ -94,7 +94,7 @@ $(document).ready(function(){
 
 
 
-
+window.isItBeautifulYet = true;
 });
 
 // {/* <img class="icon share" src="assets/icons/placeholder.png"></img> */}

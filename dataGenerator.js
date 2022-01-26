@@ -45,7 +45,7 @@ var generateRandomTweet = function() { //takes no param
   tweet.user = randomElement(users); // selects a random user from user data structure and assigns it to user property within tweet object
   tweet.message = randomMessage(); // assigns tweet key of message to value of randomMessage function
   tweet.created_at = new Date();  // assigns tweet key of created_at to current time capture
-  tweet.profilePhotoURL = './assets/img/' + tweet.user + '.png'; //assigns profile photo using concat'd string that utilizes relative path and value of tweet.user
+  tweet.profilePhotoURL = './assets/img/' + tweet.user + '.jpg'; //assigns profile photo using concat'd string that utilizes relative path and value of tweet.user
   addTweet(tweet); //calls addTweet function and passs newly created tweet object with keys a user, message, created at, and profile photo
 };
 
