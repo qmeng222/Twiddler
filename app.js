@@ -97,6 +97,12 @@ $(document).ready(function(){
     return $friendContainer;
   }
 
+  var updateFriendsList = function(name) {
+    var $friendsList = $('#friends-list');
+    var $friend = createFriend(name);
+    $($friend).appendTo($friendsList);
+  }
+
   var createFriendsList = function() {
     var $container = $('<div id="friends-list-container"></div>');
     var $title = $('<h2 class="sub-title">Friends List</h2>');
@@ -123,11 +129,15 @@ $(document).ready(function(){
       event.preventDefault();
       var user = $('#tweet-username').val();
       var message = $('#tweet-message').val();
-      writeTweet(message, user);
+      if (streams.users[user] === undefined) {
+        writeTweet(message, user);
+        updateFriendsList(user);
+      } else {
+        writeTweet(message, user);
+      }
       $('#tweet-username').val('');
       $('#tweet-message').val('');
       renderFeed();
-      console.log(window.streams.users);
     });
 
     $($userInput).appendTo($form);
