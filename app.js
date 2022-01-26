@@ -41,18 +41,26 @@ $(document).ready(function(){
       $tweet.append($timestamp);
       // // create child element icon <img>
       $icon = $("<img class=icon></img>");
+      $icon.attr("src", './assets/icons/placeholder.png');
       $tweet.append($icon);
+      // // create child element comment <img>
+      $comment = $("<img class=comment></img>");
+      $comment.attr("src", './assets/icons/placeholder.png');
+      $tweet.append($comment);
       // // create child element retweet <img>
       $retweet = $("<img class=retweet></img>");
+      $retweet.attr("src", './assets/icons/placeholder.png');
       $tweet.append($retweet);
       // // create child element like <img>
       $like = $("<img class=like></img>");
+      $like.attr("src", './assets/icons/placeholder.png');
       $tweet.append($like);
       // // create child element share <img>
       $share = $("<img class=share></img>");
+      $share.attr("src", './assets/icons/placeholder.png');
       $tweet.append($share);
-     $tweet.appendTo($feed);
-     index -= 1;
+      $tweet.appendTo($feed);
+      index -= 1;
     }
   };
    renderFeed();
