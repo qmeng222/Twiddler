@@ -128,6 +128,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
   background-color: var(--clr-azure-dark);
 }
 
+/* friends list */
+
 #friends-list-container {
   margin-top: 50px;
 }
@@ -157,4 +159,25 @@ providing a space for you to apply styles to your app's outermost HTML element -
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+/* Home Header */
+
+.home-header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  height: 50px;
+  backdrop-filter: blur(20px);
+
+}
+.home-header p {
+  display: inline-block;
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin: 0;
+  cursor: pointer;
 }
