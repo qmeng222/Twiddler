@@ -70,6 +70,13 @@ $(document).ready(function(){
     return $tweet;
   }
 
+  var initUserNameClick = function() {
+    var $usernameArr = $('.username');
+    for (var i = 0; i < $usernameArr.length; i++) {
+      $($usernameArr[i]).on('click', handleUsernameClick);
+    }
+  }
+
   var renderFeed = function(user) {
     $('#feed').empty();
 
@@ -81,6 +88,18 @@ $(document).ready(function(){
       var $tweet = createTweet(tweet);
       $tweet.appendTo('#feed');
     }
+    initUserNameClick();
+  };
+
+  var handleUsernameClick = function() {
+    var $updateFeedBtn = $('#update-feed');
+    $updateFeedBtn.text('Back');
+
+    $($updateFeedBtn).one('click', function() {
+      $updateFeedBtn.text('Update Feed');
+    })
+
+    renderFeed($(this).text().slice(1));
   };
 
   $title.on('click', function(event) {
