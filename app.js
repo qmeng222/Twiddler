@@ -10,21 +10,20 @@ $(document).ready(function(){
     alert('The title of this page is: ' + event.target.innerText); // for each username click
 });
 
-
-
-
   // Create handler functions
   function renderFeed(user) {
   //$feed.html(''); // .empty?
 
-
   var index = streams.home.length - 1;
   console.log(user);
-  console.log(user, index, indexed);
+  //console.log(user, index, indexed);
     // if the username is not undefined
     // execute for streams user
     //debugger;
     if (user !== undefined) {
+      var tweet = streams.home[index];
+      //console.log(streams.users[user]);
+      console.log(user, streams.users);
       var indexed = streams.users[user].length - 1;
       while(indexed >= 0){
         var username = streams.users;
@@ -32,7 +31,7 @@ $(document).ready(function(){
 
         var img = $('<img class="profile-photo" src="assets/img/'+ user + '.png"> </img>');
         var $tweet = $('<div class="tweet"></div>');
-        var $message = $('<div class="message">' + username + '</div>');
+        var $message = $('<div class="message">' + tweet.message + '</div>');
         var $username = $('<div class="username">' + '@' + user + '</div>');
         //var $timestamp = $('<div class="timestamp">' + jQuery.timeago(new Date(tweet.created_at)) + '</div>');
         var $comment = $('<i class="comment far fa-comment"></i>');
@@ -58,6 +57,7 @@ $(document).ready(function(){
         //$text.appendTo($username);
 
         indexed -= 1;
+
       } // link tweets to log 11
 
     } else {
@@ -69,7 +69,7 @@ $(document).ready(function(){
     var img = $('<img class="profile-photo" src="assets/img/'+ tweet.user + '.png"> </img>');
     var $tweet = $('<div class="tweet"></div>');
     var $message = $('<div class="message">' + tweet.message + '</div>');
-    var $username = $('<div class="username">' + '@' + tweet.user + '</div>');
+    var $username = $('<div class="username">' +  '@' + tweet.user + '</div>');
     var $timestamp = $('<div class="timestamp">' + jQuery.timeago(new Date(tweet.created_at)) + '</div>');
     var $comment = $('<i class="comment far fa-comment"></i>');
     //console.log('<i class="far fa-comment"></i>');
@@ -79,8 +79,6 @@ $(document).ready(function(){
     var $share = $('<i class="share far fa-share-square"></i>');
 
     // //$username.appendTo($app);
-
-
     // Append new HTML elements to the DOM
     img.appendTo($tweet);
     $username.appendTo($tweet);
@@ -93,6 +91,16 @@ $(document).ready(function(){
     $tweet.appendTo($feed);// app
     //$text.appendTo($username);
 
+    $username.on("click", function(event) {
+      var usernameWithAt = event.target.innerText;
+      var usernameWithoutAt = usernameWithAt.substring(1);
+    console.log(event);
+    $feed.empty();
+    //console.log(event.target.innerText); // targets whatever text i have input for $username
+    renderFeed(usernameWithoutAt); // for each username click
+
+  });
+
     index -= 1;
   } // link tweets to log 11
 }
@@ -101,9 +109,6 @@ $(document).ready(function(){
 
 
 };
-
-
-
 
     function handleUsernameClick(user) {
       // populate a feed with only the users tweets
@@ -164,16 +169,6 @@ $(document).ready(function(){
   // run the handle click function
 
 
-  var $username = $('<div class="username">' + '@' + 'sharksforcheap' + '</div>');
-  var $tweet = $('<div class="tweet"></div>');
-  //$feed.html('');
-  $username.appendTo($feed);
-  $username.on("click", function(event) {
-    //console.log(event);
-    renderFeed(event.target.innerText); // for each username click
-
-});
-
 
 var $button = $('<button id="update-feed">Update Feed</button>');
 $button.appendTo($app);
@@ -187,8 +182,9 @@ $button.click("#update-feed", function (event) {
   var $feed = $('<div id="feed"></div>');
   $feed.appendTo($app);
 //console.log(user);
-  //renderFeed();
-  renderFeed('mracus');
+  renderFeed();
+  //renderFeed('mracus');
+  //renderFeed('douglascalhoun');
 
 });
 
