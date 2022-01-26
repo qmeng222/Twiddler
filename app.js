@@ -1,7 +1,7 @@
 $(document).ready(function(){
   var $app = $('#app');
 
-  var $title = $('<h1>Twiddler</h1>');
+  var $title = $('<h1 class="logo logo-color">Twiddler</h1>');
   var $updateFeedBtn = $('<button id="update-feed">Update Feed</button>');
   var $masterContainer = $('<div id="master-container"></div>')
   var $leftContainer = $('<div id="left-container"></div>')
