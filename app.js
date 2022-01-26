@@ -76,6 +76,27 @@ $(document).ready(function(){
     return $tweet;
   }
 
+  var createFriend = function(name) {
+    var data = streams.users[name][0];
+    var $friendContainer = $('<li class="friend"></li>');
+    var $profilePhoto = $('<img class="profile-photo"/>');
+    var $nameContainer = $('<div class="name-container"></div>');
+    var $name = $('<span class="twiddler-name"></span>');
+    var $username = $('<span class="username low-importance-elem"></span>');
+
+    $($profilePhoto).attr('src', data.profilePhotoURL);
+    $($profilePhoto).attr('alt',"Photo of " + data.profilePhotoURL);
+    $($name).text(data.user);
+    $($username).text("@" + data.user);
+
+    $($profilePhoto).appendTo($friendContainer);
+    $($nameContainer).appendTo($friendContainer);
+    $($name).appendTo($nameContainer);
+    $($username).appendTo($nameContainer);
+
+    return $friendContainer;
+  }
+
   var createFriendsList = function() {
     var $container = $('<div id="friends-list-container"></div>');
     var $title = $('<h2 class="sub-title">Friends List</h2>');
@@ -83,23 +104,8 @@ $(document).ready(function(){
     $($title).appendTo($container);
     for (var name in streams.users) {
       (function(name) {
-        var data = streams.users[name][0];
-        var $friendContainer = $('<li class="friend"></li>');
-        var $profilePhoto = $('<img class="profile-photo"/>');
-        var $nameContainer = $('<div class="name-container"></div>');
-        var $name = $('<span class="twiddler-name"></span>');
-        var $username = $('<span class="username low-importance-elem"></span>');
-
-        $($profilePhoto).attr('src', data.profilePhotoURL);
-        $($profilePhoto).attr('alt',"Photo of " + data.profilePhotoURL);
-        $($name).text(data.user);
-        $($username).text("@" + data.user);
-
-        $($profilePhoto).appendTo($friendContainer);
-        $($nameContainer).appendTo($friendContainer);
-        $($name).appendTo($nameContainer);
-        $($username).appendTo($nameContainer);
-        $($friendContainer).appendTo($friendsList);
+        var $friend = createFriend(name);
+        $($friend).appendTo($friendsList);
       })(name);
     }
     $friendsList.appendTo($container);
