@@ -106,6 +106,32 @@ $(document).ready(function(){
     return $container;
   }
 
+  var createForm = function() {
+    var $form = $('<form id="new-tweet-form"></form>');
+    var $userInput = $('<label for="tweet-username"><input id="tweet-username" name="username" placeholder="Username"></label>');
+    var $messageInput = $('<label for="tweet-message"><input id="tweet-message" name="message" placeholder="What\'s Happening?"></label>');
+    var $btnContainer = $('<div class="tweet-btn-container"></div>');
+    var $btn = $('<button class="small-btn">Twid</button>');
+
+    $($form).on('submit', function(event) {
+      event.preventDefault();
+      var user = $('#tweet-username').val();
+      var message = $('#tweet-message').val();
+      writeTweet(message, user);
+      $('#tweet-username').val('');
+      $('#tweet-message').val('');
+      renderFeed();
+      console.log(window.streams.users);
+    });
+
+    $($userInput).appendTo($form);
+    $($messageInput).appendTo($form);
+    $($btn).appendTo($btnContainer);
+    $($btnContainer).appendTo($form);
+
+    return $form;
+  }
+
   var initUserNameClick = function() {
     var $usernameArr = $('.username');
     for (var i = 0; i < $usernameArr.length; i++) {
@@ -154,6 +180,7 @@ $(document).ready(function(){
   $($middleContainer).appendTo($masterContainer);
   $($rightContainer).appendTo($masterContainer);
   $($homeHeader).appendTo($middleContainer);
+  $(createForm()).appendTo($middleContainer);
   $($feed).appendTo($middleContainer);
 
   renderFeed();
