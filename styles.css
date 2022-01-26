@@ -10,10 +10,31 @@ providing a space for you to apply styles to your app's outermost HTML element -
 :root {
   --clr-black: #000000;
   --clr-white: #ffffff;
+  --clr-cloud: #c4c4c4;
 }
 
 #app {
   background-color: var(--clr-white);
   color: var(--clr-black);
   font-family: 'Roboto';
+}
+
+#master-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100vh;
+}
+
+#left-container {
+  width: 400px;
+}
+
+#middle-container {
+  width: 700px;
+  height: 100%;
+}
+
+#right-container {
+  width: 400px;
 }
