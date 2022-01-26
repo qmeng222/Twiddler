@@ -11,7 +11,21 @@ providing a space for you to apply styles to your app's outermost HTML element -
   --clr-black: #000000;
   --clr-white: #ffffff;
   --clr-cloud: #c4c4c4;
+  --clr-slate: rgb(83, 100, 113);
+  --clr-azure: #1DA1F2;
 }
+
+/* Helpful styling */
+
+.logo-color {
+  color: var(--clr-azure);
+}
+
+.logo {
+  margin: 10px auto 10px auto;
+}
+
+/* Main Containers */
 
 #app {
   background-color: var(--clr-white);
@@ -27,14 +41,66 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 
 #left-container {
-  width: 400px;
+  min-width: 350px;
 }
 
 #middle-container {
-  width: 700px;
+  min-width: 700px;
   height: 100%;
+  border-left: 1px solid var(--clr-cloud);
+  border-right: 1px solid var(--clr-cloud);
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#middle-container::-webkit-scrollbar {
+  display: none;
 }
 
 #right-container {
-  width: 400px;
+  min-width: 350px;
+}
+
+/* Tweet Styling */
+
+.tweet {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid var(--clr-cloud);
+  padding: 15px;
+}
+
+.tweet .profile-photo {
+  display: block;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.tweet-content .low-importance-elem {
+  color: var(--clr-slate);
+  font-size: .9rem;
+}
+
+.tweet-content .tweet-icons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 500px;
+}
+
+.tweet-icons-container .icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.tweet-content .username {
+  cursor: pointer;
 }
