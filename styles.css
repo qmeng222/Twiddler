@@ -10,14 +10,16 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: #002244;
+  color: #ffffff;
 }
 
 .icon:hover{
-  color:red !important;
+  color:#fb4f14 !important;
 }
 
 p {
   font-family: 'Josefin Sans', sans-serif;
 }
+
+

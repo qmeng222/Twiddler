@@ -14,9 +14,26 @@ $(document).ready(function () {
   // Create event handler functions
   var renderFeed = function (event, user) {
     $feed.html('');
+
+    /*
+    if user is not undefined
+      cut off the @ symbol from user
+      if user doesn't equal tweet.user
+        continue
+      else
+    */
+
     var index = streams.home.length - 1;
     while (index >= 0) {
       var tweet = streams.home[index];
+      if (user !== undefined) {
+        $updateFeedButton.text('Back to Home');
+        var username = user.substring(1, user.length);
+        if (username !== tweet.user) {
+          index -= 1;
+          continue;
+        }
+      }
       $tweet = $('<div class="tweet"></div>');
 
       var $profilePhoto = $('<img class="profile-photo" src="assets/img/visitor.png">');
@@ -70,7 +87,10 @@ $(document).ready(function () {
 
   // Set event listeners (providing appropriate handlers as input)
   $title.on("click", titleClick);
-  $updateFeedButton.on("click", renderFeed);
+  $updateFeedButton.on("click", function () {
+    $updateFeedButton.text('Update Feed');
+    renderFeed();
+  });
 
 
   // Append new HTML elements to the DOM
@@ -81,9 +101,8 @@ $(document).ready(function () {
   renderFeed();
 
   $feed.on("click", ".username", function () {
-
     var user = $(this).text();
-    console.log(user);
+    renderFeed(event, user);
   });
 
 });
