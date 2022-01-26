@@ -200,3 +200,56 @@ providing a space for you to apply styles to your app's outermost HTML element -
   margin: 0;
   cursor: pointer;
 }
+
+/* Form */
+
+#new-tweet-form {
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px 15px 85px;
+  gap: 10px;
+  border-bottom: 1px solid var(--clr-cloud);
+}
+
+#tweet-username {
+  border:none;
+  background-color: transparent;
+  background-image:none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  font-size: 1rem;
+  outline: none;
+  width: 100%;
+}
+
+#tweet-username::placeholder {
+  font-family: 'Roboto';
+  font-size: 1rem;
+}
+
+#tweet-message {
+  border:none;
+  background-color: transparent;
+  background-image:none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  height: 35px;
+  width: 100%;
+  font-size: 1.3rem;
+  outline: none;
+}
+
+#tweet-message::placeholder {
+  font-family: 'Roboto';
+  font-size: 1.3rem;
+}
+
+.tweet-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  height: 50px;
+  width: 100%;
+}
