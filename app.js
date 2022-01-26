@@ -8,6 +8,7 @@ $(document).ready(function(){
   var $middleContainer = $('<div id="middle-container"></div>')
   var $rightContainer = $('<div id="right-container"></div>')
   var $feed = $('<div id="feed"></div>');
+  var $homeHeader = $('<div class="home-header"><p>Home</p></div>');
 
   var createTweet = function(data) {
     var $tweet = $('<div class="tweet"></div>');
@@ -142,6 +143,7 @@ $(document).ready(function(){
     alert('The title of this page is: ' + event.target.innerText);
   });
   $($updateFeedBtn).on('click', renderFeed);
+  $($homeHeader).on('click', renderFeed);
 
   $($app).html('');
   $($masterContainer).appendTo($app);
@@ -151,6 +153,7 @@ $(document).ready(function(){
   $($updateFeedBtn).appendTo($leftContainer);
   $($middleContainer).appendTo($masterContainer);
   $($rightContainer).appendTo($masterContainer);
+  $($homeHeader).appendTo($middleContainer);
   $($feed).appendTo($middleContainer);
 
   renderFeed();
