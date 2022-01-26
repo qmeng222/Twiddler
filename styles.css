@@ -27,6 +27,11 @@ html, body, #app {
 
 .username {
   color: navy;
+
+}
+
+i:hover {
+  background: skyblue;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
