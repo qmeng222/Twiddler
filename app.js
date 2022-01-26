@@ -16,8 +16,8 @@ $(document).ready(function(){
 
     var $tweetHeader = $('<div class="tweet-header"></div>');
     var $name = $('<span class="twiddler-name"></span>');
-    var $userName = $('<span class="username"></span>');
-    var $timeStamp = $('<span class="timestamp"></span>');
+    var $userName = $('<span class="username low-importance-elem"></span>');
+    var $timeStamp = $('<span class="timestamp low-importance-elem"></span>');
 
     var $messageContainer = $('<div class="message-container"></div>');
     var $message = $('<p class="message"></p>');
@@ -66,7 +66,7 @@ $(document).ready(function(){
 
     $profilePhoto.appendTo($tweet);
     $contentContainer.appendTo($tweet);
-    $tweetHeader.append($name).append(' ').append($userName).append(' * ').append($timeStamp);
+    $tweetHeader.append($name).append(' ').append($userName).append(' <span class="low-importance-elem">*<span> ').append($timeStamp);
     $tweetHeader.appendTo($contentContainer);
     $message.appendTo($messageContainer);
     $messageContainer.appendTo($contentContainer);
@@ -113,8 +113,7 @@ $(document).ready(function(){
   });
   $($updateFeedBtn).on('click', renderFeed);
 
-  $app.html('');
-
+  $($app).html('');
   $($updateFeedBtn).appendTo($app);
   $($masterContainer).appendTo($app);
   $($leftContainer).appendTo($masterContainer);
