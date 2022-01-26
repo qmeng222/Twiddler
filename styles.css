@@ -10,4 +10,52 @@ providing a space for you to apply styles to your app's outermost HTML element -
 #app {
   background-color: white;
   color: black;
+  font-family: didot;
+
+}
+.div {
+border: 1px solid  black;
+}
+.header {
+text-align: center;
+font-size: larger;
+font-family: didot;
+border: 1px solid purple;
+}
+
+.feed__button {
+color: white;
+background-color: black;
+height: 50px;
+width: 150px;
+border-radius: 50px;
+}
+
+#feed {
+  margin: auto;
+  width: 700px;
+  height: 700px;
+  border: 1px solid blue;
+}
+
+.profile__photo {
+ width: 55px;
+ height: 55px;
+border: 1px solid black;
+}
+
+.username {
+border: 1px solid black;
+}
+
+.tweet__message {
+border: 1px solid black;
+}
+
+.tweet {
+border: 1px solid red;
+padding: 25px;
+text-align: center;
+margin: 20px;
+
 }
