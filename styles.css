@@ -27,6 +27,25 @@ providing a space for you to apply styles to your app's outermost HTML element -
   font-style: normal;
 }
 
+.small-btn {
+  background-color: var(--clr-azure);
+  color: var(--clr-white);
+  font-family: 'Roboto';
+  font-size: 1rem;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color .2s;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.small-btn:hover {
+  background-color: var(--clr-azure-dark);
+}
+
 /* Main Containers */
 
 #app {
