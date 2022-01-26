@@ -8,11 +8,95 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: rgb(47, 154, 187);
-  color: rgb(255, 255, 255);
+  background-color: rgb(80, 192, 226);
+  color: rgb(223, 212, 121);
+}
+
+.username,
+.tweet,
+.timestamp,
+.button,
+h1 {
+  font-family: 'Lemonada', cursive;
+  font-weight: bold;
+  font-style: normal;
 }
 
 
-/* h1 {
-  font-family: 'Gluten', cursive;
-} */
+/* header */
+h1 {
+  margin-left: 600px;
+}
+
+
+/* user tweets */
+#feed {
+  width: 70%;
+  margin-left: 300px;
+}
+
+#update-feed {
+  font-family: 'Lemonada', cursive;
+  margin-left: 300px;
+  margin-bottom: 25px;
+}
+
+button {
+  box-sizing: border-box;
+  width: 20%;
+}
+
+.tweet {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 25px 20px;
+  border: 2px solid rgb(11, 42, 77);
+  width: 80%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  color: black;
+  background-color: rgb(233, 255, 255);
+}
+
+img,
+.image {
+  height: 75px;
+  width: 75px;
+  margin-right: 15px;
+  border-radius: 50%;
+}
+
+img,
+.timestamp,
+span.username {
+  display: inline-block;
+  vertical-align: top;
+  /* margin-top: 25px; */
+  /* margin: auto; */
+}
+
+.timestamp {
+  float: right;
+}
+
+.message {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: -10px;
+}
+
+/* Icon Row */
+.comment,
+.retweet,
+.share,
+.like{
+  display: inline-block;
+  margin: 0 80px 0 80px;
+}
+
+.comment:hover,
+.retweet:hover,
+.share:hover,
+.like:hover{
+  background-color: rgb(175, 175, 77);
+}

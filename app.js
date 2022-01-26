@@ -5,12 +5,12 @@ $(document).ready(function(){
   // Create new HTML elements
   var $title = $('<h1>Twiddler</h1>');
   var $updateFeed = $('<button id="update-feed">Update Feed</button>');
-  var $feed = $('<div id="#Feed"></div>');
+  var $feed = $('<div id="feed"></div>');
 
-  function handleUsernameClick(input) {
+  function handleUsernameClick(event) {
     $updateFeed.text('Update Feed')
+    var clickedUser = event.target.innerText;
     $feed.html('')
-    var clickedUser = event.path[0].innerText;
     var index = streams.home.length - 1;
     index = streams.home.length - 1;
 
@@ -34,29 +34,38 @@ $(document).ready(function(){
     }
   };
 
+  function firstRun() {
+    var index = streams.home.length - 1;
+    index = streams.home.length - 1;
+    while(index >= 0) {
+      renderFeed(index);
+      index-= 1;
+    }
+  }
 
   function renderFeed(index) {
     var tweet = streams.home[index];
     var $image = $('<img class="profile-photo">');
     var $tweet = $('<div class="tweet"></div>');
     var $username = $('<span class="username"></span>');
-    var $timestamp = $('<div class="timestamp"></div>');
+    var $timestamp = $('<span class="timestamp"></span>');
     var $message = $('<p class="message"></p>');
 
     var $iconRow = $('<div class="iconRow"></div>');
-    var $comment = $('<i class="fas fa-comment"></i>');
-    var $retweet = $('<i class="fas fa-retweet"></i>');
-    var $like = $('<i class="far fa-thumbs-up"></i>');
-    var $share = $('<i class="fas fa-share-square"></i>');
+    var $comment = $('<i class="comment fas fa-comment"></i>');
+    var $retweet = $('<i class="retweet fas fa-retweet"></i>');
+    var $like = $('<i class="like far fa-thumbs-up"></i>');
+    var $share = $('<i class="share fas fa-share-square"></i>');
 
     $message.text(tweet.message);
-    $image.attr('src', 'assets/img/' + tweet.user + '.png');
+    $image.attr('src', tweet.profilePhotoURL);
     $username.text('@' + tweet.user);
-    $timestamp.text($.timeago(new Date()));
+    $timestamp.text($.timeago(tweet.created_at));
 
     $tweet.appendTo($feed);
     $iconRow.append($comment, [$retweet, $like, $share]);
-    $tweet.append($image, [$username, $message, $timestamp, $iconRow]);
+    $tweet.append($image, [$username, $timestamp, $message, $iconRow]);
+
   };
 
   // Set event listeners (providing appropriate handlers as input)
@@ -68,12 +77,13 @@ $(document).ready(function(){
 
 
   // $updateFeed.on('click', renderFeed);
-  $(document).on('click', '#update-feed', handleUsernameClick);
+  $('#app').on('click', '#update-feed', event, handleUsernameClick);
   // Append new HTML elements to the DOM
   $title.appendTo($app);
   $updateFeed.appendTo($app);
   $feed.appendTo($app);
-  renderFeed();
+  firstRun();
 
-  $(document).on('click', '.username', handleUsernameClick);
+  $('#feed').on('click', 'span.username', event,  handleUsernameClick);
+  window.isItBeautifulYet = true
 });
