@@ -7,7 +7,180 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
-#app {
-  background-color: green;
-  color: yellow;
+body {
+  background-color: #154360;
 }
+
+
+#app {
+  background-color: #154360;
+  color: White;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-evenly;
+  /* flex-direction: column; */
+}
+
+#feed {
+  /* border: 5px solid black; */
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 50px;
+
+}
+
+.tweet {
+  /* margin-top: 10px; */
+  /* margin-bottom: 10px; */
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  border-bottom: 1px solid whitesmoke;
+  border-left: 1px solid whitesmoke;
+  border-right: 1px solid whitesmoke;
+  width: 100%;
+}
+
+.comment:hover,
+.retweet:hover,
+.like:hover,
+.share:hover {
+  color: rgb(0, 247, 255);
+  background-color: rgba(224, 255, 255, 0.103);
+}
+
+.username:hover {
+  cursor: grab;
+  text-decoration: underline;
+}
+
+/*
+.username {
+  font-family: 'Lato', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
+} */
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 100px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  float: left;
+  height: min-content;
+  border-bottom: 1px solid white;
+  font-style: normal;
+}
+
+
+
+.profile-photo {
+  border-radius: 50%;
+  margin-left: 5px;
+  height: 64px;
+  width: 64px;
+}
+
+#update-feed {
+  font-family: 'Lato', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 20px;
+  color: white;
+  background-color: #154360;
+  border: 1px solid whitesmoke;
+  height: fit-content;
+  width: fit-content;
+  align-items: center;
+}
+
+#update-feed:hover {
+  color: black;
+  background-color: rgba(210, 244, 255, 0.473);
+  cursor: grab;
+  border: 1px solid black;
+}
+
+.username {
+  font-size: 16px;
+  padding: 10px;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
+  width: fit-content;
+}
+
+.timestamp {
+  width: fit-content;
+  position: relative;
+  top: -160px;
+  left: 560px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.message {
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Rajdhani', sans-serif;;
+}
+
+i {
+margin-left: 75px;
+margin-right: 75px;
+height: 30px;
+width: 30px;
+align-items: center;
+justify-content: center;
+text-align: center;
+border-radius: 50%;
+padding-top: 15px;
+}
+
+.section1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.friendsList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  width: 100%;
+  height: fit-content;
+  align-items: center;
+  /* border-radius: 20%; */
+  border: 1px solid white;
+}
+
+.friendsTitle {
+  font-size: 24px;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
+  /* text-decoration: underline; */
+  background-color:rgba(176, 196, 222, 0.24);
+  /* border-radius: 20%; */
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin-top: 0;
+  border-bottom: 1px solid white;
+}
+
+.friend {
+  margin-top: 5px;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.friend:hover {
+  text-decoration: underline;
+  cursor: grab;
+}
+
