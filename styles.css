@@ -75,11 +75,11 @@ providing a space for you to apply styles to your app's outermost HTML element -
   padding: 15px;
 }
 
-.tweet .profile-photo {
+.profile-photo {
   display: block;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
 }
 
 .low-importance-elem {
@@ -126,4 +126,35 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 #update-feed:hover {
   background-color: var(--clr-azure-dark);
+}
+
+#friends-list-container {
+  margin-top: 50px;
+}
+
+#friends-list-container h2 {
+  margin: 0;
+  font-family: 'Roboto';
+}
+
+#friends-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  list-style: none;
+  padding: 30px 0;
+  margin: 0;
+  padding: 20px 0 40px 0;
+}
+
+.friend {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.name-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
