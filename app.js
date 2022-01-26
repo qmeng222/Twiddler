@@ -10,6 +10,15 @@ $(document).ready(function(){
     alert('The title of this page is: ' + event.target.innerText); // for each username click
 });
 
+var $button = $('<button id="update-feed">Update Feed</button>');
+$button.appendTo($app);
+$button.click("#update-feed", function (event) {
+  //$button = $('<button id="update-feed">Back</button>');
+  $feed.empty();
+  renderFeed();
+});
+
+
   // Create handler functions
   function renderFeed(user) {
   //$feed.html(''); // .empty?
@@ -98,8 +107,28 @@ $(document).ready(function(){
     $feed.empty();
     //console.log(event.target.innerText); // targets whatever text i have input for $username
     renderFeed(usernameWithoutAt); // for each username click
+});
+
+$username.click(function handleUsernameClick(){
+  //var $this = $(this);
+  $button.toggleClass('Update Feed');
+
+  if($button.hasClass('Update Feed')){
+      $button.text('Back');
+      $button.toggleClass('Back');
+  }
 
   });
+
+  $button.click(function(){
+    //var $this = $(this);
+    //$button.toggleClass('Update Feed');
+    $button.toggleClass('Back');
+    if($button.hasClass('Back')){
+        $button.text('Update Feed');
+    }
+
+    });
 
     index -= 1;
   } // link tweets to log 11
@@ -173,26 +202,6 @@ $(document).ready(function(){
     // render the solo users feed
 
 
-var $button = $('<button id="update-feed">Update Feed</button>');
-$button.appendTo($app);
-$button.click("#update-feed", function (event) {
-  $button = $('<button id="update-feed">Back</button>');
-  $feed.empty();
-  renderFeed();
-
-
-});
-
-
-$button.click(function(){
-  var $this = $(this);
-  $this.toggleClass('Update Feed');
-  if($this.hasClass('Update Feed')){
-      $this.text('Back');
-  } else {
-      $this.text('Back');
-  }
-});
 
 
   var $feed = $('<div id="feed"></div>');
