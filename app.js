@@ -8,12 +8,15 @@ $(document).ready(function(){
   var $app = $('#app');
   $app.html('');
 
-
-
   // CREATE NEW HTML ELEMENTS AND GLOBAL VARIABLES
   var $title = $('<h1 class="primary-header">Twiddler</>');
   var $updateFeedBtn = $('<button type=button class="btn" id=update-feed>Update Feed</button>');
-  var $feed = $('<div id="feed"></div>');
+  var $container = $('<div class="flex-container"></div>');
+  var $inputField = $('<div class="flex-item flex-1"></div>');
+  var $inputNav = $('<div class="flex-2"></div>');
+  var $feed = $('<div class="flex-item flex-3" id="feed"></div>');
+
+
 
 
   var renderFeed = function(user) {
@@ -37,57 +40,79 @@ $(document).ready(function(){
       var $retweet = $('<i class="fas fa-retweet retweet"></i>');
       var $like = $('<i class="fas fa-thumbs-up like"></i>');
       var $share = $('<i class="fas fa-share share"></i>');
-      $pp.appendTo($tweet)
-      $username.appendTo($tweet)
-      $tweetMsg.appendTo($tweet)
-      $username.appendTo($tweet)
-      $timeStamp.appendTo($tweet);
-      $comment.appendTo($tweet);
-      $retweet.appendTo($tweet);
-      $like.appendTo($tweet);
-      $share.appendTo($tweet);
+
+      var $tweetTop = $('<div class="flex-item flex-4"></div>');
+      var $tweetInfo = $('<div class="flex-item flex-5"></div>');
+      var $iconBox = $('<div class="flex-item flex-6"></div>');
+
+
+      $tweetTop.appendTo($tweet);
+      $pp.appendTo($tweetTop)
+      $tweetMsg.appendTo($tweetTop)
+      $username.appendTo($tweetInfo)
+      $timeStamp.appendTo($tweetInfo);
+      $comment.appendTo($iconBox);
+      $retweet.appendTo($iconBox);
+      $like.appendTo($iconBox);
+      $share.appendTo($iconBox);
+      $tweetTop.appendTo($tweet)
+      $tweetInfo.appendTo($tweet);
+      $iconBox.appendTo($tweet);
       $tweet.appendTo($feed);
       index -= 1;
     };
 
   }
-  renderFeed();
+
 
 
   // CREATE EVENT HANDLER FUNCTIONS
 
   var handleUsernameClick = function() {
-    $(this).text($(this).text() === 'Back' ? $updateFeedBtn.text() : 'Back');
+    $(this).text($(this).text() === 'Back' ? 'Update Feed' : 'Back');
   }
 
+  // var handleUsernameClick = function(user) {
+  //   if (renderFeed.arguments) {
+  //     $updateFeedBtn.html('Back')
+  //   } else {
+  //     $updateFeedBtn.html('Update Feed')
+  //   }
+  // if renderFeed gets called with a username, button goes to "back"
+  // else button goes to "update feed"
+  // $updateFeedBtn.text()
 
 
   // SET EVENT LISTENERS
   $updateFeedBtn.on("click", function(event) {
     renderFeed();
+    // handleUsernameClick ()
+    $updateFeedBtn.html('Update Feed')
+    // handleUsernameClick()
   });
 
-  $updateFeedBtn.on("click", handleUsernameClick)
+  // $updateFeedBtn.on("click", handleUsernameClick)
 
   $(document).on("click", ".username", function() {
     renderFeed($(this).text().slice(1));
     $updateFeedBtn.html('Back')
+    // handleUsernameClick()
   })
-
-
-   // Toggle over icon - placement?
-  //  $('.icon').mouseover(function() {
-  //   $('.icon').toggleClass(***CHANGE COLOR***);
-  // })
-
 
 
   // Append HTML to Dom
   // -------------------------------------
+  renderFeed();
 
   $title.appendTo($app);
-  $updateFeedBtn.appendTo($app);
-  $feed.appendTo($app);
+  $container.appendTo($app);
+  $inputField.appendTo($container);
+  // $inputNav.appendTo($inputField);
+  $updateFeedBtn.appendTo($inputField);
+  // $userInput.appendTo($inputField)
+  $feed.appendTo($container);
+
+  window.isItBeautifulYet = true
 
 });
 
