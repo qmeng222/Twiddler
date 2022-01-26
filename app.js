@@ -168,14 +168,30 @@ $(document).ready(function(){
 // when you click the clickable item (username)
   // run the handle click function
 
+  // if the button is clicked
+    // switch text to back
+    // render the solo users feed
 
 
 var $button = $('<button id="update-feed">Update Feed</button>');
 $button.appendTo($app);
 $button.click("#update-feed", function (event) {
+  $button = $('<button id="update-feed">Back</button>');
   $feed.empty();
   renderFeed();
 
+
+});
+
+
+$button.click(function(){
+  var $this = $(this);
+  $this.toggleClass('Update Feed');
+  if($this.hasClass('Update Feed')){
+      $this.text('Back');
+  } else {
+      $this.text('Back');
+  }
 });
 
 
