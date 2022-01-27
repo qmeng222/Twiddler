@@ -4,22 +4,97 @@ html, body, #app {
   margin: 0;
 }
 
-/* font-family: 'Josefin Sans', sans-serif; */
+
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
   background-color: #002244;
+  color: #002244;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-position: under;
+  text-decoration-color: #fb4f14;
+}
+
+#update-feed {
+  border: 0;
+  border-radius: 15px;
+  height: 30px;
+  color: #ffffff;
+  background-color: #fb4f14;
+}
+
+#update-feed:hover {
+  color: #fb4f14;
+  background-color: #ffffff;
+}
+
+#update-feed:active {
   color: #ffffff;
 }
 
-.icon:hover{
-  color:#fb4f14 !important;
+.profile-photo {
+  width: 50px;
+  border-radius: 25px;
+  margin-right: 5px;
 }
 
-p {
-  font-family: 'Josefin Sans', sans-serif;
+.username {
+  font-size: smaller;
+  position: relative;
+  bottom: 5px;
+}
+
+.username:hover {
+  color: #fb4f14;
+}
+
+.message {
+  text-align: start;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.timestamp {
+  color: #D3D3D3;
+  font-weight: 300;
+  font-style: italic;
+  font-size: smaller;
+  position:relative;
+  top: -15px;
+  left: 10px;
+}
+
+.iconrow {
+  /* background-color: #002244; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+i:hover {
+  color: #fb4f14 !important;
+}
+
+.tweet {
+  width: 400px;
+  border: solid;
+  border-radius: 15px;
+  border-width: 3px;
+  border-color: #fb4f14;
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px;
 }
 
 

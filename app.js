@@ -5,7 +5,7 @@ $(document).ready(function () {
 
   // Create new HTML elements
   var $title = $('<h1>Twiddler</h1>');
-  var $updateFeedButton = $('<button id="update feed">Update Feed</button>');
+  var $updateFeedButton = $('<button id="update-feed">Update Feed</button>');
   var $feed = $('<div id="feed"></div>');
   var $username;
   var $tweet;
@@ -37,17 +37,18 @@ $(document).ready(function () {
       $tweet = $('<div class="tweet"></div>');
 
       var $profilePhoto = $('<img class="profile-photo" src="assets/img/visitor.png">');
-      $username = $('<p class="username"></p>');
+      $username = $('<span class="username"></span>');
       var $message = $('<p class="message"></p>');
-      var $timestamp = $('<time class="timeago"></time>');
+      var $timestamp = $('<div class="timeago timestamp"></div>');
       var $comment = $('<div class="comment icon"></div>');
-      var $commentIcon = $('<i class="fas fa-comment"></i>');
+      var $commentIcon = $('<i class="fas fa-comment comment"></i>');
       var $retweet = $('<div class="retweet icon"></div>');
-      var $retweetIcon = $('<i class="fas fa-retweet"></i>');
+      var $retweetIcon = $('<i class="fas fa-retweet retweet"></i>');
       var $like = $('<div class="like icon"></div>');
-      var $likeIcon = $('<i class="fas fa-thumbs-up"></i>');
+      var $likeIcon = $('<i class="fas fa-thumbs-up like"></i>');
       var $share = $('<div class="share icon"></div>');
-      var $shareIcon = $('<i class="fas fa-share"></i>');
+      var $shareIcon = $('<i class="fas fa-share share"></i>');
+      var $iconRow = $('<div class="iconrow"></div');
 
       if (tweet.user === 'sharksforcheap') {
         $profilePhoto.attr("src", "assets/img/sharksforcheap.png");
@@ -66,14 +67,16 @@ $(document).ready(function () {
       $username.appendTo($tweet);
       $message.appendTo($tweet);
       $timestamp.appendTo($tweet);
-      $comment.appendTo($tweet);
+      $comment.appendTo($iconRow);
       $commentIcon.appendTo($comment);
-      $retweet.appendTo($tweet);
+      $retweet.appendTo($iconRow);
       $retweetIcon.appendTo($retweet);
-      $like.appendTo($tweet);
+      $like.appendTo($iconRow);
       $likeIcon.appendTo($like);
-      $share.appendTo($tweet);
+      $share.appendTo($iconRow);
       $shareIcon.appendTo($share);
+      $iconRow.appendTo($tweet);
+
 
       // $tweet.text('@' + tweet.user + ': ' + tweet.message);
       $tweet.appendTo($feed);
@@ -106,3 +109,5 @@ $(document).ready(function () {
   });
 
 });
+
+window.isItBeautifulYet = true;
