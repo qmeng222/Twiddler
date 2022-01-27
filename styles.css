@@ -12,6 +12,17 @@ providing a space for you to apply styles to your app's outermost HTML element -
   color: black;
 }
 
-h1 {
+#main-title {
+  text-align: center;
+}
+
+#update-feed {
+  background-image: url(assets/icons/update.svg) no-repeat;
+
+}
+
+.top-bar {
+  height: 50px;
+  padding: 15px 0;
   margin: 0;
 }
