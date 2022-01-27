@@ -33,11 +33,10 @@ $(document).ready(function(){
       $tweet.append($pfp, $username, $message, $infobar);
       $tweet.appendTo($feed);
 
-      $('i.icon').hover(selectIcon, deselectIcon);
-      $('h3.username').on('click', writeUserTweets);
-
       index -= 1;
     }
+    $('i.icon').hover(hoverHandler);
+    $('h3.username').on('click', writeUserTweets);
   };
 
   var writeUserTweets = function(event) {
@@ -47,30 +46,18 @@ $(document).ready(function(){
     writeTweets(stream);
   };
 
+  var hoverHandler = function(event) {
+    var $icon = $(this);
+    if (!$icon.hasClass('retweet')) {
+      $icon.toggleClass('fas');
+      $icon.toggleClass('far');
+    }
+  }
+
   $(':button,#update-feed').on('click', function() {
     $(this).text('Update Feed');
     writeTweets(streams.home);
   });
-
-  var selectIcon = function(event) {
-    var $icon = $(this);
-    if ($icon.hasClass('far')) {
-      $icon.removeClass('far');
-      $icon.addClass('fas');
-    }
-  };
-
-  var deselectIcon = function(event) {
-    var $icon = $(this);
-    if ($icon.hasClass('fas') && !($icon.hasClass('retweet'))) {
-      $icon.removeClass('fas');
-      $icon.addClass('far');
-    }
-  };
-
-  var testFunc = function(event) {
-    console.log(event.type);
-  }
 
   writeTweets(streams.home);
 });
