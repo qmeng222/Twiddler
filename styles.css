@@ -89,7 +89,8 @@ h1 {
 #feed {
   border-radius: 5px;
   overflow-y: scroll;
-  display: grid;
+  display: flex;
+  flex-direction: column;
 }
 .tweet {
   background-color: white;
@@ -97,11 +98,8 @@ h1 {
   color: green;
   margin: 10px 5px;
   padding: 5px;
-  height: 140px;
+  min-height: 140px;
   width: 400px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
   display: grid;
   grid-template-columns: 20% 80%;
   grid-template-rows: 20% 70% 10%;
