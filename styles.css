@@ -1,3 +1,79 @@
+
+/*
+  ========================================
+  Grid
+  ========================================
+*/
+/* change box size to use the border-box version of the box model
+which makes sizing of elements easier. In this model, the border and
+the padding are included within the width & height of an element.
+The standard before this change was content-box. */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* the class container is centered - margins left and right are set to auto.
+now we can use this class all over the html */
+.container  {
+  margin: 50px auto;
+  /* padding-left: 30px;
+  padding-right: 30px; */
+  width: 960px;
+}
+
+.row {
+  margin: 0 auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+/*
+  ========================================
+  Typography
+  ========================================
+*/
+
+/*  let’s create some vertical spacing between elements.
+For starters let’s place a 22-pixel bottom margin on
+a few of our heading and paragraph elements. */
+
+h1, h3, h4, h5, p, span, time {
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 5em;
+  color: white;
+}
+
+.form-label {
+  color: white;
+}
+
+/*
+  ========================================
+  Buttons
+  ========================================
+*/
+/* To begin let’s add the btn class and apply some common styles
+that can be shared across all buttons.
+We’ll want all of our buttons to have a 5-pixel border-radius.
+They should be displayed as inline-block elements so we can add padding
+around all four sides without issue; we’ll remove any margin. */
+
+.btn {
+  border-radius: 5px;
+  display: inline-block;
+  margin: 10px;
+}
+
+
+
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
@@ -7,10 +83,11 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
-#app {
-  background-color: green;
-  color: yellow;
 
+
+body {
+  background: #648880;
+  background: linear-gradient(to right, #c6cbd1, #648880, #293f50 80%, #29292b);
 }
 
 /* Icons */
@@ -18,13 +95,13 @@ providing a space for you to apply styles to your app's outermost HTML element -
   color: grey;
 }
 
-/* Typography */
-
-h1 {
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  font-size: 5em;
+.icon {
+  height: 2em;
+  color: white;
 }
+
+/* specific areas */
+
 
 #feed .tweet {
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -33,4 +110,42 @@ h1 {
 
 .username:hover {
   color: grey;
+}
+
+#user-time-row {
+  font-size: 0.8em;
+}
+
+.username, .timestamp {
+  font-style: italic;
+  display: inline-block;
+  color: white;
+}
+
+.iconsRow {
+  padding-top: 1em;
+  border: solid white;
+  text-align: center;
+}
+
+.profile-photo {
+  padding: 1px;
+  border-radius: 50%;
+  max-width: 100%;
+  height: auto;
+}
+
+
+.tweet {
+  height: 8em;
+}
+
+.message{
+  color: rgb(206, 227, 240);
+}
+
+#buttons-row {
+  height: 4em;
+  margin-bottom: 1em;
+  margin-top: 1em;
 }
