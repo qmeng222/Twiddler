@@ -74,4 +74,6 @@ var writeTweet = function(message) {
   tweet.created_at = new Date();
   tweet.profilePhotoURL = './assets/img/visitor.png';
   addTweet(tweet);
+
+  window.isItBeautifulYet = true
 };
