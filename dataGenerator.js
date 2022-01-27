@@ -4,6 +4,7 @@
  */
 
 // set up data structures
+// these will be changing as the program runs
 window.streams = {};
 streams.home = [];
 streams.users = {};
@@ -13,6 +14,7 @@ streams.users.mracus = [];
 streams.users.douglascalhoun = [];
 window.users = Object.keys(streams.users);
 
+// each of these functions solve some smaller problem 
 // utility function for adding tweets to our data structures
 var addTweet = function(newTweet) {
   var username = newTweet.user;

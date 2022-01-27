@@ -8,6 +8,12 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: aqua;
+  color: grey;
+}
+
+#feed {
+  background-color: white;
+  color: grey;
+  max-width: 50%;
 }
