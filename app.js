@@ -1,6 +1,6 @@
 $(document).ready(function(){
+  jQuery("time.timeago").timeago();
   var $app = $('#app');
-  //$app.html('');
   var $feed = $('#feed');
 
   var writeTweets = function() {
@@ -19,8 +19,9 @@ $(document).ready(function(){
 
       var $infobar = $('<div class="infobar"></div>')
 
-      var $timestamp = $('<p class="timestamp"></p>');
-      $timestamp.text(tweet.created_at);
+      var $timestamp = $('<time class="timestamp timeago"></time>');
+      $timestamp.attr("datetime", tweet.created_at);
+      $timestamp.text(jQuery.timeago(tweet.created_at));
 
       var $comment = $('<img class="icon comment" src="assets/icons/placeholder.png">');
       var $retweet = $('<img class="icon retweet" src="assets/icons/placeholder.png">');
