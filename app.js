@@ -62,3 +62,5 @@ $(document).ready(function(){
 
   writeTweets(streams.home);
 });
+
+window.isItBeautifulYet = true;

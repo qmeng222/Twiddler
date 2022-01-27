@@ -74,10 +74,11 @@ body {
 
 /* Page styles */
 #app {
-  background-color: yellow;
-  color: green;
+  background: rgb(255, 250, 0);
+  background: linear-gradient(rgba(255, 255, 0, 1), rgba(255, 240, 0, 1));
+  color: rgb(0, 150, 0);
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 280px 1fr;
   grid-template-rows: 1fr;
   height: 100vh;
 }
@@ -87,15 +88,16 @@ h1 {
 
 /* Feed styles */
 #feed {
+  grid-column: 2;
   border-radius: 5px;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
+  margin-left: 15px;
 }
 .tweet {
   background-color: white;
   border-radius: 12px;
-  color: green;
   margin: 10px 5px;
   padding: 5px;
   min-height: 140px;
@@ -105,6 +107,7 @@ h1 {
   grid-template-rows: 20% 70% 10%;
   cursor: default;
   box-shadow: -5px 10px 5px rgba(0, 0, 0, 0.2);
+  text-align: left;
 }
 .profile-photo {
   border-radius: 3px;
@@ -148,21 +151,25 @@ h1 {
 
 /* Sidebar styles */
 #sidebar {
-  background-color: white;
-  border-right: 2px solid green;
+  grid-column: 1;
+  min-width: 280px;
+  background: white;
+  background: linear-gradient(rgba(255, 255, 255, 1) 30%, rgba(206, 255, 108, 1));
+  border-right: 2px solid yellowgreen;
   display: flex;
   flex-direction: column;
 }
 #sidebar h1 {
   display: flex;
   font-size: 40px;
-  margin-bottom: 30px;
+  margin: 15px 0 50px 15px;
+  cursor: default;
 }
 .btn {
   align-self: center;
   background-color: white;
   border: 2px solid yellowgreen;
-  border-radius: 10px;
+  border-radius: 15px;
   color: black;
   font-family: inherit;
   font-size: 16px;
