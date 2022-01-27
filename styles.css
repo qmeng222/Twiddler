@@ -6,7 +6,6 @@ html, body, #app {
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
-
 #app {
   --twitter-color: #50b7f5;
   --twitter-backgroud: #e6ecf0;
@@ -14,6 +13,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
   font-style: italic;
   text-align: left;
 }
+
 .twitterlogo{
   color: var(--twitter-color);
   font-size: 30px;
@@ -21,16 +21,14 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 /**Styling heading**/
 h1 {
-  position:sticky;
   top: 0;
   background-color: white;
   z-index: 100;
   border: 1px solid var(--twitter-backgroud);
   padding: 15px 20px;
-  margin-top:20px;
+  margin:20px;
   font-size: 20px;
   font-weight: 800;
-
 }
 
 /**update feed button**/
@@ -45,15 +43,12 @@ h1 {
   margin-left:auto;
   font-size: 15px;
   display: block;
-
 }
-#update-feedButton :hover{
-  color: var(--twitter-backgroud);
+#update-feed :hover{
+  background-color: var(--twitter-backgroud);
 }
 
 /**Styling UpdateFeed**/
-
-/***styling the tweetpost**/
 #feed {
   display: flex;
   flex-direction: column;
@@ -67,26 +62,13 @@ h1 {
   display:block;
 }
 
-.fa-comments:hover{
+.fas:hover{
   background-color: var(--twitter-backgroud);
   border-radius: 30px;
   color: var(--twitter-color);
   transition: color 100ms ease-out;
 }
-
-.fa-retweet:hover{
-  background-color: var(--twitter-backgroud);
-  border-radius: 30px;
-  color: var(--twitter-color);
-  transition: color 100ms ease-out;
-}
-.fa-heart :hover{
-  background-color: var(--twitter-backgroud);
-  border-radius: 30px;
-  color: var(--twitter-color);
-  transition: color 100ms ease-out;
-}
-.fa-share :hover{
+.far:hover{
   background-color: var(--twitter-backgroud);
   border-radius: 30px;
   color: var(--twitter-color);
@@ -94,22 +76,89 @@ h1 {
 }
 /*
 /**styling for tweetBox**/
-
-.tweetBox {
+#new-tweet-form {
   padding-bottom:10px;
   border-bottom: 8px solid var(--twitter-backgroud);
   padding-right: 10px;
 }
 
-.tweetBox form{
-  display: flex;
-  flex-direction: column;
-}
-
-/* .tweetBox input[type=username], input[type=tweetmessage]{
+#new-tweet-form input[type=username], input[type=tweetmessage]{
+  border: 8px solid var(--twitter-backgroud);
   display: block;
   flex: 1;
   margin-left: 20px;
   font-size: 20px;
   border:none;
-} */
+}
+
+#new-tweet-form #submit{
+  display:block;
+  background-color: var(--twitter-color);
+  border:none;
+  color:white;
+  font-weight: 900;
+  border-radius: 30px;
+  width: 80px;
+  height: 40px;
+  margin-top: 20px;
+  margin-left:auto;
+  font-size: 15px;
+}
+#new-tweet-form #submit:hover {
+  opacity: 0.7;
+}
+#new-tweet-for.tweeticon{
+  margin: 5px;
+  display:block;
+}
+.fab:hover{
+  background-color: var(--twitter-backgroud);
+  border-radius: 30px;
+  color: var(--twitter-color);
+  transition: color 100ms ease-out;
+}
+
+.fas:hover{
+  background-color: var(--twitter-backgroud);
+  border-radius: 30px;
+  color: var(--twitter-color);
+  transition: color 100ms ease-out;
+}
+
+/***styling for sidebar options**/
+.sidebaroptions{
+  width: 20%;
+  align-items: center;
+  cursor: pointer;
+}
+
+#sidebar .fa-home{
+  position:sticky;
+  color: var(--twitter-color);
+  font-size: 20px;
+}
+
+#sidebar{
+  position:sticky;
+  height: 100%;
+  width: 150px;
+  position: absolute;
+  left: 0;
+  top: 20px;
+  min-width: 250px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/**styeling for firendslist**/
+.friendslist .fas{
+  color: var(--twitter-color);
+  font-size: 25px;
+  display: block;
+}
+.friendslist .fas:hover{
+  background-color: var(--twitter-backgroud);
+  border-radius: 30px;
+  color: var(--twitter-color);
+  transition: color 100ms ease-out;
+}
+
