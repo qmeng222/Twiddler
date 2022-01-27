@@ -12,6 +12,13 @@ providing a space for you to apply styles to your app's outermost HTML element -
   color: yellow;
 }
 
+
+.comment:hover{
+  color: green;
+  opacity:0.5;
+  transition: 1s ease;
+  }
+
 #update-feed {
   border-radius: 5px;
   color: #fff;
@@ -71,9 +78,6 @@ providing a space for you to apply styles to your app's outermost HTML element -
   text-transform: uppercase;
  } /* id */
 
- .profile-photo {
-  color: blue;
- }
 
  .comment {
    color: red;
