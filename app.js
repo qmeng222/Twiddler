@@ -37,6 +37,7 @@ $(document).ready(function(){
     }
     $('i.icon').hover(hoverHandler);
     $('h3.username').on('click', writeUserTweets);
+    $('div,#feed').scrollTop(0);
   };
 
   var writeUserTweets = function(event) {
