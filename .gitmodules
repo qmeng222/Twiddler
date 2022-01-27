@@ -1,0 +1,3 @@
+[submodule "lib/jquery-timeago"]
+	path = lib/jquery-timeago
+	url = https://github.com/rmm5t/jquery-timeago.git
