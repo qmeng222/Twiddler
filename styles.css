@@ -12,6 +12,51 @@ providing a space for you to apply styles to your app's outermost HTML element -
   color: yellow;
 }
 
+/* TWEET TEXT & CONTAINER */
+.tweet-container {
+  width: 600px;
+  height: auto;
+  margin: auto;
+  margin-top: 50px;
+  padding: 10px;
+  /*border: 1px solid white;*/
+  background-color: #222;
+}
+
+
+/* PROFILE PIC */
+ .profile-photo {
+  margin: auto;
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 50%;
+ }
+
+/* USERNAME */
+.username {
+  position:relative; left:100px; bottom:50px;
+}
+
+/* MESSAGE */
+.message {
+  text-align: center;
+  position:relative; bottom:20px;
+  color: blue;
+  font-family: 'Mochiy Pop P One', sans-serif;
+  font-style: normal;
+}
+
+/* TIMESTAMP */
+.timestamp {
+  text-align: right;
+  position:relative; bottom:120px;
+}
+
+
+ /* 4 ICONS */
+ .comment {
+  color: red;
+}
 
 .comment:hover{
   color: green;
@@ -19,6 +64,26 @@ providing a space for you to apply styles to your app's outermost HTML element -
   transition: 1s ease;
   }
 
+  .retweet:hover{
+    color: blue;
+    opacity:0.5;
+    transition: 1s ease;
+    }
+
+    .like:hover{
+      color: green;
+      opacity:0.5;
+      transition: 1s ease;
+      }
+
+      .share:hover{
+        color: green;
+        opacity:0.5;
+        transition: 1s ease;
+        }
+
+
+/* UPDATE FEED BUTTON */
 #update-feed {
   border-radius: 5px;
   color: #fff;
@@ -30,58 +95,6 @@ providing a space for you to apply styles to your app's outermost HTML element -
   text-transform: uppercase;
  }
 
- #update-user {
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 400;
-  letter-spacing: .5px;
-  margin: 0;
-  text-transform: uppercase;
- }
-
- .tweet-container {
-  width: 600px;
-  margin: auto;
-  margin-top: 50px;
-  padding: 10px 0;
-  /*border: 1px solid white;*/
-  background-color: #222;
-  font-family: sans-serif;
-}
-
- #username {
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 400;
-  letter-spacing: .5px;
-  margin: 0;
-  text-transform: uppercase;
- }
-
- .tweet {
-  color: yellow;
-  /* font-family: 'Mochiy Pop P One', sans-serif; */
- } /* class */
-
- #update-feed {
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 400;
-  letter-spacing: .5px;
-  margin: 0;
-  text-transform: uppercase;
- } /* id */
-
-
- .comment {
-   color: red;
- }
 
 
 
