@@ -12,12 +12,20 @@ providing a space for you to apply styles to your app's outermost HTML element -
   color: yellow;
 }
 
+/* TITLE */
+
+#title {
+  color: blue;
+  position:relative; top:120px;
+  margin-left: 90px;
+}
+
 /* TWEET TEXT & CONTAINER */
 .tweet-container {
-  width: 600px;
+  width: 700px;
   height: auto;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 30px;
   padding: 10px;
   /*border: 1px solid white;*/
   background-color: #222;
@@ -39,8 +47,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 /* MESSAGE */
 .message {
-  text-align: center;
-  position:relative; bottom:20px;
+  text-align: left;
+  position:relative; left:100px; bottom:20px;
   color: blue;
   font-family: 'Mochiy Pop P One', sans-serif;
   font-style: normal;
@@ -56,7 +64,22 @@ providing a space for you to apply styles to your app's outermost HTML element -
  /* 4 ICONS */
  .comment {
   color: red;
+  position:relative; left:40px; bottom:20px;
 }
+
+.like {
+  position:relative; left:39px; bottom:20px;
+}
+
+.retweet{
+  position:relative; left:95px; bottom:20px;
+  }
+
+
+.share {
+  position:relative; left:100px; bottom:20px;
+}
+
 
 .comment:hover{
   color: green;
@@ -93,6 +116,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
   letter-spacing: .5px;
   margin: 0;
   text-transform: uppercase;
+  position:relative; top:120px;
+  margin-left: 90px;
  }
 
 

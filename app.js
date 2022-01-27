@@ -2,7 +2,7 @@ $(document).ready(function(){
   var $app = $('#app');
 
   // Create new HTML elements
-  var $title = $('<h1>Twiddler</h1>');
+  var $title = $('<h1 id="title">Twiddler</h1>');
   $app.html('');
   $title.appendTo($app);
   $title.on("click", function(event) {
