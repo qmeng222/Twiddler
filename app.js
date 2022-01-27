@@ -1,8 +1,14 @@
 $(document).ready(function(){
 
-  jQuery(document).ready(function() {
-    jQuery("time.timeago").timeago();
-  });
+  // jQuery(document).ready(function() {
+  //   jQuery("time.timeago").timeago();
+  // });
+
+  // var test = jQuery(document).ready(function() {
+  //   jQuery("time.timeago").timeago();
+  // });
+
+  // console.log
 
   // SELECT EXISTING ELEMENTS
   var $app = $('#app');
