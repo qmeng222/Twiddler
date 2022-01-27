@@ -11,6 +11,9 @@ providing a space for you to apply styles to your app's outermost HTML element -
   background-color: white;
   color: black;
 }
+/* #title {
+  font-family: 'Bitter', serif;
+} */
 
 .comment:hover {
   color: orange;
