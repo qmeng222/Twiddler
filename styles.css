@@ -8,6 +8,11 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background: linear-gradient(to right, #1c8eb1, #9ea5a7) ;
+  color: #040c79;
+  border: 1px solid red;
+}
+
+div {
+  border: 1px solid red;
 }
