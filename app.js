@@ -37,7 +37,7 @@ $(document).ready(function(){
     }
     $('i.icon').hover(hoverHandler);
     $('h3.username').on('click', writeUserTweets);
-    $('div,#feed').scrollTop(0);
+    $('div#feed').scrollTop(0);
   };
 
   var writeUserTweets = function(event) {
@@ -57,20 +57,52 @@ $(document).ready(function(){
 
   var writeFriendsList = function() {
     var $list = $('#friends-list');
-    //var index = users.length - 1;
     for (var i = 0; i < users.length; i++) {
       var $username = '<li class="friend">@'+users[i]+'</li>';
       $list.append($username);
     }
     $('li.friend').on('click', writeUserTweets);
   };
-  writeFriendsList();
 
-  $(':button,#update-feed').on('click', function() {
+  var toggleWriteTweet = function() {
+    var $btn = $(':button#write-tweet');
+    if ($btn.text() === 'Write Tweet') {
+      $btn.text('Cancel');
+      $('#new-tweet-form').show();
+    } else {
+      $btn.text('Write Tweet');
+      $('#new-tweet-form').hide();
+      $('#input-message').val('');
+    }
+  };
+
+  var submitTweet = function() {
+    var user = $('#input-username').val().toString();
+    var msg = $('#input-message').val().toString();
+
+    window.visitor = user;
+    writeTweet(msg);
+
+    $('#input-message').val('');
+  };
+
+  $(':button#update-feed').on('click', function() {
     $(this).text('Update Feed');
     writeTweets(streams.home);
   });
 
+  $(':button#write-tweet').on('click', toggleWriteTweet);
+
+  $(':button#submit-tweet').on('click', function(event) {
+    event.preventDefault();
+    submitTweet();
+    writeTweets(streams.home);
+    toggleWriteTweet();
+  });
+
+  $('#new-tweet-form').hide();
+
+  writeFriendsList();
   writeTweets(streams.home);
 });
 

@@ -15,8 +15,14 @@
       <div id="sidebar" class="container">
         <h1>Twiddler</h1>
         <button id="update-feed" class="btn">Update Feed</button>
-          <ul id="friends-list"></ul>
-      </div><!--
+        <ul id="friends-list"></ul>
+        <button id="write-tweet" class="btn">Write Tweet</button>
+        <form id="new-tweet-form">
+          <label for="input-username">Username <br> <input id="input-username" name="username"></label>
+          <label for="input-message" id="input-msg-lbl"> <br> Message <br> <input id="input-message" name="message"></label>
+          <button id="submit-tweet" class="btn">Submit</button>
+        </form>
+        </div><!--
       --><div id="feed" class="container">
       </div>
     </div>
