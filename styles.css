@@ -18,7 +18,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 }
 
- .tweetFeed {
+  .tweetFeed {
   position: inline-block;
 }
 .tweet {
