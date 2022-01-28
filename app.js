@@ -9,7 +9,7 @@ $(document).ready(function(){
   var $title = $('<h1 id="main-title" class="top-bar">Twiddler</h1>');
   var $updateFeed = $('<button id="update-feed" class="top-bar">Update Feed</button>');
   var $feed = $('<div id="feed"></div>');
-  var $pineapple = $('<img id="pineapple" src="assets/icons/pineapple.png" alt="pineapple icon">');
+  var $pineapple = $('<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><img id="pineapple" src="assets/icons/pineapple.png" alt="pineapple icon"></a>');
 
   // Create event handler functions
   var renderFeed = function(user) {
@@ -70,7 +70,6 @@ $(document).ready(function(){
 
       $feed.append($tweet);
       $feed.append($preventOverlapHR);
-      // $tweet.appendTo($feed);
 
       index--;
     }
@@ -81,7 +80,9 @@ $(document).ready(function(){
     }
   }
 
-  var handleUsernameClick = function() {
+  var handleUsernameClick = function(event) {   // why does "event" need to be included here for
+    console.log('handleUsernameClick called');  // Cypress not to break?
+    console.log(event);
     if (event !== undefined) {
       var username = event.target.innerText.substring(1);
       renderFeed(username);
@@ -90,10 +91,6 @@ $(document).ready(function(){
   }
 
   // Set event listeners (providing appropriate handlers as input)
-  // $title.on('click', function() {
-  //   console.log(event);
-  //   alert('The title of this page is: ' + event.target.innerText);
-  // });
 
   $updateFeed.on('click', renderFeed);
 
@@ -113,6 +110,7 @@ $(document).ready(function(){
 
   // Function to update feed and add to $app
   renderFeed();
+  window.isItBeautifulYet = true;
 });
 
 
