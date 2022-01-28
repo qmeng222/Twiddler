@@ -10,14 +10,26 @@ providing a space for you to apply styles to your app's outermost HTML element -
 #app {
   background-color: green;
   color: yellow;
+  background-image: url("https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-25.jpg");
 }
 
 /* TITLE */
 
 #title {
-  color: blue;
-  position:relative; top:120px;
+  color: yellow;
+  position:relative; top:180px;
   margin-left: 90px;
+  font-family: 'Audiowide', cursive;
+  font-size: 350%;
+}
+#subtitle {
+  color: yellow;
+  position:relative; top:150px;
+  margin-left: 125px;
+  margin-top: 5px;
+  font-family: 'Merriweather', serif;
+  font-size: large;
+  text-align: match-parent;
 }
 
 /* TWEET TEXT & CONTAINER */
@@ -25,7 +37,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
   width: 700px;
   height: auto;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 10px;
   padding: 10px;
   /*border: 1px solid white;*/
   background-color: #222;
@@ -35,14 +47,16 @@ providing a space for you to apply styles to your app's outermost HTML element -
 /* PROFILE PIC */
  .profile-photo {
   margin: auto;
-  margin-left: 10px;
-  padding: 5px;
+  margin-left: 4px;
+  padding: 3px;
   border-radius: 50%;
+  max-width: 12%;
+  height: auto;
  }
 
 /* USERNAME */
 .username {
-  position:relative; left:100px; bottom:50px;
+  position:relative; left:110px; bottom:50px;
 }
 
 /* MESSAGE */
@@ -109,15 +123,19 @@ providing a space for you to apply styles to your app's outermost HTML element -
 /* UPDATE FEED BUTTON */
 #update-feed {
   border-radius: 5px;
-  color: #fff;
+  color: black;
   cursor: pointer;
   display: inline-block;
   font-weight: 400;
   letter-spacing: .5px;
   margin: 0;
   text-transform: uppercase;
-  position:relative; top:120px;
-  margin-left: 90px;
+  position:relative; top:180px;
+  margin-left: 155px;
+  background-color: yellow;
+  font-size: 20px;
+  font-family: 'Audiowide', cursive;
+
  }
 
 

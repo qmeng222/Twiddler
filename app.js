@@ -2,9 +2,11 @@ $(document).ready(function(){
   var $app = $('#app');
 
   // Create new HTML elements
-  var $title = $('<h1 id="title">Twiddler</h1>');
+  var $title = $('<h1 id="title">TWIDDLER</h1>');
+  var $subtitle = $('<h1 id="subtitle">RETURN OF THE WEBSITE</h1>');
   $app.html('');
   $title.appendTo($app);
+  $subtitle.appendTo($app);
   $title.on("click", function(event) {
     //console.log(event);
     alert('The title of this page is: ' + event.target.innerText); // for each username click
