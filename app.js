@@ -8,7 +8,6 @@ $(document).ready(function(){
   var $title = $('<h1>Twiddler</h1>');
   var $button = $('<button type="button" id="update-feed">Update Feed</button>');
   var $feed = $('<div id="feed"></div>');
-  // var $usernamelink = $('.username');
 
   // Create event handler functions
   var handleTitleClick = function(event) {
