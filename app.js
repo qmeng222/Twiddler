@@ -62,6 +62,36 @@ $(document).ready(function(){
       $tweet.append($like);
       $share = $("<i class='share fas fa-share-alt-square'></i>");
       $tweet.append($share);
+      $icon.on( "mouseover", function(event) {
+        $(this).css( "color", "green" );
+        setTimeout(function() {
+          event.target.style.color = "";
+        }, 50);
+      });
+      $comment.on( "mouseover", function(event) {
+        $(this).css( "color", "green" );
+        setTimeout(function() {
+          event.target.style.color = "";
+        }, 50);
+      });
+      $retweet.on( "mouseover", function(event) {
+        $(this).css( "color", "green" );
+        setTimeout(function() {
+          event.target.style.color = "";
+        }, 50);
+      });
+      $like.on( "mouseover", function(event) {
+        $(this).css( "color", "green" );
+        setTimeout(function() {
+          event.target.style.color = "";
+        }, 50);
+      });
+      $share.on( "mouseover", function(event) {
+        $(this).css( "color", "green" );
+        setTimeout(function() {
+          event.target.style.color = "";
+        }, 50);
+      });
       // user feed additions below
       // if (user === null) {
       //   $tweet.appendTo($feed);
@@ -99,7 +129,7 @@ $(document).ready(function(){
   $feed.appendTo($app);
 });
 
-
+window.isItBeautifulYet = true;
 
  // Toggles your button's text from "Update Feed" to "Back" if the button's text is currently "Update Feed"
     // Re-renders the Feed with only the clicked user's Tweets
