@@ -55,6 +55,17 @@ $(document).ready(function(){
     }
   }
 
+  var writeFriendsList = function() {
+    var $list = $('#friends-list');
+    //var index = users.length - 1;
+    for (var i = 0; i < users.length; i++) {
+      var $username = '<li class="friend">@'+users[i]+'</li>';
+      $list.append($username);
+    }
+    $('li.friend').on('click', writeUserTweets);
+  };
+  writeFriendsList();
+
   $(':button,#update-feed').on('click', function() {
     $(this).text('Update Feed');
     writeTweets(streams.home);

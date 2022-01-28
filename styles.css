@@ -114,7 +114,6 @@ h1 {
 }
 .username {
   margin-top: 15px;
-  font-weight: 700;
 }
 .username:hover {
   color:chartreuse;
@@ -179,4 +178,20 @@ h1 {
 .btn:hover {
   background-color: yellowgreen;
   color: white;
+}
+#friends-list {
+  background-color: white;
+  border: 0px solid yellow;
+  border-radius: 10px;
+  cursor: default;
+  margin: 50px 0;
+  padding: 10px 0 10px 15px;
+}
+#friends-list li {
+  margin: 10px 0 10px 0;
+}
+#friends-list li:hover {
+  color: chartreuse;
+  position: relative;
+  left: 3px;
 }
