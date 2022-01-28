@@ -16,6 +16,10 @@ providing a space for you to apply styles to your app's outermost HTML element -
   height:0%;
 }
 
+h1 {
+  text-align: center;
+}
+
 #feed {
   height:0%;
   margin:20px;
@@ -27,4 +31,21 @@ providing a space for you to apply styles to your app's outermost HTML element -
   font-weight:700;
 }
 
+#update-feed {
+  display: inline-block;
+  padding: 15px;
+  margin:20px;
+}
+
+.tweet {
+ color:blue;
+ width:500px;
+ padding:40px;
+ border-style: solid;
+ border: 4px blue;
+}
+
+i {
+  padding:5px;
+}
 

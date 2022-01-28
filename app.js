@@ -15,8 +15,6 @@ $(document).ready(function(){
     console.log(event);
     alert('The title of this page is: ' + event.target.innerText);
   }
-  // Renders the Tweets in the Home Stream if no input is provided for user
-  // Renders the Tweets in a specific User Stream if a user is provided as input
 
   var renderFeed = function(inputUser) {
     var arrToRender = [];
@@ -33,17 +31,14 @@ $(document).ready(function(){
       var $profilephoto = $("<img class='profile-photo'></img>");
       $profilephoto.attr("src", './assets/img/' + tweet.user + '.png');
       $tweet.append($profilephoto);
-
       var $username = $("<div class='username';></div>")
       $username.text('@' + tweet.user)
       // $username.change(function() {
       //   $username.css("font-family", $(this).val('Fira Sans', sans-serif));
       // });
-      // $username.on('click', handleUsernameClick); // need to figure out how to make username a global variable
       $username.click(function() {
         $button.text($button.text() == 'Update Feed' ? 'Back' : 'Back');
         renderFeed($(this).text());
-        // alert($(this).text());
       });
       $tweet.append($username);
       var $message = $("<div class='message'></div>");
@@ -92,14 +87,7 @@ $(document).ready(function(){
           event.target.style.color = "";
         }, 50);
       });
-      // user feed additions below
-      // if (user === null) {
-      //   $tweet.appendTo($feed);
-      // } else if(streams.home[index].user === user) {
-      //   $tweet.appendTo($feed);
-      // }
       $tweet.appendTo($feed);
-      // console.log($username);
       index -= 1;
     }
   };
@@ -113,16 +101,6 @@ $(document).ready(function(){
     renderFeed();
   });
 
-
-  // $comment.on( "mouseover", function(event) {
-  //   // $(this).css( "color", "red" );
-  // });
-  // $("i").hover(
-  //   function() {
-  //     $( this ).css("color", "red");
-  //   },
-  // );
-
   // Append new HTML elements to the DOM
   $title.appendTo($app);
   $button.appendTo($app);
@@ -130,16 +108,3 @@ $(document).ready(function(){
 });
 
 window.isItBeautifulYet = true;
-
- // Toggles your button's text from "Update Feed" to "Back" if the button's text is currently "Update Feed"
-    // Re-renders the Feed with only the clicked user's Tweets
-    // $feed.filter(streams.home[index].user).show();
-      // var buttonContent = document.getElementsByID("update-feed")[0];
-      // if(buttonContent.innerHTML === "Back ") {
-      //   $button.text("Update Feed");
-      // } else {
-      //   $button.text("Back");
-      // }
-      // $feed.filter(____) OR $feed.show(____)
-      // renderFeed();
-      // renderFeed(inputUser);
