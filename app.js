@@ -12,25 +12,24 @@
         var $updateFeed = $('<div id="feed"></div>').appendTo($app);
         var $feedButton = $('<button id="update-feed" type="button">Update Feed</button>').prependTo($app);
 
-        //create sidebar
-        var $sidebar = $('<div id="sidebar"></div>').appendTo($app);
-        var $sidebaroptions = $('<div class="sidebaroptions"></div').appendTo($sidebar);
-        var $homeButton = $('<i class="home fas fa-home"></i>').appendTo($sidebaroptions);
-        //elms for friendsList - extra credit
-        var $friendslist = $('<div class="friendslist"> <i class="friends fas fa-user-friends"></i></div>').appendTo($sidebaroptions);
-        var $listsOffriends = $('<ul id ="friends-list">  <li class="friend">shawndrost</li>  <li class="friend">sharksforcheap</li> <li class="friend">mracus</li> <li class="friend">douglascalhoun </li> </ul>').appendTo($friendslist);
-        //  $friendslist.prependTo($app);
+        // //create sidebar
+        // var $sidebar = $('<div id="sidebar"></div>').appendTo($app);
+        // var $sidebaroptions = $('<div class="sidebaroptions"></div').appendTo($sidebar);
+        // var $homeButton = $('<i class="home fas fa-home"></i>').appendTo($sidebaroptions);
+        // //elms for friendsList - extra credit
+        // var $friendslist = $('<div class="friendslist"> <i class="friends fas fa-user-friends"></i></div>').appendTo($sidebaroptions);
+        // var $listsOffriends = $('<ul id ="friends-list">  <li class="friend">shawndrost</li>  <li class="friend">sharksforcheap</li> <li class="friend">mracus</li> <li class="friend">douglascalhoun </li> </ul>').appendTo($friendslist);
+        // //  $friendslist.prependTo($app);
 
-      //elms to add new Tweet box - extra credit
-        var $newTweet = $('<form id="new-tweet-form"></form>');
-        var $userName = $('<label for="username"><b>Username</b></label>').appendTo($newTweet);
-        var $userNameFiled = $('<input type="username" name="username">').appendTo($newTweet);
-        var $tweetMessage= $('<label for="message"><b>What\'s happening? </b></label>').appendTo($newTweet);
-        var $tweetMessageFiled = $('<input type="tweetmessage" name="message">').appendTo($newTweet);
-        var $tweetIcons = $('<img class="tweeticon"> <i class="media fab fa-medium"></i> <i class="GIF fas fa-images"></i> <i class="emoji fas fa-smile-beam"></i> <i class="schedule fas fa-calendar-alt"></i> </img>').appendTo($newTweet);
-        var $submitButton = $('<button id="submit" type="button">Submit</button>').appendTo($newTweet);
-        $newTweet.appendTo($title);
-
+      // //elms to add new Tweet box - extra credit
+      //   var $newTweet = $('<form id="new-tweet-form"></form>');
+      //   var $userName = $('<label for="username"><b>Username</b></label>').appendTo($newTweet);
+      //   var $userNameFiled = $('<input type="username" name="username">').appendTo($newTweet);
+      //   var $tweetMessage= $('<label for="message"><b>What\'s happening? </b></label>').appendTo($newTweet);
+      //   var $tweetMessageFiled = $('<input type="tweetmessage" name="message">').appendTo($newTweet);
+      //   var $tweetIcons = $('<img class="tweeticon"> <i class="media fab fa-medium"></i> <i class="GIF fas fa-images"></i> <i class="emoji fas fa-smile-beam"></i> <i class="schedule fas fa-calendar-alt"></i> </img>').appendTo($newTweet);
+      //   var $submitButton = $('<button id="submit" type="button">Submit</button>').appendTo($newTweet);
+      //   $newTweet.appendTo($title);
 
       // Create event handler functions
 
@@ -72,7 +71,7 @@
             index -= 1;
         }
         $('.username').on('click', handleUsernameClick);
-        $('.friend').on('click',  handleFriendslistClick);
+        // $('.friend').on('click',  handleFriendslistClick);
      };
 
       //create handleUsernameClick function to filter specific users feed
@@ -82,11 +81,11 @@
         renderFeed(event, user);
     };
 
-      //create handleFriendslistClick function
-      var handleFriendslistClick= function(event){
-        var user = '@' + event.target.innerText;
-        renderFeed(event, user)
-      };
+      // //create handleFriendslistClick function
+      // var handleFriendslistClick= function(event){
+      //   var user = '@' + event.target.innerText;
+      //   renderFeed(event, user)
+      // };
 
       //create handleSubmitnewTweet function
       var TwriteATweet = function(event){
@@ -115,9 +114,9 @@
        // Set event listeners (providing appropriate handlers as input)
         $feedButton.on('click', renderFeed);
         $('.username').on('click',  handleUsernameClick);
-        $('.friend').on('click',  handleFriendslistClick);
-        $('#submit').on('click', TwriteATweet);
-        $('.home').on('click', backtoTop)
+        // $('.friend').on('click',  handleFriendslistClick);
+        // $('#submit').on('click', TwriteATweet);
+        // $('.home').on('click', backtoTop)
 
         window.isItBeautifulYet = true
 
