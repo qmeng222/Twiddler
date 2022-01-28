@@ -7,22 +7,10 @@ $(document).ready(function () {
   var $title = $('<h1>Twiddler</h1>');
   var $updateFeedButton = $('<button id="update-feed">Update Feed</button>');
   var $feed = $('<div id="feed"></div>');
-  var $username;
-  var $tweet;
-
 
   // Create event handler functions
   var renderFeed = function (event, user) {
     $feed.html('');
-
-    /*
-    if user is not undefined
-      cut off the @ symbol from user
-      if user doesn't equal tweet.user
-        continue
-      else
-    */
-
     var index = streams.home.length - 1;
     while (index >= 0) {
       var tweet = streams.home[index];
@@ -34,20 +22,16 @@ $(document).ready(function () {
           continue;
         }
       }
-      $tweet = $('<div class="tweet"></div>');
 
+      var $tweet = $('<div class="tweet"></div>');
       var $profilePhoto = $('<img class="profile-photo" src="assets/img/visitor.png">');
-      $username = $('<span class="username"></span>');
+      var $username = $('<span class="username"></span>');
       var $message = $('<p class="message"></p>');
       var $timestamp = $('<div class="timeago timestamp"></div>');
-      var $comment = $('<div class="comment icon"></div>');
-      var $commentIcon = $('<i class="fas fa-comment comment"></i>');
-      var $retweet = $('<div class="retweet icon"></div>');
-      var $retweetIcon = $('<i class="fas fa-retweet retweet"></i>');
-      var $like = $('<div class="like icon"></div>');
-      var $likeIcon = $('<i class="fas fa-thumbs-up like"></i>');
-      var $share = $('<div class="share icon"></div>');
-      var $shareIcon = $('<i class="fas fa-share share"></i>');
+      var $commentIcon = $('<i class="fas fa-comment comment icon"></i>');
+      var $retweetIcon = $('<i class="fas fa-retweet retweet icon"></i>');
+      var $likeIcon = $('<i class="fas fa-thumbs-up like icon"></i>');
+      var $shareIcon = $('<i class="fas fa-share share icon"></i>');
       var $iconRow = $('<div class="iconrow"></div');
 
       if (tweet.user === 'sharksforcheap') {
@@ -67,19 +51,13 @@ $(document).ready(function () {
       $username.appendTo($tweet);
       $message.appendTo($tweet);
       $timestamp.appendTo($tweet);
-      $comment.appendTo($iconRow);
-      $commentIcon.appendTo($comment);
-      $retweet.appendTo($iconRow);
-      $retweetIcon.appendTo($retweet);
-      $like.appendTo($iconRow);
-      $likeIcon.appendTo($like);
-      $share.appendTo($iconRow);
-      $shareIcon.appendTo($share);
+      $commentIcon.appendTo($iconRow);
+      $retweetIcon.appendTo($iconRow);
+      $likeIcon.appendTo($iconRow);
+      $shareIcon.appendTo($iconRow);
       $iconRow.appendTo($tweet);
-
-
-      // $tweet.text('@' + tweet.user + ': ' + tweet.message);
       $tweet.appendTo($feed);
+
       index -= 1;
     }
   };
@@ -95,6 +73,10 @@ $(document).ready(function () {
     renderFeed();
   });
 
+  $feed.on("click", ".username", function () {
+    var user = $(this).text();
+    renderFeed(event, user);
+  });
 
   // Append new HTML elements to the DOM
   $title.appendTo($app);
@@ -103,10 +85,7 @@ $(document).ready(function () {
 
   renderFeed();
 
-  $feed.on("click", ".username", function () {
-    var user = $(this).text();
-    renderFeed(event, user);
-  });
+
 
 });
 
