@@ -3,7 +3,7 @@ $(document).ready(function(){
   var $app = $('#app');
   var $feed = $('#feed');
 
-  var writeTweets = function(stream) {
+  var displayTweets = function(stream) {
     $feed.empty();
     var index = stream.length - 1;
     while (index >= 0) {
@@ -36,15 +36,24 @@ $(document).ready(function(){
       index -= 1;
     }
     $('i.icon').hover(hoverHandler);
-    $('h3.username').on('click', writeUserTweets);
+    $('h3.username').on('click', displayUserTweets);
     $('div#feed').scrollTop(0);
   };
 
-  var writeUserTweets = function(event) {
+  var displayUserTweets = function(event) {
     $(':button#update-feed').text('Back');
     var username = $(this).text().slice(1);
     var stream = streams.users[username];
-    writeTweets(stream);
+    displayTweets(stream);
+  };
+
+  var displayFriendsList = function() {
+    var $list = $('#friends-list');
+    for (var i = 0; i < users.length; i++) {
+      var $username = '<li class="friend">@'+users[i]+'</li>';
+      $list.append($username);
+    }
+    $('li.friend').on('click', displayUserTweets);
   };
 
   var hoverHandler = function(event) {
@@ -54,15 +63,6 @@ $(document).ready(function(){
       $icon.toggleClass('far');
     }
   }
-
-  var writeFriendsList = function() {
-    var $list = $('#friends-list');
-    for (var i = 0; i < users.length; i++) {
-      var $username = '<li class="friend">@'+users[i]+'</li>';
-      $list.append($username);
-    }
-    $('li.friend').on('click', writeUserTweets);
-  };
 
   var toggleWriteTweet = function() {
     var $btn = $(':button#write-tweet');
@@ -82,13 +82,11 @@ $(document).ready(function(){
 
     window.visitor = user;
     writeTweet(msg);
-
-    $('#input-message').val('');
   };
 
   $(':button#update-feed').on('click', function() {
     $(this).text('Update Feed');
-    writeTweets(streams.home);
+    displayTweets(streams.home);
   });
 
   $(':button#write-tweet').on('click', toggleWriteTweet);
@@ -96,14 +94,14 @@ $(document).ready(function(){
   $(':button#submit-tweet').on('click', function(event) {
     event.preventDefault();
     submitTweet();
-    writeTweets(streams.home);
+    displayTweets(streams.home);
     toggleWriteTweet();
   });
 
   $('#new-tweet-form').hide();
 
-  writeFriendsList();
-  writeTweets(streams.home);
+  displayFriendsList();
+  displayTweets(streams.home);
 });
 
 window.isItBeautifulYet = true;
