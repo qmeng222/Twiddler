@@ -9,5 +9,18 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 #app {
   background-color: green;
-  color: yellow;
+  color: black;
+}
+.tweet {
+  background-color: white;
+  border-radius: 10px;
+  height: 100%;
+  width: 50%;
+  font-family: "Times New Roman", Times, serif;
+  font-style: normal;
+  font-weight: normal;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid blue;
 }
