@@ -2,12 +2,96 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  background-color: rgb(245, 245, 245);
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
+h1 {
+  font-size: 6em;
+  color: black;
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+
+}
+
 #app {
-  background-color: green;
-  color: yellow;
+  color: black;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: smaller;
+  font-style: normal;
+}
+
+#update-feed {
+  width: 100px;
+  margin: auto;
+}
+
+.tweet {
+  display: flex;
+  width: 700px;
+  height: 125px;
+  margin: auto;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  border-style: solid;
+  border-width: 0.01em;
+  border-color: rgb(210, 210, 210);
+  background-color: white;
+}
+
+.profile-container {
+  width: 150px;
+  text-align: center;
+}
+
+.profile-photo {
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.username {
+  color: rgba(var(--fe0,0,55,107),1);
+  font-weight: bolder;
+}
+
+.tweet-container {
+  padding-left: 25px;
+  width: 600px
+}
+
+.timestamp {
+  text-align: right;
+  font-size: x-small;
+  color: grey;
+}
+
+.message {
+  height: 90px;
+}
+
+.icon {
+  display: flex;
+  width: 125px;
+  justify-content: space-evenly;
+  font-size: large;
+}
+
+.comment:hover {
+  color: grey;
+}
+
+.retweet:hover {
+  color: grey;
+}
+.like:hover {
+  color: grey;
+}
+.share:hover {
+  color: grey;
 }
