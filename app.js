@@ -4,7 +4,6 @@ $(document).ready(function(){
   $app.appendTo('body');
   $app.html('');
 
-   //   <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
   // Create an element within the #app element with id feed
   var $feed = $('<div id = "feed"></div>');
   $feed.appendTo($app);
@@ -24,15 +23,16 @@ $(document).ready(function(){
     var $timeStamp = $('<div class="timestamp"></div>');
 
     //icons
-    var $comment = $('<img class="comment" src="assets/icons/placeholder.png">');
-    var $retweet = $('<img class="retweet" src="assets/icons/placeholder.png">');
-    var $like = $('<img class="like" src="assets/icons/placeholder.png">');
-    var $share = $('<img class="share" src="assets/icons/placeholder.png">');
+    var $comment = $('<i class="comment fas fa-comment"></i>');
+    var $retweet = $('<i class="retweet fas fa-retweet"></i>');
+    var $like = $('<i class="like fas fa-thumbs-up"></i>');
+    var $share = $('<i class="share fas fa-share"></i>');
 
     //set the content within desired elements
     $message.text(tweet.message);
     $userName.text('@' + tweet.user);
-    $timeStamp.text(tweet.created_at);
+    $timeStamp.text(jQuery.timeago(tweet.created_at));
+    //$comment.addClass($thumbsUp);
 
     //insert elements into the DOM
     $tweet.appendTo($feed);
@@ -41,16 +41,19 @@ $(document).ready(function(){
     $userImage.appendTo($tweet);
     $timeStamp.appendTo($tweet);
     $comment.appendTo($tweet);
+    //$thumbsUp.appendTo($comment);
     $retweet.appendTo($tweet);
     $like.appendTo($tweet);
     $share.appendTo($tweet);
     index -= 1;
   }
 
+  console.log("hold here");
+
   $updateFeed.on("click", function(event) {
     // remove all div.tweet elements within the feed
     var index = streams.home.length - 1;
-    $("div.tweet").remove();
+    $feed.html('');
     while(index >= 0){
       var tweet = streams.home[index];
       var $tweet = $('<div class="tweet"></div>');
@@ -61,15 +64,15 @@ $(document).ready(function(){
 
       //icons
       var $timeStamp = $('<div class="timestamp"></div>');
-      var $comment = $('<img class="comment" src="assets/icons/placeholder.png">');
-      var $retweet = $('<img class="retweet" src="assets/icons/placeholder.png">');
-      var $like = $('<img class="like" src="assets/icons/placeholder.png">');
-      var $share = $('<img class="share" src="assets/icons/placeholder.png">');
+      var $comment = $('<i class="comment fas fa-comment"></i>');
+      var $retweet = $('<i class="retweet fas fa-retweet"></i>');
+      var $like = $('<i class="like fas fa-thumbs-up"></i>');
+      var $share = $('<i class="share fas fa-share"></i>');
 
       //set content within the desired elements
       $message.text(tweet.message);
       $userName.text('@' + tweet.user);
-      $timeStamp.text(tweet.created_at);
+      $timeStamp.text(jQuery.timeago(tweet.created_at));
 
       // insert elements into DOM
       $tweet.appendTo($feed);
@@ -78,6 +81,7 @@ $(document).ready(function(){
       $userImage.appendTo($tweet);
       $timeStamp.appendTo($tweet);
       $comment.appendTo($tweet);
+     // $thumbsUp.appendTo($comment);
       $retweet.appendTo($tweet);
       $like.appendTo($tweet);
       $share.appendTo($tweet);
@@ -85,6 +89,48 @@ $(document).ready(function(){
     }
   });
 
+  console.log('hold here');
+
+  $('.tweet .username').on("click", function(event) {
+    var selectedName = event.currentTarget.innerText.substring(1);
+    console.log(selectedName);
+    var index = streams.users[selectedName].length - 1;
+    $feed.html('');
+    while(index >= 0) {
+     var tweet = streams.users[selectedName][index];
+      var $tweet = $('<div class="tweet"></div>');
+      var $message = $('<div class="message"></div>');
+      var $userName = $('<div class="username"></div>');
+      var $userImage = $('<img class="profile-photo" src="assets/img/' + tweet.user + '.png">');
+      var $timeStamp = $('<div class="timestamp"></div>');
+
+      //icons
+      var $timeStamp = $('<div class="timestamp"></div>');
+      var $comment = $('<i class="comment fas fa-comment"></i>');
+      var $retweet = $('<i class="retweet fas fa-retweet"></i>');
+      var $like = $('<i class="like fas fa-thumbs-up"></i>');
+      var $share = $('<i class="share fas fa-share"></i>');
+
+      //set content within the desired elements
+      $message.text(tweet.message);
+      $userName.text('@' + tweet.user);
+      $timeStamp.text(jQuery.timeago(tweet.created_at));
+
+      // insert elements into DOM
+      $tweet.appendTo($feed);
+      $message.appendTo($tweet);
+      $userName.appendTo($tweet);
+      $userImage.appendTo($tweet);
+      $timeStamp.appendTo($tweet);
+      $comment.appendTo($tweet);
+     // $thumbsUp.appendTo($comment);
+      $retweet.appendTo($tweet);
+      $like.appendTo($tweet);
+      $share.appendTo($tweet);
+
+      index -= 1;
+    }
+  });
 });
 
   /*
