@@ -9,6 +9,7 @@ $(document).ready(function(){
   var $title = $('<h1 id="main-title" class="top-bar">Twiddler</h1>');
   var $updateFeed = $('<button id="update-feed" class="top-bar">Update Feed</button>');
   var $feed = $('<div id="feed"></div>');
+  var $pineapple = $('<img id="pineapple" src="assets/icons/pineapple.png" alt="pineapple icon">');
 
   // Create event handler functions
   var renderFeed = function(user) {
@@ -24,6 +25,14 @@ $(document).ready(function(){
     while (index >= 0) {
       var tweet = tweetStream[index];
       var $tweet = $('<div class="tweet"></div>');
+
+      var $profilePhotoDiv = $('<div class="profile-photo-div"></div>');
+      var $tweetSpanDiv = $('<div class="tweet-span-div"></div>');
+      var $tweetMessageDiv = $('<div class="tweet-message-div"></div>');
+      var $iconDiv = $('<div class="icon-div"></div>');
+      var $tweetTextDiv = $('<div class="tweet-text-div"></div>');
+      var $preventOverlapHR = $('<hr/>');
+
       var $message = $('<p class="message"></p>');
       var $username = $('<span class="username"></span>');
       var $profilePhoto = $('<img class="profile-photo">');
@@ -39,16 +48,30 @@ $(document).ready(function(){
       $profilePhoto.attr("src", tweet.profilePhotoURL);
       $timestamp.text($.timeago(tweet.created_at));
 
-      $tweet.append($profilePhoto)
-            .append($username)
-            .append($timestamp)
-            .append($message)
-            .append($comment)
-            .append($retweet)
-            .append($like)
-            .append($share)
+      $profilePhotoDiv.append($profilePhoto);
+
+      $tweetSpanDiv.append($username)
+                   .append($timestamp);
+
+      $tweetMessageDiv.append($message);
+
+      $iconDiv.append($comment)
+              .append($retweet)
+              .append($like)
+              .append($share);
+
+      $tweetTextDiv.append($tweetSpanDiv)
+                   .append($tweetMessageDiv)
+                   .append($iconDiv);
+
+      $tweet.append($profilePhotoDiv)
+            .append($tweetTextDiv)
             .addClass(tweet.user);
-      $tweet.appendTo($feed);
+
+      $feed.append($tweet);
+      $feed.append($preventOverlapHR);
+      // $tweet.appendTo($feed);
+
       index--;
     }
     $feed.appendTo($app);
@@ -58,17 +81,19 @@ $(document).ready(function(){
     }
   }
 
-  var handleUsernameClick = function(event) {
-    var username = event.target.innerText.substring(1);
-    renderFeed(username);
-    $updateFeed.text('Back');
+  var handleUsernameClick = function() {
+    if (event !== undefined) {
+      var username = event.target.innerText.substring(1);
+      renderFeed(username);
+      $updateFeed.text('Back');
+    }
   }
 
   // Set event listeners (providing appropriate handlers as input)
-  $title.on('click', function() {
-    console.log(event);
-    alert('The title of this page is: ' + event.target.innerText);
-  });
+  // $title.on('click', function() {
+  //   console.log(event);
+  //   alert('The title of this page is: ' + event.target.innerText);
+  // });
 
   $updateFeed.on('click', renderFeed);
 
@@ -78,18 +103,12 @@ $(document).ready(function(){
   //
   //
   $(document).on('click', '.username', handleUsernameClick);//function() {
-  //   if (event !== undefined) {
-  //     var username = event.target.innerText;
-  //     handleUsernameClick(username);
-  //   }
-  // });
-  //
   //
   //
   //
 
   // Append new HTML elements to the DOM
-  $topBar.append($title).append($updateFeed);
+  $topBar.append($updateFeed).append($title).append($pineapple);
   $topBar.appendTo($app);
 
   // Function to update feed and add to $app
