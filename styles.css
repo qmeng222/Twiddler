@@ -11,10 +11,82 @@ providing a space for you to apply styles to your app's outermost HTML element -
   background-color: white;
   color: black;
 }
-/* #title {
+#title {
   font-family: 'Bitter', serif;
-} */
-
+  float: left;
+  font-size: 3em;
+  margin: 1em;
+  width: 100%;
+}
+#update-feed {
+  float: left;
+  border: 6px double black;
+  padding: 1px;
+  margin: 2em 2em 2em 4em;
+  width: 150px;
+  height: 60px;
+  border-radius: 8px;
+  font-size: 1em;
+}
+#friendListBox {
+  float: left;
+  margin: 8em 2em 2em 2em;
+  width: 200px;
+  padding: 1em 1em 1em 2em;
+}
+#new-tweet-form {
+  float: right;
+  width: 68%;
+}
+#new_tweet_title {
+  font-size: 30px;
+  font-style: oblique;
+  font-weight: 700;
+  text-align: left;
+}
+.username {
+  font-size: 15px;
+  font-weight: 600;
+}
+#usernameLabel {
+  margin: 10px 10px 10px 0;
+}
+#inputUsername {
+  margin: 10px;
+}
+#commentLabel {
+  margin: 10px;
+}
+#input_comment {
+  margin: 5px 20px 0 20px;
+  width: 430px;
+  height: 70px;
+}
+#commentLabel::before {
+  content:"\a";
+  white-space: pre;
+}
+#feed {
+  float: right;
+  width: 55%;
+  margin-right: 235px;
+  margin-top: 50px;
+}
+.tweet {
+  border: 1px solid gainsboro;
+  border-radius: 3px;
+}
+.message {
+  font-size: 20px;
+}
+i {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.timestamp {
+  margin-right: 200px;
+  color: gray;
+}
 .comment:hover {
   color: orange;
 }

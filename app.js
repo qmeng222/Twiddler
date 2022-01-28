@@ -11,15 +11,15 @@ $(document).ready(function(){
   var $feedBox = $('<div id="feed"></div>');
 
   var $friendListBox = $('<div id="friendListBox">Friend List</div>');
-  var $friendList = $('<ul class="friend-list"></ul>');
+  var $friendList = $('<ul id="friends-list"></ul>');
 
-  var $newTweetFormBox = $('<filedset id="new tweet"></filedset>');
-  var $newTweetTitle = $('<legend id="new tweet title">New Tweet</legend>')
-  var $inputUsername = $('<input type="text" name="username">');
-  var $inputComment = $('<textarea name="comment" id="input comment">Add your comment here</textarea>');
+  var $newTweetFormBox = $('<form id="new-tweet-form"></form>');
+  var $newTweetTitle = $('<legend id="new_tweet_title">New Tweet</legend>')
+  var $inputUsername = $('<input id="inputUsername" type="text" name="username">');
+  var $inputComment = $('<input name="message" id="input_comment" type="text">');
   var $inputSubmit = $('<input type="submit" name="submit" value="Send">');
-  var $usernameLabel = $('<label for="username">Username</label>');
-  var $commentLabel = $('<label for="comment">Comment</label>');
+  var $usernameLabel = $('<label id="usernameLabel" for="inputUsername">Username</label>');
+  var $commentLabel = $('<label id="commentLabel" for="input_comment">Message</label>');
 
   // Create event handler functions
   var userMode = false;
@@ -87,7 +87,7 @@ $(document).ready(function(){
     }
     userMode = false;
     $("#feed").empty();
-    $(".friend-list").empty();
+    $("#friends-list").empty();
     renderFeed();
     handleFriendList();
   };
@@ -101,6 +101,14 @@ $(document).ready(function(){
     renderFeed();
   }
 
+  var handleFriendListClick = function() {
+    usernameOnClick =  $(this).text();
+    userMode = true;
+    document.getElementById("update-feed").innerText = "Back";
+    $("#feed").empty();
+    renderFeed();
+  }
+
   var handleFriendList = function() {
     var friendList = [];
     for (var i = 0; i < streams.home.length; i++){
@@ -108,7 +116,8 @@ $(document).ready(function(){
       var friendName = tweet.user;
       if (friendList.indexOf(friendName) === -1) {
         friendList.push(friendName);
-        var $friendName = $('<li class="Friend Name">'+ friendName + '</li>');
+        var $friendName = $('<li class="friend">'+ friendName + '</li>');
+        $friendName.on("click", handleFriendListClick);
         $friendName.appendTo($friendList);
       }
     }
@@ -137,8 +146,8 @@ $(document).ready(function(){
 
   // Append new HTML elements to the DOM
   $title.appendTo($app);
+
   $updateButton.appendTo($app);
-  $friendListBox.appendTo($app);
 
   $newTweetFormBox.appendTo($app);
   $newTweetTitle.appendTo($newTweetFormBox);
@@ -149,6 +158,8 @@ $(document).ready(function(){
   $inputSubmit.appendTo($newTweetFormBox);
 
   $feedBox.appendTo($app);
+  $friendListBox.appendTo($app);
   renderFeed();
   handleFriendList();
+  window.isItBeautifulYet = true;
 });
