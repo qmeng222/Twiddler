@@ -2,12 +2,156 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  background-color: cyan
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
+/*
+  ========================================
+  App
+  ========================================
+*/
+
 #app {
-  background-color: green;
-  color: yellow;
+  color: black;
+  font-family: 'Mochiy Pop P One', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+/*
+  ========================================
+  Title
+  ========================================
+*/
+#title {
+  text-align: center;
+  font-size: 500%;
+}
+
+/*
+  ========================================
+  Update Feed
+  ========================================
+*/
+
+#update-feed {
+  float: left;
+  margin-left: 100px;;
+}
+
+/*
+  ========================================
+  Feed
+  ========================================
+*/
+
+#feed {
+  border-radius: 0px;
+  height: 0px;
+  padding: 0em;
+  text-align: left;
+  width: 75%;
+  /* float: right; */
+  display: inline-block;
+  margin-left: 100px;
+}
+
+
+
+/*
+  ========================================
+  Tweet
+  ========================================
+*/
+
+.tweet {
+  background-color: white;
+  border-style: solid;
+  padding: 20px;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+/*
+  ========================================
+  profile pic
+  ========================================
+*/
+
+.profile-photo {
+  grid-column: 1;
+  grid-row: 1;
+  margin-left: 50px;
+}
+
+/*
+  ========================================
+  username
+  ========================================
+*/
+
+.username {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 150%;
+  margin-top: 30px;
+}
+
+/*
+  ========================================
+  message
+  ========================================
+*/
+
+.message {
+  grid-column: 1 / 6;
+  grid-row: 2;
+  font-size: 200%;
+  margin-top: 20px;
+}
+
+/*
+  ========================================
+  timestamp
+  ========================================
+*/
+
+.timestamp {
+  grid-column: 5 / 6;
+  grid-row: 3;
+  margin-top: 30px;
+}
+
+/*
+  ========================================
+  icons
+  ========================================
+*/
+
+.icon {
+  padding-right: 50px;
+  grid-column: 1 / 4;
+  grid-row: 3;
+  margin-top: 30px;
+}
+
+.icon:hover {
+  color: green;
+}
+
+.comment {
+  padding-left: 50px;
+}
+
+.retweet {
+  padding-left: 100px;
+}
+
+.share {
+  padding-left: 150px;
 }
