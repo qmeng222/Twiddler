@@ -3,11 +3,62 @@ html, body, #app {
   min-height: 100vh;
   margin: 0;
 }
+/* background-color
+ border
+ border-radius
+ color
+ height
+ font-family
+ font-style
+ font-weight
+ margin
+ padding
+ text-align
+ width */
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: burlywood;
+  color: black;
+  height: 0%;
+  font-weight: 100;
+  margin: 0%;
+
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-style: normal;
+  text-align: center;
+  width: auto;
+
+}
+#update-feed {
+  border-radius: 2px;
+  color:black;
+  background-color:yellowgreen;
+  height: 50px;
+  width: 100px;
+
+}
+#feed {
+  border-style: dotted;
+
+}
+.tweet {
+  border: 2px solid darkgray;
+  margin: 10px;
+  padding: 5%;
+  width: 650px;
+  height: 200px;
+}
+#icons {
+  margin: 10px;
+  padding: 5%;
+  width: 550px;
+  height: 100px;
+
+
+}
+.like:hover, .comment:hover, .retweet:hover, .share:hover {
+  color:chocolate;
 }
