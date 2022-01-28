@@ -64,12 +64,13 @@ body {
   height: 20%;
   border: 3px solid white;
   border-radius: 25px;
-  padding: 1% 0%;
+  padding: 0% 0%;
   margin: 1%;
   vertical-align: top;
   opacity: 100%;
   position: relative;
-  left: 20px;
+  left: 28px;
+  bottom: 10px;
 }
 .feed {
   width: 60%;
@@ -93,7 +94,7 @@ body {
 }
 .newtweet {
   width: 30%;
-  height: 30%;
+  height: 27%;
   border: 3px solid silver;
   position: absolute;
   right: 0px;
@@ -105,12 +106,12 @@ body {
 }
 .friends{
   width: 30%;
-  height: 33%;
+  height: 27%;
   border-radius: 20px;
   border: 3px solid silver;
   position: absolute;
   right: 0px;
-  bottom: 5.5%;
+  bottom: 6%;
   padding: 1%;
   margin: 1%;
 
