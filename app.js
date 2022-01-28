@@ -5,15 +5,11 @@ $(document).ready(function(){
 
   // Create new HTML elements
   var $title = $('<h1 id="title">Twiddler</h1>');
-
   var $updateButton = $('<button id="update-feed">Update Feed</button>');
-
   var $feedBox = $('<div id="feed"></div>');
-
   var $friendListBox = $('<div id="friendListBox">Friend List</div>');
   var $friendList = $('<ul id="friends-list"></ul>');
-
-  var $newTweetFormBox = $('<form id="new-tweet-form"></form>');
+  var $newTweetFormBox = $('<fieldset id="new-tweet-form"></fieldset>');
   var $newTweetTitle = $('<legend id="new_tweet_title">New Tweet</legend>')
   var $inputUsername = $('<input id="inputUsername" type="text" name="username">');
   var $inputComment = $('<input name="message" id="input_comment" type="text">');
@@ -128,7 +124,7 @@ $(document).ready(function(){
     var newUserName = $inputUsername.val();
     var newComment = $inputComment.val();
     var newTimeStamp = new Date();
-    var newPhoto = "./assets/img/visitor.png";
+    var newPhoto = "./assets/img/bella.jpeg";
     var userInfo = {'user': newUserName, 'message': newComment, 'created_at': newTimeStamp, 'profilePhotoURL': newPhoto};
     window.streams.home.push(userInfo);
     if (window.streams.users[newUserName] === undefined) {
@@ -146,9 +142,7 @@ $(document).ready(function(){
 
   // Append new HTML elements to the DOM
   $title.appendTo($app);
-
   $updateButton.appendTo($app);
-
   $newTweetFormBox.appendTo($app);
   $newTweetTitle.appendTo($newTweetFormBox);
   $usernameLabel.appendTo($newTweetFormBox);
@@ -156,7 +150,6 @@ $(document).ready(function(){
   $commentLabel.appendTo($newTweetFormBox);
   $inputComment.appendTo($newTweetFormBox);
   $inputSubmit.appendTo($newTweetFormBox);
-
   $feedBox.appendTo($app);
   $friendListBox.appendTo($app);
   renderFeed();

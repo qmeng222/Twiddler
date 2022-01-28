@@ -7,10 +7,10 @@
 window.streams = {};
 streams.home = [];
 streams.users = {};
-streams.users.shawndrost = [];
-streams.users.sharksforcheap = [];
-streams.users.mracus = [];
-streams.users.douglascalhoun = [];
+streams.users.milo = [];
+streams.users.luna = [];
+streams.users.loki = [];
+streams.users.leo = [];
 window.users = Object.keys(streams.users);
 
 // utility function for adding tweets to our data structures
@@ -43,7 +43,7 @@ var generateRandomTweet = function() {
   tweet.user = randomElement(users);
   tweet.message = randomMessage();
   tweet.created_at = new Date();
-  tweet.profilePhotoURL = './assets/img/' + tweet.user + '.png';
+  tweet.profilePhotoURL = './assets/img/' + tweet.user + '.jpeg';
   addTweet(tweet);
 };
 
@@ -62,16 +62,16 @@ scheduleNextTweet();
 // utility function for letting students add "write a tweet" functionality
 // (note: not used by the rest of this file.)
 var writeTweet = function(message) {
-  if (!visitor) {
+  if (!bella) {
     throw new Error('set the global visitor property!');
   }
-  if (!streams.users[visitor]) {
-    streams.users[visitor] = [];
+  if (!streams.users[bella]) {
+    streams.users[bella] = [];
   }
   var tweet = {};
-  tweet.user = visitor;
+  tweet.user = bella;
   tweet.message = message;
   tweet.created_at = new Date();
-  tweet.profilePhotoURL = './assets/img/visitor.png';
+  tweet.profilePhotoURL = './assets/img/bella.jpeg';
   addTweet(tweet);
 };

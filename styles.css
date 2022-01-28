@@ -6,9 +6,11 @@ html, body, #app {
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
-
+html {
+  background: #396cba;
+  background: linear-gradient(to right bottom, #f5db4a, #7a5ac6);
+}
 #app {
-  background-color: white;
   color: black;
 }
 #title {
@@ -17,6 +19,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
   font-size: 3em;
   margin: 1em;
   width: 100%;
+  color: rgb(46, 22, 96);
 }
 #update-feed {
   float: left;
@@ -36,13 +39,23 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 #new-tweet-form {
   float: right;
-  width: 68%;
+  width: 600px;
+  margin-right: 450px;
 }
 #new_tweet_title {
   font-size: 30px;
   font-style: oblique;
   font-weight: 700;
   text-align: left;
+  color: rgb(46, 22, 96);
+}
+img {
+  width:  100px;
+  height: 100px;
+  object-fit: cover;
+}
+.profile-photo {
+  border-radius: 50%;
 }
 .username {
   font-size: 15px;
@@ -84,7 +97,7 @@ i {
   margin-right: 20px;
 }
 .timestamp {
-  margin-right: 200px;
+  margin-right: 500px;
   color: gray;
 }
 .comment:hover {
