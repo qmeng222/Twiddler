@@ -18,7 +18,7 @@ $(document).ready(function(){
   //Append title to DOM.
   $titleContainer.appendTo($app);
   //Create an h1 element for the title and store it.
-  $title =$('<h1>Twiddler</h1>');
+  $title =$('<h1>Twiddler 2.0</h1>');
   //Append title to container
   $title.appendTo($titleContainer);
   //Create update feed button
@@ -37,7 +37,8 @@ $(document).ready(function(){
   $feedContainer =$('<div class="feed container" id="feed"></div>');
   //append container to DOM
   $feedContainer.appendTo($app);
-  var tweetGen = function() {
+  //Main Feed function
+  var renderFeed = function() {
   var index = streams.home.length - 1;
   while(index >= 0){
     var tweet = streams.home[index];
@@ -53,9 +54,23 @@ $(document).ready(function(){
     //jquery element for profile pics
     var $profilePic = $('<img class="profile-photo" src="assets/img/'+tweet.user+'.png"/>');
     //var for date time
-    var dateTime = format(tweet.created_at);
+    var dateTime = $.timeago(tweet.created_at);
     //Element
     var $dateTime = $('<span class="timestamp">'+dateTime+'</span>');
+    //Create icons for tweet box
+    //Comment
+    // var $testComment =$('<img class="comment" src="assets/icons/placeholder.png">');
+    // var $testRetweet =$('<img class="retweet" src="assets/icons/placeholder.png">');
+    // var $testLike =$('<img class="like" src="assets/icons/placeholder.png">');
+    // var $testShare =$('<img class="share" src="assets/icons/placeholder.png">');
+
+    var $comment =$('<i class="far fa-comment comment icon"></i>');
+    var $retweet =$('<i class="fas fa-retweet retweet icon"></i>');
+    var $like =$('<i class="far fa-thumbs-up like icon"></i>');
+    var $share =$('<i class="fas fa-external-link-alt share icon"></i>');
+
+
+
     //$tweet.text('@' + tweet.user + ': ' + tweet.message);
     //create container for tweets
     $tweetContainer =$('<div class="tweet-feed"></div>');
@@ -66,43 +81,86 @@ $(document).ready(function(){
     $username.appendTo($tweet);
     $profilePic.appendTo($tweet);
     $dateTime.appendTo($tweet);
+    $comment.appendTo($tweet);
+    $retweet.appendTo($tweet);
+    $like.appendTo($tweet);
+    $share.appendTo($tweet);
+
+    $username.on("click", function(event){
+      var name = $(event.target).text().replace('@','');
+      console.log(name);
+      userClick(name);
+      $updateBtn.text('Back');
+      $updateBtn.on("click", function(){
+        $feedContainer.html('');
+        $updateBtn.text('Update Feed');
+        renderFeed();
+      })
+    });
+
+    //$testComment.appendTo($tweet);
+    // $testRetweet.appendTo($tweet);
+    // $testLike.appendTo($tweet);
+    // $testShare.appendTo($tweet);
     index -= 1;
   }};
-  tweetGen();
-
+  renderFeed();
+  //Update Feed button click
   $updateBtn.on("click", function(){
     $feedContainer.html('');
-    var index = streams.home.length - 1;
-    while(index >= 0){
-      var tweet = streams.home[index];
-      var $tweet = $('<div class="tweet"></div>');
-      //create var for the message of the tweet
-      var message = tweet.message;
-      // use jquery to create an element
-      var $message = $('<p class="message">'+message+'</p>');
-      // var for username
-      var username = '@' + tweet.user;
-      //element
-      var $username = $('<span class="username">'+username+'</span>');
-      //jquery element for profile pics
-      var $profilePic = $('<img class="profile-photo" src="assets/img/'+tweet.user+'.png"/>');
-      //var for date time
-      var dateTime = format(tweet.created_at);
-      //Element
-      var $dateTime = $('<span class="timestamp">'+dateTime+'</span>');
-      //$tweet.text('@' + tweet.user + ': ' + tweet.message);
-      //create container for tweets
-      $tweetContainer =$('<div class="tweet-feed"></div>');
-      //append everything to appear
-      $tweetContainer.appendTo($feedContainer);
-      $tweet.appendTo($tweetContainer);
-      $message.appendTo($tweet);
-      $username.appendTo($tweet);
-      $profilePic.appendTo($tweet);
-      $dateTime.appendTo($tweet);
-      index -= 1;
-    }
+    renderFeed();
   });
+
+ //function for username click
+ var userClick = function(name){
+  $feedContainer.html('');
+  var index = streams.users[name].length - 1;
+  while(index >= 0){
+    var tweet = streams.users[name][index];
+    var $tweet = $('<div class="tweet"></div>');
+    //create var for the message of the tweet
+    var message = tweet.message;
+    // use jquery to create an element
+    var $message = $('<p class="message">'+message+'</p>');
+    // var for username
+    var username = '@' + tweet.user;
+    //element
+    var $username = $('<span class="username">'+username+'</span>');
+    //jquery element for profile pics
+    var $profilePic = $('<img class="profile-photo" src="assets/img/'+tweet.user+'.png"/>');
+    //var for date time
+    var dateTime = $.timeago(tweet.created_at);
+    //Element
+    var $dateTime = $('<span class="timestamp">'+dateTime+'</span>');
+    //Create icons for tweet box
+    //Comment
+
+    var $comment =$('<i class="far fa-comment comment icon"></i>');
+    var $retweet =$('<i class="fas fa-retweet retweet icon"></i>');
+    var $like =$('<i class="far fa-thumbs-up like icon"></i>');
+    var $share =$('<i class="fas fa-external-link-alt share icon"></i>');
+
+
+
+    //$tweet.text('@' + tweet.user + ': ' + tweet.message);
+    //create container for tweets
+    $tweetContainer =$('<div class="tweet-feed"></div>');
+    //append everything to appear
+    $tweetContainer.appendTo($feedContainer);
+    $tweet.appendTo($tweetContainer);
+    $message.appendTo($tweet);
+    $username.appendTo($tweet);
+    $profilePic.appendTo($tweet);
+    $dateTime.appendTo($tweet);
+    $comment.appendTo($tweet);
+    $retweet.appendTo($tweet);
+    $like.appendTo($tweet);
+    $share.appendTo($tweet);
+
+    index -=1;
+
+ }};
+
 
   /*
   =============================================
@@ -114,7 +172,7 @@ $(document).ready(function(){
   //append conainter to DOM
   $newTweetContainer.appendTo($app);
 
-  $underCon1 =$('<h1 class="under-con">Under Construction</h1>')
+  $underCon1 =$('<h1 class="under-con">Create New Tweet - Coming Soon </h1>')
   $underCon1.appendTo($newTweetContainer);
   /*
   =============================================
@@ -126,8 +184,9 @@ $(document).ready(function(){
   //append container to DOM
   $friendsListContainer.appendTo($app);
 
-  $underCon2 =$('<h1 class="under-con">Under Construction</h1>')
+  $underCon2 =$('<h1 class="under-con">Friends List Coming Soon </h1>')
   $underCon2.appendTo($friendsListContainer);
 
-
+  //Minimums Met
+  window.isItBeautifulYet = true;
 });
