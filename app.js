@@ -6,15 +6,23 @@ $(document).ready(function() {
 
   // Create new HTML elements
   var $feedDiv = $('<div id="feed"></div>');
-  var $updateBtn = $('<button type="button" id="update-feed">Update Feed</button>');
+  var $updateBtn = $('<button id="update-feed">Update Feed</button>');
   var $title = $('<h1>Twiddler</h1>');
 
   // Create event handler functions
-  function renderFeed () {
+  function renderFeed (user) {
     $feedDiv.html('');
-    var streamsLength = streams.home.length - 1;
+
+    var tweetStream = []; //streams.home;
+    if (user === undefined || streams.users[user] === undefined) {
+      tweetStream = streams.home;
+    } else {
+      tweetStream = streams.users[user];
+    }
+
+    var streamsLength = tweetStream.length - 1;
     while(streamsLength >= 0){
-      var tweet = streams.home[streamsLength];
+      var tweet = tweetStream[streamsLength];
 
       // Create HTML elements
       var $tweet = $('<div class="tweet"></div>');
@@ -32,7 +40,9 @@ $(document).ready(function() {
       $userName.text('@' + tweet.user);
       $message.text(tweet.message);
       $timeStamp.text(jQuery.timeago(tweet.created_at));
-      //$('.icon').attr('src', '/assets/icons/placeholder.png');
+
+      // Set event listeners
+      $userName.on('click', handleUsernameClick);
 
       // Append new HTML elements to Tweet UI component
       $profilePhoto.appendTo($tweet);
@@ -40,7 +50,6 @@ $(document).ready(function() {
       $message.appendTo($tweet);
       $timeStamp.appendTo($tweet);
       $commentImg.appendTo($tweet);
-     // $commentImgIcon.appendTo($commentImg);
       $retweetImg.appendTo($tweet);
       $likeImg.appendTo($tweet);
       $shareImg.appendTo($tweet);
@@ -50,13 +59,25 @@ $(document).ready(function() {
     }
   };
 
+  function handleUsernameClick (event) {
+    if ($updateBtn.text() === 'Update Feed') {
+      $updateBtn.text('Back');
+    }
+    renderFeed(event.target.innerText.substring(1))
+  }
+
   // Set event listeners (providing appropriate handlers as inputs)
   $title.on("click", function(event) {
     console.log(event);
     alert('The title of this page is: ' + event.target.innerText);
     });
 
-  $updateBtn.on("click", renderFeed);
+  $updateBtn.on("click", function (event) {
+    if (event.target.innerText === 'Back') {
+      $updateBtn.text('Update Feed');
+    }
+    renderFeed();
+  });
 
   // Append new HTML elements to the DOM
   $title.appendTo($app);
