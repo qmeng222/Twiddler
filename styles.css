@@ -16,20 +16,45 @@ providing a space for you to apply styles to your app's outermost HTML element -
 /* TITLE */
 
 #title {
-  color: yellow;
+  color: gold;
   position:relative; top:180px;
   margin-left: 90px;
   font-family: 'Audiowide', cursive;
-  font-size: 350%;
+  font-size: 390%;
 }
 #subtitle {
-  color: yellow;
+  color: gold;
   position:relative; top:150px;
-  margin-left: 125px;
+  margin-left: 120px;
   margin-top: 5px;
   font-family: 'Merriweather', serif;
-  font-size: large;
+  font-size: x-large;
   text-align: match-parent;
+  font-weight: 300;
+}
+/* UPDATE FEED BUTTON */
+#update-feed {
+  border-radius: 5px;
+  color: black;
+  cursor: pointer;
+
+  background-color: yellow;
+  font-size: 20px;
+  font-family: 'Audiowide', cursive;
+
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+
+  position:relative; left: 30px; bottom: 300px;
+
+ }
+
+ .lightsaber {
+  position:relative; top:300px; left: -10px;
+  height: auto;
+  max-width: 10%;
 }
 
 /* TWEET TEXT & CONTAINER */
@@ -39,8 +64,9 @@ providing a space for you to apply styles to your app's outermost HTML element -
   margin: auto;
   margin-top: 10px;
   padding: 10px;
-  /*border: 1px solid white;*/
-  background-color: #222;
+  border: 1px solid white;
+  background-color: rgb(47, 45, 45);
+  position:relative; bottom:550px;
 }
 
 
@@ -56,20 +82,30 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 /* USERNAME */
 .username {
-  position:relative; left:110px; bottom:50px;
+  color: gold;
+  position:relative; left:110px; bottom:70px;
+  font: bold;
+  font-family: 'Merriweather', serif;
+  font-weight: 900;
+  font-size: 110%;
 }
+
 
 /* MESSAGE */
 .message {
+  font-weight: 300;
   text-align: left;
-  position:relative; left:100px; bottom:20px;
-  color: blue;
-  font-family: 'Mochiy Pop P One', sans-serif;
+  position:relative; left:110px; bottom:40px;
+  color: white;
+  font-family: 'Merriweather', serif;
   font-style: normal;
+  font-size: 120%;
+
 }
 
 /* TIMESTAMP */
 .timestamp {
+  color: gold;
   text-align: right;
   position:relative; bottom:120px;
 }
@@ -77,66 +113,53 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
  /* 4 ICONS */
  .comment {
-  color: red;
-  position:relative; left:40px; bottom:20px;
+  color: rgb(145, 137, 137);
+  position:relative; left:110px; bottom:10px;
+  size: 100px;
 }
 
 .like {
-  position:relative; left:39px; bottom:20px;
+  color: rgb(145, 137, 137);
+  position:relative; left:110px; bottom:10px;
 }
 
 .retweet{
-  position:relative; left:95px; bottom:20px;
+  color: rgb(145, 137, 137);
+  position:relative; left:185px; bottom:10px;
   }
 
 
 .share {
-  position:relative; left:100px; bottom:20px;
+  color: rgb(145, 137, 137);
+  position:relative; left:190px; bottom:10px;
 }
 
 
 .comment:hover{
-  color: green;
-  opacity:0.5;
+  color: gold;
+  opacity:1;
   transition: 1s ease;
   }
 
   .retweet:hover{
-    color: blue;
-    opacity:0.5;
+    color: gold;
+    opacity:1;
     transition: 1s ease;
     }
 
     .like:hover{
-      color: green;
-      opacity:0.5;
+      color: gold;
+      opacity:1;
       transition: 1s ease;
       }
 
       .share:hover{
-        color: green;
-        opacity:0.5;
+        color: gold;
+        opacity:1;
         transition: 1s ease;
         }
 
 
-/* UPDATE FEED BUTTON */
-#update-feed {
-  border-radius: 5px;
-  color: black;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 400;
-  letter-spacing: .5px;
-  margin: 0;
-  text-transform: uppercase;
-  position:relative; top:180px;
-  margin-left: 155px;
-  background-color: yellow;
-  font-size: 20px;
-  font-family: 'Audiowide', cursive;
-
- }
 
 
 

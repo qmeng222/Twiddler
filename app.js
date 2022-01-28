@@ -4,9 +4,11 @@ $(document).ready(function(){
   // Create new HTML elements
   var $title = $('<h1 id="title">TWIDDLER</h1>');
   var $subtitle = $('<h1 id="subtitle">RETURN OF THE WEBSITE</h1>');
+
   $app.html('');
   $title.appendTo($app);
   $subtitle.appendTo($app);
+
   $title.on("click", function(event) {
     //console.log(event);
     alert('The title of this page is: ' + event.target.innerText); // for each username click
@@ -14,11 +16,14 @@ $(document).ready(function(){
 
 var $button = $('<button id="update-feed">Update Feed</button>');
 $button.appendTo($app);
-$button.click("#update-feed", function (event) {
+$button.click( "#update-feed", function (event) {
   //$button = $('<button id="update-feed">Back</button>');
   $feed.empty();
   renderFeed();
 });
+
+$lightsaber = $('<img class="lightsaber" src="assets/img/lightsaber.png"> </img>');
+$lightsaber.appendTo($app);
 
 
   // Create handler functions
@@ -44,10 +49,10 @@ $button.click("#update-feed", function (event) {
         var $message = $('<div class="message">' + tweet.message + '</div>');
         var $username = $('<div class="username">' + '@' + user + '</div>');
         var $timestamp = $('<div class="timestamp">' + jQuery.timeago(new Date(tweet.created_at)) + '</div>');
-        var $comment = $('<i class="comment far fa-comment"></i>');
-        var $retweet = $('<i class="retweet fas fa-retweet"></i>');
-        var $like = $('<i class="like far fa-heart"></i>');
-        var $share = $('<i class="share far fa-share-square"></i>');
+        var $comment = $('<i class="comment far fa-comment fa-lg"></i>');
+        var $retweet = $('<i class="retweet fas fa-retweet fa-lg"></i>');
+        var $like = $('<i class="like far fa-heart fa-lg"></i>');
+        var $share = $('<i class="share far fa-share-square fa-lg"></i>');
 
 
         // Append new HTML elements to the DOM
@@ -77,12 +82,12 @@ $button.click("#update-feed", function (event) {
     var $message = $('<div class="message">' + tweet.message + '</div>');
     var $username = $('<div class="username">' +  '@' + tweet.user + '</div>');
     var $timestamp = $('<div class="timestamp">' + jQuery.timeago(new Date(tweet.created_at)) + '</div>');
-    var $comment = $('<i class="comment far fa-comment"></i>');
+    var $comment = $('<i class="comment far fa-comment fa-lg"></i>');
     //console.log('<i class="far fa-comment"></i>');
     //console.log(var comment = $0);
-    var $retweet = $('<i class="retweet fas fa-retweet"></i>');
-    var $like = $('<i class="like far fa-heart"></i>');
-    var $share = $('<i class="share far fa-share-square"></i>');
+    var $retweet = $('<i class="retweet fas fa-retweet fa-lg"></i>');
+    var $like = $('<i class="like far fa-heart fa-lg"></i>');
+    var $share = $('<i class="share far fa-share-square fa-lg"></i>');
 
     // //$username.appendTo($app);
     // Append new HTML elements to the DOM
@@ -117,7 +122,7 @@ $username.click(function handleUsernameClick(){
   });
 
   $button.click(function(){
-    //var $this = $(this);
+  
     //$button.toggleClass('Update Feed');
     $button.toggleClass('Back');
     if($button.hasClass('Back')){
@@ -141,7 +146,7 @@ $username.click(function handleUsernameClick(){
   //renderFeed('mracus');
   //renderFeed('douglascalhoun');
 
-  //window.isItBeautifulYet = true;
+  window.isItBeautifulYet = true;
 
 });
 
