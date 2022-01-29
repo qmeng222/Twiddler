@@ -18,10 +18,10 @@ $(document).ready(function(){
       var $userName = $('<div class="username"></div>');
       var $message = $('<div class ="message"></div>');
       var $timeStamp = $('<div class="timestamp"></div>');
-      var $comment = $('<img class="icon comment" src="assets/icons/placeholder.png"></img>');
-      var $retweet = $('<img class="icon retweet" src="assets/icons/placeholder.png"></img>');
-      var $like = $('<img class="icon like" src="assets/icons/placeholder.png"></img>');
-      var $share = $('<img class="icon share" src="assets/icons/placeholder.png"></img>');
+      var $comment = $('<i class="icon comment far fa-comment"></i>');
+      var $retweet = $('<i class="icon retweet fas fa-retweet"></i>');
+      var $like = $('<i class="icon like far fa-heart"></i>');
+      var $share = $('<i class="icon share far fa-share-square"></i>');
 
       // Select already existing elements
       $userName.text('@' + tweet.user);
