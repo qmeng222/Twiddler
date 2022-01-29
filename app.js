@@ -5,7 +5,7 @@
 
 // creating elements
 var $title = $('<div class="header"><h1>Twiddler</h1></div>');
-var $button = $('<div class="button"><button id="update-feed">Update Feed</button></div>');
+var $button = $('<button id="update-feed">Update Feed</button>');
 var $feed = $('<div id="feed"></div>');
 
 //appendItems
