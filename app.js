@@ -8,10 +8,6 @@ $(document).ready(function(){
   var $feed = $('<div id = "feed"></div>');
   $feed.appendTo($app);
 
-  // Create an element with id called called update-feed
-  var $updateFeed = $('<h2 id = "update-feed">Update Feed</h2>');
-  $updateFeed.prependTo($app);
-
   //functions - Begin --------------
   var JQhtmlDiv = function(className) {
     return $('<div class="' + className + '"></div>');
@@ -21,10 +17,15 @@ $(document).ready(function(){
     return $('<i class="' + className + '"></i>');
   }
 
-  var feedGenerator = function() {
-    var index = streams.home.length - 1;
+  var feedGenerator = function(user) {
+    if(user) {
+      var streamSource = streams.users[user];
+    } else {
+      var streamSource = streams.home;
+    }
+    var index = streamSource.length - 1;
     while(index >= 0){
-      var tweet = streams.home[index];
+      var tweet = streamSource[index];
       var $tweet = JQhtmlDiv('tweet');
       var $message = JQhtmlDiv('message');
       var $userName = JQhtmlDiv('username');
@@ -32,8 +33,7 @@ $(document).ready(function(){
       var $userImage = $('<img class="profile-photo" src="assets/img/' + tweet.user + '.png">');
 
       //icons
-      //var $comment = $('<i class="comment fas fa-comment"></i>');
-      var $comment = JQhtmlIcon("retweet fas fa-retweet");
+      var $comment = JQhtmlIcon("comment fas fa-comment");
       var $retweet = JQhtmlIcon("retweet fas fa-retweet");
       var $like = JQhtmlIcon("like fas fa-thumbs-up");
       var $share = JQhtmlIcon("share fas fa-share");
@@ -44,7 +44,6 @@ $(document).ready(function(){
       $timeStamp.text(jQuery.timeago(tweet.created_at));
 
       //insert elements into the DOM
-      // First handle the feed
       $tweet.appendTo($feed);
       // handle tweet elements
       tweetElements = [$message, $userName, $userImage, $timeStamp, $comment,
@@ -55,19 +54,28 @@ $(document).ready(function(){
       index -= 1;
     }
   }
+
+  function refreshFeed(user) {
+    var feedBtnTxt = user ? 'Back' : 'Update Feed';
+    var $updateFeed = $('<button id="update-feed" type="button">'+feedBtnTxt+'</button>' );
+    $updateFeed.appendTo($feed);
+    feedGenerator(user);
+
+    $(".tweet .username").on("click", function(event) {
+      var user = $(this).text().substring(1);
+      $feed.html('');
+      refreshFeed(user);
+    });
+
+    $updateFeed.on("click", function(event) {
+      $feed.html('');
+      refreshFeed();
+    });
+  };
   // functions - end ------------------------
 
-  // Initial tweet
-  feedGenerator();
+  refreshFeed();
 
-  // update feed
-  $updateFeed.on("click", function(event) {
-    // remove all div.tweet elements within the feed
-    $feed.html('');
-    feedGenerator();
-  });
-
-  console.log('hold here');
-
+  window.isItBeautifulYet = true;
 
 });
