@@ -1,0 +1,218 @@
+/* ---------------------COMPONENTS---------------------*/
+@import "components/header.css";
+@import "components/new-tweet-form.css";
+@import "components/sidebar.css";
+/* @import "components/sidebar-right.css"; */
+
+/* -----------------CUSTOMIZED COLORS------------------*/
+:root{
+  --gray: rgba(83, 100, 113);
+  --lightgray: rgba(83, 100, 113, 0.5);
+  --blue: rgb(29, 155, 240);
+  --red: rgb(249, 24, 128);
+  --green: rgb(0, 186, 124);
+  --lightblue: rgba(29, 155, 240, 0.15);
+  --lightred: rgba(249, 24, 128, 0.15);
+  --lightgreen: rgba(0, 186, 124, 0.15);
+}
+
+html, body, #app {
+  height: 100vh;
+  background: url("../assets/background/paul-volkmer-qVotvbsuM_c-unsplash.jpg");
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  color: white;
+}
+
+/* -------------------------GRID-------------------------*/
+
+#app {
+  display: grid;
+  gap: 20px;
+  grid-template-areas:
+  "header"
+  "sidebar"
+  "form"
+  "button"
+  "feed"
+  "search";
+}
+
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+#new-tweet-form {
+  grid-area: form;
+}
+
+.buttonContainer {
+  grid-area: button;
+}
+
+#feed {
+  grid-area: feed;
+  /* border-right: 2px solid rgba(83, 100, 113, .1);
+  border-left: 2px solid rgba(83, 100, 113, .1); */
+}
+
+.sidebar-right {
+  grid-area: search;
+}
+
+@media (min-width: 680px) {
+  #app {
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas:
+      "header header header"
+      "sidebar form search"
+      "sidebar button search"
+      "sidebar feed search"
+  }
+  /* friendlist ul {
+    flex-direction: column;
+  } */
+}
+
+/* ------------------BUTTON & FEED------------------*/
+
+/*---------- Button to Update Feed/Back ----------*/
+.buttonContainer {
+  max-width: 600px;
+  text-align: center;
+}
+
+#update-feed {
+  color: var(--blue);
+  background-color: transparent;
+  border: none;
+  font-weight: 5--;
+  font-size: 18px;
+}
+
+#update-feed:hover {
+  color:var(--red);
+}
+
+/*----------------- User feeds -----------------*/
+#feed {
+  height: 100vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  border-radius: 20px;
+  background-color: rgba(225, 225, 225, .1);
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.tweet {
+  padding: 8px 8px 4px 8px;
+  max-height: 145px;
+  display: flex;
+  border-bottom: 2px solid var(--lightblue);
+}
+
+.tweet-container-left {
+  margin: 7px 0 0 7px;
+}
+
+.profile-photo {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.tweet-container-right {
+  margin: 10px 10px 5px 10px;
+  width: 500px;
+}
+
+/* parent container for
+username, timestamp, and more icon */
+.tweet-container-right_top {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5px;
+}
+
+.tweet-container-right_top-txt {
+  display: flex;
+  text-align: center;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.username:hover {
+  color: var(--blue);
+}
+
+.timestamp {
+  padding-left: 10px;
+  font-weight: 100;
+  color: var(--gray);
+}
+
+.more {
+  color: var(--gray);
+  display: float;
+  float: right;
+}
+
+.more:hover {
+  color: var(--blue);
+  background-color: rgba(29, 155, 240, 0.15);
+}
+
+.message {
+  padding: 0 0 5px 5px;
+  text-align: left;
+}
+
+/*----------------- User feeds: icons -----------------*/
+.icons {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(83, 100, 113);
+}
+
+i {
+  border: 1px solid transparent;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
+.comment:hover {
+  color: var(--blue);
+  background-color: var(--lightblue);
+}
+
+.retweet:hover {
+  color: var(--green);
+  background-color: var(--lightgreen);
+}
+
+.like:hover {
+  color: var(--red);
+  background-color: var(--lightred);
+}
+
+.share:hover {
+  color: var(--blue);
+  background-color: var(--lightblue);
+}

@@ -1,0 +1,96 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 600px;
+  margin-top: 60px;
+}
+
+/* ------------------nav 1: accordion menu------------------*/
+.nav {
+  height: 90%;
+  margin-left: 300px;
+  width: 300px;
+}
+
+.sticky-nav {
+  position: fixed;
+}
+
+.nav-head-1 {
+  width: 250px;
+  padding: 5px 20px;
+  margin-left: 50px;
+  font-size: 20px;
+  color: var(--blue);
+  cursor: default;
+  border-left: 6px solid var(--lightblue);
+}
+
+.nav-head {
+  width: 250px;
+  padding: 5px 20px;
+  margin-left: 50px;
+  font-size: 20px;
+  color: var(--blue);
+  cursor: pointer;
+  border-left: 6px solid var(--lightblue);
+}
+
+.nav-head:hover {
+  color: white;
+}
+
+#friends-list {
+  list-style-type: none;
+}
+
+.friend {
+  padding: 10px;
+  width: 70%;
+}
+
+.friend-a {
+  color: rgba(225, 225, 225, .7);
+  margin-left: 25px;
+  text-decoration: none;
+}
+
+.friend-a:hover {
+  color: var(--blue);
+}
+
+/* ------------------nav 2: start game button------------------*/
+.start-game-container {
+  /* border: 1px solid red; */
+  padding: 20px 5px;
+  margin-left: 45px;
+}
+
+#start-game {
+  padding: 18px 70px;
+  border: none;
+  border-radius: 28px;
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: var(--blue);
+  box-shadow: 2px 3px 2px var(--gray);
+}
+
+#start-game:active {
+  box-shadow: 2px 3px 3px var(--gray) inset;
+  padding: 20px 70px 16px 70px;
+  opacity: .97;
+  display: flex-bottom;
+  background-color: var(--red);
+}
+
+/* ------------------nav 3: profile summary------------------*/
+.profilesummary {
+  /* border: 1px solid red; */
+  height: 20%;
+  margin-top: 300px;
+}
