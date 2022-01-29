@@ -1,24 +1,25 @@
 $(document).ready(function(){
-  //selects elements with id app using css selector
+  //Select already existing elements
   var $app = $('#app');
-  //clears html
+  //clears html in app
   $app.html('');
 
+  //Create new HTML elements
   var $title = $('<h1>Twiddler</h1>');
-  $title.appendTo($app);
-  $title.on('click', function(event) {
-    console.log(event);
-    alert('The title of this page: ' + event.target.innerText);
-  })
-
   var $button = $('<button id=update-feed>Update Feed</button>');
-  $button.appendTo($app);
-
   var $feed = $('<div id=feed></div>');
+
+  //Append new HTML elements to the DOM
+  $title.appendTo($app);
+  $button.appendTo($app);
   $feed.appendTo($app);
 
-  $button.on('click', function(event) {
-    console.log(event);
+  //Create event handler functions
+  var handleTitleClick = function(event) {
+    alert('The title of this page is: ' + event.target.innerText);
+  }
+
+  var renderFeed = function () {
     // Remove all previously existing Tweets from the Feed
     $feed.html('');
     //index of last tweet in collection
@@ -36,7 +37,11 @@ $(document).ready(function(){
       //decrement i (move to next most recent tweet)
       index -= 1;
     }
-  })
+  }
+
+  //Set event listeners (providing appropriate handlers as input)
+  $title.on('click', handleTitleClick)
+  $button.on('click', renderFeed);
 
     //index of last tweet in collection
     var index = streams.home.length - 1;
