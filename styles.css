@@ -10,9 +10,125 @@ providing a space for you to apply styles to your app's outermost HTML element -
 #app {
   background: linear-gradient(to right, #1c8eb1, #9ea5a7) ;
   color: #040c79;
-  border: 1px solid red;
+}
+
+#feed {
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 1em;
+  margin: 1em;
+}
+
+.tweet {
+  background: #1c8eb1;
+  border: 5px outset rgb(111, 172, 191,.5);
+  border-radius: 20px;
+  outline: 5px outset rgb(28, 75, 177,.25);
+  padding: 1em;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 3fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: auto;
+  width: auto;
+}
+
+.username {
+  grid-column: 6;
+  grid-row: 2;
+  background: #90b0ba;
+  justify-self: left;
+  align-self: center;
+  font-size: larger;
+  border: 5px outset rgb(111, 172, 191,.5);
+  border-radius: 5px;
+  outline: 5px outset rgb(28, 75, 177,.25);
+  font-weight: 500;
+}
+
+.message {
+  grid-column: 1/6;
+  grid-row: 2;
+  background: #90b0ba;
+  justify-self: center;
+  align-self: center;
+  font-size: larger;
+  border: 5px outset rgb(111, 172, 191,.5);
+  border-radius: 5px;
+  outline: 5px outset rgb(28, 75, 177,.25);
+}
+
+.profile-photo {
+  grid-column: 6;
+  grid-row: 1;
+  background: #90b0ba;
+  justify-self: left;
+  align-self: center;
+  font-size: larger;
+  border: 5px outset rgb(111, 172, 191,.5);
+  border-radius: 5px;
+  outline: 5px outset rgb(28, 75, 177,.25);
+}
+
+.like {
+  grid-column: 1;
+  grid-row: 3;
+  background: #90b0ba;
+  justify-self: left;
+  align-self: center;
+  font-size: larger;
+  border: 5px outset rgb(111, 172, 191,.5);
+  border-radius: 5px;
+  outline: 5px outset rgb(28, 75, 177,.25);
+}
+
+.retweet {
+  grid-column: 2;
+  grid-row: 3;
+  background: #90b0ba;
+  justify-self: left;
+  align-self: center;
+  font-size: larger;
+  border: 5px outset rgb(111, 172, 191,.5);
+  border-radius: 5px;
+  outline: 5px outset rgb(28, 75, 177,.25);
+}
+
+.comment {
+  grid-column: 3;
+  grid-row: 3;
+  background: #90b0ba;
+  justify-self: left;
+  align-self: center;
+  text-align: center;
+  font-size: larger;
+  border: 5px outset rgb(111, 172, 191,.5);
+  border-radius: 5px;
+  outline: 5px outset rgb(28, 75, 177,.25);
+}
+
+.share {
+  grid-column: 4;
+  grid-row: 3;
+  background: #90b0ba;
+  justify-self: left;
+  align-self: center;
+  font-size: larger;
+  border: 5px outset rgb(111, 172, 191,.5);
+  border-radius: 5px;
+  outline: 5px outset rgb(28, 75, 177,.25);
+}
+
+.timestamp {
+  font-style: italic;
+}
+
+i:hover {
+  transform: scale(1.3,1.3);
+
 }
 
 div {
-  border: 1px solid red;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: larger
 }
