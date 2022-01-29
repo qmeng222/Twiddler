@@ -5,7 +5,7 @@
 
 // creating elements
 var $title = $('<div class="header"><h1>Twiddler</h1></div>');
-var $button = $('<button id="update-feed">Update Feed</button>');
+var $button = $('<div class="button"><button id="update-feed">Update Feed</button></div>');
 var $feed = $('<div id="feed"></div>');
 
 //appendItems
@@ -44,9 +44,10 @@ var renderFeed = function (userName) {
           var $comment = $('<i class="comment far fa-comment"></i>');
 					$profilePhoto.prependTo($tweet);
           $username.text('@' + tweet.user).prependTo($tweet);
+          $message.text( tweet.message).appendTo($tweet);
 					$timestamp.text($.timeago(tweet.created_at))
 					$timestamp.appendTo($tweet);
-          $message.text( tweet.message).appendTo($tweet);
+
 $like.appendTo($tweet);
 $comment.appendTo($tweet)
 $share.appendTo($tweet)
@@ -81,4 +82,4 @@ $button.text('Update Feed');
 $button.on("click", updateButton);
 });
 
-
+window.isItBeautifulYet = true;

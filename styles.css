@@ -20,51 +20,75 @@ border: 1px solid  black;
 text-align: center;
 font-size: larger;
 font-family: didot;
-border: 1px solid purple;
+font-size: 60px;
+
 }
 
-.feed__button {
-margin: 0;
-color: white;
-background-color: black;
+h1 {
+
+}
+
+#update-feed{
+background-color: white;
 height: 50px;
 width: 150px;
 border-radius: 50px;
-border: 1px solid red;
+border: 5px solid black;
+text-align: center;
+
 }
 
-#feed {
-
+.button {
+height: 150px;
+text-align: center;
 }
 
 .tweet {
 border: 2px solid rgb(114, 111, 111);
 border-radius: 25px;
-padding: 25px;
-width: 700px;
-height: 100px;
+width: 500px;
+height: 150px;
 margin: 20px auto 20px;
-flex-direction: column;
-flex-wrap: wrap;
 }
 
-.profile__photo {
- width: 55px;
- height: 55px;
+.profile-photo {
+ width: 50px;
+ height: 50px;
+ position: relative;
+right:-75px;
+
 }
 
-.icons {
+i {
   width: 20px;
   height: 20px;
   padding: 10px;
+  display: flex;
+align-self: center;
+
+}
+
+i:hover {
+    box-shadow: 0 0 2px black;
 }
 
 .username {
-  font-family: cursive;
+font-family: cursive;
+font-weight: bold;
+position: relative;
+left: 155px;
+top: 15px;
 }
 
-.tweet__message {
-font-family: 'Playfair Display', serif;
-
+.message {
+font-family: Didot;
+text-align: center;
 }
 
+.timestamp {
+ font-style: italic;
+margin-bottom: 15px;
+position: relative;
+top: 60px;
+left: 25px;
+}
