@@ -1,13 +1,276 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
+  width:100%;
+  height:100%;
   min-height: 100vh;
   margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+
+}
+
+.icon i{
+  color:#f64c67;
+  font-size:26px;
+}
+
+.clear{
+  clear:both;
+}
+
+/* --------- Header ----------*/
+.top{
+  background-color: #FFA387;
+  background: -webkit-linear-gradient(-300deg, #FFA387 0%, #FE4F70 100%);
+  background: linear-gradient(300deg, #ffb9a3 0%, #FE4F70 100%);
+  text-align: center;
+  width:100%;
+}
+.title{
+  padding:42px;
+  display:inline-block;
+}
+.logo{
+  float:left;
+
+}
+.logo .fa{
+  font-size:50px;
+  color:#ffb9a3;
+
+}
+.top h1{
+  font-size: 54px;
+  line-height:54px;
+  font-weight: bold;
+  text-shadow: 2px 2px #d8cece;
+  color:white;
+  padding:0;
+  margin:0;
+  padding-left:20px;
+  float:left;
+  font-style: normal;
+}
+
+/* --------- Middle ----------*/
+
+.middle{
+  position: relative;
+  padding:10px;
+  background-color: #f3ebeb
+}
+
+.middle-content{
+  position: relative;
+  background-color: white;
+  box-shadow: 3px 3px 4px #dfd8da;
+  display:flex;
+  overflow: hidden;
+  max-width:1200px;
+  margin:auto;
+}
+
+.left{
+  float:left;
+  position: relative;
+  width:30%;
+
+}
+
+.left-content{
+  padding:20px;
+  background-color:#fdc0ae;
+  height:100%;
+}
+
+.left button{
+  background-color: #f64c67;
+  color: white;
+  width:100%;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 20px;
+  font-weight:bold;
+  border:none;
+  border-radius: 5px;
+  cursor:pointer;
+}
+
+.form-username{
+  padding-bottom:10px;
+  padding-top:10px;
+}
+.form-tweet-message{
+  padding-bottom:20px;
+}
+
+.form label{
+  display: inline-block;
+  padding-bottom:8px;
+  font-weight:bold;
+}
+
+.form input{
+  width:100%;
+  padding-left:8px;
+  padding-right:8px;
+  padding-top:10px;
+  padding-bottom:10px;
+  border-radius: 5px;
+  border:none;
+}
+
+.friends{
+padding-top:30px;
+}
+
+.left h2 {
+  border-bottom: 4px solid #f64c67;
+  margin:0;
+  padding-bottom:3px;
+  margin-bottom:5px;
+}
+
+#friends-list{
+  padding:0;
+  margin:0;
+}
+
+#friends-list li{
+  list-style-type: none;
+  padding-top:5px;
+  cursor:pointer;
+}
+
+.form{
+  padding-top:30px;
+}
+
+.right-content{
+  padding:20px;
+}
+.right{
+  position: relative;
+  float:left;
+  width:70%;
+}
+.tweet{
+  position: relative;
+  background-color:#f1f1f1;
+  margin-bottom:40px;
+  border-radius: 5px;
+  overflow: hidden;
+  height:190px;
+}
+.tweet:last-child{
+  margin-bottom:0;
+}
+
+.photo{
+  position: relative;;
+  float:left;
+  width:20%;
+height:100%;
+background:white;
+}
+
+.photo img{
+
+  border-radius: 50%;
+  width: 120px;
+
+}
+
+.username, .message , .timeago , .icon{
+  float:left;
+  width:80%;
+  text-align: center;
+
+}
+
+.username{
+  position: relative;
+  background: #FFA387;
+  font-weight: bold;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+  cursor:pointer;
+}
+
+
+
+.message{
+  position: relative;
+  height:34px;
+}
+
+.message div{
+  position: relative;
+  height:100%;
+  font-weight: bold;
+  font-size: 18px;
+  padding:10px
+}
+
+.timeago{
+  margin-top:20px;
+  padding-top:10px;
+  padding-bottom:10px;
+  font-size:14px;
+  color:#d3d3d3
+
+
+}
+.icon{
+  background-color:#ebe5e3;
+}
+.icon .fa{
+padding-top:10px;
+padding-bottom:10px;
+padding-left:20px;
+padding-right:20px;
+}
+.tweet::after{
+  clear:both
+}
+
+
+
+
+
+
+
+/* --------- Bottom ----------*/
+
+.bottom{
+  padding:10px;
+  text-align:center;
+  background:#f5f5f5;
+}
+.bottom h4{
+  padding:0;
+  margin:0;
+  color: #bebebe;
+  font-weight: bold;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+  body {
+    width:1000px;
+  }
 }

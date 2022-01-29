@@ -1,28 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="lib/jquery.js"></script>
-    <script src="dataGenerator.js"></script>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
 
-    <script>
-      $(document).ready(function(){
-        var $app = $('#app');
-        $app.html('');
+<head>
+  <script src="lib/jquery.js"></script>
+  <script src="lib/timeago.js"></script>
+  <script src="https://kit.fontawesome.com/1ecc5c9af4.js" crossorigin="anonymous"></script>
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($app);
-          index -= 1;
-        }
+  <script src="dataGenerator.js"></script>
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
 
-      });
-    </script>
-  </body>
+<body>
+  <div id="app">
+    <div class="top">
+      <div class="title">
+        <div class="logo">
+          <i class="fa fa-solid fa-spinner"></i>
+        </div>
+        <h1>Twiddler</h1>
+        <div class="clear"></div>
+      </div>
+
+    </div>
+    <div class="middle">
+      <div class="middle-content">
+        <div class="left">
+          <div class="left-content">
+            <button id="update-feed" type="button">Update Feed</button>
+            <div class="form">
+              <h2>New Post</h2>
+              <div id="new-tweet-form">
+                <div class="form-username">
+                  <label for="name">Username</label>
+                  <input type="text" id="username" name="username"  maxlength="8">
+                </div>
+                <div class="form-tweet-message">
+                  <label for="name">Tweet Message</label>
+                  <input type="text" id="message" name="message" required minlength="4" maxlength="100">
+                </div>
+                <button id="submit" type="button">Post Tweet</button>
+              </div>
+            </div>
+            <div id="new-tweet-form">
+
+            </div>
+            <div class="friends">
+              <h2>Friends</h2>
+              <ul id="friends-list"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="right-content">
+            <div id="feed"></div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="bottom">
+      <h4>Designed by JP</h4>
+    </div>
+
+  </div> <!-- Your Entire Application will be built inside this div! -->
+</body>
+
 </html>
