@@ -26,7 +26,8 @@ $(document).ready(function(){
       // Select already existing elements
       $userName.text('@' + tweet.user);
       $message.text(tweet.message);
-      $timeStamp.text(new Date(tweet.created_at));
+      $timeStamp.text(jQuery.timeago(new Date(tweet.created_at)));
+
 
       // Append new HTML elements to the DOM
       $profilePhoto.appendTo($tweet);
