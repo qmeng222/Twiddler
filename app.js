@@ -32,6 +32,7 @@ $(document).ready(function(){
       var $tweet = $('<div class="tweet"></div>');
       //text of above tweet
       $tweet.text('@' + tweet.user + ': ' + tweet.message);
+      //var $profilePhoto = $('.tweet').append('<img src=assets/img/douglascalhoun.png>')
       //take div and put it on app
       $tweet.appendTo($feed);
       //decrement i (move to next most recent tweet)
@@ -43,20 +44,6 @@ $(document).ready(function(){
   $title.on('click', handleTitleClick)
   $button.on('click', renderFeed);
 
-    //index of last tweet in collection
-    var index = streams.home.length - 1;
-    //iterate backwards
-    while(index >= 0){
-      //most recent tweet
-      var tweet = streams.home[index];
-      //UI element, create new div with class tweet
-      var $tweet = $('<div class="tweet"></div>');
-      //text of above tweet
-      $tweet.text('@' + tweet.user + ': ' + tweet.message);
-      //take div and put it on app
-      $tweet.appendTo($app);
-      //decrement i (move to next most recent tweet)
-      index -= 1;
-    }
+  renderFeed();
 
 });
