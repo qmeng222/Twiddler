@@ -11,16 +11,46 @@
     <script>
       $(document).ready(function(){
         var $app = $('#app');
+        var $feed = $('<div id="feed"></div>');
+        var $title = $('<h1>Twiddler</h1>');
+        var $updateFeedButton = $('<btn>Update</btn>');
+
         $app.html('');
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($app);
-          index -= 1;
+        $title.appendTo($app);
+        $updateFeedButton.appendTo($app);
+        $feed.appendTo($app);
+
+        $title.on("click", function(event) {
+          console.log(event);
+          alert('The title of this page is ' + event.target.innerText)
+        });
+
+        var populateTweets = function() {
+          var index = 0;
+          var createsTweetDivs = function() {
+            while(index < streams.home.length){
+              var tweet = streams.home[index];
+              var $tweet = $('<div class="tweet"></div>');
+              $tweet.text('@' + tweet.user + ': ' + tweet.message);
+              var $time = $('<div class="time"></div>');
+              $time.text('Posted at ' + tweet.created_at.toLocaleTimeString());
+              $time.appendTo($tweet);
+              $tweet.prependTo($feed);
+              // console.log("Number of tweets: " + streams.home.length);
+              // console.log("Most Recent Tweet Element: " + JSON.stringify(streams.home[index - 1]));
+              console.log(index);
+              index += 1;
+            }
+          };
+          return createsTweetDivs();
         }
+        populateTweets();
+
+        $updateFeedButton.on("click", function(event) {
+          console.log(event);
+          populateTweets();
+        });
 
       });
     </script>
