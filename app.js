@@ -61,7 +61,7 @@ var renderFeed = function(testUser){
 
     var $comment = $('<i class="comment fas fa-comment-dots"></i>');
     $comment.appendTo($icon);
-    var $retweet = $('<i class="retweet as fa-retweet"></i> ');
+    var $retweet = $('<i class="retweet fas fa-retweet"></i> ');
     $retweet.appendTo($icon);
     var $like = $('<i class="like fas fa-heart"></i> ');
     $like.appendTo($icon);
@@ -80,33 +80,33 @@ var renderFeed = function(testUser){
   // user interactions
   $comment.hover(function(event){
 
-    $(this).css("color", "blue");
+    $(this).css("color", "black");
   }, function(){
-  $(this).css("color", "black");
+  $(this).css("color", "whitesmoke");
 
   });
 
     $retweet.hover(function(event){
 
-      $(this).css("color", "blue");
+      $(this).css("color", "black");
     }, function(){
-    $(this).css("color", "black");
+    $(this).css("color", "whitesmoke");
 
     });
 
       $like.hover(function(event){
 
-        $(this).css("color", "blue");
+        $(this).css("color", "black");
       }, function(){
-      $(this).css("color", "black");
+      $(this).css("color", "whitesmoke");
 
       });
 
     $share.hover(function(event){
 
-      $(this).css("color", "blue");
+      $(this).css("color", "black");
     }, function(){
-    $(this).css("color", "black");
+    $(this).css("color", "whitesmoke");
 
     });
 
