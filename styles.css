@@ -1,7 +1,11 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
+  min-width: 200px;
+  max-width: 4000px;
   min-height: 100vh;
   margin: 0;
+  text-align: center;
+  padding: 0;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
@@ -9,8 +13,42 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: pink;
+  color: black;
 }
 
 /* font-family: 'Estonia', cursive; */
+
+.like:hover {
+  background-color: rgb(32, 138, 170);
+}
+
+.comment:hover {
+  background-color: rgb(32, 138, 170);
+}
+
+.share:hover {
+  background-color: rgb(32, 138, 170);
+}
+
+.retweet:hover {
+  background-color: rgb(32, 138, 170);
+}
+
+.profile-photo {
+  border-radius: 50%;
+}
+
+h1 {
+  height: 60px;
+  width: 100px;
+  font-style: cursive;
+}
+
+.tweet {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  padding: 10px;
+  border-color: black;
+}
