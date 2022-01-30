@@ -9,6 +9,7 @@ $(document).ready(function(){
   var $button = $('<button id=update-feed>Update Feed</button>');
   var $feed = $('<div id=feed></div>');
 
+
   //Append new HTML elements to the DOM
   $title.appendTo($app);
   $button.appendTo($app);
@@ -32,7 +33,11 @@ $(document).ready(function(){
       var $tweet = $('<div class="tweet"></div>');
       //text of above tweet
       $tweet.text('@' + tweet.user + ': ' + tweet.message);
-      //var $profilePhoto = $('.tweet').append('<img src=assets/img/douglascalhoun.png>')
+      var $profilephoto = $('<img class="profile-photo" src="assets/img/"' + tweet.user + '".png">');
+      $profilephoto.appendTo($tweet);
+      // var $username = $('.tweet').append('<div class="username">'@' + tweet.user</div>');
+      // var $message = $('.tweet').append('<div class="message"></div>')
+      // var $timestamp = $('.tweet').append('<div class="timestamp"></div>')
       //take div and put it on app
       $tweet.appendTo($feed);
       //decrement i (move to next most recent tweet)
