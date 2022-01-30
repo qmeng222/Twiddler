@@ -7,7 +7,89 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
-#app {
+#app , body {
+  background-color: #8aaff5;
+  font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* #app {
   background-color: green;
   color: yellow;
+} */
+
+header {
+  margin: 0 1.5% 24px 1.5%;
+  padding: 1%;
+}
+
+button {
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0;
+}
+
+#feed {
+  /* background-color: #97999b; */
+  /* border: 2px solid #16454b; */
+  float: right;
+  width: 63%;
+  margin-right: 2%;
+}
+
+#friends_list {
+  background-color: #d3dce6;
+  border: 2px solid #16454b;
+  float: left;
+  width: 30%;
+  margin-left: 2%;
+}
+
+#new_tweet_form {
+  background-color: #d3dce6;
+  border: 2px solid #16454b;
+  height: 10vh;
+  margin: 2%;
+}
+
+div.tweet {
+  border: 2px solid #d3dce6;
+  background-color: #a5c7f0;
+  margin: 2%;
+}
+
+.tweet #user_image {
+  float: left;
+  width: 15%;
+}
+
+.tweet #message {
+  font-size: 120%;
+  float: right;
+  width: 75%;
+}
+/*
+.tweet #tweet_time {
+
+} */
+
+/*
+========================================
+Grid
+========================================
+*/
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.container,
+.grid {
+  margin: 0 auto;
+  width: 960px;
+}
+.container {
+  padding-left: 30px;
+  padding-right: 30px;
 }
