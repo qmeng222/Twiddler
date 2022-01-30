@@ -33,11 +33,29 @@ $(document).ready(function(){
       var $tweet = $('<div class="tweet"></div>');
       //text of above tweet
       $tweet.text('@' + tweet.user + ': ' + tweet.message);
+
       var $profilephoto = $('<img class="profile-photo" src="assets/img/"' + tweet.user + '".png">');
       $profilephoto.appendTo($tweet);
-      // var $username = $('.tweet').append('<div class="username">'@' + tweet.user</div>');
-      // var $message = $('.tweet').append('<div class="message"></div>')
-      // var $timestamp = $('.tweet').append('<div class="timestamp"></div>')
+
+      // var $username = $('<div class="username">' '@' + tweet.user + '</div>');
+      // $username.appendTo($tweet);
+
+      var $message = $('<div class="message"></div>')
+      $message.text(tweet.message);
+      $message.appendTo($tweet);
+
+      // var $timestamp = $('<div class="timestamp">'Date()'</div>')
+      // $timestamp.appendTo($tweet);
+
+      var $comment = $('<img class="icon comment" src="assets/icons/placeholder.png">');
+      $comment.appendTo($tweet);
+      var $retweet = $('<img class="icon retweet" src="assets/icons/placeholder.png">');
+      $retweet.appendTo($tweet);
+      var $like = $('<img class="icon like" src="assets/icons/placeholder.png">');
+      $like.appendTo($tweet);
+      var $share = $('<img class="icon share" src="assets/icons/placeholder.png">');
+      $share.appendTo($tweet);
+
       //take div and put it on app
       $tweet.appendTo($feed);
       //decrement i (move to next most recent tweet)
