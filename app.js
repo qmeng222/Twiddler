@@ -32,20 +32,22 @@ $(document).ready(function(){
       //UI element, create new div with class tweet
       var $tweet = $('<div class="tweet"></div>');
       //text of above tweet
-      $tweet.text('@' + tweet.user + ': ' + tweet.message);
+      //$tweet.text('@' + tweet.user + ': ' + tweet.message);
 
       var $profilephoto = $('<img class="profile-photo" src="assets/img/"' + tweet.user + '".png">');
       $profilephoto.appendTo($tweet);
 
-      // var $username = $('<div class="username">' '@' + tweet.user + '</div>');
-      // $username.appendTo($tweet);
+      var $username = $('<div class="username"></div>');
+      $username.text('@' + tweet.user);
+      $username.appendTo($tweet);
 
       var $message = $('<div class="message"></div>')
       $message.text(tweet.message);
       $message.appendTo($tweet);
 
-      // var $timestamp = $('<div class="timestamp">'Date()'</div>')
-      // $timestamp.appendTo($tweet);
+      var $timestamp = $('<div class="timestamp"></div>')
+      $timestamp.text(Date());
+      $timestamp.appendTo($tweet);
 
       var $comment = $('<img class="icon comment" src="assets/icons/placeholder.png">');
       $comment.appendTo($tweet);
