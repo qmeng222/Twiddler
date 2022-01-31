@@ -18,17 +18,18 @@ $(document).ready(function(){
   };
 
   var handleUserClick = function(user) {
-    $subtitle.text(user);
-    $updateButton.text("Back");
     $feed.empty();
     currentTweet = 0;
+    $subtitle.text(user);
+    $updateButton.text("Back");
     updateFeed(streams.users[user]);
+    currentTweet = 0;
   };
 
   var createTweet = function(tweet) {
     var $tweet = $('<div class="tweet"></div>');
     var $user = $('<div class="user"></div>');
-    var $message = $('<div class="message"></div>');
+    var $message = $('<div class="tweet-right"></div>');
     var $username = $('<span class="username"></span>');
     var $timestamp = $('<span class="timestamp"></span>');
     var $profilePhoto = $('<img class="profile-photo"></img>');
@@ -51,10 +52,13 @@ $(document).ready(function(){
   };
 
   var updateFeed = function(stream) {
+    if (currentTweet === 0) {
+      $feed.empty();
+    }
     if (stream) {
       $updateButton.text('Back');
     } else {
-      $subtitle.text('home page')
+      $subtitle.text('home page');
       $updateButton.text('Update Feed');
     }
     var tweets = stream ? stream : streams.home;
@@ -79,6 +83,5 @@ $(document).ready(function(){
   $feed.appendTo($app);
   updateFeed();
 
-
-
+  window.isItBeautifulYet = true
 });

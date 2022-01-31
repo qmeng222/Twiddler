@@ -22,6 +22,7 @@ div.tweet {
   margin-top: 1em;
   margin-bottom: 1em;
   border-radius: 1px;
+  padding: 5px;
 }
 
 div.user {
@@ -31,8 +32,8 @@ div.user {
 }
 
 img.profile-photo {
-  height: 5vh;
-  width: max-content;
+  height: 100px;
+  width: 100px;
 }
 
 span.username {
@@ -40,7 +41,7 @@ span.username {
   font-weight: lighter;
 }
 
-div.message {
+div.tweet-right {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -50,6 +51,10 @@ div.message {
 p.message {
   flex: 0 0 100%;
   text-align: left;
+}
+
+i:hover {
+  color: maroon;
 }
 
 span.timestamp {
