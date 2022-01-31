@@ -25,6 +25,7 @@ $(document).ready(function(){
   while(index >= 0){
     var tweet = streams.home[index];
     var $tweet = $('<div class="tweet"></div>');
+   // $tweet.text('');
     $tweet.text('@' + tweet.user + ': ' + tweet.message);
     $tweet.appendTo($tweetDiv);
     trackingObj[tweet.message] = 1;
@@ -34,18 +35,29 @@ $(document).ready(function(){
   $homeFeedSection.appendTo($app);
 
 
+
   $homeFeedButton.on("click", function(event) {
-    var index = streams.home.length - 1;
-    while(index >= 0){
-      var tweet = streams.home[index];
-      var $tweet = $('<div class="tweet"></div>');
-      $tweet.text('@' + tweet.user + ': ' + tweet.message);
-      console.log(tweet.message);
-      $tweet.prependTo($tweetDiv);
-      $tweetDiv.appendTo($homeFeedSection);
-      index -= 1;
-      return event;
-    };
+    var seen = {};
+    $('.tweet').each(function() {
+      var message = $(this).text();
+      if (seen[message]) {
+        $(this).remove();
+      } else {
+        seen[message] = true;
+      }
+    });
+    for (var i = 0; i < streams.home.length; i++) {
+      var fullTweet = '@'+streams.home[i].user + ': '+ streams.home[i].message;
+      var time = streams.home[i].created_at;
+        if (seen[fullTweet] === undefined) {
+          var newTweet = streams.home[i];
+          var $newTweet = $('<div class="tweet"></div>');
+          $newTweet.text('@' + newTweet.user + ': ' + newTweet.message);
+          $newTweet.prependTo($tweetDiv);
+          $tweetDiv.appendTo($homeFeedSection);
+        }
+    }
+     return event;
   });
 
 
