@@ -47,6 +47,7 @@ var generateRandomTweet = function() {
   addTweet(tweet);
 };
 
+// adds ten tweets to the page when loads
 for (var i = 0; i < 10; i++) {
   generateRandomTweet();
 }
@@ -57,6 +58,8 @@ var scheduleNextTweet = function() {
     setTimeout(scheduleNextTweet, 250 + (Math.random() * 1250));
   }
 };
+
+// adds new tweet to streams periodically
 scheduleNextTweet();
 
 // utility function for letting students add "write a tweet" functionality
