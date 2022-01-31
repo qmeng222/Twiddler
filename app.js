@@ -27,17 +27,24 @@ $(document).ready(function(){
 
   var createTweet = function(tweet) {
     var $tweet = $('<div class="tweet"></div>');
+    var $user = $('<div class="user"></div>');
     var $message = $('<div class="message"></div>');
     var $username = $('<span class="username"></span>');
     var $timestamp = $('<span class="timestamp"></span>');
     var $profilePhoto = $('<img class="profile-photo"></img>');
-    $message.text(tweet.message);
+    var $comment = $('<i class="comment fas fa-comments"></i>');
+    var $like = $('<i class="like fas fa-heart"></i>');
+    var $retweet = $('<i class="retweet fas fa-trash"></i>');
+    var $share = $('<i class="share fas fa-share"></i>');
+    $message.append('<p class="message">' + tweet.message + '</p>');
+    $message.append($like, $comment, $retweet, $share);
     $username.text('@' + tweet.user);
     $timestamp.text(jQuery.timeago(tweet.created_at));
     $timestamp.appendTo($message);
     $profilePhoto.attr('src', tweet.profilePhotoURL);
-    $profilePhoto.appendTo($tweet);
-    $username.appendTo($tweet);
+    $profilePhoto.appendTo($user);
+    $username.appendTo($user);
+    $user.appendTo($tweet);
     $message.appendTo($tweet);
     $username.on("click", function() { handleUserClick(tweet.user) });
     return $tweet;

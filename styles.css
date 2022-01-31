@@ -10,4 +10,48 @@ providing a space for you to apply styles to your app's outermost HTML element -
 #app {
   background-color: green;
   color: yellow;
+  font-family: 'Roboto', sans-serif;
+}
+
+div.tweet {
+  display: flex;
+  background-color: lightseagreen;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-radius: 1px;
+}
+
+div.user {
+  display: flex;
+  flex-flow: column;
+  flex: 0 0 25%;
+}
+
+img.profile-photo {
+  height: 5vh;
+  width: max-content;
+}
+
+span.username {
+  font-size: smaller;
+  font-weight: lighter;
+}
+
+div.message {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  flex: 1 0 0;
+}
+
+p.message {
+  flex: 0 0 100%;
+  text-align: left;
+}
+
+span.timestamp {
+  font-style: italic;
 }
