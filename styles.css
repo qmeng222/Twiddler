@@ -6,8 +6,92 @@ html, body, #app {
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
+/*font-family: 'Dongle', sans-serif;*/
+.comment:hover {
+  color: #9AD0EC;
+}
+.like:hover {
+  color: #9AD0EC;
+}
+.retweet:hover {
+  color: #9AD0EC;
+}
+.share:hover {
+  color: #9AD0EC;
+}
 
-#app {
-  background-color: green;
-  color: yellow;
+#feed {
+  width:600px;
+  height:700px;
+  overflow:scroll;
+  margin-left: 500px;
+  left: 500px;
+  font-size:20px;
+}
+
+.profile-photo {
+  border-radius: 50%;
+  margin-top: 20px;
+  width:50px;
+}
+
+.tweet {
+  height: 180px;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.icon-group {
+  text-align:right;
+}
+
+#update-feed {
+  background-color: #C1A3A3;
+  width:150px;
+  height:40px;
+  border-radius:20px;
+  color: #886F6F;
+  border-color: #886F6F;
+  text-align:center;
+}
+h1 {
+  color: #694E4E;
+  font-size:50px;
+  margin-top: 0px;
+  font-style: italic;
+  padding: 0;
+}
+
+body {
+  background-color: #F3C5C5;
+  font-family:Dongle;
+  color:#655D8A;
+}
+
+#left-box {
+  width:300px;
+  height:500px;
+  margin-left: 20px;
+  border:solid #886F6F 2px;
+  padding-left:20px;
+  border-radius: 20px;
+  display:inline;
+  float:left;
+
+}
+.friendHead {
+  font-size:40px;
+  margin-left: 30px;
+  text-decoration: underline;
+  font-weight: bold;
+}
+.friendName {
+  color:#313552;
+  margin-left: 30px;
+  font-size:20px;
+}
+.username {
+  color:#313552;
 }
