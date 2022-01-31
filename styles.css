@@ -2,12 +2,52 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: black;
+  color: white;
+}
+
+.feed {
+  align-content: center;
+}
+
+.tweet {
+  border: 1px gray solid;
+  padding: 15px;
+  width: 50%;
+  align-content: center;
+  margin: auto;
+}
+.username {
+  text-align: justify;
+  color: gray;
+}
+
+.message {
+  text-indent: 50px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+i:hover {
+  background-color: darkgrey;
+  border-radius: 25%;
+}
+
+.profile-photo {
+  display: inline-flex;
+  border-radius: 50%;
+  width: 10%;
+  height: 10%;
 }
