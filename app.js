@@ -1,22 +1,28 @@
 $(document).ready(function(){
-
-  // Select already existing elements
   var $app = $('#app');
   $app.html('');
 
-  // Create new HTML elements
+  var $top = $('<div id ="top"></div>')
+  var $feed = $('<div id="feed"></div>');
   var $title = $('<h1>Twiddler</h1>');
-  var $feed = $('<div id="feed">Feed</div>');
+
+
+
+  //append elements
+  $top.appendTo($app);
   $feed.appendTo($app);
+  $title.appendTo($top);
 
+  //Clickable title
 
-  // Create event handler functions
   $title.on('click', function(event) {
     alert('The title of this page is: ' + event.target.innerText);
-
-  // Append new HTML elements to the DOM
-    $title.appendTo($app);
   });
+
+  //Update Feed button
+
+  var $update = $('<button id="update-feed">Update Feed</button>');
+  $update.appendTo($top);
 
   //timeago
 
@@ -24,37 +30,36 @@ $(document).ready(function(){
     jQuery("time.timeago").timeago();
   });
 
+  //Change Update Feed button to Back button
+
+  function findUser(user) {
+    return function(event) {
+      $clear();
+      $renderFeed(user);
+      $update.text('Back');
+    };
+  }
   //clear feed function
 
-  // var $clear = function() {
-  //   $('.tweet').empty();
-  // };
-
-  // update feed button
-
-  var $update = $('<button id="update-feed">Update Feed</button>');
-  $update.appendTo($app);
-  $update.on('click', function() {
-    $('.feed').html('')
-    $renderFeed();
-  });
-
-  // var index = streams.home.length - 1;
-  // while(index >= 0){
-  //   var tweet = streams.home[index];
-  //   var $tweet = $('<div class="tweet"></div>');
-  //   var timeAgo = jQuery.timeago(new Date(tweet.created_at));
-  //   $tweet.html("<img class='profile-photo' src='tweet.profilePhotoURL'><p class='message'>" + tweet.message + "</p><div class='timestamp'>" + timeAgo + "</div>");
-  //   $tweet.appendTo($app);
-  //   $tweet.hide();
-  //   index -= 1;
+  var $clear = function(){
+    for(var x = 0; x < streams.home.length; x++){
+      var tweet = streams.home[x];
+      var message = '@' + tweet.user + ': ' + tweet.message;
+      $('div').remove('.tweet');
+    }
+  }
 
   //render feed function
 
-var $renderFeed = function(element){
-  var index = streams.home.length - 1;
+var $renderFeed = function(user){
+  if (user === undefined) {
+    var stream = streams.home;
+  } else {
+    var stream = streams.users[user]
+  }
+  var index = stream.length - 1;
   while(index >= 0){
-    var tweet = streams.home[index];
+    var tweet = stream[index];
     var $tweet = $('<div class="tweet"></div>');
     var timeAgo = jQuery.timeago(new Date(tweet.created_at));
     $tweet.html("<p class='message'>" + tweet.message + "</p><div class='timestamp'>" + timeAgo + "</div>");
@@ -62,37 +67,34 @@ var $renderFeed = function(element){
     $profilePhoto.attr("src", tweet.profilePhotoURL);
     $profilePhoto.appendTo($tweet);
     $tweet.appendTo($feed);
-    index -= 1;
 
 
     //clickable username
 
-    var $usernameClick = $('<span class="username">' + "@" + tweet.user + '</span>');
+    var $usernameClick = $('<div class="username">' + "@" + tweet.user + '</div>');
     $usernameClick.appendTo($tweet);
-    $usernameClick.on('click', 'span', function() {
-    })
+    $usernameClick.on('click', findUser(tweet.user))
 
-    //icons
+    var $comment = $('<i class="icon comment fas fa-comments"></i>');
+    var $retweet = $('<i class="icon retweet fas fa-retweet"></i>');
+    var $like = $('<i class="icon like far fa-thumbs-up"></i>');
+    var $share = $('<i class="icon share fas fa-share"></i>');
 
-      var $icons = $("<img class='icon'>");
-
-    var $comment = $('<i class="fa-solid fa-address-card"></i>');
-    var $retweet = $("<i class='retweet fa-solid fa-arrows-rotate'></i>");
-    var $like = $("<i class='like fa-solid fa-up-from-line'></i>");
-    var $share = $("<i class='share fa-solid fa-arrow-up-right-from-square'></i>");
-
-    $comment.appendTo($icons);
-    $retweet.appendTo($icons);
-    $like.appendTo($icons);
-    $share.appendTo($icons);
-    $icons.appendTo($tweet);
+    $comment.appendTo($tweet);
+    $retweet.appendTo($tweet);
+    $like.appendTo($tweet);
+    $share.appendTo($tweet);
+    index -= 1;
   };
 };
+  $renderFeed();
 
-  // clear feed
-  // var $clear = function() {
-  //   $feed.html('')
-  // }
+  //Update Feed helper
 
-$renderFeed();
+  $update.on('click', function(event) {
+    $update.text('Update Feed');
+    $clear();
+    $renderFeed();
+  });
+  window.isItBeautifulYet = true
 });

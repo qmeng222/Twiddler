@@ -29,41 +29,68 @@ providing a space for you to apply styles to your app's outermost HTML element -
   font-size: 16px;
   cursor: pointer;
   overflow: hidden;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
 }
 
 h1 {
   color: yellow;
+  font-style: normal;
+  font-family: 'Architects Daughter', cursive;
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
 }
+
 
 .icon:hover {
   background-color: rgb(4, 4, 150);
 }
 
-.icon {
-  height: 40px;
-  width: 200px;
-}
-
-.comment {
-  height: 25%;
-  width: 25%;
-}
-
-.like {
-  height: 25%;
-  width: 25%;
-}
-
-.retweet {
-  height: 25%;
-  width: 25%;
-}
-
-.share {
-  height: 25%;
-  width: 25%;
-}
 
 .username:hover {
-  background-color: rgb(4, 4, 150);
+  background-color: rgb(190, 255, 116);
+}
+
+.username {
+  font-family: 'Architects Daughter', cursive;
+  background-color: rgb(218, 217, 230);
+  outline: none;
+  border: none;
+  color: rgb(0, 0, 0);
+  height: 25px;
+  width: 100px;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+}
+
+.tweet {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  border: 3px solid rgb(13, 0, 128);
+  padding: 10px;
+  border-radius: 50px;
+}
+
+#top {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.profile-photo {
+  height: 50px;
+  width: 50px;
 }
