@@ -27,13 +27,13 @@
         var populatesFriends = function () {
           var index = 0;
           while (index < window.users.length) {
-            var $userName = $('<div id=user_name><p><b>' + window.users[index] + '</b></p></div>');
-              populateTweets(event.target.innerText);
+            var $userName = $('<div id=user_name><p><b>' + window.users[index] + '</b></p></div>').on("click", function(event) {
+                populateTweets(event.target.innerText);
+              });
               // toggle update button with home button calling populateTweets() on click
-            });
-            $userName.appendTo($friendsList);
-            index += 1;
-          }
+              $userName.appendTo($friendsList);
+              index += 1;
+            };
         }
 
         $app.html('');
