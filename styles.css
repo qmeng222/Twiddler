@@ -2,12 +2,161 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  background-color: #cdb4ff;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  color: #ffd9bc;
+  width: auto;
 }
+
+h1.title {
+  position: absolute;
+  left: 0;
+  bottom: 140px;
+  border: solid black;
+  padding-left: 10px;
+  font-family: 'Roboto Mono', monospace;
+  background-color: white;
+  color: black;
+}
+
+div #friends-list {
+  border: solid black;
+  background-color: white;
+  color: black;
+  margin: 0;
+  float: left;
+  padding: 20px;
+  border-radius: 30%;
+}
+
+li.friend {
+  list-style-type: none;
+}
+
+li.friend:hover{
+  cursor: pointer;
+  border: solid #ffd9bc;
+}
+
+div #feed {
+  border-radius: 10%;
+  width: 400px;
+  height: 350px;
+  padding: 21px;
+  padding-right: 25px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  margin-left: 180px;
+  margin-right: 3px;
+  overflow-y: scroll;
+  height: 800px;
+  margin-right: 0px;
+  scrollbar-width: none; /*firefox*/
+  -ms-overflow-style: none; /*IE*/
+  position: absolute;
+  top: 0;
+}
+
+div #feed::-webkit-scrollbar {
+  /*webkit*/
+  width: 0;
+  background: transparent;
+}
+
+div.tweet {
+  margin: 0;
+  font-family: monospace;
+  font-size: 13px;
+  color: black;
+  background-color: white;
+  border: black solid;
+  border-radius: 7%;
+  padding-top: 5px;
+  padding: 2px;
+  height: 90px;
+  padding-bottom: 10px;
+}
+
+h2.feedTitle {
+  margin: 0px;
+  font-family: monospace;
+}
+
+button {
+  margin: 10px;
+  padding: 15px;
+  border-radius: 50px;
+  font-family: 'Roboto Mono', monospace;
+  background-color: white;
+  border-color: white;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+img {
+  width: 30px;
+  height: 30px;
+  border-radius: 60%;
+  padding-left: 5px;
+}
+
+p.message {
+  padding-left: 10px;
+  margin-top: 0px;
+  margin-left: 40px;
+  margin-right: 100px;
+  margin-bottom: 3px;
+  width: auto;
+}
+
+div.username {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 5px;
+  margin-top: 3px;
+  margin-left: 10px;
+  margin-bottom: 0px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+div.username:hover {
+  cursor: pointer;
+  border: solid #ffd9bc;
+}
+
+i {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin: 3px;
+  margin-left: 50px;
+  margin-bottom: auto;
+  padding: 5px;
+}
+
+i:hover {
+  border: solid #ffd9bc;
+}
+
+time {
+  display: inline;
+  margin: 5px;
+  margin-left: 30px;
+  font-style: italic;
+  text-align: left;
+  font-size: 10px;
+}
+
+div #new-tweet {
+  display: inline-block;
+}
+
