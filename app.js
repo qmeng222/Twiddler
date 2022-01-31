@@ -17,5 +17,5 @@ $feed.appendTo($app);
 var $tweets = $('.tweet');
 $tweets.appendTo($feed);
 
-var $updateFreed = $('<button id="update-feed"></button>');
+var $updateFreed = $('<button id="update-feed">Update</button>');
 $updateFreed.appendTo($app);
