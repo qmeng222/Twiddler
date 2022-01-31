@@ -12,8 +12,13 @@ $(document).ready(function(){
   // --- HOME FEED SETION --->
   var trackingObj = {};
   var $homeFeedSection = $('<section id="feed"></section>');
+  var $buttonDiv = $('<div class="buttons"></div>');
   var $homeFeedButton = $('<button id = "update-feed">Update Feed</button>');
-  $homeFeedButton.appendTo($homeFeedSection);
+  var $tweetDiv = $('<div class="tweetsContainer"></div>');
+  $homeFeedButton.appendTo($buttonDiv);
+  $buttonDiv.appendTo($homeFeedSection);
+  $tweetDiv.appendTo($homeFeedSection);
+
 
   var trackingArr = [];
   var index = streams.home.length - 1;
@@ -21,7 +26,7 @@ $(document).ready(function(){
     var tweet = streams.home[index];
     var $tweet = $('<div class="tweet"></div>');
     $tweet.text('@' + tweet.user + ': ' + tweet.message);
-    $tweet.appendTo($homeFeedSection);
+    $tweet.appendTo($tweetDiv);
     trackingObj[tweet.message] = 1;
     index -= 1;
   }
@@ -29,46 +34,20 @@ $(document).ready(function(){
   $homeFeedSection.appendTo($app);
 
 
-  // run a new loop outside the button element
-    // if diff form previous loop push retunr in button element??
-  // var checkDuplicates function(input) {
-
-  // }
-  // only when the UPDATE button is clicked will the below code run... so maybe write function that
-    // pusher to object outside and invoke inside?
-    //  WE NEED TO PASS A CLICK HANDLER
-      // click handler should be in charge of invoking the funtion not you
-      //should I be in "document" below or a diff element?
-      //add wrapper function around?? video 47 min?
-
   $homeFeedButton.on("click", function(event) {
-
     var index = streams.home.length - 1;
     while(index >= 0){
       var tweet = streams.home[index];
       var $tweet = $('<div class="tweet"></div>');
       $tweet.text('@' + tweet.user + ': ' + tweet.message);
       console.log(tweet.message);
-      $tweet.appendTo($homeFeedSection);
+      $tweet.prependTo($tweetDiv);
+      $tweetDiv.appendTo($homeFeedSection);
       index -= 1;
       return event;
     };
   });
 
-  // $(document).on("click", "#update-feed", function() {
-
-  //   var index = streams.home.length - 1;
-  //   while(index >= 0){
-  //     var tweet = streams.home[index];
-  //     var $tweet = $('<div class="tweet"></div>');
-  //     $tweet.text('@' + tweet.user + ': ' + tweet.message);
-  //     $tweet.appendTo($homeFeedSection);
-  //     trackingArr.push(tweet.message);
-  //     index -= 1;
-
-  //   }
-
-  // });
 
 
 
