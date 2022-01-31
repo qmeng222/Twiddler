@@ -2,12 +2,96 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  background-image: url("back.jpg");
+  background-color:rgb(240, 213, 187);
+
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+
+  color: rgb(158, 119, 93);
+  background-image: url("back.jpg");
+}
+
+#head {
+  padding-left: 200px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-size: 30px;
+  font-family: 'Lobster', cursive;
+  align-content: center;
+
+  background-color: #d3e7e9
+
+}
+
+#col1 {
+  color:blue;
+  width:30%;
+  float: left;
+}
+#col2 {
+  color:rgb(0, 255, 55);
+  width:70%;
+  float: right;
+}
+#update-feed {
+  color: rgb(109, 70, 70);
+  font-size: large;
+  font-family: fantasy;
+  font-style: normal;
+  font-weight: bold;
+  padding: 10px;
+  background-color: rgb(240, 213, 187);
+  border-radius: 10px;
+  margin-left: 200px;
+  margin-top: 10px;
+  width: auto;
+  height: 70px;
+}
+div.tweet {
+  color: rgb(131, 102, 86);
+  text-align:center;
+  font-size: larger;
+  padding-top: 50px;
+  padding-bottom: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 200px;
+  box-shadow: 10px 5px 5px rgb(109, 105, 105);
+  border-radius: 20px;
+  background-color: #d3e7e9
+}
+#c1{
+  width:30%;
+  float: left;
+  text-align: center;
+  padding-top: 0px;
+}
+#c2{
+  width:70%;
+  float: right;
+  text-align:left;
+}
+div.message {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+div.profile {
+  size:10px 10px;
+}
+div.icons {
+  size: 20px;
+  padding: 50px;
+}
+.fas {
+  padding-right: 40px;
+
+}
+.fas:hover{
+  transform: scale(1.5);
 }
