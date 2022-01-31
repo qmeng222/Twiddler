@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="lib/jquery.js"></script>
-    <script src="dataGenerator.js"></script>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
 
-    <script>
-      $(document).ready(function(){
-        var $app = $('#app');
-        $app.html('');
+<head>
+  <script src="lib/jquery.js"></script>
+  <script src="dataGenerator.js"></script>
+  <script src="timeago.js"></script>
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($app);
-          index -= 1;
-        }
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
 
-      });
-    </script>
-  </body>
+
+</head>
+
+<body>
+  <div id="app"></div> <!-- Your Entire Application will be built inside this div! -->
+  <script src="app.js"></script>
+
+
+</body>
+
 </html>
