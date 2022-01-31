@@ -11,3 +11,11 @@
     index -= 1;
   }
 
+var $feed = $('<div id="feed"></div>');
+$feed.appendTo($app);
+
+var $tweets = $('.tweet');
+$tweets.appendTo($feed);
+
+var $updateFreed = $('<button id="update-feed"></button>');
+$updateFreed.appendTo($app);
