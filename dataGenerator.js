@@ -43,7 +43,7 @@ var generateRandomTweet = function() {
   tweet.user = randomElement(users);
   tweet.message = randomMessage();
   tweet.created_at = new Date();
-  tweet.profilePhotoURL = './assets/img/' + tweet.user + '.png';
+  tweet.profilePhotoURL = '/assets/img/' + tweet.user + '.png';
   addTweet(tweet);
 };
 
