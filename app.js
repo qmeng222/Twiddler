@@ -10,7 +10,7 @@ $(document).ready(function(){
   var $updateFeedButton = $("<button id = 'update-feed' type = 'button'>Update Feed</button>");
   var $homeFeed = $("<div id = 'feed' class = 'feed'></div>");
 
-//Event Handlers
+//Event Handlers and helper functions;
 
   var renderTweet = function(tweet) {
     //initiate tweet components
@@ -39,32 +39,27 @@ $(document).ready(function(){
       index -= 1;
     }
   };
-/*
-  var makeBlue = function() {
-    $this.css("color", "blue")
-  };
-*/
-/*
-  var renderFeed = function() {
-    $homeFeed.empty();
-    var index = streams.home.length - 1;
-    while(index >= 0){
-      var tweet = streams.home[index];
-      var $tweet = $('<div class="tweet"></div>');
-      $tweet.text('@' + tweet.user + ': ' + tweet.message);
-      $tweet.appendTo($homeFeed);
-      index -= 1;
-    }
-  };
- */
 
+  var makeThisColor = function(color){
+    var makeThisSpecificColor = function () {
+      $(this).css("color", color);
+    };
+    return makeThisSpecificColor;
+  };
 
 ///Event listeners
 
 
   renderFeed(); //This one is special; it just runs every time the page is reloaded.
+
+  //refresh home feed
   $updateFeedButton.on("click", renderFeed);
-  $
+
+  //toggle icons to blue when hovering over them
+  $app.on("mouseenter", ".icon", makeThisColor("blue"));
+  $app.on("mouseleave", ".icon", makeThisColor("yellow"));
+
+
 
 ///Append elements
   $title.appendTo($app);
