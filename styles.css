@@ -8,6 +8,76 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message {
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  width: 75%;
+  text-align:start;
+  padding: 20px;
+  height: 50%;
+}
+
+h1 {
+  color: #00acee;
+  flex-direction: row;
+  font-size: 100px;
+  font-family: 'Lobster', cursive;
+}
+
+#update-feed {
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  position: left;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color:#4eb5f1;
+  text-align:center;
+  transition: all 0.2s;
+}
+
+#update-feed:hover {
+  background-color:#4095c6;
+}
+
+#feed {
+ font-style: bold;
+}
+
+.tweet {
+  border: gray;
+  border-style:groove;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.username {
+
+}
+.icon {
+  border: 10px;
+  padding: 5px;
+  margin: 2.5%;
+}
+
+.profile-photo {
+
+}
+
+.timestamp {
+  padding: 5px;
+}
+
+.icon:hover {
+  transform: scale(1.5);
 }

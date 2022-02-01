@@ -86,7 +86,7 @@ $(document).ready(function(){
     }
 
   }
-  
+
   renderFeed();
 
   // Create event handler functions
@@ -136,4 +136,5 @@ $(document).ready(function(){
 
 });
 
+window.isItBeautifulYet = true;
 
