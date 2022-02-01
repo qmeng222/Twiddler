@@ -8,6 +8,58 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  font-family: 'Teko', sans-serif;
+  background-color: black;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 0.1fr 0.1fr 2fr 2fr;
+}
+
+h1 {
+  text-align: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+button {
+  margin: 5px;
+  padding: 3px;
+  width: 100px;
+  height: 50px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+#feed {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.profile-photo {
+  border-radius: 10px;
+}
+
+.username {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.icon-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* .icon {
+  border: 2px solid white;
+} */
+
+.username {
+  font-family: 'Teko', sans-serif;
 }
