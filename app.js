@@ -15,10 +15,64 @@ $(document).ready(function () {
       + ":" + zeropad(date.getUTCSeconds()) + "Z";
   };
 
-  // Tweets generator
+  //************************** HTML ******************************/
+  // Header for styling
+  $('#app').append(
+    '<div class="top"><div class="title"><div class="logo"><i class="fa fa-solid fa-spinner"></i></div><h1>Twiddler</h1><div class="clear"></div></div></div>')
+
+  // Middle Main Content for styling
+  $('#app').append('<div class="middle"><div class="middle-content"></div></div>');
+  $('.middle-content').append('<div class="left"><div class="left-content"></div></div>');
+  $('.middle-content').append('<div class="right"><div class="right-content"></div></div>');
+  $('.right-content').append('<div id="feed"></div>');
+
+  // Update feed button
+  $('.left-content').append('<button id="update-feed" type="button">Update Feed</button>');
+
+  // New post
+  $('.left-content').append('<div class="form"><h2>New Post</h2><div id="new-tweet-form"></div><div class="friends"><h2>Friends List</h2></div></div>');
+  $('#new-tweet-form').append([
+    $('<div/>', {
+      'class': 'form-username'
+    }).append([
+      $('<label/>', {
+        'for': 'name'
+      }).append('Username'),
+      $('<input/>', {
+        'id': 'username',
+        'type': 'text',
+        'name': 'username'
+      })
+    ]), $('<div/>', {
+      'class': 'form-tweet-message'
+    }).append([
+      $('<label/>', {
+        'for': 'message'
+      }).append('Tweet Message'),
+      $('<input/>', {
+        'id': 'message',
+        'type': 'text',
+        'name': 'message'
+      })
+    ]),
+    $('<button/>', {
+      'id': 'submit',
+      'type': 'button'
+    }).append('Post Tweet')
+  ]);
+
+  // Friends List
+  $('.friends').append('<ul id="friends-list"></ul>')
+
+  // Bottom section for styling
+  $('#app').append('<div class="bottom"><h4>Designed by JP</h4></div>')
+  //**************************************************************/
+
   var $app = $('#feed');
   $app.html('');
+  $app.append('<div id="feed"></div>')
 
+  // Tweets generator
   var newTweet = function (event) {
 
     // Eliminate Duplicates
@@ -27,7 +81,6 @@ $(document).ready(function () {
       var text = $(this).text();
       seen[text] = true;
     });
-
 
     var index = 0;
     while (index <= streams.home.length - 1) {
@@ -77,8 +130,7 @@ $(document).ready(function () {
         index++;
       }
 
-
-      // Friend List
+      // Friends List
       $('#friends-list').append('<li>' + tweet.user + '</li>');
       var friend = {};
       $('#friends-list > li').each(function () {
@@ -91,9 +143,7 @@ $(document).ready(function () {
       });
     };
 
-
     $('#friends-list > li').on('click', function (event) {
-
       var usernameClicked = '@' + event.target.innerHTML;
       console.log(usernameClicked)
       $('.username').each(function (item) {
@@ -103,8 +153,6 @@ $(document).ready(function () {
       })
       handleUsernameClick();
     });
-
-
 
     // Timestamp
     $("time.timestamp").timeago();
@@ -127,55 +175,50 @@ $(document).ready(function () {
       })
       handleUsernameClick();
     });
-
-
   }
   newTweet();
 
+  // Add new Post
+  $('#submit').on('click', function () {
 
-    // Add new Post
-    $('#submit').on('click', function () {
-
-      var $tweet = $('<div/>', { 'class': 'tweet' }).append([
-        $('<div/>', { 'class': 'photo' }).append([
-
-          $('<img/>', {
-            'class': 'profile-photo',
-            'src':'assets/icons/placeholder.png'
-          })
-        ]),
-        $('<div/>', { 'class': 'username' }).append('@' + $('#username').val()),
-        $('<div/>', { 'class': 'message' }).append('<div>' + $('#message').val() + '</div>'),
-        $('<div/>', {
-          'class': 'timeago',
-        }).append([
-          $('<time/>', {
-            'class': 'timestamp',
-            'datetime': iso8601(new Date())
-          })
-        ]),
-        // FontAwesome icons
-        $('<div/>', { 'class': 'icon' }).append([
-          $('<i/>', {
-            'class': 'fa fa-solid fa-comment-dots comment',
-          }),
-          $('<i/>', {
-            'class': 'fa fa-solid fa-retweet retweet',
-          }),
-          $('<i/>', {
-            'class': 'fa fa-solid fa-heart like',
-          }),
-          $('<i/>', {
-            'class': 'fa fa-solid fa-share share'
-          }),
-        ])
-      ]);
-      $app.prepend($tweet);
-      $('#username').val('');
-      $('#message').val('');
-      $("time.timestamp").timeago();
-    });
-
+    var $tweet = $('<div/>', { 'class': 'tweet' }).append([
+      $('<div/>', { 'class': 'photo' }).append([
+        $('<img/>', {
+          'class': 'profile-photo',
+          'src': 'assets/icons/placeholder.png'
+        })
+      ]),
+      $('<div/>', { 'class': 'username' }).append('@' + $('#username').val()),
+      $('<div/>', { 'class': 'message' }).append('<div>' + $('#message').val() + '</div>'),
+      $('<div/>', {
+        'class': 'timeago',
+      }).append([
+        $('<time/>', {
+          'class': 'timestamp',
+          'datetime': iso8601(new Date())
+        })
+      ]),
+      $('<div/>', { 'class': 'icon' }).append([
+        $('<i/>', {
+          'class': 'fa fa-solid fa-comment-dots comment',
+        }),
+        $('<i/>', {
+          'class': 'fa fa-solid fa-retweet retweet',
+        }),
+        $('<i/>', {
+          'class': 'fa fa-solid fa-heart like',
+        }),
+        $('<i/>', {
+          'class': 'fa fa-solid fa-share share'
+        }),
+      ])
+    ]);
+    $app.prepend($tweet);
+    // Clear input text
+    $('#username').val('');
+    $('#message').val('');
+    $("time.timestamp").timeago();
+  });
 
   // Update Feed button click event
   $('#update-feed').on('click', function () {
@@ -183,7 +226,7 @@ $(document).ready(function () {
     $('#update-feed').html('Update Feed');
   });
 
-  //Toggle function
+  // Button toggle function
   var handleUsernameClick = function () {
     var inputTxt = $('#update-feed').html()
     if (inputTxt === 'Update Feed') {
