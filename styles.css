@@ -1,13 +1,119 @@
-/* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
-html, body, #app {
-  min-height: 100vh;
-  margin: 0;
+@font-face {
+  font-family: got;
+  src: url('assets/fonts/GameofThrones.ttf')
 }
 
-/* Continue building out the CSS styling for your Twiddler app below! We got you started by
-providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
+body {
+  background: black url('assets/img/iron-throne.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
+  font-family: 'El Messiri', sans-serif;
+}
+/*
+  blue -  52,70, 87
+  ivory - 241 236 224
+  charcoal - 101 102 99
+  skipping stone 213 208 196
+*/
 
 #app {
-  background-color: green;
-  color: yellow;
+  color: white;
+}
+.title {
+  font-family: got;
+  text-align: center;
+  font-size: 5em;
+  font-weight: 900;
+  color:rgb(52, 70, 87);
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: rgb(241, 236, 224);
+}
+.row {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  margin: auto;
+}
+
+#update-feed {
+  background-color: rgb(52, 70, 87);
+  border: 2px solid rgb(241, 236, 224);
+  height: 50px;
+  width: 150px;
+  border-radius: 10px;
+  color: rgb(241, 236, 224);
+  margin: 10px;
+}
+
+#update-feed:hover {
+  background-color: rgb(241, 236, 224);
+  border: 2px solid rgb(241, 236, 224);
+  border-radius: 10px;
+  color: rgb(52, 70, 87);
+}
+
+#back-btn {
+  background-color: rgb(52, 70, 87);
+  border: 2px solid rgb(241, 236, 224);
+  height: 50px;
+  width: 150px;
+  border-radius: 10px;
+  color: rgb(241, 236, 224);
+  margin: 10px;
+}
+
+#back-btn:hover {
+  background-color: rgb(241, 236, 224);
+  border: 2px solid rgb(241, 236, 224);
+  border-radius: 10px;
+  color: rgb(52, 70, 87);
+}
+
+
+
+
+.profile-photo {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.wolf-pack {
+  margin: 10px;
+}
+.wp-avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+#friends-list {
+  list-style-type: none;
+  display: flex;
+  flex-flow: row;
+}
+
+.tweet {
+  background: rgb(52, 70, 87, 0.8);
+  border: 2px solid rgb(101, 102, 99);
+  max-width: 500px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: row;
+}
+
+.fas {
+  margin: 5px;
+  transition: all .2s ease-in-out;
+}
+
+.fas:hover {
+  transform: scale(1.3);
+}
+.timestamp {
+  font-style: oblique;
 }
