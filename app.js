@@ -4,6 +4,9 @@ $(document).ready(function(){
   //clears html in app
   $app.html('');
 
+  $("time.timeago").timeago();
+
+
   //Create new HTML elements
   var $title = $('<h1>Twiddler</h1>');
   var $button = $('<button id=update-feed>Update Feed</button>');
@@ -45,9 +48,11 @@ $(document).ready(function(){
       $message.text(tweet.message);
       $message.appendTo($tweet);
 
-      var $timestamp = $('<div class="timestamp"></div>')
-      $timestamp.text(Date());
+      var $timestamp = $('<div class="timestamp timeago"></div>');
+      $timestamp.text($.timeago(tweet.created_at));
       $timestamp.appendTo($tweet);
+
+
 
       var $comment = $('<img class="icon comment" src="assets/icons/placeholder.png">');
       $comment.appendTo($tweet);
@@ -72,3 +77,4 @@ $(document).ready(function(){
   renderFeed();
 
 });
+
