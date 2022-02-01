@@ -1,8 +1,9 @@
 $(document).ready(function(){
+  jQuery("time.timeago").timeago();
   var $app = $('#app');
   var $header = $('<header><h1>Twiddler</h1></header>');
-  var $updateFeedButton = $('<button>Update</button>').on("click", function(event) {
-    event.target.innerText === "Home" ? event.target.innerText = "Update" : function() {};
+  var $updateFeedButton = $('<button id="update-feed">Update</button>').on("click", function(event) {
+    $(event.target).text() === "Back" ? $(event.target).text("Update") : function() {};
   });
 
   var $newTweetForm = $('<div id="new_tweet_form"</div>');
@@ -15,7 +16,7 @@ $(document).ready(function(){
     while (index < window.users.length) {
       var $userName = $('<div id=user_name><p><b>' + window.users[index] + '</b></p></div>').on("click", function(event) {
           populateTweets(event.target.innerText);
-          $updateFeedButton.text("Home");
+          $updateFeedButton.text("Back");
         });
         $userName.appendTo($friendsList);
         index += 1;
@@ -30,6 +31,7 @@ $(document).ready(function(){
   $friendsList.appendTo($app);
 
   var populateTweets = function(userName) {
+    $feed.html("");
     var userFlag = false;
     if (!!userName) {
       userFlag = true;
@@ -41,43 +43,41 @@ $(document).ready(function(){
       while(index < stream.length){
 
         var tweet = stream[index];
-        var $tweet = $('<div class="tweet"></div>');
-        var $user = $('<span id="user"> @'+ tweet.user + '</span>');
+        var $tweet = $('<div class="tweet" id="tweet"></div>');
+        var $user = $('<span class="username" id="user"> @'+ tweet.user + '</span>');
         $user.on("click", function(event) {
-          $updateFeedButton.text("Home");
+          $updateFeedButton.text("Back");
           populateTweets(tweet.user);
 
         });
-        var $pic = $('<div id=user_image><img src='+tweet.profilePhotoURL+'></img></div>');
-        var $time = $('<span id="tweet_time"><h3>' + 'Posted at ' + tweet.created_at.toLocaleTimeString() + '</h3></span>');
-        var $message = $('<div><p id="message">' + tweet.message + '</p></div>');
+        var $pic = $('<div id="user_image"><img class="profile-photo" src='+tweet.profilePhotoURL+'></img></div>');
+        var $time = $('<span id="tweet_time"><h3 class="timestamp">' + 'Posted ' + $.timeago(tweet.created_at) + '</h3></span>');
+        var $message = $('<div class="message" id="message"><p>' + tweet.message + '</p></div>');
         $pic.appendTo($tweet);
         $user.appendTo($tweet);
         $message.appendTo($tweet);
         $time.appendTo($tweet);
 
-
-
         var $placeholderIcon = $('<img src="./assets/icons/placeholder.png"></img>');
-        var $commentIcon = $('<span class="tweet-icons"></span>').html("&#9998").hover(function(event) {
+        var $commentIcon = $('<i class="far fa-comments tweet-icons comment"></i>').hover(function(event) {
           $(event.target).css("color", "#2c3e50");
         },
         function(event) {
           $(event.target).css("color", "#f8f9f9");
         });
-        var $retweetIcon = $('<span class="tweet-icons"></span>').html("&#8634").hover(function(event) {
+        var $retweetIcon = $('<i class="fas fa-retweet tweet-icons retweet"></i>').hover(function(event) {
           $(event.target).css("color", "#2c3e50");
         },
         function(event) {
           $(event.target).css("color", "#f8f9f9");
         });
-        var $likeIcon = $('<span class="tweet-icons"></span>').html("&#9786").hover(function(event) {
+        var $likeIcon = $('<i class="far fa-thumbs-up tweet-icons like"></i>').hover(function(event) {
           $(event.target).css("color", "#2c3e50");
         },
         function(event) {
           $(event.target).css("color", "#f8f9f9");
         });
-        var $shareIcon = $('<span class="tweet-icons"></span>').html("&#10155").hover(function(event) {
+        var $shareIcon = $('<i class="fas fa-share tweet-icons share"></i>').hover(function(event) {
           $(event.target).css("color", "#2c3e50");
         },
         function(event) {
@@ -88,7 +88,7 @@ $(document).ready(function(){
         $tweet.append($tweetIcons);
         $tweet.prependTo($feed);
 
-        console.log(index);
+        // console.log($tweet);
         index += 1;
       }
     };
@@ -98,8 +98,9 @@ $(document).ready(function(){
   populatesFriends();
 
   $updateFeedButton.on("click", function(event) {
-    console.log(event);
+    // console.log(event);
+    $feed.html("");
     populateTweets();
   });
-
+  window.isItBeautifulYet = true // Sort of...
 });
