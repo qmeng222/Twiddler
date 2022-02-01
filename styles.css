@@ -11,3 +11,43 @@ providing a space for you to apply styles to your app's outermost HTML element -
   background-color: green;
   color: yellow;
 }
+
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: red;
+  color: aqua;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 250px 550px;
+  gap: 15px;
+  justify-content: center;
+  background-color: purple;
+}
+
+#sidebar {
+  background-color: cadetblue;
+}
+
+#tweet-container {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+}
+
+#new-tweet {
+  background-color: coral;
+  width: 100%;
+  height: 55px;
+}
+
+#feed {
+  background-color:cornsilk;
+  color: red;
+  width: 100%;
+}
