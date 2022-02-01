@@ -1,20 +1,16 @@
 
 $(document).ready(function() {
+  // Select already existing elements
   var $app = $('#app');
   $app.html('');
-
-  var $title = $('<div id="title">Twiddler</div>');
-  $title.appendTo($app);
-
-  var $updateFreed = $('<button id="update-feed">Update Feed</button>');
-  $updateFreed.appendTo($app);
-
-  var $feed = $('<div id="feed"></div>');
-  $feed.appendTo($app);
-
   var $tweets = $('.tweet');
-  $tweets.appendTo($feed);
 
+  // Create new HTML elements
+  var $title = $('<div id="title">Twiddler</div>');
+  var $updateFreed = $('<button id="update-feed">Update Feed</button>');
+  var $feed = $('<div id="feed"></div>');
+
+  // Create event handler functions
   var renderFeed = function(parent) {
     var index = streams.home.length - 1;
     while(index >= 0){
@@ -27,14 +23,19 @@ $(document).ready(function() {
   }
   renderFeed($feed);
 
-  // create an click event for update button
+  // Set event listeners
   $updateFreed.on("click", function(e) {
-    // Remove all previously existing Tweets from the Feed
     $(".tweet").remove();
-    // For each Tweet object in the stream array (in reverse order)
     renderFeed($feed);
   });
 
+ // Append new HTML elements to the DOM
+  $title.appendTo($app);
+  $updateFreed.appendTo($app);
+  $feed.appendTo($app);
+  $feed.appendTo($app);
+  $feed.appendTo($app);
+  $tweets.appendTo($feed);
 });
 
 
