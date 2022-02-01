@@ -43,7 +43,7 @@ var generateRandomTweet = function() {
   tweet.user = randomElement(users);
   tweet.message = randomMessage();
   tweet.created_at = new Date();
-  tweet.profilePhotoURL = './assets/img/' + tweet.user + '.png';
+  tweet.profilePhotoURL = 'assets/img/' + tweet.user + '.png';
   addTweet(tweet);
 };
 
@@ -58,6 +58,14 @@ var scheduleNextTweet = function() {
   }
 };
 scheduleNextTweet();
+
+var icons = {
+  comment : 'assets/icons/placeholder.png',
+  retweet : 'assets/icons/placeholder.png',
+  like : 'assets/icons/placeholder.png',
+  share : 'assets/icons/placeholder.png'
+};
+
 
 // utility function for letting students add "write a tweet" functionality
 // (note: not used by the rest of this file.)
@@ -75,3 +83,7 @@ var writeTweet = function(message) {
   tweet.profilePhotoURL = './assets/img/visitor.png';
   addTweet(tweet);
 };
+
+
+
+
