@@ -13,7 +13,7 @@ $(document).ready(function(){
   var $buttonDiv = $ ('<div class="buttons"></div>');
   var $homeFeedButton = $ ('<button id = "update-feed">Update Feed</button>');
   var $tweetDiv = $ ('<div class="tweetsContainer"></div>');
-  var $tweetMessage = $ ('<p class="message"></p>');
+  //var $tweetMessage = $ ('<p class="message"></p>');
 
 
 // Helper & event handler functions ------------------
@@ -49,6 +49,10 @@ $(document).ready(function(){
           $newTweetMessage.html('');
           $newTweetMessage.text(newTweetObj.message)
           $newTweetMessage.appendTo($newTweet);
+          var $newUser = $ ('<div class="username"></div>');
+          $newUser.html('');
+          $newUser.text('');
+          $newUser.appendTo($newTweet);
           orderCorrectly($newTweet);
 
         }
@@ -58,6 +62,18 @@ $(document).ready(function(){
   }
 
   renderFeed();
+  // var $newUser = $ ('<div class="username"></div>');
+  //         $newUser.html('');
+  //         $newUser.text('--- placeholder user ---')
+  //         $newUser.appendTo($newTweet);
+  //         orderCorrectly($newTweet);
+
+  //         var $newTweetMessage = $ ('<p class="message"></p>');
+  //         $newTweetMessage.html('');
+  //         $newTweetMessage.text('--placeholder message --')
+  //         $newTweetMessage.appendTo($newTweet);
+  //         orderCorrectly($newTweet);
+
 
 // Set event listeners (providing appropriate handlers as input)
   $homeFeedButton.on("click", function(event) {
