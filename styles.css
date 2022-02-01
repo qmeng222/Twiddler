@@ -8,6 +8,19 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
+  background-color: darkblue;
   color: yellow;
+
+  font-family: 'Merriweather', serif;
+  border-radius: 0px;
+  height: auto;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style: italic;
+  font-style: normal;
+  font-weight: lighter;
+  margin: auto;
+  padding: 0%;
+  text-align: center;
+  width: auto;
+  border: 0ch;
 }
