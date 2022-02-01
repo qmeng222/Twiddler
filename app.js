@@ -20,10 +20,10 @@ $(document).ready(function() {
       var $username = $('<span class="username"></span>')
       var $message = $(`<p class="message">${tweet.message}</p>`)
       var $timestamp = $(`<span class="timestamp" >${jQuery.timeago(tweet.created_at)}</span>`)
-      var $comment = $(`<img class="icon comment" src="assets/icons/placeholder.png">`);
-      var $retweet = $(`<img class="icon retweet" src="assets/icons/placeholder.png">`);
-      var $like = $(`<img class="icon like" src="assets/icons/placeholder.png">`);
-      var $share = $(`<img class="icon share" src="assets/icons/placeholder.png">`);
+      var $comment = $(`<i class="comment fas far fa-comments" src="assets/icons/placeholder.png"></i>`);
+      var $retweet = $(`<i class="retweet fab fa-twitter-square" src="assets/icons/placeholder.png"></i>`);
+      var $like = $(`<i class="like fab fa-gratipay" src="assets/icons/placeholder.png"></i>`);
+      var $share = $(`<i class="share fas fa-share-alt-square" src="assets/icons/placeholder.png"></i>`);
       $username.text('@' + tweet.user);
       $tweet.appendTo(parent);
       $profilePic.appendTo($tweet);
