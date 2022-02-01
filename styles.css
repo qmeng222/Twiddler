@@ -17,14 +17,21 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 
 h1 {
-
-
   text-align: center;
   color:#360c5e;
   font-size: 90px;
   font-family: "Nunito", Verdana, Geneva, Tahoma, sans-serif;
   text-decoration : underline;
+  height: auto;
+  font-weight: bold;
 }
+h2 {
+  height: auto;
+  text-align: center;
+  font-style: italic;
+}
+
+
 img {
   size: 10px;
   display: inline;
@@ -32,9 +39,23 @@ img {
   margin: 2px;
   align-items: center;
 }
-i {
+
+.icon {
   margin: 60px;
   align-items: center;
+  transition: 1s;
+}
+
+.icon:hover {
+  transform: scale(1.5);
+  transition: none;
+
+}
+
+.icon:focus,
+.icon:active {
+  transform: scale(1.6);
+  transition : none;
 }
 
 .profile-photo {
@@ -54,11 +75,13 @@ button {
 
 .tweet {
   color: rgb(0, 0, 0);
-  border-style: solid;
+  border: solid rgb(94, 7, 132);
   border-spacing: 10px;
+  width: auto;
 }
 
 .message {
+  width: auto;
   color:rgb(61, 18, 32);
   font-family: "Nunito", sans-serif;
   text-align: center;
@@ -79,7 +102,7 @@ button {
 }
 
 .timestamp {
-  padding: 1rem;
+  padding: .8rem;
   font-size: 1.2rem;
   font-family: "Nunito";
   display: webkit-box;
