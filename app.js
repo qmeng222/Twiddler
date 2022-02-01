@@ -30,7 +30,8 @@ $(document).ready(function(){
 
   var renderFeed = function() {
     var seen = {};
-    $('.tweet').each(function() {
+    $('.message').each(function() {
+      console.log($(this).text());
       var message = $(this).text();
       if (seen[message]) {
         $(this).remove();
@@ -38,23 +39,30 @@ $(document).ready(function(){
         seen[message] = true;
       }
     });
+    //I HAVE REPLACED .TWEET WITH .MESSAGE ABOVE SO THAT MAY FIX THE PROB.. NOT WHOLE STRING??
     for (var i = 0; i < streams.home.length; i++) {
-      var fullTweet = '@' + streams.home[i].user + ': ' + streams.home[i].message;
+      var fullTweet = streams.home[i].message;
         if (seen[fullTweet] === undefined) {
           var newTweetObj = streams.home[i];
           var $newTweet = $ ('<div class="tweet"></div>');
-          $newTweet.html('');
-          $newTweet.text('@' + newTweetObj.user + ': ' );
+          $newTweet.text('');
+          $newTweet.text('');
+          //$newTweet.text(''); THIS CAUSES BREAK AT
+          //console.log(seen[fullTweet]);
+
           var $newTweetMessage = $ ('<p class="message"></p>');
           $newTweetMessage.html('');
-          $newTweetMessage.text(newTweetObj.message)
+          $newTweetMessage.text(streams.home[i].message)
           $newTweetMessage.appendTo($newTweet);
+          orderCorrectly($newTweet);
+          //console.log($('.message'));
+
           var $newUser = $ ('<div class="username"></div>');
           $newUser.html('');
-          $newUser.text('');
+          $newUser.text('@' + newTweetObj.user + ':' );
           $newUser.appendTo($newTweet);
           orderCorrectly($newTweet);
-
+          // //console.log($newTweet)
         }
     }
 
