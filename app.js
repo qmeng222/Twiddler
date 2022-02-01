@@ -7,6 +7,14 @@ $(document).ready(function() {
 
   var $title = $('<h1 class="title">Twiddler</h1>');
     $title.appendTo($app);
+  var $friends = $('<ul id="friends-list"></ul>');
+    $friends.appendTo($app);
+    var $shawndrost = $('<li class="friend">shawndrost</li>');
+    var $mracus = $('<li class="friend">mracus</li>');
+    var $sharksforcheap = $('<li class="friend">sharksforcheap</li>');
+    var $douglascalhoun = $('<li class="friend">douglascalhoun</li>');
+    $friends.append($sharksforcheap, $shawndrost, $mracus, $douglascalhoun);
+
   var $refreshFeed = $('<div id="update-feed"></div>');
     $refreshFeed.text('Update Feed');
     $refreshFeed.appendTo($app);
@@ -34,6 +42,7 @@ $(document).ready(function() {
     var $timestamp = $('<div class="timestamp"></div>');
     var $tweet = $('<div class="tweet"></div>');
 
+
     $username.text('@' + obj.user);
     $message.text(obj.message);
     var timeAgo = jQuery.timeago(obj.created_at);
@@ -43,6 +52,43 @@ $(document).ready(function() {
       $tweet.appendTo($feed);
 
     $username.on("click", function(event) {
+      $( "#feed" ).empty();
+      $refreshFeed.text('Back');
+      for (var y = streamArray.length - 1; y >= 0; y--) {
+        if (('@' + streamArray[y].user) === event.target.innerText) {
+        appender(streamArray[y]);
+        }
+      }
+    });
+    $shawndrost.on("click", function(event) {
+      console.log(event);
+      $( "#feed" ).empty();
+      $refreshFeed.text('Back');
+      for (var y = streamArray.length - 1; y >= 0; y--) {
+        if ('@' + streamArray[y].user === event.target.innerText) {
+        appender(streamArray[y]);
+        }
+      }
+    });
+    $douglascalhoun.on("click", function(event) {
+      $( "#feed" ).empty();
+      $refreshFeed.text('Back');
+      for (var y = streamArray.length - 1; y >= 0; y--) {
+        if (('@' + streamArray[y].user) === event.target.innerText) {
+        appender(streamArray[y]);
+        }
+      }
+    });
+    $mracus.on("click", function(event) {
+      $( "#feed" ).empty();
+      $refreshFeed.text('Back');
+      for (var y = streamArray.length - 1; y >= 0; y--) {
+        if (('@' + streamArray[y].user) === event.target.innerText) {
+        appender(streamArray[y]);
+        }
+      }
+    });
+    $sharksforcheap.on("click", function(event) {
       $( "#feed" ).empty();
       $refreshFeed.text('Back');
       for (var y = streamArray.length - 1; y >= 0; y--) {
