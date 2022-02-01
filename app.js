@@ -13,6 +13,8 @@ $(document).ready(function(){
   var $buttonDiv = $ ('<div class="buttons"></div>');
   var $homeFeedButton = $ ('<button id = "update-feed">Update Feed</button>');
   var $tweetDiv = $ ('<div class="tweetsContainer"></div>');
+  var $tweetMessage = $ ('<p class="message"></p>');
+
 
 // Helper & event handler functions ------------------
 
@@ -24,6 +26,8 @@ $(document).ready(function(){
   }
 
   //-------RENDER FEED FUNCTION -----------
+
+
   var renderFeed = function() {
     var seen = {};
     $('.tweet').each(function() {
@@ -37,13 +41,19 @@ $(document).ready(function(){
     for (var i = 0; i < streams.home.length; i++) {
       var fullTweet = '@' + streams.home[i].user + ': ' + streams.home[i].message;
         if (seen[fullTweet] === undefined) {
-          var newTweet = streams.home[i];
-          var $newTweet = $('<div class="tweet"></div>');
+          var newTweetObj = streams.home[i];
+          var $newTweet = $ ('<div class="tweet"></div>');
           $newTweet.html('');
-          $newTweet.text('@' + newTweet.user + ': ' + newTweet.message);
+          $newTweet.text('@' + newTweetObj.user + ': ' );
+          var $newTweetMessage = $ ('<p class="message"></p>');
+          $newTweetMessage.html('');
+          $newTweetMessage.text(newTweetObj.message)
+          $newTweetMessage.appendTo($newTweet);
           orderCorrectly($newTweet);
+
         }
     }
+
     return renderFeed;
   }
 
@@ -56,10 +66,12 @@ $(document).ready(function(){
   });
 
 // Append new HTML elements to the DOM
+
   $homeFeedSection.appendTo($app);
   $buttonDiv.appendTo($homeFeedSection);
   $homeFeedButton.appendTo($buttonDiv);
   $tweetDiv.appendTo($homeFeedSection);
+  //$tweetMessage.appendTo('.tweet');
 
 });
 
