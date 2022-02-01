@@ -60,8 +60,20 @@ $(document).ready(function(){
           $newTweetMessage.appendTo($newTweet);
           orderCorrectly($newTweet);
 
-          var $image = $ ('<img class="profile-photo">');
+          var $image = $ ('<img class="profile-photo"></img>');
           $image.appendTo($newTweet);
+          orderCorrectly($newTweet);
+
+          var $icons = $ ('<img class="icon"></img>');
+          var $comment = $ ('<img class="comment"src="assets/icons/placeholder.png"></img>');
+          $comment.appendTo($icons);
+          var $retweet = $ ('<img class="retweet"src="assets/icons/placeholder.png"></img>');
+          $retweet.appendTo($icons);
+          var $like = $ ('<img class="like"src="assets/icons/placeholder.png"></img>');
+          $like.appendTo($icons);
+          var $share = $ ('<img class="share"src="assets/icons/placeholder.png"></img>');
+          $share.appendTo($icons);
+          $icons.appendTo($newTweet);
           orderCorrectly($newTweet);
 
           var $timeStamp = $ ('<div class="timestamp"></div>');
