@@ -3,7 +3,6 @@ $(document).ready(function() {
   // Select already existing elements
   var $app = $('#app');
   $app.html('');
-  var $tweets = $('.tweet');
 
   // Create new HTML elements
   var $title = $('<div id="title">Twiddler</div>');
@@ -16,8 +15,24 @@ $(document).ready(function() {
     while(index >= 0){
       var tweet = streams.home[index];
       var $tweet = $('<div class="tweet"></div>');
-      $tweet.text('@' + tweet.user + ': ' + tweet.message);
+      var $profilePic = $(`<img class="profile-photo" src="assets/img/${tweet.user}.png">`);
+      var $username = $('<span class="username"></span>')
+      var $message = $(`<p class="message">${tweet.message}</p>`)
+      var $timestamp = $(`<span class="timestamp">${tweet.created_at}</span>`)
+      var $comment = $(`<img class="icon comment" src="assets/icons/placeholder.png">`);
+      var $retweet = $(`<img class="icon retweet" src="assets/icons/placeholder.png">`);
+      var $like = $(`<img class="icon like" src="assets/icons/placeholder.png">`);
+      var $share = $(`<img class="icon share" src="assets/icons/placeholder.png">`);
+      $username.text('@' + tweet.user);
       $tweet.appendTo(parent);
+      $profilePic.appendTo($tweet);
+      $username.appendTo($tweet);
+      $message.appendTo($tweet);
+      $timestamp.appendTo($tweet);
+      $comment.appendTo($tweet);
+      $retweet.appendTo($tweet);
+      $like.appendTo($tweet);
+      $share.appendTo($tweet);
       index -= 1;
     }
   }
@@ -35,7 +50,6 @@ $(document).ready(function() {
   $feed.appendTo($app);
   $feed.appendTo($app);
   $feed.appendTo($app);
-  $tweets.appendTo($feed);
 });
 
 
