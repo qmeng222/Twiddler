@@ -9,6 +9,12 @@ $(document).ready(function() {
   var $updateFreed = $('<button id="update-feed">Update Feed</button>');
   $updateFreed.appendTo($app);
 
+  var $feed = $('<div id="feed"></div>');
+  $feed.appendTo($app);
+
+  var $tweets = $('.tweet');
+  $tweets.appendTo($feed);
+
   var renderFeed = function(parent) {
     var index = streams.home.length - 1;
     while(index >= 0){
@@ -19,13 +25,7 @@ $(document).ready(function() {
       index -= 1;
     }
   }
-  renderFeed($app);
-
-  var $feed = $('<div id="feed"></div>');
-  $feed.appendTo($app);
-
-  var $tweets = $('.tweet');
-  $tweets.appendTo($feed);
+  renderFeed($feed);
 
   // create an click event for update button
   $updateFreed.on("click", function(e) {
@@ -34,7 +34,10 @@ $(document).ready(function() {
     // For each Tweet object in the stream array (in reverse order)
     renderFeed($feed);
   });
+
 });
+
+
 
 
 
