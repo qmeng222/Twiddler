@@ -31,7 +31,6 @@ $(document).ready(function(){
   var renderFeed = function() {
     var seen = {};
     $('.message').each(function() {
-      console.log($(this).text());
       var message = $(this).text();
       if (seen[message]) {
         $(this).remove();
@@ -42,27 +41,34 @@ $(document).ready(function(){
     //I HAVE REPLACED .TWEET WITH .MESSAGE ABOVE SO THAT MAY FIX THE PROB.. NOT WHOLE STRING??
     for (var i = 0; i < streams.home.length; i++) {
       var fullTweet = streams.home[i].message;
+      console.log(streams.home[i]);
         if (seen[fullTweet] === undefined) {
           var newTweetObj = streams.home[i];
           var $newTweet = $ ('<div class="tweet"></div>');
           $newTweet.text('');
           $newTweet.text('');
-          //$newTweet.text(''); THIS CAUSES BREAK AT
-          //console.log(seen[fullTweet]);
-
-          var $newTweetMessage = $ ('<p class="message"></p>');
-          $newTweetMessage.html('');
-          $newTweetMessage.text(streams.home[i].message)
-          $newTweetMessage.appendTo($newTweet);
-          orderCorrectly($newTweet);
-          //console.log($('.message'));
 
           var $newUser = $ ('<div class="username"></div>');
           $newUser.html('');
           $newUser.text('@' + newTweetObj.user + ':' );
           $newUser.appendTo($newTweet);
           orderCorrectly($newTweet);
-          // //console.log($newTweet)
+
+          var $newTweetMessage = $ ('<p class="message"></p>');
+          $newTweetMessage.html('');
+          $newTweetMessage.text(streams.home[i].message)
+          $newTweetMessage.appendTo($newTweet);
+          orderCorrectly($newTweet);
+
+          var $image = $ ('<img class="profile-photo">');
+          $image.appendTo($newTweet);
+          orderCorrectly($newTweet);
+
+          var $timeStamp = $ ('<div class="timestamp"></div>');
+          $timeStamp.appendTo($newTweet);
+          $timeStamp.text(streams.home[i].created_at);
+          orderCorrectly($newTweet);
+
         }
     }
 
