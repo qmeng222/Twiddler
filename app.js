@@ -1,5 +1,6 @@
 
 $(document).ready(function() {
+  $("time.timeago").timeago();
   // Select already existing elements
   var $app = $('#app');
   $app.html('');
@@ -18,7 +19,7 @@ $(document).ready(function() {
       var $profilePic = $(`<img class="profile-photo" src="assets/img/${tweet.user}.png">`);
       var $username = $('<span class="username"></span>')
       var $message = $(`<p class="message">${tweet.message}</p>`)
-      var $timestamp = $(`<span class="timestamp">${tweet.created_at}</span>`)
+      var $timestamp = $(`<span class="timestamp" >${jQuery.timeago(tweet.created_at)}</span>`)
       var $comment = $(`<img class="icon comment" src="assets/icons/placeholder.png">`);
       var $retweet = $(`<img class="icon retweet" src="assets/icons/placeholder.png">`);
       var $like = $(`<img class="icon like" src="assets/icons/placeholder.png">`);
