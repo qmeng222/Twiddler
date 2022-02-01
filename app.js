@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  jQuery("time.timeago").timeago();
   var $app = $ ('#app');
   $app.html('');
 
@@ -78,7 +79,7 @@ $(document).ready(function(){
 
           var $timeStamp = $ ('<div class="timestamp"></div>');
           $timeStamp.appendTo($newTweet);
-          $timeStamp.text(streams.home[i].created_at);
+          $timeStamp.text(jQuery.timeago(streams.home[i].created_at));
           orderCorrectly($newTweet);
 
         }
