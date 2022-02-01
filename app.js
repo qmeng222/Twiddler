@@ -1,42 +1,30 @@
 $(document).ready(function(){
-  var $app = $('#app');
+  var $app = $ ('#app');
   $app.html('');
 
-  var $title = $('<h1>Twiddler</h1>');
+  var $title = $ ('<h1>Twiddler</h1>');
   $title.appendTo($app);
-  $title.on("click", function(event) {
-    console.log(event);
+  $title.on ("click", function(event) {
     alert('The title of this page is: ' + event.target.innerText);
   });
 
-  // --- HOME FEED SETION --->
-  var trackingObj = {};
-  var $homeFeedSection = $('<section id="feed"></section>');
-  var $buttonDiv = $('<div class="buttons"></div>');
-  var $homeFeedButton = $('<button id = "update-feed">Update Feed</button>');
-  var $tweetDiv = $('<div class="tweetsContainer"></div>');
-  $homeFeedButton.appendTo($buttonDiv);
-  $buttonDiv.appendTo($homeFeedSection);
-  $tweetDiv.appendTo($homeFeedSection);
+// Create new HTML elements ----------------
+  var $homeFeedSection = $ ('<section id="feed"></section>');
+  var $buttonDiv = $ ('<div class="buttons"></div>');
+  var $homeFeedButton = $ ('<button id = "update-feed">Update Feed</button>');
+  var $tweetDiv = $ ('<div class="tweetsContainer"></div>');
 
+// Helper & event handler functions ------------------
 
-  var trackingArr = [];
-  var index = streams.home.length - 1;
-  while(index >= 0){
-    var tweet = streams.home[index];
-    var $tweet = $('<div class="tweet"></div>');
-   // $tweet.text('');
-    $tweet.text('@' + tweet.user + ': ' + tweet.message);
-    $tweet.appendTo($tweetDiv);
-    trackingObj[tweet.message] = 1;
-    index -= 1;
+  //-------PREPEND & APPEND CORRECTLY ------
+  var orderCorrectly = function(input){
+    input.prependTo($tweetDiv);
+    $tweetDiv.appendTo($homeFeedSection);
+    return orderCorrectly;
   }
 
-  $homeFeedSection.appendTo($app);
-
-
-
-  $homeFeedButton.on("click", function(event) {
+  //-------RENDER FEED FUNCTION -----------
+  var renderFeed = function() {
     var seen = {};
     $('.tweet').each(function() {
       var message = $(this).text();
@@ -47,23 +35,31 @@ $(document).ready(function(){
       }
     });
     for (var i = 0; i < streams.home.length; i++) {
-      var fullTweet = '@'+streams.home[i].user + ': '+ streams.home[i].message;
-      var time = streams.home[i].created_at;
+      var fullTweet = '@' + streams.home[i].user + ': ' + streams.home[i].message;
         if (seen[fullTweet] === undefined) {
           var newTweet = streams.home[i];
           var $newTweet = $('<div class="tweet"></div>');
+          $newTweet.html('');
           $newTweet.text('@' + newTweet.user + ': ' + newTweet.message);
-          $newTweet.prependTo($tweetDiv);
-          $tweetDiv.appendTo($homeFeedSection);
+          orderCorrectly($newTweet);
         }
     }
-     return event;
+    return renderFeed;
+  }
+
+  renderFeed();
+
+// Set event listeners (providing appropriate handlers as input)
+  $homeFeedButton.on("click", function(event) {
+    renderFeed();
+    return event;
   });
 
-
-
-
-
+// Append new HTML elements to the DOM
+  $homeFeedSection.appendTo($app);
+  $buttonDiv.appendTo($homeFeedSection);
+  $homeFeedButton.appendTo($buttonDiv);
+  $tweetDiv.appendTo($homeFeedSection);
 
 });
 
