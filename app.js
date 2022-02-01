@@ -13,6 +13,7 @@ $(document).ready(function () {
     console.log(event);
     alert('The title of this page is: ' + event.target.innerText);
   });
+
   $button.on("click", function (event) {
     console.log(event)
     alert("Button has been pressed " + event.target.innerText)
@@ -25,10 +26,18 @@ $(document).ready(function () {
 
       var elapsed = Date.now() - tweet.created_at;
       elapsed = Math.floor(elapsed / 1000 / 60);
-      commentIcon = './assets/icons/placeholder.png';
-      retweetIcon = './assets/icons/placeholder.png';
-      likeIcon = './assets/icons/placeholder.png';
-      shareIcon = './assets/icons/placeholder.png';
+      // commentIcon = './assets/icons/placeholder.png';
+      // retweetIcon = './assets/icons/placeholder.png';
+      // likeIcon = './assets/icons/placeholder.png';
+      // shareIcon = './assets/icons/placeholder.png';
+
+      //icons
+      faCommentIcon = "icon comment fas fa-thumbs-up fa-3x";
+      faRetweetIcon = "icon retweet fas fa-satellite-dish fa-3x";
+      faLikeIcon = "icon like fas fa-robot fa-3x";
+      faShareIcon = "icon share fas fa-rocket fa-3x";
+
+
 
 
       //profile photo
@@ -37,21 +46,21 @@ $(document).ready(function () {
       $profilePhoto.attr('src', imgsrc);
 
       //icons
-      $commentIcon = $('<img class="comment">');
-      $commentIcon.attr('src', commentIcon);
-      $retweetIcon = $('<img class="retweet">');
-      $retweetIcon.attr('src', retweetIcon);
-      $likeIcon = $('<img class="like">');
-      $likeIcon.attr('src', likeIcon);
-      $shareIcon = $('<img class="share">');
-      $shareIcon.attr('src', shareIcon);
+      $commentIcon = $('<i></i>');
+      $commentIcon.attr('class', faCommentIcon);
+      $retweetIcon = $('<i></i>');
+      $retweetIcon.attr('class', faRetweetIcon);
+      $likeIcon = $('<i></i>');
+      $likeIcon.attr('class', faLikeIcon);
+      $shareIcon = $('<i></i>');
+      $shareIcon.attr('class', faShareIcon);
 
 
 
       var $message = $('<div class="message"></div>');
       var $username = $('<div class="username"></div>');
-      var $timestamp = $('<div class="timestamp"></div>');
-      //var timeAgo = jQuery.timeago(tweet.create_at)
+      var $timestamp = $('<div class="timestamp"></div><br>');
+
 
       //text updates & inputs
       $message.text(tweet.message);
@@ -75,6 +84,11 @@ $(document).ready(function () {
       $likeIcon.appendTo($tweet);
       $shareIcon.appendTo($tweet);
 
+      $username.on("click", function (event) {
+        console.log(event);
+        alert("Button has been pressed ");
+      })
+
       index -= 1;
     }
 
@@ -89,10 +103,18 @@ $(document).ready(function () {
 
     var elapsed = Date.now() - tweet.created_at;
     elapsed = Math.floor(elapsed / 1000 / 60);
-    commentIcon = './assets/icons/placeholder.png';
-    retweetIcon = './assets/icons/placeholder.png';
-    likeIcon = './assets/icons/placeholder.png';
-    shareIcon = './assets/icons/placeholder.png';
+    // commentIcon = './assets/icons/placeholder.png';
+    // retweetIcon = './assets/icons/placeholder.png';
+    // likeIcon = './assets/icons/placeholder.png';
+    // shareIcon = './assets/icons/placeholder.png';
+
+    //icons
+    faCommentIcon = "icon comment fas fa-thumbs-up fa-3x";
+    faRetweetIcon = "icon retweet fas fa-satellite-dish fa-3x";
+    faLikeIcon = "icon like fas fa-robot fa-3x";
+    faShareIcon = "icon share fas fa-rocket fa-3x";
+
+
 
 
     //profile photo
@@ -101,21 +123,21 @@ $(document).ready(function () {
     $profilePhoto.attr('src', imgsrc);
 
     //icons
-    $commentIcon = $('<img class="comment">');
-    $commentIcon.attr('src', commentIcon);
-    $retweetIcon = $('<img class="retweet">');
-    $retweetIcon.attr('src', retweetIcon);
-    $likeIcon = $('<img class="like">');
-    $likeIcon.attr('src', likeIcon);
-    $shareIcon = $('<img class="share">');
-    $shareIcon.attr('src', shareIcon);
+    $commentIcon = $('<i></i>');
+    $commentIcon.attr('class', faCommentIcon);
+    $retweetIcon = $('<i></i>');
+    $retweetIcon.attr('class', faRetweetIcon);
+    $likeIcon = $('<i></i>');
+    $likeIcon.attr('class', faLikeIcon);
+    $shareIcon = $('<i></i>');
+    $shareIcon.attr('class', faShareIcon);
 
 
 
     var $message = $('<div class="message"></div>');
     var $username = $('<div class="username"></div>');
-    var $timestamp = $('<div class="timestamp"></div>');
-    //var timeAgo = jQuery.timeago(tweet.create_at)
+    var $timestamp = $('<div class="timestamp"></div><br>');
+
 
     //text updates & inputs
     $message.text(tweet.message);
@@ -139,14 +161,15 @@ $(document).ready(function () {
     $likeIcon.appendTo($tweet);
     $shareIcon.appendTo($tweet);
 
+    $username.on("click", function (event) {
+      console.log(event);
+      alert("Button has been pressed ");
+    })
+
+
+
     index -= 1;
   }
-
-
-
-
-
-
 
 
 
