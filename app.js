@@ -29,15 +29,34 @@ $(document).ready(function(){
     return $tweet;
   };
 
-  var renderFeed = function() {
+  var renderFeed = function(user) {
     $homeFeed.empty();
-    var index = streams.home.length - 1;
-    while(index >= 0){
-      var tweet = streams.home[index];
-      var $tweet = renderTweet(tweet);
-      $tweet.appendTo($homeFeed);
-      index -= 1;
+    if (user === undefined) {
+      var index = streams.home.length - 1;
+      while(index >= 0){
+        var tweet = streams.home[index];
+        var $tweet = renderTweet(tweet);
+        $tweet.appendTo($homeFeed);
+        index -= 1;
+      }
+    } else {
+      var index = streams.users[user].length - 1;
+      while(index >= 0){
+        var tweet = streams.users[user][index];
+        var $tweet = renderTweet(tweet);
+        $tweet.appendTo($homeFeed);
+        index -= 1;
+      }
+
     }
+
+  };
+
+  var handleUserNameFeed = function () {
+    if ($updateFeedButton.text() === "Update Feed") {
+      $updateFeedButton.text('Back');
+    }
+    renderFeed($(this).text().substring(1));
   };
 
   var makeThisColor = function(color){
@@ -53,11 +72,19 @@ $(document).ready(function(){
   renderFeed(); //This one is special; it just runs every time the page is reloaded.
 
   //refresh home feed
-  $updateFeedButton.on("click", renderFeed);
+  $updateFeedButton.on("click", function() {
+    if ($(this).text() === "Back") {
+      $(this).text("Update Feed");
+    }
+    renderFeed();
+  });
 
   //toggle icons to blue when hovering over them
   $app.on("mouseenter", ".icon", makeThisColor("blue"));
   $app.on("mouseleave", ".icon", makeThisColor("yellow"));
+
+  //render username feed
+  $app.on("click", ".username", handleUserNameFeed);
 
 
 
