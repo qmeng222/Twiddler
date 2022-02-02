@@ -7,13 +7,13 @@ $(document).ready(function(){
   *****************************************************************************/
   // Header
   var $header = $('<header></header>');
-  var $logo = $('<div id="logo">Logo will go here</div>');
+  var $logo = $('<div id="logo"><h1>Twizzler<h1></div>');
   // Main Container
   var $mainContainer = $('<main></main>');
   // Sidebar
   var $sidebar = $('<div id="sidebar"></div>');
   // Friends list
-  var $friendsListHeader = $('<h1>Friends List:</h1>');
+  var $friendsListHeader = $('<h1>Friends List</h1>');
   var $friendsList = $('<ul id="friends-list"></ul>');
   // Tweet Container
   var $tweetContainer = $('<div id="tweet-container"></div>');

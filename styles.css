@@ -3,15 +3,11 @@ html, body, #app {
   min-height: 100vh;
   margin: 0;
   font-family: 'Outfit', sans-serif;
+  background-color: whitesmoke;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
-
-#app {
-  background-color: green;
-  color: yellow;
-}
 
 header {
   position: sticky;
@@ -19,8 +15,15 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  background-color: red;
-  color: aqua;
+  background-color: black;
+  z-index: 1000000;
+}
+
+#logo h1 {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 800;
+  font-size: 54px;
+  color: white;
 }
 
 main {
@@ -29,35 +32,60 @@ main {
   gap: 15px;
   padding-top: 15px;
   justify-content: center;
-  background-color: purple;
+  background-color: whitesmoke;
 }
 
 #sidebar {
-  background-color: cadetblue;
+  background-color: rgb(220, 220, 220);
   height: fit-content;
   text-align: center;
+  border-radius: 10px;
+}
+
+#sidebar h1 {
+  color: rgb(216, 2, 134);
 }
 
 #sidebar li {
   list-style-type: none;
   text-align: left;
+  color: rgb(0, 0, 120);
 }
 
 #sidebar li:hover, .username:hover {
   cursor: pointer;
+  color:rgb(216, 2, 134);
 }
 
 #tweet-container {
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background-color: transparent;
+  align-items: center;
+  gap: 10px;
 }
 
-#new-tweet {
-  background-color: coral;
-  width: 100%;
-  height: 55px;
+#update-feed {
+  color: rgb(216, 2, 134);
+  border: 2px solid rgb(216, 2, 134);
+  border-radius: 15px;
+  padding: 12px 24px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #D80286;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
 }
+
+#update-feed:hover {
+  box-shadow: inset 400px 0 0 0 #D80286;
+  color: white;
+}
+
 
 .tweet {
   display: flex;
@@ -66,6 +94,9 @@ main {
   margin-bottom: 5px;
   padding: 10px;
   gap: 8px;
+  border-radius: 10px;
+  /* filter: drop-shadow(0 0 0.1rem rgb(30, 30, 30)); */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .tweet .tweet-header {
@@ -84,7 +115,7 @@ main {
 }
 
 .tweet .username {
-  color: darkolivegreen;
+  color: rgb(0, 0, 120);
   font-weight: 900;
 }
 
@@ -93,6 +124,10 @@ main {
   color: rgb(120, 120, 120);
   font-size: 12px;
   text-align: left;
+}
+
+.tweet .message {
+  color: rgb(30, 0, 30);
 }
 
 .tweet .tweet-footer {
@@ -104,20 +139,14 @@ main {
 }
 
 i {
-  color: purple;
+  color: rgb(170, 170, 170);
 }
 
 i:hover {
-  color: green;
-}
-
-#update-feed {
-  background-color: cornflowerblue;
-  color: crimson;
+  color: rgb(216, 2, 134);
+  cursor: pointer;
 }
 
 #feed {
-  background-color:cornsilk;
-  color: red;
   width: 100%;
 }
