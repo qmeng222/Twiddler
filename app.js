@@ -5,7 +5,7 @@ $(document).ready(function(){
 
   // Create new HTML elements
   var $feed = $('<div id="feed"></div>');
-  var $title = $('<h1>Twimbledon</h1>');
+  var $title = $('<h1>TWIMBLEDON</h1>');
   var $UpdateFeed= $('<button id="update-feed" type="button">Update Feed</button>')
   var $tweet = $('<div class="tweet"></div>');
 
@@ -20,9 +20,11 @@ $(document).ready(function(){
     //to be finished in extra credit
   }
 
+
+
   var renderFeed = function(user) {
     $feed.html('');
-    document.querySelector("button").innerText = "Update Feed";
+
     var index = streams.home.length - 1;
     while(index >= 0){
       var tweet = streams.home[index];
@@ -48,10 +50,13 @@ $(document).ready(function(){
 
       index -= 1;
 
+      if($UpdateFeed.text() === 'Back') {
+        $UpdateFeed.text('Update Feed');
+      }
+
       $username.on("click", function(event) {
         console.log(event.target.innerText.slice(1))
         $feed.html('');
-        document.querySelector("button").innerText = "Back";
         var person = event.target.innerText.slice(1);
         var index = streams.users[person].length - 1;
         while(index >= 0){
@@ -77,6 +82,9 @@ $(document).ready(function(){
           $share.appendTo($tweet);
           index -= 1;
         }
+        if($UpdateFeed.text() === 'Update Feed') {
+          $UpdateFeed.text('Back');
+        }
       });
     }
   };
@@ -86,6 +94,8 @@ $(document).ready(function(){
   $title.on("click", handleTitleClick);
 
   $UpdateFeed.on("click", renderFeed);
+
+
 
   // Append new HTML elements to the DOM
   $app.html('');
