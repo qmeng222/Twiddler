@@ -17,8 +17,6 @@ $(document).ready(function(){
   var $friendsList = $('<ul id="friends-list"></ul>');
   // Tweet Container
   var $tweetContainer = $('<div id="tweet-container"></div>');
-  // New Tweet
-  var $newTweet = $('<div id="new-tweet"></div>');
   // Update Feed Button
   var $updateFeedButton = $('<button id="update-feed"></button>');
   $updateFeedButton.text('Update Feed');
@@ -77,8 +75,6 @@ $(document).ready(function(){
   }
   // Tweet Container
   $tweetContainer.appendTo($mainContainer);
-  // New Tweet
-  $newTweet.appendTo($tweetContainer);
   // Update Feed Button
   $updateFeedButton.appendTo($tweetContainer);
   // Feed
