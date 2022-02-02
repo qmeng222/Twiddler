@@ -61,18 +61,18 @@ $(document).ready(function(){
           $newTweetMessage.appendTo($newTweet);
           orderCorrectly($newTweet);
 
-          var $image = $ ('<img class="profile-photo"></img>');
+          var $image = $ ('<img class="profile-photo"src="assets/img/>' + newTweetObj.user + '.png"></img>');
           $image.appendTo($newTweet);
           orderCorrectly($newTweet);
 
-          var $icons = $ ('<img class="icon"></img>');
-          var $comment = $ ('<img class="comment"src="assets/icons/placeholder.png"></img>');
+          var $icons = $ ('<span class="icon"style="font-size: 1em; color: Tomato;">');
+          var $comment = $ ('<i class="icon comment far fa-comment"></i>');
           $comment.appendTo($icons);
-          var $retweet = $ ('<img class="retweet"src="assets/icons/placeholder.png"></img>');
+          var $retweet = $ ('<i class="icon retweet fas fa-retweet"></i>');
           $retweet.appendTo($icons);
-          var $like = $ ('<img class="like"src="assets/icons/placeholder.png"></img>');
+          var $like = $ ('<i class="icon like fas fa-thubs-up"></i>');
           $like.appendTo($icons);
-          var $share = $ ('<img class="share"src="assets/icons/placeholder.png"></img>');
+          var $share = $ ('<i class="icon share fas fa-share"></i>');
           $share.appendTo($icons);
           $icons.appendTo($newTweet);
           orderCorrectly($newTweet);
