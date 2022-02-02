@@ -8,27 +8,22 @@ $(document).ready(function(){
   var $friendsList = $('<div id="friends_list"></div>');
 
   // $app.html('');
-  $updateFeedButton.appendTo($header);
-  $header.appendTo($app)
-  $newTweetForm.appendTo($app);
-  $feed.appendTo($app);
-  $friendsList.appendTo($app);
 
-  var populatesFriends = function () {
+  var renderFriends = function () {
     var index = 0;
     while (index < window.users.length) {
       var $userName = $('<div id=user_name><p><b>' + window.users[index] + '</b></p></div>').on("click", function(event) {
-          populateTweets(event.target.innerText);
-          $updateFeedButton.text("Back");
-        });
-        $userName.appendTo($friendsList);
-        index += 1;
-      };
+        renderFeed(event.target.innerText);
+        $updateFeedButton.text("Back");
+      });
+      $userName.appendTo($friendsList);
+      index += 1;
+    };
   }
 
   var index = 0;
 
-  var populateTweets = function(userName) {
+  var renderFeed = function(userName) {
     $updateFeedButton.text() === "Back" ? index = 0 : index = index;
     var userFlag;
     !userName ? userFlag = false : userFlag = true;
@@ -48,8 +43,8 @@ $(document).ready(function(){
         var $tweet = $('<div class="tweet" id="tweet"></div>');
         var $user = $('<span class="username" id="user"> @'+ tweet.user + '</span>');
         $user.on("click", function(event) {
+          renderFeed(tweet.user);
           $updateFeedButton.text("Back");
-          populateTweets(tweet.user);
         });
         var $pic = $('<div id="user_image"><img class="profile-photo" src='+tweet.profilePhotoURL+'></img></div>');
         var $time = $('<span id="tweet_time"><h3 class="timestamp">' + 'Posted ' + $.timeago(tweet.created_at) + '</h3></span>');
@@ -72,12 +67,17 @@ $(document).ready(function(){
     return createsTweetDivs();
   }
 
-  populateTweets();
-  populatesFriends();
+  $updateFeedButton.appendTo($header);
+  $header.appendTo($app)
+  $newTweetForm.appendTo($app);
+  $feed.appendTo($app);
+  $friendsList.appendTo($app);
+  renderFeed();
+  renderFriends();
 
   $updateFeedButton.on("click", function(event) {
     $(event.target).text() === "Back" ? $feed.html("") : function() {};
-    populateTweets();
+    renderFeed();
     $(event.target).text() === "Back" ? $(event.target).text("Update") : function() {};
   });
 
