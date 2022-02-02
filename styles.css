@@ -8,19 +8,36 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  /* background-color: rgb(177, 176, 176); */
+  display: flex;
+  flex-direction: column;
   background-color: rgb(70, 161, 173);
   color: rgb(255, 255, 255);
-  /* border: rgb(241, 66, 66) solid 5px; */
   margin: 5px;
 }
 
-/* google font */
 #title {
+  display: flex;
+  justify-content: center;
   font-family: 'Lobster', cursive;
   text-shadow: 2px 7px #5f5252;
-  font-size: 60px;
+  font-size: 80px;
   font-weight: 800;
+}
+
+#feed {
+  display: flex;
+  flex-direction: column;
+}
+
+#update-feed {
+  background-color: black;
+  font-family: 'Lobster', cursive;
+  font-size: 25px;
+  color: white;
+  border:2px white solid;
+  width: 200px;
+  height: 40px;
+  margin: auto;
 }
 
 .tweet {
@@ -29,11 +46,16 @@ providing a space for you to apply styles to your app's outermost HTML element -
   border-radius: 15px 50px 30px;
   font-family: 'Lobster', cursive;
   padding: 10px;
-  margin-top: 20px;
-  margin-bottom: 25px;
-  margin-right: 200px;
-  margin-left: 200px;
+  margin: 15px auto;
   box-shadow: 5px 15px #888888;
+  height:max-content;
+  width:max-content;
+}
+
+.username {
+  margin-left: 10px;
+  font-style: italic;
+  letter-spacing: 2px;
 }
 
 .message {
@@ -42,9 +64,13 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 
 .comment, .share, .like, .retweet {
+  margin: 10px;
+}
 
+.timestamp {
+  text-align: right;
 }
 
 i:hover {
-  background-color: rgb(48, 99, 105);
+  background-color: rgb(57, 226, 248);
 }

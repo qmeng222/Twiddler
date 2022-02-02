@@ -12,7 +12,6 @@ $(document).ready(function() {
   var $feed = $('<div id="feed"></div>');
   var $username;
 
-
   // Create event handler or helper functions
   var renderFeed = function(parent, user) {
     if (user === undefined) {
@@ -33,14 +32,14 @@ $(document).ready(function() {
         $profilePic.appendTo($tweet);
         $username.appendTo($tweet);
         $message.appendTo($tweet);
-        $timestamp.appendTo($tweet);
         $comment.appendTo($tweet);
         $retweet.appendTo($tweet);
         $like.appendTo($tweet);
         $share.appendTo($tweet);
+        $timestamp.appendTo($tweet);
         index -= 1;
       }
-    }else {
+    } else {
       var index = streams.users[user].length - 1;
       while(index >= 0) {
         var tweet = streams.users[user][index];
@@ -57,19 +56,16 @@ $(document).ready(function() {
         $profilePic.appendTo($tweet);
         $username.appendTo($tweet);
         $message.appendTo($tweet);
-        $timestamp.appendTo($tweet);
         $comment.appendTo($tweet);
         $retweet.appendTo($tweet);
         $like.appendTo($tweet);
         $share.appendTo($tweet);
+        $timestamp.appendTo($tweet);
         index -= 1;
       }
     }
   }
   renderFeed($feed);
-  // var $username = $('.username');
-  // console.log($username)
-
 
   // Set event listeners
   $updateFeedBtn.on("click", function(e) {
@@ -79,7 +75,7 @@ $(document).ready(function() {
     } else {
       $(".tweet").remove();
       renderFeed($feed);
-      $updateFeedBtn.text("Update Feed")
+      $updateFeedBtn.text("Update Feed");
     }
   });
 
@@ -87,10 +83,6 @@ $(document).ready(function() {
   $title.appendTo($app);
   $updateFeedBtn.appendTo($app);
   $feed.appendTo($app);
-
-
-
-  $username = $('.username');
 
   var handleUsernameClick = function(event) {
     var clickedName = event.target.textContent;
@@ -101,8 +93,10 @@ $(document).ready(function() {
   }
 
   $feed.on("click", "span", function(event) {
-    handleUsernameClick(event)
+    handleUsernameClick(event);
   });
+
+  window.isItBeautifulYet = true;
 });
 
 
