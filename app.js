@@ -22,12 +22,8 @@ $(document).ready(function () {
     var base = user === 'home' ? streams.home : streams.users[user];
     var index = base.length - 1
 
-    console.log(index)
-
     while (index >= 0) {
-      //var tweet = streams[args][index];
       var tweet = base[index]
-      //console.log(tweet)
       var $tweet = $('<div class="tweet"></div>');
       var $message = $('<div class="message"></div>');
       var $username = $('<div class="username"></div>');
@@ -74,11 +70,6 @@ $(document).ready(function () {
       $likeIcon.appendTo($iconbar);
       $shareIcon.appendTo($iconbar);
 
-      // $username.on("click", function (event) {
-      //   document.querySelector('button').innerText = "Back";
-      //   var currUser = event.currentTarget.innerText.slice(1);
-      //   renderFeed(currUser)
-      // })
       index -= 1;
     }
   }
@@ -87,11 +78,10 @@ $(document).ready(function () {
   $title.on("click", handleTitleClick);
   $subtitle.on("click", handleTitleClick);
   $app.on("click", "button", function (event) {
-    console.dir(event)
     event.target.innerText = "Update Feed"
     renderFeed()
   })
-  $feed.on("click", "div", function (event) {
+  $feed.on("click", "div.username", function (event) {
     document.querySelector('button').innerText = "Back";
     var currUser = event.target.innerText.slice(1);
     renderFeed(currUser)
