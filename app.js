@@ -2,11 +2,6 @@ $(document).ready(function(){
   var $app = $('#app');
   $app.html('');
 
-  // DELETE THIS CRAP:
-  // var $title = $('<h1>Twiddler</h1>');
-  // $title.appendTo($app);
-  // $title.on('click', function(e) { console.log(e); });
-
   // Header
   var $header = $('<header></header>');
   $header.appendTo($app);
@@ -27,7 +22,8 @@ $(document).ready(function(){
   var $newTweet = $('<div id="new-tweet"></div>');
   $newTweet.appendTo($tweetContainer);
   // Update Feed Button
-  var $updateFeedButton = $('<button id="update-feed">Update Feed</button>');
+  var $updateFeedButton = $('<button id="update-feed"></button>');
+  $updateFeedButton.text('Update Feed')
   $updateFeedButton.appendTo($tweetContainer);
   $updateFeedButton.on('click', function(e) {
     $("#feed").empty();
@@ -46,7 +42,13 @@ $(document).ready(function(){
       '<img class="profile-photo" src="'
       + tweet.profilePhotoURL
       + '" />');
-    $tweetHeader.append('<div class="username">@' + tweet.user + '</div>');
+    $tweetUser = $('<div class="username">@' + tweet.user + '</div>');
+    $tweetUser.on('click', function(e) {
+      $("#feed").empty();
+      displayUserFeed(tweet.user);
+    });
+    $tweetHeader.append($tweetUser);
+    // $tweetHeader.append('<div class="username">@' + tweet.user + '</div>');
     var $timestamp = $('<div class="timestamp"></div>');
     $timestamp.text(jQuery.timeago(tweet.created_at));
     $timestamp.appendTo($tweetHeader);
@@ -73,7 +75,19 @@ $(document).ready(function(){
       $tweet.appendTo($feed);
       index -= 1;
     }
-  }
+    $updateFeedButton.text('Update Feed');
+  };
+
+  var displayUserFeed = function(username) {
+    var index = streams.users[username].length - 1;
+    while (index >= 0) {
+      var tweet = streams.users[username][index];
+      var $tweet = newTweetComponent(tweet);
+      $tweet.appendTo($feed);
+      index -= 1;
+    }
+    $updateFeedButton.text('Back');
+  };
 
   displayHomeFeed();
 

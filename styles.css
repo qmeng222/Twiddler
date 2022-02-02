@@ -2,6 +2,7 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  font-family: 'Outfit', sans-serif;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
