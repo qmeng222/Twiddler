@@ -12,7 +12,9 @@ $(document).ready(function(){
   var $mainContainer = $('<main></main>');
   // Sidebar
   var $sidebar = $('<div id="sidebar"></div>');
-  $sidebar.append('<p>Some sidebar content will go here.</p>');
+  // Friends list
+  var $friendsListHeader = $('<h1>Friends List:</h1>');
+  var $friendsList = $('<ul id="friends-list"></ul>');
   // Tweet Container
   var $tweetContainer = $('<div id="tweet-container"></div>');
   // New Tweet
@@ -26,7 +28,7 @@ $(document).ready(function(){
   /*****************************************************************************
   ** CREATE EVENT HANDLER FUNCTIONS
   *****************************************************************************/
-  // When user clicks 'Update Feed' button:
+  // When user clicks 'Update Feed'/'Back' button:
   var handleUpdateClick = function() {
     $("#feed").empty();
     renderFeed();
@@ -64,6 +66,15 @@ $(document).ready(function(){
   $mainContainer.appendTo($app);
   // Sidebar
   $sidebar.appendTo($mainContainer);
+  // Friends List
+  $friendsListHeader.appendTo($sidebar);
+  $friendsList.appendTo($sidebar);
+  for (var user in streams.users) {
+    var $listElement = $('<li></li>');
+    $listElement.text('@' + user);
+    $listElement.appendTo($friendsList);
+    $listElement.on('click', handleUsernameClick);
+  }
   // Tweet Container
   $tweetContainer.appendTo($mainContainer);
   // New Tweet
