@@ -18,3 +18,24 @@ providing a space for you to apply styles to your app's outermost HTML element -
   font-family: 'Ubuntu', sans-serif;
 }
 
+/* ------ ICON HOVER FEATURE ----------- */
+
+.icon {
+  background-color: blue;
+}
+
+.icon.comment:hover {
+  background-color: brown;
+}
+
+.icon.like:hover {
+  background-color: brown;
+}
+
+.icon.share:hover {
+  background-color: brown;
+}
+
+.icon.retweet:hover {
+  background-color: brown;
+}

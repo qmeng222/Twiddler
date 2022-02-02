@@ -49,12 +49,9 @@ $(document).on("click", "#update-feed", function() {
         seen[message] = true;
       }
     });
-
     for (var i = 0; i < streams.home.length; i++) {
       var fullTweet = streams.home[i].message;
       var userHandle = '@' + streams.home[i].user;
-      //console.log(userHandle);
-      console.log($('userInQuestion'));
         if (seen[fullTweet] === undefined && userInQuestion === userHandle) {
 
           var $newTweet = $ ('<div class="tweet"></div>');
