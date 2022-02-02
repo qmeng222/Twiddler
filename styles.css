@@ -76,12 +76,27 @@ main {
   font-weight: 900;
 }
 
+.tweet .timestamp {
+  font-style: italic;
+  color: rgb(120, 120, 120);
+  font-size: 12px;
+  text-align: left;
+}
+
 .tweet .tweet-footer {
   display: flex;
   flex-direction: row;
   justify-items: center;
   align-items: center;
   justify-content: space-evenly;
+}
+
+i {
+  color: purple;
+}
+
+i:hover {
+  color: green;
 }
 
 #update-feed {

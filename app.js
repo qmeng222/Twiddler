@@ -91,4 +91,6 @@ $(document).ready(function(){
 
   displayHomeFeed();
 
+  window.isItBeautifulYet = true;
+
 });
