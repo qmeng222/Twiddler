@@ -99,6 +99,6 @@ $(document).ready(function(){
   };
 
   userTweets();
-  
+
   window.isItBeautifulYet = true;
 });
