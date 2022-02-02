@@ -3,7 +3,7 @@ $(document).ready(function(){
   var $app = $('#app');
   $app.html('');
 
-  jQuery("time.timeago").timeago(); //use jQuery.timeago(new Date()); for time stamp
+  //jQuery("time.timeago").timeago(); //use jQuery.timeago(new Date()); for time stamp
   var $title = $('<div class="header"><h1>Twiddler</h1></div>');
   var $button = $('<button id="update-feed">Update Feed</button>');
   var $feed = $('<div id="feed"></div>');
