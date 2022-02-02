@@ -2,95 +2,122 @@ $(document).ready(function(){
   var $app = $('#app');
   $app.html('');
 
+  /*****************************************************************************
+  * CREATE NEW HTML ELEMENTS
+  *****************************************************************************/
   // Header
   var $header = $('<header></header>');
-  $header.appendTo($app);
   var $logo = $('<div id="logo">Logo will go here</div>');
-  $logo.appendTo($header);
-
   // Main Container
   var $mainContainer = $('<main></main>');
-  $mainContainer.appendTo($app);
   // Sidebar
   var $sidebar = $('<div id="sidebar"></div>');
-  $sidebar.appendTo($mainContainer);
-  $sidebar.append('<p>Some sidebar content will go here.</p>')
+  $sidebar.append('<p>Some sidebar content will go here.</p>');
   // Tweet Container
   var $tweetContainer = $('<div id="tweet-container"></div>');
-  $tweetContainer.appendTo($mainContainer);
   // New Tweet
   var $newTweet = $('<div id="new-tweet"></div>');
-  $newTweet.appendTo($tweetContainer);
   // Update Feed Button
   var $updateFeedButton = $('<button id="update-feed"></button>');
-  $updateFeedButton.text('Update Feed')
-  $updateFeedButton.appendTo($tweetContainer);
-  $updateFeedButton.on('click', function(e) {
-    $("#feed").empty();
-    generateRandomTweet();
-    displayHomeFeed();
-  });
+  $updateFeedButton.text('Update Feed');
   // Feed
   var $feed = $('<div id="feed"></div>');
+
+  /*****************************************************************************
+  ** CREATE EVENT HANDLER FUNCTIONS
+  *****************************************************************************/
+  // When user clicks 'Update Feed' button:
+  var handleUpdateClick = function() {
+    $("#feed").empty();
+    renderFeed();
+  };
+  // When user clicks on a @username:
+  var handleUsernameClick = function(e) {
+    $("#feed").empty();
+    var username = e.target.innerText.slice(1); // strips leading '@'
+    renderFeed(username);
+  }
+  // Render feed:
+  var renderFeed = function(username) {
+    var stream = username ? streams.users[username] : streams.home;
+    for (var index = stream.length - 1; index >= 0; index--) {
+      var tweet = stream[index];
+      var $tweet = newTweetComponent(tweet);
+      $tweet.appendTo($feed);
+    }
+    $updateFeedButton.text(username ? 'Back' : 'Update Feed');
+  };
+
+  /*****************************************************************************
+  * SET EVENT LISTENERS
+  *****************************************************************************/
+  // When user clicks 'Update Feed' button:
+  $updateFeedButton.on('click', handleUpdateClick);
+
+  /*****************************************************************************
+  * APPEND NEW HTML ELEMENTS TO THE DOM
+  *****************************************************************************/
+  // Header
+  $header.appendTo($app);
+  $logo.appendTo($header);
+  // Main Container
+  $mainContainer.appendTo($app);
+  // Sidebar
+  $sidebar.appendTo($mainContainer);
+  // Tweet Container
+  $tweetContainer.appendTo($mainContainer);
+  // New Tweet
+  $newTweet.appendTo($tweetContainer);
+  // Update Feed Button
+  $updateFeedButton.appendTo($tweetContainer);
+  // Feed
   $feed.appendTo($tweetContainer);
 
+  /*****************************************************************************
+  ** CREATE COMPONENT GENERATING FUNCTIONS
+  *****************************************************************************/
+  // Tweet component
   var newTweetComponent = function(tweet) {
+    // Tweet container: contains header, body, footer
     var $tweet = $('<div class="tweet"></div>');
+    // Tweet Header: contains avatar, @username, timestamp
     var $tweetHeader = $('<div class="tweet-header"></div>');
     $tweetHeader.appendTo($tweet);
-    $tweetHeader.append(
-      '<img class="profile-photo" src="'
-      + tweet.profilePhotoURL
-      + '" />');
-    $tweetUser = $('<div class="username">@' + tweet.user + '</div>');
-    $tweetUser.on('click', function(e) {
-      $("#feed").empty();
-      displayUserFeed(tweet.user);
-    });
-    $tweetHeader.append($tweetUser);
-    // $tweetHeader.append('<div class="username">@' + tweet.user + '</div>');
+    var $avatar = $('<img class="profile-photo" />');
+    $avatar.attr('src', tweet.profilePhotoURL);
+    $avatar.appendTo($tweetHeader);
+    var $tweetUser = $('<div class="username"></div>');
+    $tweetUser.text('@' + tweet.user);
+    $tweetUser.appendTo($tweetHeader);
+    $tweetUser.on('click', handleUsernameClick);
     var $timestamp = $('<div class="timestamp"></div>');
     $timestamp.text(jQuery.timeago(tweet.created_at));
     $timestamp.appendTo($tweetHeader);
+    // Tweet Body: contains message
     var $tweetBody = $('<div class="tweet-body"></div>');
     $tweetBody.appendTo($tweet);
-    $tweetBody.append('<div class="message">' + tweet.message + '</div>');
+    var $message = $('<div class="message"></div>');
+    $message.text(tweet.message);
+    $message.appendTo($tweetBody);
+    // Tweet Footer: contains a bunch of icons
     var $tweetFooter = $('<div class="tweet-footer"></div>');
     $tweetFooter.appendTo($tweet);
-    $tweetFooter.append('<div class="icon"><i class="comment fas fa-comment"></i></div>');
-    $tweetFooter.append('<div class="icon"><i class="retweet fas fa-retweet"></i></div>');
-    $tweetFooter.append('<div class="icon"><i class="like fas fa-heart"></i></div>');
-    $tweetFooter.append('<div class="icon"><i class="share fas fa-share"></i></div>');
+    var $commentIcon = $('<div class="icon"><i class="comment fas fa-comment"></i></div>');
+    var $retweetIcon = $('<div class="icon"><i class="comment fas fa-retweet"></i></div>');
+    var $likeIcon = $('<div class="icon"><i class="like fas fa-heart"></i></div>');
+    var $shareIcon = $('<div class="icon"><i class="share fas fa-share"></i></div>');
+    $commentIcon.appendTo($tweetFooter);
+    $retweetIcon.appendTo($tweetFooter);
+    $likeIcon.appendTo($tweetFooter);
+    $shareIcon.appendTo($tweetFooter);
 
+    // Return the tweet component just generated
     return $tweet;
   }
 
-  var displayHomeFeed = function() {
-    var index = streams.home.length - 1;
-    while(index >= 0){
-      var tweet = streams.home[index];
-      // var $tweet = $('<div class="tweet"></div>');
-      // $tweet.text('@' + tweet.user + ': ' + tweet.message);
-      var $tweet = newTweetComponent(tweet);
-      $tweet.appendTo($feed);
-      index -= 1;
-    }
-    $updateFeedButton.text('Update Feed');
-  };
+  // Render the home feed upon first page load
+  renderFeed();
 
-  var displayUserFeed = function(username) {
-    var index = streams.users[username].length - 1;
-    while (index >= 0) {
-      var tweet = streams.users[username][index];
-      var $tweet = newTweetComponent(tweet);
-      $tweet.appendTo($feed);
-      index -= 1;
-    }
-    $updateFeedButton.text('Back');
-  };
-
-  displayHomeFeed();
-
+  // Complete the assignment:
   window.isItBeautifulYet = true;
-
 });
