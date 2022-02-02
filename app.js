@@ -3,7 +3,7 @@ $(document).ready(function(){
 
   var $app = $('#app');
   $app.html('');
-
+  $app.addClass('container');
   $('time.timeago').timeago();
 
   // Create new HTML elements
@@ -26,7 +26,7 @@ $(document).ready(function(){
     var index = targetStream.length - 1;
     while(index >= 0){
       var tweet = targetStream[index];
-      var $tweet = $('<div class="tweet"></div>');
+      var $tweet = $('<div class="tweet container-2"></div>');
       var $profilePic = $('<img class="profile-photo">');
       $profilePic.attr('src', tweet.profilePhotoURL);
       $profilePic.appendTo($tweet);
@@ -40,14 +40,16 @@ $(document).ready(function(){
       var $message = $('<p class="message"></p>');
       $message.text(tweet.message);
       $message.appendTo($tweet);
+      var $icons = $('<div class="icons"></div>')
       var $commentIcon = $('<i class="comment icon far fa-comments"></i>');
-      $commentIcon.appendTo($tweet);
+      $commentIcon.appendTo($icons);
       var $retweetIcon = $('<i class="retweet icon fas fa-retweet"></i>');
-      $retweetIcon.appendTo($tweet);
+      $retweetIcon.appendTo($icons);
       var $likeIcon = $('<i class="like icon far fa-heart"</i>');
-      $likeIcon.appendTo($tweet);
+      $likeIcon.appendTo($icons);
       var $shareIcon = $('<i class="share icon far fa-share-square"></i>');
-      $shareIcon.appendTo($tweet);
+      $shareIcon.appendTo($icons);
+      $icons.appendTo($tweet);
       $tweet.appendTo($feed);
       index -= 1;
     }
@@ -77,11 +79,11 @@ $(document).ready(function(){
   });
 
   $feed.on('mouseenter', '.icon', function(event) {
-    $(this).css("color", "blue");
+    $(this).css("color", "rgb(29, 79, 27)");
   });
 
   $feed.on('mouseleave', '.icon', function(event) {
-    $(this).css("color", "black");
+    $(this).css("color", "rgb(56, 33, 14)");
   });
 
   $feed.on('click', '.username', function (event) {
@@ -95,3 +97,5 @@ $(document).ready(function(){
   $button.appendTo($app);
 
 });
+
+window.isItBeautifulYet = true;

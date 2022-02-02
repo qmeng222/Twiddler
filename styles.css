@@ -1,4 +1,4 @@
-/* font-family: 'Architects Daughter', cursive; */
+/* font-family: 'Bilbo', cursive; */
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
@@ -8,15 +8,113 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
-#app {
-  background-color: white;
-  color: black;
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 130px auto auto;
+  gap: 10px;
+}
+
+.container-2 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+body {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(29, 79, 27, 0.5));
 }
 
 h1 {
-  font-family: 'Architects Daughter'
+  font-family: 'Bilbo';
+  color: rgb(29, 79, 27);
+  font-style: normal;
+  letter-spacing: 3px;
+  justify-self: center;
+  font-size: 90px;
+  margin-top: 20px;
 }
 
-/* .icon:hover {
-  color: green;
-} */
+button {
+  grid-column-start: 1;
+  grid-row-start: 2;
+  width: 150px;
+  height: 50px;
+  justify-self: center;
+  border-radius: 5px;
+  font-family: 'Bilbo';
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color:rgb(29, 79, 27);
+  background-color: rgba(224, 192, 156, 0.5);
+}
+
+button:hover {
+  background-color:rgb(142, 172, 140);
+}
+
+#feed {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.tweet {
+  font-family: 'Bilbo';
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background-color: rgba(224, 192, 156, 0.5);
+  color: rgb(29, 79, 27);
+  padding: 10px;
+  border: 3px solid rgb(56, 33, 14);
+  border-radius: 25px;
+}
+
+.profile-photo {
+  grid-column: 1;
+  grid-row: 1;
+  height: auto;
+  width: 75px;
+  border-radius: 25%;
+  padding-bottom: 10px;
+}
+
+.username {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 35px;
+  text-align: left;
+  color:rgb(56, 33, 14);
+}
+
+.timestamp {
+  grid-column: 4;
+  grid-row: 1;
+  text-align: right;
+  font-size: 20px;
+}
+
+.username:hover {
+  color: rgb(29, 79, 27);
+}
+
+.message {
+  grid-column: 2 / 5;
+  grid-row: 2;
+}
+
+.icons {
+  grid-column: 2 / 5;
+  grid-row: 3;
+  text-align: left;
+  font-size: 30px;
+  color: rgb(56, 33, 14);
+}
+
+.icon {
+  padding: 2px 22px;
+}
+
+
