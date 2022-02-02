@@ -7,7 +7,20 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
+
 #app {
-  background-color: green;
-  color: yellow;
+  background-color:white;
+  color: rgb(10, 10, 0);
+  border-radius: 30px;
+  height: 60px;
+  font-family: arial;
+  font-style: normal;
+  font-weight: normal;
+  padding: 20px;
+  text-align: Center;
+  width: 100px;
+  }
+.message {
+  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
