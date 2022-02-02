@@ -2,12 +2,108 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  font-family: "Blippo", fantasy;
+  height: 100vh;
+  margin: auto;
+  max-width: 900px;
+  background-image: url(assets/img/body.jpeg) ;
+  background-position: center;
+
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
-#app {
-  background-color: green;
-  color: yellow;
+h1 {
+  margin: 15px 0px;
+  color: rgb(226, 219, 197);
+  font-family: "Chalkduster", fantasy;
+  font-size: 500%;
+  font-style: italic;
+  background-image: url(assets/img/header.jpg);
+  background-size: contain;
 }
+h4 {
+  position: center;
+}
+.snowflake {
+  color: #fff;
+  font-size: 1em;
+  font-family: Arial;
+  text-shadow: 0 0 1px #000;
+}
+
+@-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%{-webkit-transform:translateX(0px);transform:translateX(0px)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}100%{-webkit-transform:translateX(0px);transform:translateX(0px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%{transform:translateX(0px)}50%{transform:translateX(80px)}100%{transform:translateX(0px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}
+
+#update-feed {
+  color: antiquewhite;
+  background-color: black;
+  position: relative;
+  left: 80%;
+  top:0px;
+  size:500%;
+  font-size: 100%;
+  font-weight: normal;
+  text-align: center;
+}
+
+.tweet {
+  text-align: right;
+  display: block;
+  position: relative;
+  height: 200px;
+  width: 700px;
+  margin:auto;
+  color: white;
+  font-family: "blippo",fantasy;
+  padding: 30px;
+  align-content: center;
+  }
+.profile-photo {
+  position: absolute;
+  height: 100px;
+  width: 120px;
+  border-radius: 50%;
+}
+
+.username {
+  position: relative;
+  top: 10px;
+  left: 4em;
+  color: white;
+  font-size: 100%;
+}
+
+.message {
+  font-size: 1.1em;
+  position: relative;
+  bottom: 35px;
+  left: 85px;
+  color: white;
+}
+
+.comment {
+  position: relative;
+  left: 05px;
+  color:red;
+}
+
+.retweet {
+  position: relative;
+  left: 10px;
+  color:green;
+}
+
+.like {
+  position: relative;
+  left: 15px;
+  color: white;
+}
+
+.share {
+  position: relative;
+  left: 20px;
+  color:rgb(18, 176, 224);
+};
+
+

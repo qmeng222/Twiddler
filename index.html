@@ -1,28 +1,55 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <script src="lib/jquery.js"></script>
+    <script src="lib/timeago.js"></script>
     <script src="dataGenerator.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="app.js"></script>
+    <script src="https://kit.fontawesome.com/706b6cf9f9.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
+    <script src="jquery.min.js" type="text/javascript"></script>
+    <script src="jquery.timeago.js" type="text/javascript"></script>
+    <div class="snowflakes" aria-hidden="true">
+    <div class="snowflake">
+    ❅
+    </div>
+    <div class="snowflake">
+    💗
+    </div>
+    <div class="snowflake">
+    ❆
+    </div>
+    <div class="snowflake">
+    ❤️
+    </div>
+    <div class="snowflake">
+    ❅
+    </div>
+    <div class="snowflake">
+    🐱
+    </div>
+    <div class="snowflake">
+    ❄
+    </div>
+    <div class="snowflake">
+    🐱
+    </div>
+    <div class="snowflake">
+    ❆
+    </div>
+    <div class="snowflake">
+    ❄
+    </div>
+  </div>
   </head>
   <body>
-    <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
-
-    <script>
-      $(document).ready(function(){
-        var $app = $('#app');
-        $app.html('');
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($app);
-          index -= 1;
-        }
-
-      });
+    <div id="app">  <!-- Your Entire Application will be built inside this div! -->
+   <script>
     </script>
+    <script src= 'app.js'></script>
   </body>
 </html>
