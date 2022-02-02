@@ -54,13 +54,13 @@ $(document).ready(function(){
 
 
 
-      var $comment = $('<img class="icon comment" src="assets/icons/placeholder.png">');
+      var $comment = $('<i class="far fa-comments icon comment"></i>');
       $comment.appendTo($tweet);
-      var $retweet = $('<img class="icon retweet" src="assets/icons/placeholder.png">');
+      var $retweet = $('<i class="fas fa-retweet icon retweet"></i>');
       $retweet.appendTo($tweet);
-      var $like = $('<img class="icon like" src="assets/icons/placeholder.png">');
+      var $like = $('<i class="far fa-heart icon like"></i>');
       $like.appendTo($tweet);
-      var $share = $('<img class="icon share" src="assets/icons/placeholder.png">');
+      var $share = $('<i class="fas fa-share-square icon share"></i>');
       $share.appendTo($tweet);
 
       //take div and put it on app

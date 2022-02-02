@@ -2,6 +2,7 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  font-family: 'Comforter', cursive;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
@@ -11,3 +12,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
   background-color: white;
   color: black;
 }
+
+.icon:hover {
+  background-color: yellow;
+}
+
