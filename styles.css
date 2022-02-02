@@ -2,12 +2,68 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  font-family: verdana;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: rgb(70, 70, 70);
+  color: black;
+}
+
+h1 {
+  display: inline-block;
+  color: rgb(42, 10, 87);
+  text-align:center;;
+  width: 90%;
+}
+
+.header {
+  margin: auto;
+  width: 50%;
+  background-color: rgb(90,90,90);
+  border-radius: 60%;
+}
+
+.button {
+  border: none;
+  color: blue;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+button {
+  margin: auto;
+  position: absolute;
+  top: 22%;
+  left: 44%;
+  margin: 0 auto;
+}
+
+#feed {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 5%;
+  background-color: rgb(42, 10, 87);
+  height: auto;
+  border: 5px solid black;
+}
+
+i:hover, .username:hover {
+  background-color: blue;
+  color: lightblue;
+}
+
+.timestamp {
+  font-style: italic;
+  font-weight: lighter;
+}
+
+.username {
+  font-weight: bold;
 }
