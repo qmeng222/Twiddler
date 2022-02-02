@@ -46,6 +46,39 @@ main {
   height: 55px;
 }
 
+.tweet {
+  display: flex;
+  flex-direction: column;
+  background-color: azure;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.tweet .tweet-header {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: start;
+  justify-items: center;
+  align-items: center;
+}
+
+.tweet .profile-photo {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
+.tweet .username {
+  color: darkolivegreen;
+  font-weight: 900;
+}
+
+#update-feed {
+  background-color: cornflowerblue;
+  color: crimson;
+}
+
 #feed {
   background-color:cornsilk;
   color: red;

@@ -26,17 +26,49 @@ $(document).ready(function(){
   // New Tweet
   var $newTweet = $('<div id="new-tweet"></div>');
   $newTweet.appendTo($tweetContainer);
+  // Update Feed Button
+  var $updateFeedButton = $('<button id="update-feed">Update Feed</button>');
+  $updateFeedButton.appendTo($tweetContainer);
+  $updateFeedButton.on('click', function(e) {
+    $("#feed").empty();
+    generateRandomTweet();
+    displayHomeFeed();
+  });
   // Feed
   var $feed = $('<div id="feed"></div>');
   $feed.appendTo($tweetContainer);
 
-  var index = streams.home.length - 1;
-  while(index >= 0){
-    var tweet = streams.home[index];
+  var newTweetComponent = function(tweet) {
     var $tweet = $('<div class="tweet"></div>');
-    $tweet.text('@' + tweet.user + ': ' + tweet.message);
-    $tweet.appendTo($feed);
-    index -= 1;
+    var $tweetHeader = $('<div class="tweet-header"></div>');
+    $tweetHeader.appendTo($tweet);
+    $tweetHeader.append(
+      '<img class="profile-photo" src="'
+      + tweet.profilePhotoURL
+      + '" />');
+    $tweetHeader.append('<div class="username">@' + tweet.user + '</div>');
+    var $timestamp = $('<div class="timestamp"></div>');
+    $timestamp.text(jQuery.timeago(tweet.created_at));
+    $timestamp.appendTo($tweetHeader);
+    var $tweetBody = $('<div class="tweet-body"></div>');
+    $tweetBody.appendTo($tweet);
+    $tweetBody.append('<div class="message">' + tweet.message + '</div>');
+
+    return $tweet;
   }
+
+  var displayHomeFeed = function() {
+    var index = streams.home.length - 1;
+    while(index >= 0){
+      var tweet = streams.home[index];
+      // var $tweet = $('<div class="tweet"></div>');
+      // $tweet.text('@' + tweet.user + ': ' + tweet.message);
+      var $tweet = newTweetComponent(tweet);
+      $tweet.appendTo($feed);
+      index -= 1;
+    }
+  }
+
+  displayHomeFeed();
 
 });
