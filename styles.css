@@ -2,12 +2,19 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  font-family: 'Architects Daughter', cursive;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: rgb(5, 129, 98);
+  color: #fff;
+}
+
+/* Tweet Icon Properties */
+
+.icon:hover {
+  color: rgb(212, 127, 0)
 }

@@ -3,22 +3,27 @@ $(document).ready(function(){
   // ** Select already existing elements **
   var $app = $("#app");
 
+
   // ** Create new HTML elements **
   var $title = $("<h1>Twiddler</h1>");
-  var $update = $("<button id='update-feed'>Update Feed</button>"); //remove hardcode at some point
+
+  var $update = $("<button></button>");
+  $update.attr("id", "update-feed");
+  $update.text("Update Feed")
+
   var $feed = $("<div id='feed'></div>");
 
-  // ** Create event handler functions **
-  var renderFeed = function(event) {
-    $feed.html("");
-    if (event !== undefined) {
-      event.preventDefault();
-    }
 
-    // Loop, build and return all tweets, reverse chronological order
-    var mostRecentIndex = streams.home.length - 1;
-    for (var i = mostRecentIndex; i >= 0; i -= 1) {
-      var tweet = streams.home[i];
+  // ** Create event handler functions **
+  var renderFeed = function(user) {
+    $feed.html("");
+
+    var isUserDefined = user !== undefined;
+    var index = isUserDefined ? streams.users[user].length - 1 : streams.home.length - 1;
+    var stream = isUserDefined ? streams.users[user] : streams.home;
+
+    for (var i = index; i >= 0; i -= 1) {
+      var tweet = stream[i];
 
       var $tweet = $("<div></div>");
       $tweet.attr("class", "tweet");
@@ -30,7 +35,10 @@ $(document).ready(function(){
       });
 
       var $username = $("<div></div>");
-      $username.attr("class", "username");
+      $username.attr({
+        class: "username",
+        id: tweet.user
+      });
       $username.text("@" + tweet.user);
 
       var $message = $("<div></div>");
@@ -39,19 +47,17 @@ $(document).ready(function(){
 
       var $timestamp = $("<div></div>");
       $timestamp.attr("class", "timestamp");
-      $timestamp.text(tweet.created_at);
+      var $timeago = jQuery.timeago(tweet.created_at);
+      $timestamp.text($timeago);
 
-      var $commentIcon = $("<img></img>");
-      $commentIcon.attr("class", "comment icon");
-      var $retweetIcon = $("<img></img>");
-      $retweetIcon.attr("class", "retweet icon");
-      var $likeIcon = $("<img></img>");
-      $likeIcon.attr("class", "like icon");
-      var $shareIcon = $("<img></img>");
-      $shareIcon.attr("class", "share icon");
-
-      var $icons = $(".icon");
-      $icons.attr("src", "./assets/icons/placeholder.png");
+      var $commentIcon = $("<i></i>");
+      $commentIcon.attr("class", "comment icon far fa-comments");
+      var $retweetIcon = $("<i></i>");
+      $retweetIcon.attr("class", "retweet icon fas fa-retweet");
+      var $likeIcon = $("<i></i>");
+      $likeIcon.attr("class", "like icon far fa-thumbs-up");
+      var $shareIcon = $("<i></i>");
+      $shareIcon.attr("class", "share icon fas fa-share-square");
 
       $profilePic.appendTo($tweet);
       $username.appendTo($tweet);
@@ -66,8 +72,25 @@ $(document).ready(function(){
     }
   }
 
+  var handleUsernameClick = function(event) {
+    if ($update.text() === "Update Feed") {
+      $update.text("Back");
+    }
+    renderFeed(event.target.id);
+  };
+
+  var handleUpdateClick = function(event) {
+    if ($update.text() === "Back") {
+      $update.text("Update Feed");
+    }
+    renderFeed();
+  };
+
+
   // ** Set event listeners **
-  $update.on("click", renderFeed);
+  $update.on("click", handleUpdateClick);
+  $feed.on("click", ".username", handleUsernameClick);
+
 
   // ** Append new HTML elements to the DOM **
   $app.html("");
@@ -76,5 +99,4 @@ $(document).ready(function(){
   $feed.appendTo($app);
 
   renderFeed();
-
 });
