@@ -27,6 +27,7 @@ main {
   display: grid;
   grid-template-columns: 250px 550px;
   gap: 15px;
+  padding-top: 15px;
   justify-content: center;
   background-color: purple;
 }
