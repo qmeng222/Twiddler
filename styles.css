@@ -9,8 +9,77 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  /* background-color: green;
-  color: yellow; */
+  background-color: black;
+  color: #f5eafd;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+#feed{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tweet {
+  background: #4336f4;
+  background: -webkit-linear-gradient(to right, #4336f4 90%, #f436e7);
+  background:    -moz-linear-gradient(to right, #4336f4 90%, #f436e7);
+  background:         linear-gradient(to right, #4336f4 90%, #f436e7);
+  margin: 25px 25px 0 25px;
+  padding: 15px;
+  border-radius: 5px 45px 5px 5px;
+  width: 500px;
+  display: flex;
+  height: 115px;
+}
+
+.left-section {
+  width: 87%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+}
+.left-top {
+  width: 100%;
+}
+.message {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.icons {
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.left-top {
+  color: #f5eafd83;
+}
+.timestamp {
+  font-size: 10px;
+  font-style: italic;
+  font-weight: 300;
+}
+.tweet-top-pic {
+  margin: 0 1.5%;
+  width: 15%;
+}
+
+.profile-photo {
+  border-radius: 3px 30px 3px 3px;
+}
+
+#update-feed {
+  background: #f5eafd;
+  border-radius: 3px;
+  border: 1px white;
 }
 
 i:hover {
