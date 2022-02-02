@@ -19,7 +19,6 @@ $(document).ready(function(){
 
 // Set event listeners (providing appropriate handlers as input)
 $homeFeedButton.on("click", function(event) {
-  //$tweetDiv.empty();
   renderFeed();
   return event;
 });
@@ -29,10 +28,12 @@ $(document).on("click", ".username", function() {
   $tweetDiv.empty();
   $("#update-feed").text('BACK');
   var clickedUser = this.innerHTML;
-  //alert(clickedUser);
   renderUserFeed(clickedUser);
+})
 
-  //feed button needs to be included in render!!
+$(document).on("click", "#update-feed", function() {
+  if (this.innerHTML === "BACK");
+  $("#update-feed").text('Update Feed');
 })
 
 
