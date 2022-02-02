@@ -52,6 +52,7 @@ main {
   background-color: azure;
   margin-bottom: 5px;
   padding: 10px;
+  gap: 8px;
 }
 
 .tweet .tweet-header {
@@ -72,6 +73,14 @@ main {
 .tweet .username {
   color: darkolivegreen;
   font-weight: 900;
+}
+
+.tweet .tweet-footer {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 #update-feed {

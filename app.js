@@ -53,6 +53,12 @@ $(document).ready(function(){
     var $tweetBody = $('<div class="tweet-body"></div>');
     $tweetBody.appendTo($tweet);
     $tweetBody.append('<div class="message">' + tweet.message + '</div>');
+    var $tweetFooter = $('<div class="tweet-footer"></div>');
+    $tweetFooter.appendTo($tweet);
+    $tweetFooter.append('<div class="icon"><i class="comment fas fa-comment"></i></div>');
+    $tweetFooter.append('<div class="icon"><i class="retweet fas fa-retweet"></i></div>');
+    $tweetFooter.append('<div class="icon"><i class="like fas fa-heart"></i></div>');
+    $tweetFooter.append('<div class="icon"><i class="share fas fa-share"></i></div>');
 
     return $tweet;
   }
