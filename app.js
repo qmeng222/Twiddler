@@ -3,9 +3,9 @@ $(document).ready(function(){
   var $app = $ ('#app');
   $app.html('');
 
-  var $title = $ ('<h1>Twiddler</h1>');
+  var $title = $ ('<h1 class="title2">Twiddler</h1>');
   $title.appendTo($app);
-  $title.on ("click", function(event) {
+  $('.title2').on ("click", function(event) {
     alert('The title of this page is: ' + event.target.innerText);
   });
 
@@ -14,10 +14,9 @@ $(document).ready(function(){
   var $buttonDiv = $ ('<div class="buttons"></div>');
   var $homeFeedButton = $ ('<button id = "update-feed">Update Feed</button>');
   var $tweetDiv = $ ('<div class="tweetsContainer"></div>');
-  //var $tweetMessage = $ ('<p class="message"></p>');
-
 
 // Helper & event handler functions ------------------
+
 
   //-------PREPEND & APPEND CORRECTLY ------
   var orderCorrectly = function(input){
@@ -29,7 +28,7 @@ $(document).ready(function(){
   //-------RENDER FEED FUNCTION -----------
 
 
-  var renderFeed = function() {
+  var renderFeed = function(clickInupt) {
     var seen = {};
     $('.message').each(function() {
       var message = $(this).text();
@@ -51,20 +50,16 @@ $(document).ready(function(){
 
           var $image = $ ('<img class="profile-photo"src="assets/img/>' + newTweetObj.user + '.png">');
           $image.appendTo($newTweet);
-          orderCorrectly($newTweet);
 
           var $newUser = $ ('<div class="username"></div>');
           $newUser.html('');
           $newUser.text('@' + newTweetObj.user + ':' );
           $newUser.appendTo($newTweet);
-          orderCorrectly($newTweet);
 
           var $newTweetMessage = $ ('<p class="message"></p>');
           $newTweetMessage.html('');
           $newTweetMessage.text(streams.home[i].message)
           $newTweetMessage.appendTo($newTweet);
-          orderCorrectly($newTweet);
-
 
           var $icons = $ ('<span class="icon"style="font-size: 1em; color: Tomato;">');
           var $comment = $ ('<i class="icon comment far fa-comment"></i>');
@@ -76,17 +71,26 @@ $(document).ready(function(){
           var $share = $ ('<i class="icon share fas fa-share"></i>');
           $share.appendTo($icons);
           $icons.appendTo($newTweet);
-          orderCorrectly($newTweet);
 
           var $timeStamp = $ ('<div class="timestamp"></div>');
           $timeStamp.appendTo($newTweet);
           $timeStamp.text(jQuery.timeago(streams.home[i].created_at));
           orderCorrectly($newTweet);
 
+          // ONE CLICK EVENT WILL GO THERE THAT WORKS FOR REFRESHED TWEETS
+
+          $newUser.on ("click", function(event) {
+            alert('The title of this page is: ' + event.target.innerText);
+
+          });
+
         }
+
     }
 
-    return renderFeed;
+
+
+
   }
 
   renderFeed();
@@ -102,13 +106,6 @@ $(document).ready(function(){
   //         $newTweetMessage.appendTo($newTweet);
   //         orderCorrectly($newTweet);
 
-
-// Set event listeners (providing appropriate handlers as input)
-  $homeFeedButton.on("click", function(event) {
-    renderFeed();
-    return event;
-  });
-
 // Append new HTML elements to the DOM
 
   $homeFeedSection.appendTo($app);
@@ -116,6 +113,13 @@ $(document).ready(function(){
   $homeFeedButton.appendTo($buttonDiv);
   $tweetDiv.appendTo($homeFeedSection);
   //$tweetMessage.appendTo('.tweet');
+
+
+  // Set event listeners (providing appropriate handlers as input)
+  $homeFeedButton.on("click", function(event) {
+    renderFeed();
+    return event;
+  });
 
 });
 
