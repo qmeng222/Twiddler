@@ -33,7 +33,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 #app {
   /* background-color: rgb(247, 235, 242); */
-  background-image: url(./assets/img/leaf.jpg);
+  background-image: url(./assets/img/leaf.png);
   background-size: contain;
   background-position: center center;
   background-repeat: repeat-y;
