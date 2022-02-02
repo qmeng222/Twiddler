@@ -15,11 +15,9 @@ $(document).ready(function(){
   var $homeFeedButton = $ ('<button id = "update-feed">UPDATE  FEED</button>');
   var $tweetDiv = $ ('<div class="flexbox-container"></div>');
 
-// Helper & event handler functions ------------------
-
 // Set event listeners (providing appropriate handlers as input)
 $homeFeedButton.on("click", function(event) {
-  renderUserFeed();
+  renderFeed();
   return event;
 });
 
@@ -27,7 +25,7 @@ $(document).on("click", ".username", function() {
   $tweetDiv.empty();
   $("#update-feed").text('BACK');
   var clickedUser = this.innerHTML;
-  renderUserFeed(clickedUser);
+  renderFeed(clickedUser);
 })
 
 $(document).on("click", "#update-feed", function() {
@@ -37,7 +35,7 @@ $(document).on("click", "#update-feed", function() {
 
 //----RENDER USER FEED FUN -------
 
-  var renderUserFeed = function(userInQuestion) {
+  var renderFeed = function(userInQuestion) {
     var seen = {};
     $('.message').each(function() {
       var message = $(this).text();
@@ -90,7 +88,7 @@ $(document).on("click", "#update-feed", function() {
 
   }
 
-  renderUserFeed();
+  renderFeed();
 
 // Append new HTML elements to the DOM
 
@@ -98,6 +96,7 @@ $(document).on("click", "#update-feed", function() {
   $buttonDiv.appendTo($homeFeedSection);
   $homeFeedButton.appendTo($buttonDiv);
   $tweetDiv.appendTo($homeFeedSection);
+  window.isItBeautifulYet = true
 
 });
 

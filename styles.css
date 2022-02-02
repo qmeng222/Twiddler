@@ -10,8 +10,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
 /* font-family: 'Ubuntu', sans-serif; */
 
 #app {
-  background-color: #62B16E;
-  color: #273225;
+  background-image: linear-gradient(180deg,#273225,#62B16E, #273225);
+  color: #e2e7e1;
 }
 
 #feed {
