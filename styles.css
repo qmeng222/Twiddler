@@ -8,6 +8,7 @@ html, body, #app {
   top: 0;
   margin: 0;
   font-family: 'Comfortaa', cursive;
+  font-style: normal;
 }
 h1 {
   font-family: 'Lobster', cursive;
@@ -32,6 +33,11 @@ providing a space for you to apply styles to your app's outermost HTML element -
   border-color: blue;
   color: white;
   border-radius: 12px;
+  margin-left: 15px;
+}
+#feed {
+  margin-left: 15px;
+  margin-right: 40%;
 }
 
 /*
@@ -60,7 +66,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
   background-color: cyan;
   border-radius: 20px;
   margin-top: 10px;
-  margin-right: 200px;
+  /* margin-right: 50%; */
   border: 2px solid blue;
 }
 
@@ -72,19 +78,21 @@ providing a space for you to apply styles to your app's outermost HTML element -
   margin-left: 20px;
 }
 
-.button {
-  /* padding-bottom: 15px; */
+/* .button {
+  padding-bottom: 15px;
   padding-left: 25px;
-}
+} */
 
 .message {
   background-color: dodgerblue;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 20px;
-  margin-left: 5px;
-  margin-right: 235px;
+  padding-right: 20px;
+  margin-left: 2%;
+  margin-right: 2%;
   border-radius: 20px;
+  text-align: center;
 }
 
 .icon {
@@ -94,5 +102,29 @@ providing a space for you to apply styles to your app's outermost HTML element -
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 12px;
+  border: 2px groove blue;
   background-color: dodgerblue;
+}
+
+.commentDiv {
+  margin-left: 15px;
+  /* background-color: dodgerblue; */
+  color: blue;
+}
+
+.commentForm {
+  display: none;
+}
+
+.commentSubmit {
+  border-radius: 12px;
+  color: white;
+  background-color: dodgerblue;
+  border: 2px ridge blue;
+}
+
+.textArea {
+  border-radius: 12px;
+  background-color: dodgerblue;
+  color: white;
 }

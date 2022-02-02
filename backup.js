@@ -17,19 +17,12 @@ $(document).ready(function(){
     clearFeed();
     renderTweets();
   }
-
-  function renderTweets(user) {
-    var homeStream;
-    if (user === undefined) {
-      homeStream = streams.home;
-    }
-    else {
-      homeStream = streams.users[user];
-    }
+  function renderTweets() {
+    var homeStream = streams.home;
     for (var i = homeStream.length - 1; i >= 0; i--) {
       var tweet = homeStream[i];
       var $tweet = $('<div class="tweet"></div>');
-      var $profilePhoto = $("<img class='profile-photo' src='assets/img/" + tweet.user + ".png'>");
+      var $profilePhoto = $("<img class='profile-photo' src='assets/img/" + tweet.user + ".jpeg'>");
       var $userName = $("<span class='username " + tweet.user + "'>@" + tweet.user + "</span>");
       var $message = $("<p class='message'>" + tweet.message + "</p>");
       var $timeStamp = $("<div class='timestamp'>" + $.timeago(tweet.created_at) + "</div>");
@@ -69,49 +62,46 @@ $(document).ready(function(){
       $message.appendTo($tweet);
       $timeStamp.appendTo($tweet);
       $('.comment').mouseenter(function(e) {
-        $(this).css('background-color', 'blue');
+        $('.comment').css('background-color', 'blue');
       });
       $('.comment').mouseleave(function(e) {
-        $(this).css('background-color', 'dodgerblue');
+        $('.comment').css('background-color', 'dodgerblue');
       });
       $('.retweet').mouseenter(function(e) {
-        $(this).css('background-color', 'blue');
+        $('.retweet').css('background-color', 'blue');
       });
       $('.retweet').mouseleave(function(e) {
-        $(this).css('background-color', 'dodgerblue');
+        $('.retweet').css('background-color', 'dodgerblue');
       });
       $('.like').mouseenter(function(e) {
-        $(this).css('background-color', 'blue');
+        $('.like').css('background-color', 'blue');
       });
       $('.like').mouseleave(function(e) {
-        $(this).css('background-color', 'dodgerblue');
-      });
-      $('.like').on('click', function(e) {
-        $(this).css('background-color', 'blue');
+        $('.like').css('background-color', 'dodgerblue');
       });
       $('.share').mouseenter(function(e) {
-        $(this).css('background-color', 'blue');
+        $('.share').css('background-color', 'blue');
       });
       $('.share').mouseleave(function(e) {
-        $(this).css('background-color', 'dodgerblue');
+        $('.share').css('background-color', 'dodgerblue');
       });
-      $('.comment').on('click', function(e) {
-        $('.commentForm').hide();
-        $('.commentForm').slideDown(250);
-      });
-      $('.commentSubmit').on('click', function(e) {
-        $('.commentForm').slideUp(250);
-      });
-      // $('.comment').on('click', '{clicked: false}', function(e) {
-      //   if (e.clicked === false) {
-      //     $('.commentForm').hide();
-      //     $('.commentForm').slideDown(250);
-      //     e.clicked = true;
-      //   } else if (e.clicked === true) {
-      //     $('.commentForm').slideUp(250);
-      //     e.clicked = false;
-      //   }
+      // $('.comment').on('click', function(e) {
+      //   $('.commentForm').hide();
+      //   $('.commentForm').slideDown(250);
       // });
+      // $('.commentSubmit').on('click', function(e) {
+      //   $('.commentForm').slideUp(250);
+      // });
+      $('.comment').on('click', '{clicked: false}', function(e) {
+        if (e.clicked === false) {
+          $('.commentForm').hide();
+          $('.commentForm').slideDown(250);
+          e.clicked = true;
+        } else if (e.clicked === true) {
+          $('.commentForm').slideUp(250);
+          e.clicked = false;
+        }
+      });
       $iconC.appendTo($tweet);
       $iconR.appendTo($tweet);
       $iconL.appendTo($tweet);
@@ -121,7 +111,6 @@ $(document).ready(function(){
       $tweet.appendTo($homeFeed);
     }
   }
-
   function clearFeed() {
     if ($homeFeed.length > 0) {
       for (var i = 0; i < $homeFeed.length; i++) {
@@ -129,11 +118,72 @@ $(document).ready(function(){
       }
     }
   }
-
   function renderUserFeed(user) {
     clearFeed();
     $("#update-feed").text("Back");
-    renderTweets(user);
+    renderUserTweets(user);
+  }
+  function renderUserTweets(user) {
+    var homeStream = streams.users[user];
+    for (var i = homeStream.length - 1; i >= 0; i--) {
+      var tweet = homeStream[i];
+      var $tweet = $('<div class="tweet ' + tweet.user + '"></div>');
+      var $profilePhoto = $("<img class='profile-photo' src='assets/img/" + tweet.user + ".jpeg'>");
+      var $userName = $("<span class='username'>@" + tweet.user + "</span>");
+      var $message = $("<p class='message'>" + tweet.message + "</p>");
+      var $timeStamp = $("<div class='timestamp'>" + $.timeago(tweet.created_at) + "</div>");
+      var $iconC = $("<i class='icon comment fas fa-comment-dots fa-2x'></i>");
+      var $iconR = $("<i class='icon retweet fas fa-retweet fa-2x'></i>");
+      var $iconL = $("<i class='icon like far fa-thumbs-up fa-2x'></i>");
+      var $iconS = $("<i class='icon share fab fa-slideshare fa-2x'></i>");
+      var $commentDiv = $("<div class='commentDiv'></div>");
+      var $commentForm = $("<form class ='commentForm' action='mailto:mitchwintrow@iamwintrow.com' method='POST' enctype='multipart/form-data' name='EmailForm'>Comment:<br><textarea name='comment' rows='12' cols='24'></textarea><br><input type='submit' value='Submit'></form>");
+      $profilePhoto.appendTo($tweet);
+      $userName.appendTo($tweet);
+      $message.appendTo($tweet);
+      $timeStamp.appendTo($tweet);
+      $('.comment').mouseenter(function(e) {
+        $('.comment').css('background-color', 'blue');
+      });
+      $('.comment').mouseleave(function(e) {
+        $('.comment').css('background-color', 'dodgerblue');
+      });
+      $('.retweet').mouseenter(function(e) {
+        $('.retweet').css('background-color', 'blue');
+      });
+      $('.retweet').mouseleave(function(e) {
+        $('.retweet').css('background-color', 'dodgerblue');
+      });
+      $('.like').mouseenter(function(e) {
+        $('.like').css('background-color', 'blue');
+      });
+      $('.like').mouseleave(function(e) {
+        $('.like').css('background-color', 'dodgerblue');
+      });
+      $('.share').mouseenter(function(e) {
+        $('.share').css('background-color', 'blue');
+      });
+      $('.share').mouseleave(function(e) {
+        $('.share').css('background-color', 'dodgerblue');
+      });
+      // $('.comment').on('click', function(e) {
+      //   $('.commentForm').hide();
+      //   $('.commentForm').slideDown(250);
+      // });
+      // $('.commentSubmit').on('click', function(e) {
+      //   $('.commentForm').slideUp(250);
+      // });
+      // $('.like').on('click', function(e) {
+      //   $('.like').css('background-color', 'blue');
+      // });
+      $iconC.appendTo($tweet);
+      $iconR.appendTo($tweet);
+      $iconL.appendTo($tweet);
+      $iconS.appendTo($tweet);
+      $commentDiv.appendTo($tweet);
+      $commentForm.appendTo($commentDiv);
+      $tweet.appendTo($homeFeed);
+    }
   }
 
   // Set event listeners (providing appropriate handlers as input)
@@ -156,6 +206,5 @@ $(document).ready(function(){
 
 
   renderFeed();
-  window.isItBeautifulYet = true;
 
 });
