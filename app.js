@@ -42,12 +42,16 @@ $(document).ready(function(){
     //I HAVE REPLACED .TWEET WITH .MESSAGE ABOVE SO THAT MAY FIX THE PROB.. NOT WHOLE STRING??
     for (var i = 0; i < streams.home.length; i++) {
       var fullTweet = streams.home[i].message;
-      console.log(streams.home[i]);
         if (seen[fullTweet] === undefined) {
           var newTweetObj = streams.home[i];
+
           var $newTweet = $ ('<div class="tweet"></div>');
           $newTweet.text('');
           $newTweet.text('');
+
+          var $image = $ ('<img class="profile-photo"src="assets/img/>' + newTweetObj.user + '.png">');
+          $image.appendTo($newTweet);
+          orderCorrectly($newTweet);
 
           var $newUser = $ ('<div class="username"></div>');
           $newUser.html('');
@@ -61,16 +65,13 @@ $(document).ready(function(){
           $newTweetMessage.appendTo($newTweet);
           orderCorrectly($newTweet);
 
-          var $image = $ ('<img class="profile-photo"src="assets/img/>' + newTweetObj.user + '.png"></img>');
-          $image.appendTo($newTweet);
-          orderCorrectly($newTweet);
 
           var $icons = $ ('<span class="icon"style="font-size: 1em; color: Tomato;">');
           var $comment = $ ('<i class="icon comment far fa-comment"></i>');
           $comment.appendTo($icons);
           var $retweet = $ ('<i class="icon retweet fas fa-retweet"></i>');
           $retweet.appendTo($icons);
-          var $like = $ ('<i class="icon like fas fa-thubs-up"></i>');
+          var $like = $ ('<i class="icon like fas fa-thumbs-up"></i>');
           $like.appendTo($icons);
           var $share = $ ('<i class="icon share fas fa-share"></i>');
           $share.appendTo($icons);
