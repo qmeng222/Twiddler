@@ -79,7 +79,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
   font-style: italic;
 }
 
-#newPost {
+#new-tweet-form {
   margin-left: 30px;
 }
 
@@ -99,7 +99,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
   flex-direction: column;
   width: 100%;
   font-size: 20px;
-  color:rgb(11, 7, 48)
+  color:rgb(11, 7, 48);
+  background-color: rgba(255, 255, 240, 0.726);
 }
 .userNTime{
   display: flex;
@@ -111,12 +112,12 @@ input {
   border-radius: 5px;
 }
 
-#name {
+#username {
   height: 30px;
   width: 300px;
 }
 
-#post {
+#message {
   height: 100px;
   width: 300px;
   border-radius: 5px;
@@ -137,7 +138,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid rgb(0, 0, 0);
   margin: 1em 0;
   padding: 0;
 }

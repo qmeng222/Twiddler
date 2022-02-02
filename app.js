@@ -7,15 +7,15 @@ $(document).ready(function(){
   var $title = $('<h1 id="title">Twiddler</h1>');
   var $button = $('<button id="update-feed">Update Feed</button><br>');
   var $feed = $('<div id="feed"></div>');
-  var $newPost = $('<div id="newPost"></div>');
+  var $newPost = $('<form id="new-tweet-form" onsubmit="return false"></form>');
   var listOfNames = {};
   var $leftDiv = $('<div id="leftDiv"></div>');
-  var $nameLabel = $('<label id="userLabel">Username:</label><br>');
-  var $nameInput = $('<input type="text" id="name"><br>');
-  var $tweetLabel = $('<label id="tweetLabel">Message:</label><br>');
-  var $tweetInput = $('<textarea id="post"></textarea><br><br>');
-  var $postButton = $('<button id="postButton">Post</button>');
-  var $friendsList = $('<div id="friendsList"></div>');
+  var $nameLabel = $('<label for="username" id="userLabel">Username:</label><br>');
+  var $nameInput = $('<input type="text" id="username" name="username"><br>');
+  var $tweetLabel = $('<label id="tweetLabel" for="message">Message:</label><br>');
+  var $tweetInput = $('<input id="message" name="message"></input><br><br>');
+  var $postButton = $('<input type="submit" id="postButton" value="Post"></input>');
+  var $friendsList = $('<ul id="friends-list"></ul>');
   var $friendListLabel = $('<label id="friendListLabel">Friends</label>')
   var $breakline = $('<hr>');
 
@@ -23,8 +23,8 @@ $(document).ready(function(){
 
   var addFriendsList = function(object) {
       for (var name in object) {
-      var $newFriend = $('<span class="newFriend"></span>');
-      $newFriend.html(name);
+      var $newFriend = $('<li class="friend newFriend"></li>');
+      $newFriend.html('@' + name);
       $newFriend.appendTo($friendsList);
       $('<br></br>').appendTo($friendsList);
     }
@@ -62,7 +62,7 @@ $(document).ready(function(){
   var renderFeed = function(user) {
     var user = (user === undefined) ? streams.home : streams.home.filter(stream => stream.user === user);
     $feed.html('');
-    $('#friendsList').html('');
+    $('#friends-list').html('');
     var index = user.length - 1;
     while(index >= 0) {
       if (listOfNames[user[index].user] === undefined) {
@@ -80,13 +80,6 @@ $(document).ready(function(){
     $('.username').on("click", function(event) {
       handleUsernameClick(event);
     });
-    // $('.icon').hover(
-    // function() {
-    //   $(this).css('color', 'blue');
-    // }, function() {
-    //   $(this).css('color', 'black');
-    //   }
-    // );
   }
   var back = function() {
     $button.html('Update Feed');
@@ -111,14 +104,19 @@ $(document).ready(function(){
     $('.username').unbind();
   };
   var clickedSubmit = function(name, tweet) {
-    streams.home.push({
-      'user' : name,
-      'message' : tweet,
-      'created_at' : new Date(),
-      'profilePhotoURL' : './assets/img/default-profile.png'
-    });
-    $('#name').val('');
-    $('#post').val('');
+    var streamsObj = {
+    'user' : name,
+    'message' : tweet,
+    'created_at' : new Date(),
+    'profilePhotoURL' : './assets/img/default-profile.png'
+    };
+    streams.home.push(streamsObj);
+    if (streams.users[name] === undefined) {
+      streams.users[name] = [];
+    }
+    streams.users[name].push(streamsObj);
+    $('#username').val('');
+    $('#message').val('');
     renderFeed();
   }
 
@@ -131,8 +129,9 @@ $(document).ready(function(){
     alert('The title of this page is: ' + event.target.innerText);
   });
   $postButton.on('click', function(event) {
-    clickedSubmit($('#name').val(), $('#post').val());
-    console.log(streams.home);
+    clickedSubmit($('#username').val(), $('#message').val());
+    console.log($('#username').val())
+    console.log($('#message').val())
   })
 
   // Append new HTML elements to the DOM
@@ -150,14 +149,6 @@ $(document).ready(function(){
   $friendsList.appendTo($leftDiv);
   $leftDiv.appendTo($app);
   $feed.appendTo($app);
-
-  // $('.icon').hover(
-  //   function() {
-  //     $(this).css('color', 'blue');
-  //   }, function() {
-  //     $(this).css('color', 'black');
-  //   }
-  // );
 
   $('.username').on("click", function(event) {
     handleUsernameClick(event);
