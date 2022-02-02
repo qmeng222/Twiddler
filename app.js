@@ -1,103 +1,114 @@
 
 $(document).ready(function(){
-  // var $app = $('#app');
-  // $app.html('');
-
-  // // The h1 element with text "Twiddler"
-  // var $title = $('<h1>Twiddler</h1>');
-  // // Appending the h1 element to the DOM, nest inside #app div
-  // $title.appendTo($app);
-  // // Set a click event listener on the h1 element
-  // $title.on("click", function(event) {
-  //   console.log(event);
-  //   alert('The title of this page is: ' + event.target.innerText);
-  // });
-
-  // // Creating an Update Feed Button
-  // var $updateFeedButton = $('<button id="update-feed">Update Feed</button>');
-  // $updateFeedButton.appendTo($app);
-  // $updateFeedButton.on("click", function(event) {
-  //   $feed.html('');
-  //   renderFeed();
-  // });
-
-  // // Defining the Feed
-  // var $feed = $('<div id="feed"></div>');
-  // $feed.appendTo($app);
-
-  // // This builds new tweets to put into my feed
-  // var renderFeed = function() {
-  //   var index = streams.home.length - 1;
-  //   while(index >= 0){
-  //     var tweet = streams.home[index];
-  //     var $tweet = $('<div id= "feed" class="tweet"></div>');
-  //     $tweet.text('@' + tweet.user + ': ' + tweet.message);
-  //     $tweet.appendTo($feed);
-  //     index -= 1;
-  //   };
-  // }
-  // renderFeed();
-
 
   // FIRST THINGS. Already Existing Elements and Given Things
   var $app = $('#app');
   $app.html('');
 
+  jQuery(document).ready(function() {
+    jQuery("time.timeago").timeago();
+  });
+
   // HTML. Elements
-  var $title = $('<h1>Twiddler</h1>');
+  var $titlebanner = $('<img class="title-banner">')
+  var $title = $('<h1 class="banner">Twiddle Yo Self</h1>');
+  // var $subtitle = $('<h2 class="banner">Parks and Rec Twiddler</h2>');
   var $updateFeedButton = $('<button id="update-feed">Update Feed</button>');
   var $feed = $('<div id="feed"></div>');
+  var $backButton = $('<button id="update-feed">Back</button>');
+
 
   // FUNCTION. Event Handlers and Functions
   $title.on("click", function(event) {
     console.log(event);
     alert('The title of this page is: ' + event.target.innerText);
   });
-    // This updates the Feed
+
+  // This updates the Feed
   $updateFeedButton.on("click", function(event) {
     $feed.html('');
     renderFeed();
   });
+
     // This builds new tweets to put into my feed
-  var renderFeed = function() {
-    var index = streams.home.length - 1;
-    while(index >= 0){
-      var tweet = streams.home[index];
-      var $tweet = $('<div id= "feed" class="tweet"></div>');
-      var $profilePhoto = $('<img id="feed" class="profile-photo" src="' + tweet.profilePhotoURL + '">');
-      var $userName = $('<div id="feed" class="username"></div>');
-      var $message = $('<div id="feed" class="message"></div>');
-      var $timeStamp = $('<div id="feed" class="timestamp"></div>');
+  var renderFeed = function(user) {
+    if (user === undefined) {
+      var index = streams.home.length - 1;
+      while(index >= 0) {
+        var tweet = streams.home[index];
+        var tweetArray = streams.home;
+        var $tweet = $('<div id="feed" class="tweet"></div>');
+        var $profilePhoto = $('<img class="profile-photo" src="' + tweet.profilePhotoURL + '">').appendTo($tweet);
+        var $userName = $('<button class="username"></button>').text('@' + tweet.user).on("click", function(event) {
+          var theUserName = event.target.innerText;
+          theUserName = theUserName.replace('@','');
+          renderFeed(theUserName);
+        }).appendTo($tweet);
+        var $message = $('<div class="message"></div>').text(tweet.message).appendTo($tweet);
+        var $timeStamp = $('<div class="timestamp"></div>').text(jQuery.timeago(tweet.created_at)).appendTo($tweet);
 
-      var $icon = $('<div id="feed"></div>');
-      var $comment = $('<img id="feed" class="comment" src="./assets/icons/placeholder.png">');
-      var $retweet = $('<img id="feed" class="retweet" src="./assets/icons/placeholder.png">');
-      var $like = $('<img id="feed" class="like" src="./assets/icons/placeholder.png">');
-      var $share = $('<img id="feed" class="share" src="./assets/icons/placeholder.png">');
+        var $icon = $('<div></div>');
+        var $comment = $('<i class="fas fa-comment-dots comment"></i>').appendTo($icon);
+        var $retweet = $('<i class="fas fa-retweet retweet"></i>').appendTo($icon);
+        var $like = $('<i class="far fa-heart like"></i>').appendTo($icon);
+        var $share = $('<i class="fas fa-share-square share"></i>').appendTo($icon);
 
+        $icon.appendTo($tweet);
+        $tweet.appendTo($feed);
+        index -= 1;
+      };
+    } else {
+      $feed.html('');
 
-      $profilePhoto.appendTo($tweet);
-      $userName.text('@' + tweet.user).appendTo($tweet);
-      $message.text(tweet.message).appendTo($tweet);
-      $timeStamp.text(tweet.created_at).appendTo($tweet);
+      // UpdateFeed Button to Back Button Function
+      $updateFeedButton.replaceWith($backButton);
+      $backButton.on("click", function(event) {
+        $feed.html('');
+        renderFeed();
 
-      $comment.appendTo($icon);
-      $retweet.appendTo($icon);
-      $like.appendTo($icon);
-      $share.appendTo($icon);
-      $icon.appendTo($tweet);
+        $backButton.replaceWith($updateFeedButton);
+      });
 
+      var index = streams.users[user].length - 1;
+      while(index >= 0) {
+        var tweet = streams.users[user][index];
+        var tweetArray = streams.users[user];
+        var $tweet = $('<div id="feed" class="tweet"></div>');
+        var $profilePhoto = $('<img class="profile-photo" src="' + tweet.profilePhotoURL + '">').appendTo($tweet);
+        var $userName = $('<button class="username"></button>').text('@' + tweet.user).on("click", function(event) {
+          var theUserName = event.target.innerText;
+          theUserName = theUserName.replace('@','');
+          renderFeed(theUserName);
+        }).appendTo($tweet);
+        var $message = $('<div class="message"></div>').text(tweet.message).appendTo($tweet);
+        var $timeStamp = $('<div class="timestamp"></div>').text(jQuery.timeago(tweet.created_at)).appendTo($tweet);
 
-      // $tweet.text('@' + tweet.user + ': ' + tweet.message);
-      // $profilePhoto.appendTo($feed);
-      $tweet.appendTo($feed);
-      index -= 1;
-    };
+        var $icon = $('<div class="all-icon"></div>');
+        var $comment = $('<i class="fas fa-comment-dots comment"></i>').appendTo($icon);
+        var $retweet = $('<i class="fas fa-retweet retweet"></i>').appendTo($icon);
+        var $like = $('<i class="far fa-heart like"></i>').appendTo($icon);
+        var $share = $('<i class="fas fa-share-square share"></i>').appendTo($icon);
+
+        $icon.appendTo($tweet);
+        $tweet.appendTo($feed);
+        index -= 1;
+      };
+    }
   }
   renderFeed();
 
+  // add hover function
+  $(".comment").hover(function() {
+    $(".comment").addClass("hovered-icon");
+  })
+
   // APPEND. Append new HTML elements to the DOM
+  $titlebanner.appendTo($app);
   $title.appendTo($app);
+  // $subtitle.appendTo($app);
   $updateFeedButton.appendTo($app);
   $feed.appendTo($app);
+
+
+  window.isItBeautifulYet = true
 });
