@@ -8,11 +8,43 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  /* background-color: rgb(177, 176, 176); */
+  background-color: rgb(70, 161, 173);
+  color: rgb(255, 255, 255);
+  /* border: rgb(241, 66, 66) solid 5px; */
+  margin: 5px;
 }
 
 /* google font */
-/* #title {
+#title {
   font-family: 'Lobster', cursive;
-} */
+  text-shadow: 2px 7px #5f5252;
+  font-size: 60px;
+  font-weight: 800;
+}
+
+.tweet {
+  background-color: rgb(0, 0, 0);
+  border:10px rgba(255, 255, 255, 0.993) solid;
+  border-radius: 15px 50px 30px;
+  font-family: 'Lobster', cursive;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  margin-right: 200px;
+  margin-left: 200px;
+  box-shadow: 5px 15px #888888;
+}
+
+.message {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 700;
+}
+
+.comment, .share, .like, .retweet {
+
+}
+
+i:hover {
+  background-color: rgb(48, 99, 105);
+}
