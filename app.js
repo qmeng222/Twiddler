@@ -13,7 +13,7 @@ $(document).ready(function(){
   var $homeFeedSection = $ ('<section id="feed"></section>');
   var $buttonDiv = $ ('<div class="buttons"></div>');
   var $homeFeedButton = $ ('<button id = "update-feed">Update Feed</button>');
-  var $tweetDiv = $ ('<div class="tweetsContainer"></div>');
+  var $tweetDiv = $ ('<div class="flexbox-container"></div>');
 
 // Helper & event handler functions ------------------
 
@@ -54,7 +54,7 @@ $(document).on("click", "#update-feed", function() {
       var userHandle = '@' + streams.home[i].user;
         if (seen[fullTweet] === undefined && userInQuestion === userHandle) {
 
-          var $newTweet = $ ('<div class="tweet"></div>');
+          var $newTweet = $ ('<div class="flexbox-container tweet"></div>');
           $newTweet.text('');
 
           var $image = $ ('<img class="profile-photo" + <img src="./assets/img/' + streams.home[i].user + '.png">'+ '</img>');
@@ -110,7 +110,7 @@ $(document).on("click", "#update-feed", function() {
       var fullTweet = streams.home[i].message;
         if (seen[fullTweet] === undefined) {
 
-          var $newTweet = $ ('<div class="tweet"></div>');
+          var $newTweet = $ ('<div class="flexbox-container tweet"></div>');
           $newTweet.text('');
 
           var $image = $ ('<img class="profile-photo" + <img src="./assets/img/' + streams.home[i].user + '.png">'+ '</img>');
@@ -124,7 +124,7 @@ $(document).on("click", "#update-feed", function() {
           $newTweetMessage.text(streams.home[i].message)
           $newTweetMessage.appendTo($newTweet);
 
-          var $icons = $ ('<span class="icon"style="font-size: 1em; color: Tomato;">');
+          var $icons = $ ('<span class="icon"style="font-size: 1.5em; color: green;">');
           var $comment = $ ('<i class="icon comment far fa-comment"></i>');
           $comment.appendTo($icons);
           var $retweet = $ ('<i class="icon retweet fas fa-retweet"></i>');

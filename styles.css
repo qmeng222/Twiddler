@@ -14,14 +14,20 @@ providing a space for you to apply styles to your app's outermost HTML element -
   color: yellow;
 }
 
-.message {
+#feed {
   font-family: 'Ubuntu', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  padding: 30px;
 }
 
 /* ------ ICON HOVER FEATURE ----------- */
 
 .icon {
   background-color: blue;
+  padding: 5px;
+  width: 20%;
+  border-bottom: 0.5em;
 }
 
 .icon.comment:hover {
@@ -38,4 +44,22 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 .icon.retweet:hover {
   background-color: brown;
+}
+
+
+/* --------- SPACING ----------- */
+
+.flexbox-container {
+  background-color: grey;
+  margin: 0.5rem;
+  border-radius: 50px;
+  height: 80%;
+  text-align: center;
+}
+
+.flexbox-container.tweet {
+  background-color: black;
+  margin: 0.5rem;
+  border-radius: 70px;
+  height: 80%;
 }
