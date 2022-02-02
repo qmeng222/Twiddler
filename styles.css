@@ -10,8 +10,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
 /* font-family: 'Ubuntu', sans-serif; */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: #62B16E;
+  color: #273225;
 }
 
 #feed {
@@ -21,10 +21,25 @@ providing a space for you to apply styles to your app's outermost HTML element -
   padding: 30px;
 }
 
+.title2 {
+  padding: 1em;
+  text-align: center;
+}
+
+.buttons {
+  text-align: center;
+  padding: 10px;
+}
+
+#update-feed:hover {
+  font-style: bold;
+  color: blue;
+}
+
 /* ------ ICON HOVER FEATURE ----------- */
 
 .icon {
-  background-color: blue;
+  background-color: #273225;
   padding: 5px;
   width: 20%;
   border-bottom: 0.5em;
@@ -45,12 +60,18 @@ providing a space for you to apply styles to your app's outermost HTML element -
 .icon.retweet:hover {
   background-color: brown;
 }
+.username {
+  background-color:#A79360;
+}
+.username:hover {
+  font-weight: bold;
+  color: blue;
+}
 
 
 /* --------- SPACING ----------- */
 
 .flexbox-container {
-  background-color: grey;
   margin: 0.5rem;
   border-radius: 50px;
   height: 80%;
@@ -58,7 +79,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 
 .flexbox-container.tweet {
-  background-color: black;
+  background-color: #A79360;
   margin: 0.5rem;
   border-radius: 70px;
   height: 80%;
