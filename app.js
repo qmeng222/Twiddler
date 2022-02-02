@@ -103,7 +103,7 @@ $(document).ready(function(){
     var $tweetFooter = $('<div class="tweet-footer"></div>');
     $tweetFooter.appendTo($tweet);
     var $commentIcon = $('<div class="icon"><i class="comment fas fa-comment"></i></div>');
-    var $retweetIcon = $('<div class="icon"><i class="comment fas fa-retweet"></i></div>');
+    var $retweetIcon = $('<div class="icon"><i class="retweet fas fa-retweet"></i></div>');
     var $likeIcon = $('<div class="icon"><i class="like fas fa-heart"></i></div>');
     var $shareIcon = $('<div class="icon"><i class="share fas fa-share"></i></div>');
     $commentIcon.appendTo($tweetFooter);
