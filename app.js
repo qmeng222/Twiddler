@@ -10,15 +10,16 @@ $(document).ready(function(){
 
   var $title = $('<h1>Twiddler</h1>');
   var $feed = $('<div id="feed"></div>');
-  var $update = $('<button id="update-feed">Update Feed</button>');
+  var $button = $('<button id="update-feed">Update Feed</button>');
 
   // Create event hander functions
 
   var renderFeed = function(user) {
+    $feed.empty();
     var targetStream;
     if (user !== undefined) {
       var name = user.replace('@', '');
-      targetStream = streams.users[user];
+      targetStream = streams.users[name];
     } else {
       targetStream = streams.home;
     }
@@ -52,36 +53,45 @@ $(document).ready(function(){
     }
   };
 
+  var handleUsernameClick = function(username) {
+    renderFeed(username);
+    if ($button.html() === 'Update Feed') {
+      $button.html('Back');
+    }
+  };
+
   // Set event listeners (providing appropriate handlers as input)
 
   renderFeed();
 
   $title.on('click', function(event) {
-    console.log(event);
     alert('The title of this page is: ' + event.target.innerText);
   });
 
-  $update.on('click', function(event) {
+  $button.on('click', function(event) {
     event.preventDefault();
-    $('#feed').empty();
     renderFeed();
+    if ($button.html() === 'Back') {
+      $button.html('Update Feed');
+    }
   });
 
-  $('.icon').hover(function() {
-    console.log(event);
+  $feed.on('mouseenter', '.icon', function(event) {
     $(this).css("color", "blue");
-  }, function() {
+  });
+
+  $feed.on('mouseleave', '.icon', function(event) {
     $(this).css("color", "black");
   });
 
-  $('.username').on('click', function () {
-    renderFeed($(this));
+  $feed.on('click', '.username', function (event) {
+    handleUsernameClick($(this).html());
   });
 
   // Append new HTML elements to the DOM
 
   $title.appendTo($app);
   $feed.appendTo($app);
-  $update.appendTo($app);
+  $button.appendTo($app);
 
 });
