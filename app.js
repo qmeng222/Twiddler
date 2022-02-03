@@ -2,16 +2,31 @@ $(document).ready(function(){
 
   // ** Select already existing elements **
   var $app = $("#app");
-
+  $app.attr("class", "grid");
 
   // ** Create new HTML elements **
-  var $title = $("<h1>Twiddler</h1>");
+  var $header = $("<div></div>");
+  $header.attr("class", "primary-header");
+
+  var $leftBar = $("<div></div>");
+  $leftBar.attr("class", "col-1-4");
+
+  var $midBar = $("<div></div>");
+  $midBar.attr("class", "col-1-2");
+
+  var $rightBar = $("<div></div>");
+  $rightBar.attr("class", "col-1-4");
+
+  var $title = $("<h1></h1>");
+  $title.attr("class", "title");
+  $title.text("Twiddlarrr!");
 
   var $update = $("<button></button>");
   $update.attr("id", "update-feed");
   $update.text("Update Feed")
 
-  var $feed = $("<div id='feed'></div>");
+  var $feed = $("<div></div>");
+  $feed.attr("id", "feed");
 
 
   // ** Create event handler functions **
@@ -28,47 +43,57 @@ $(document).ready(function(){
       var $tweet = $("<div></div>");
       $tweet.attr("class", "tweet");
 
+      // Tweet Header (Profile Pic, Username, Timestamp)
+      var $tweetHeader = $("<header></header>");
+      $tweetHeader.attr("class", "tweet-header");
+
       var $profilePic = $("<img></img>");
       $profilePic.attr({
         class: "profile-photo",
         src: tweet.profilePhotoURL
       });
 
-      var $username = $("<div></div>");
+      var $timestamp = $("<span></span>");
+      $timestamp.attr("class", "timestamp");
+      var $timeago = jQuery.timeago(tweet.created_at);
+      $timestamp.text($timeago);
+
+      var $username = $("<span></span>");
       $username.attr({
         class: "username",
         id: tweet.user
       });
       $username.text("@" + tweet.user);
 
+      // Message Body
       var $message = $("<div></div>");
       $message.attr("class", "message");
       $message.text(tweet.message);
 
-      var $timestamp = $("<div></div>");
-      $timestamp.attr("class", "timestamp");
-      var $timeago = jQuery.timeago(tweet.created_at);
-      $timestamp.text($timeago);
+
+      // Tweet Footer (Icons)
+      var $tweetFooter = $("<footer></footer>");
+      $tweetFooter.attr("class", "tweet-footer");
 
       var $commentIcon = $("<i></i>");
       $commentIcon.attr("class", "comment icon far fa-comments");
+
       var $retweetIcon = $("<i></i>");
       $retweetIcon.attr("class", "retweet icon fas fa-retweet");
+
       var $likeIcon = $("<i></i>");
       $likeIcon.attr("class", "like icon far fa-thumbs-up");
+
       var $shareIcon = $("<i></i>");
       $shareIcon.attr("class", "share icon fas fa-share-square");
 
-      $profilePic.appendTo($tweet);
-      $username.appendTo($tweet);
-      $message.appendTo($tweet);
-      $timestamp.appendTo($tweet);
-      $commentIcon.appendTo($tweet);
-      $retweetIcon.appendTo($tweet);
-      $likeIcon.appendTo($tweet);
-      $shareIcon.appendTo($tweet);
+      // Append Element Groups
+      $tweetHeader.append($profilePic, $timestamp, $username);
+      $tweetFooter.append($commentIcon, $retweetIcon, $likeIcon, $shareIcon);
 
-      $tweet.appendTo($feed);
+      $tweet.append($tweetHeader, $message, $tweetFooter);
+
+      $feed.append($tweet);
     }
   }
 
@@ -94,9 +119,12 @@ $(document).ready(function(){
 
   // ** Append new HTML elements to the DOM **
   $app.html("");
-  $title.appendTo($app);
-  $update.appendTo($app);
-  $feed.appendTo($app);
+  $app.append($leftBar, $midBar, $rightBar);
+
+  $leftBar.append($title, $update);
+  $midBar.append($feed);
 
   renderFeed();
+
+  window.isItBeautifulYet = true;
 });
