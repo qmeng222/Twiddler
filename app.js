@@ -1,3 +1,4 @@
+var visitor = ''
 $(document).ready(function(){
 
   // Select already existing elements
@@ -9,6 +10,23 @@ $(document).ready(function(){
   var $title = $('<h1>Twiddler</h1>')
   var $updateFeedBtn = $('<button id="update-feed" type="button">Update Feed</button>')
   var $feed = $('<section id="feed">Feed</section>');
+  var $friendsListSection = $('<section id="friends-list">Friends</section>');
+  var $inputSection = $('<section id="input-section"></section>');
+  var $tweetForm = $('<form class="form">Twiddle It Up</form');
+  var $usernameInput = $('<label for="input-user">Username</label><input type="text" name="username" id="input-user" required>');
+  var $messageInput= $('<label for="input-message">Your Message</label><textarea name="message" id="input-message" placeholder="write something"></textarea>');
+  var $submitButton= $('<button type="submit" name="submit">Send UR Twiddle to the Twiddlerverse</button>');
+
+    var renderFriendsList = function () {
+      $friendsListSection.html('');
+      var $friendList = $('<ul class = "friendsList"></ul>')
+      Object.keys(streams.users).forEach(function (user) {
+        var $friend = $('<li class = "friend">' + user + '</li>');
+        $friend.appendTo($friendList);
+      });
+      $friendList.appendTo($friendsListSection);
+    }
+
     var formatTweet = function (tweet) {
       var $tweet = $('<div class="tweet"></div>');
       var $img = $(`<img class="profile-photo" src=${streams.users[tweet.user][0].profilePhotoURL} alt=${tweet.user}></img>`);
@@ -47,6 +65,7 @@ $(document).ready(function(){
     }
 
   renderFeed();
+  renderFriendsList();
 
     // Create event handler functions
 
@@ -64,8 +83,25 @@ $(document).ready(function(){
   };
 
   var handleUsernameClick = function(event) {
+      console.log(event);
       renderFeed(event.target.innerText.split('@')[1]);
       $updateFeedBtn.text('back');
+  }
+
+  var handleFriendClick = function(event) {
+    console.log(event);
+    renderFeed(event.target.innerText);
+    $updateFeedBtn.text('back');
+}
+
+  var handleInputTweet = function(event) {
+    event.preventDefault();
+    visitor = document.getElementById('input-user').value;
+    console.log(visitor, document.getElementById('input-user').value);
+    writeTweet(document.getElementById('input-message').value);
+    renderFeed();
+    renderFriendsList();
+    document.querySelector('.form').reset();
   }
     // Set event listeners (providing appropriate handlers as input)
   $updateFeedBtn.on("click", handleUpdateFeedClick);
@@ -74,11 +110,19 @@ $(document).ready(function(){
 
   $feed.on("click", ".username", handleUsernameClick);
 
+  $header.on("click", ".friend", handleFriendClick);
+
+  $submitButton.on("click", handleInputTweet);
+
     // Append new HTML elements to the DOM
   $header.appendTo($app);
   $title.appendTo($header);
   $updateFeedBtn.appendTo($header);
   $feed.appendTo($app);
+  $friendsListSection.appendTo($header);
+  $tweetForm.append([$usernameInput, $messageInput, $submitButton]);
+  $tweetForm.appendTo($inputSection);
+  $inputSection.appendTo($header);
 
   window.isItBeautifulYet = true;
 });
