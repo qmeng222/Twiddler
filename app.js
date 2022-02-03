@@ -13,6 +13,8 @@ $(document).ready(function(){
   var $feed = $('<div id=feed></div>');
 
 
+
+
   //Append new HTML elements to the DOM
   $title.appendTo($app);
   $button.appendTo($app);
@@ -23,15 +25,29 @@ $(document).ready(function(){
     alert('The title of this page is: ' + event.target.innerText);
   }
 
-  var renderFeed = function () {
+  var handleUsernameClick = function (event) {
+    console.log(event.target);
+    //toggle update feed button to 'Back' if button's text is 'Update Feed'
+    //re-renders feed with only clicked user's tweet
+  }
+
+  var renderFeed = function (user) {
     // Remove all previously existing Tweets from the Feed
     $feed.html('');
-    //index of last tweet in collection
-    var index = streams.home.length - 1;
+    if (user) {
+      //index of last tweet in collection
+      var index = streams.users[user].length - 1;
+    } else {
+      var index = streams.home.length - 1;
+    }
     //iterate backwards
     while(index >= 0){
+      if (user) {
       //most recent tweet
-      var tweet = streams.home[index];
+      var tweet = streams.users[user][index];
+      } else {
+        var tweet = streams.home[index];
+      }
       //UI element, create new div with class tweet
       var $tweet = $('<div class="tweet"></div>');
       //text of above tweet
@@ -72,9 +88,14 @@ $(document).ready(function(){
 
   //Set event listeners (providing appropriate handlers as input)
   $title.on('click', handleTitleClick)
-  $button.on('click', renderFeed);
+  $button.on('click', function() {
+    renderFeed()
+  });
+  //event delegation
+  .on('click', handleUsernameClick);
 
   renderFeed();
+
 
 });
 
