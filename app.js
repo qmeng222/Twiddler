@@ -16,7 +16,8 @@ $(document).ready(function(){
   $feed.appendTo($app);
 
   //refresh feature
-  $refreshbutton.on("click load", function() {;
+  $(document).on("click", "#update-feed", function() {;
+    $refreshbutton.replaceWith('<div class="button" id="update-feed">Update Feed</div>')
     $feed.html('');
     var index = streams.home.length - 1;
     while(index >= 0){
@@ -26,6 +27,7 @@ $(document).ready(function(){
       $message.text(tweet.message);
       //Username
       var $username = $('<span class="username"></span>');
+      $username.attr("id", tweet.user);
       $username.text('@'+ tweet.user + ': ');
       //Profile Picture
       var $pp = $('<img class="profile-photo"></img>');
@@ -34,8 +36,6 @@ $(document).ready(function(){
       //Timestamp
       var $timestamp = $('<div class="timestamp"></div>');
       $timestamp.text(jQuery.timeago(tweet.created_at));
-
-
 
       $username.appendTo($tweet);
       $timestamp.appendTo($tweet);
@@ -51,9 +51,52 @@ $(document).ready(function(){
       var $share = $('<i class="icon share fas fa-paper-plane"></i>');
       $share.appendTo($tweet);
       $tweet.appendTo($feed);
-
       index -= 1;
     }
   });
   $("#update-feed").click();
+  // Implementing User Feed
+  $(document).on("click", ".username", function() {
+    $feed.html('');
+    var userid = $(this).attr("id");
+    console.log(userid);
+    var index = streams.users[userid].length - 1;
+    while(index >= 0){
+      var tweet = streams.users[userid][index];
+      var $tweet = $('<div class="tweet pagefont"></div>');
+      var $message = $('<p class="message"></p>')
+      $message.text(tweet.message);
+      //Username
+      var $username = $('<span class="username"></span>');
+      $username.attr("id", tweet.user);
+      $username.text('@'+ tweet.user + ': ');
+      //Profile Picture
+      var $pp = $('<img class="profile-photo"></img>');
+      $pp.attr("src" , 'assets/img/' + tweet.user + '.png');
+      $pp.appendTo($tweet);
+      //Timestamp
+      var $timestamp = $('<div class="timestamp"></div>');
+      $timestamp.text(jQuery.timeago(tweet.created_at));
+
+      $username.appendTo($tweet);
+      $timestamp.appendTo($tweet);
+      $message.appendTo($tweet);
+
+          //Icons
+      var $comment = $('<i class="icon comment fas fa-comment-dots"></i>');
+      $comment.appendTo($tweet);
+      var $retweet = $('<i class="icon retweet fas fa-share-square"></i>');
+      $retweet.appendTo($tweet);
+      var $like = $('<i class="icon like fas fa-thumbs-up"></i>');
+      $like.appendTo($tweet);
+      var $share = $('<i class="icon share fas fa-paper-plane"></i>');
+      $share.appendTo($tweet);
+      $tweet.appendTo($feed);
+
+      index -= 1;
+    }
+    //Change button text to home page
+    $refreshbutton.replaceWith('<div class="button" id="update-feed">Back</div>')
+  })
+
 });
