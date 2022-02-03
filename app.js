@@ -6,9 +6,27 @@ $(document).ready(function(){
 
 //Create new HTML elements
 
-  var $title = $('<h1>Twiddler</h1>');
+  var $title = $('<h1 id = "title">Twiddler</h1>');
+
+  var $appBody = $('<div id = "app-body"></div>');
+
+  var $feedContainer = $("<div id = 'feed-container'></div>");
   var $updateFeedButton = $("<button id = 'update-feed' type = 'button'>Update Feed</button>");
+  var $feedTitle = $("<h2 id = 'feed-title'>Your feed</h2>");
   var $homeFeed = $("<div id = 'feed' class = 'feed'></div>");
+
+  var $sideBar = $("<div id = 'sidebar'></div>");
+  var $tweetForm = $("<div id = 'tweet-form'>\
+                        <h2>What's on your mind?</h2>\
+                        <form>\
+                          <label for='name'>Username:</label> <br>\
+                          <input type = 'text' id = 'name' name = 'name'></input> <br>\
+                          <label for='newmessage'>Message:</label> <br>\
+                          <input type = 'text' id = 'newmessage' name = 'newmessage'></input> <br> <br>\
+                         <input type = 'submit' value = 'Submit'></input>\
+                        </form>\
+                    </div>");
+  var $friendsList = $("<ul id = 'friends-list'>Friends List</ul>");
 
 //Event Handlers and helper functions;
 
@@ -16,9 +34,9 @@ $(document).ready(function(){
     //initiate tweet components
     var $tweet = $('<div class="tweet"></div>');
     var $profilePic = $('<img class = "profile-photo"></img>').attr("src", tweet.profilePhotoURL);
-    var $username = $('<div class = "username"></div>').text('@' + tweet.user);
+    var $username = $('<span class = "username"></span>').text('@' + tweet.user);
     var $message = $('<p class = "message"></p>').text(tweet.message);
-    var $timestamp = $('<div class = "timestamp"></div>').text(jQuery.timeago(tweet.created_at));
+    var $timestamp = $('<span class = "timestamp"></span>').text(jQuery.timeago(tweet.created_at));
     var $comment = $('<i class = "icon comment fas fa-comment"></i>');
     var $retweet = $('<i class = "icon retweet fas fa-retweet"></i>');
     var $like = $('<i class = "icon like fas fa-heart"></i>');
@@ -66,10 +84,20 @@ $(document).ready(function(){
     return makeThisSpecificColor;
   };
 
+  var updateFriendsList = function() {
+    for (let i = 0; i < window.users.length; i++) {
+      $friendsList.append($('<li class = "username"></li>').text("@" + window.users[i]));
+    }
+  };
+
+
+
 ///Event listeners
 
 
   renderFeed(); //This one is special; it just runs every time the page is reloaded.
+
+  updateFriendsList();
 
   //refresh home feed
   $updateFeedButton.on("click", function() {
@@ -80,8 +108,8 @@ $(document).ready(function(){
   });
 
   //toggle icons to blue when hovering over them
-  $app.on("mouseenter", ".icon", makeThisColor("blue"));
-  $app.on("mouseleave", ".icon", makeThisColor("yellow"));
+  $app.on("mouseenter", ".icon", makeThisColor("white"));
+  $app.on("mouseleave", ".icon", makeThisColor($app.css("color")));
 
   //render username feed
   $app.on("click", ".username", handleUserNameFeed);
@@ -90,8 +118,19 @@ $(document).ready(function(){
 
 ///Append elements
   $title.appendTo($app);
-  $updateFeedButton.appendTo($app);
-  $homeFeed.appendTo($app);
+
+  $feedTitle.appendTo($feedContainer);
+  $updateFeedButton.appendTo($feedContainer);
+  $homeFeed.appendTo($feedContainer);
+  $feedContainer.appendTo($appBody);
+
+  $tweetForm.appendTo($sideBar);
+  $friendsList.appendTo($sideBar);
+  $sideBar.appendTo($appBody);
+
+  $appBody.appendTo($app);
 
 
 });
+
+window.isItBeautifulYet = true;
