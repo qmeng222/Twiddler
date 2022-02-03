@@ -8,6 +8,28 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: white;
+  color: black;
+  margin: 10px;
+}
+
+/* ==============
+BUTTON STYLES
+==============*/
+.button {
+  border-radius: 5px;
+  display: inline-block;
+  border: 1px solid black;
+  padding: 5px;
+  background-color: #ecf0f1;
+}
+.button:hover {
+  background-color: #d0d3d4;
+}
+
+/* ========
+FONTS
+==========*/
+.pagefont {
+font-family: 'Quicksand', sans-serif;
 }

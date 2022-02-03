@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="lib/jquery.js"></script>
     <script src="dataGenerator.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="lib/timeago.js"></script>
+    <script src="https://kit.fontawesome.com/f572c0132c.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
+    <div id="app"><!-- Your Entire Application will be built inside this div! -->
+    </div>  <!-- Your Entire Application will be built inside this div! -->
 
-    <script>
-      $(document).ready(function(){
-        var $app = $('#app');
-        $app.html('');
+    <script src="app.js">
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($app);
-          index -= 1;
-        }
-
-      });
     </script>
   </body>
 </html>
