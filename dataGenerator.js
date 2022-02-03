@@ -13,6 +13,7 @@ streams.users.mracus = [];
 streams.users.douglascalhoun = [];
 window.users = Object.keys(streams.users);
 
+
 // utility function for adding tweets to our data structures
 var addTweet = function(newTweet) {
   var username = newTweet.user;
@@ -59,12 +60,12 @@ var scheduleNextTweet = function() {
 };
 scheduleNextTweet();
 
-var icons = {
-  comment : 'assets/icons/placeholder.png',
-  retweet : 'assets/icons/placeholder.png',
-  like : 'assets/icons/placeholder.png',
-  share : 'assets/icons/placeholder.png'
-};
+// var icons = {
+//   comment : 'assets/icons/placeholder.png',
+//   retweet : 'assets/icons/placeholder.png',
+//   like : 'assets/icons/placeholder.png',
+//   share : 'assets/icons/placeholder.png'
+// };
 
 
 // utility function for letting students add "write a tweet" functionality

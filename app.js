@@ -6,70 +6,8 @@ $(document).ready(function(){
 
   // Create an h1 element with the text "Twiddler"
   var $title = $('<h1>Twiddler</h1>');
-
   // Append the h1 element to the DOM, nested inside of the #app div
   $title.appendTo($app);
-
-  // Update Feed button
-  var updateFeedButton = function(event){
-    var $button = $('<button id=update-feed>Update Feed</button>');
-    $button.appendTo($app);
-    $button.on('click', function() {
-    // Remove all previously existing Tweets from the Feed
-    $feed.empty();
-    // For each Tweet object in the stream array (in reverse order)
-      // Create a new Tweet UI component
-      // Append the new Tweet UI component to the Feed
-      var index = streams.home.length - 1;
-      while(index >= 0){
-        var tweet = streams.home[index];
-        console.log(streams.home[index]);
-        var $tweet = $('<div class=tweet></div>');
-        var $profilePhoto= $('<img class=profile-photo></img>').attr("src", tweet.profilePhotoURL);
-        $profilePhoto.appendTo($tweet);
-        var $username = $('<div class=username></div>');
-        $username.text('@' + tweet.user);
-        $username.appendTo($tweet);
-        var $message = $('<div class=message></div>');
-        $message.text(tweet.message);
-        $message.appendTo($tweet);
-
-        var $timestamp = $('<div class=timestamp></div>');
-        $timestamp.text(jQuery.timeago(tweet.created_at));
-        $timestamp.appendTo($tweet);
-
-        var $icons = $('<div class=icons></div');
-        var $comment =$('<i class="far fa-comments comment"></i>');
-        $comment.appendTo($icons);
-        var $retweet =$('<i class="fas fa-retweet retweet" ></i>');
-        $retweet.appendTo($icons);
-        var $like =$('<i class="far fa-heart like"></i>');
-        $like.appendTo($icons);
-        var $share =$('<i class="fas fa-share share"></i>');
-        $share.appendTo($icons);
-        $icons.appendTo($tweet);
-        $tweet.appendTo($feed);
-        index -= 1;
-      }
-    });
-  }
-  updateFeedButton();
-
-
-  // var index = streams.home.length - 1;
-  // while(index >= 0){
-  //   var tweet = streams.home[index];
-  //   var $tweet = $('<div class="tweet"></div>');
-  //   $tweet.text('@' + tweet.user + ': ' + tweet.message);
-  //   $tweet.appendTo($feed);
-  //   index -= 1;
-  // }
-
-    // Feed div with all the tweets
-    var $feed = $('<div id=feed></div>');
-    $feed.appendTo($app);
-
-
 
   // Set a click event listener on the h1 element
   $title.on("click", function(event) {
@@ -78,44 +16,78 @@ $(document).ready(function(){
   });
 
 
-  var index = streams.home.length - 1;
-  while(index >= 0){
-    var tweet = streams.home[index];
-    console.log(streams.home[index]);
-    var $tweet = $('<div class=tweet></div>');
-    var $profilePhoto= $('<img class=profile-photo></img>').attr("src", tweet.profilePhotoURL);
-    $profilePhoto.appendTo($tweet);
-    var $username = $('<div class=username></div>');
-    $username.text('@' + tweet.user);
-    $username.appendTo($tweet);
-    var $message = $('<div class=message></div>');
-    $message.text(tweet.message);
-    $message.appendTo($tweet);
-    var $timestamp = $('<div class=timestamp></div>');
-    $timestamp.text(jQuery.timeago(tweet.created_at));
-    $timestamp.appendTo($tweet);
+  var $button = $('<button id="update-feed" value="update">Update Feed</button>');
+  $button.appendTo($app);
 
-    var $icons = $('<div class=icons></div');
+  var $feed = $('<div id=feed></div>');
+  $feed.appendTo($app);
 
-    var $comment =$('<i class="far fa-comments comment"></i>');
-    $comment.appendTo($icons);
-    // <i class="far fa-comments"></i>
 
-    var $retweet =$('<i class="fas fa-retweet retweet"></i>');
-    $retweet.appendTo($icons);
-    // <i class="fas fa-retweet"></i>
+  $('#update-feed').on('click', function() {
+    if(this.value === 'update') {
+      $feed.empty();
+      renderFeed();
+    }
+  });
 
-    var $like =$('<i class="far fa-heart like"></i>');
-    $like.appendTo($icons);
-    // <i class="far fa-heart"></i>
+  // Update Feed button
+  var renderFeed = function(event){
+    // // Remove all previously existing Tweets from the Feed
+    // For each Tweet object in the stream array (in reverse order)
+      // Create a new Tweet UI component
+      // Append the new Tweet UI component to the Feed
+    var index = streams.home.length - 1;
+    while(index >= 0){
+      var tweet = streams.home[index];
+      var $tweet = $('<div class="tweet id-'+ tweet.user +'"></div>');
+      var $profilePhoto= $('<img class="profile-photo"></img>').attr("src", tweet.profilePhotoURL);
+      $profilePhoto.appendTo($tweet);
+      var $username = $('<div class ="username"> @' + tweet.user + ' </div>');
+      $username.appendTo($tweet);
+      var $message = $('<div class="message">' + tweet.message + '</div>');
+      $message.appendTo($tweet);
+      var $timestamp = $('<div class="timestamp">' + jQuery.timeago(tweet.created_at) + '</div>');
+      $timestamp.appendTo($tweet);
+      var $icons = $('<div class="icons"></div');
+      var $comment =$('<i class="far fa-comments comment"></i>');
+      $comment.appendTo($icons);
+      var $retweet =$('<i class="fas fa-retweet retweet" ></i>');
+      $retweet.appendTo($icons);
+      var $like =$('<i class="far fa-heart like"></i>');
+      $like.appendTo($icons);
+      var $share =$('<i class="fas fa-share share"></i>');
+      $share.appendTo($icons);
+      $icons.appendTo($tweet);
+      $tweet.appendTo($feed);
+      index -= 1;
 
-    var $share =$('<i class="fas fa-share share"></i>');
-    $share.appendTo($icons);
-    // <i class="fas fa-share"></i>
+      // var cachedTweets = [];
+      // cachedTweets.push($('.tweet'));
 
-    $icons.appendTo($tweet);
-    $tweet.appendTo($feed);
-    index -= 1;
+      $tweet.on("click", '.username',function(event) {
+        //if not tweet.user(specific user) - hide all other tweet div classes
+        var clickedUser = event.target.innerText.split('@')[1];
+        streams.home.forEach(index => {
+          if(index.user !== clickedUser) {
+            $('.tweet.id-' + index.user).detach();
+          }
+        })
+        $('#update-feed').val('back');
+        $('#update-feed').text('Back');
+      });
+
+      $('#update-feed').on('click', function() {
+        if(this.value === 'back') {
+          // $('#feed').append(cachedTweets);
+          $feed.empty();
+          renderFeed();
+          $('#update-feed').val('update');
+          $('#update-feed').text('Update Feed');
+        }
+      });
+    }
   }
+
+  renderFeed();
 
 });
