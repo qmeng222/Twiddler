@@ -8,6 +8,100 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-image: url("https://i.pinimg.com/originals/c0/7b/99/c07b99d47343cb8fab8f0250da25c64c.png");
+  background-color: rgb(164, 255, 182);
+  background-position: right 50% top 1%;
+  color: rgb(93, 62, 0);
+  font-family: 'Exo 2', sans-serif;
 }
+#feed {
+  margin-left: 100px;
+}
+#title {
+  margin-top: 50px;
+  margin-left: 100px;
+}
+#update-feed {
+  margin-left: 100px;
+}
+
+.tweet {
+  margin-bottom: 10px;
+  color: black;
+  background:rgb(237, 230, 210);
+  height: 170px;
+  width: 400px;
+  border-radius: 7px;
+  border: solid blue;
+  font: sans-serif;
+  font-weight: 400;
+  padding: 1px;
+  font-style: normal;
+}
+
+.fa-comment {
+  margin-left:140px;
+  margin-bottom: 15px;
+}
+.fa-retweet {
+  margin-left:15px;
+  margin-bottom: 15px;
+}
+.fa-thumbs-up {
+  margin-left:15px;
+  margin-bottom: 15px;
+}
+.fa-share-square {
+  margin-left:15px;
+  margin-bottom: 15px;
+}
+.username {
+  margin-left:15px;
+  display: inline-block;
+
+}
+.message {
+  margin-left:15px;
+}
+#mracus-feed {
+  margin-left:15px;
+}
+#sharksforcheap-feed {
+  margin-left:15px;
+}
+#douglascalhoun-feed {
+  margin-left:15px;
+}
+#shawndrost-feed {
+  margin-left:15px;
+}
+.profile-photo {
+  margin-top:15px;
+  margin-left:15px;
+}
+.timestamp {
+  margin-left: 15px;
+}
+
+/* id="update-feed"></button>'); */
+.username {
+  display: inline-block;
+}
+  #mracus-feed {
+    display: inline-block;
+  }
+  #sharksforcheap-feed {
+    display: inline-block;
+  }
+  #douglascalhoun-feed {
+    display: inline-block;
+  }
+  #shawndrost-feed {
+    display: inline-block;
+  }
+  .timestamp {
+    text-align: center
+  }
+  .icon:hover {
+    color: rgb(255, 255, 255);
+  }
