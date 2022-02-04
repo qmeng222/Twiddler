@@ -7,10 +7,14 @@
 window.streams = {};
 streams.home = [];
 streams.users = {};
-streams.users.shawndrost = [];
-streams.users.sharksforcheap = [];
-streams.users.mracus = [];
-streams.users.douglascalhoun = [];
+streams.users.Kirsten = [];
+streams.users.JeevanChaudhary = [];
+streams.users.FrankChaudhary = [];
+streams.users.MirandaCaroll = [];
+streams.users.Clark = [];
+streams.users.ArthurLeander = [];
+streams.users.TheProphet = [];
+streams.users.DrEleven = [];
 window.users = Object.keys(streams.users);
 
 // utility function for adding tweets to our data structures
@@ -43,11 +47,18 @@ var generateRandomTweet = function() {
   tweet.user = randomElement(users);
   tweet.message = randomMessage();
   tweet.created_at = new Date();
-  tweet.profilePhotoURL = './assets/img/' + tweet.user + '.png';
-  addTweet(tweet);
+  tweet.profilePhotoURL = "./assets/img/" + tweet.user + ".jpg";
+  if (streams.home.indexOf(tweet) === -1) {
+    addTweet(tweet);
+  }
 };
 
-for (var i = 0; i < 10; i++) {
+//timeago
+jQuery(document).ready(function() {
+  jQuery("time.timeago").timeago();
+});
+
+while (streams.home.length < 10) {
   generateRandomTweet();
 }
 

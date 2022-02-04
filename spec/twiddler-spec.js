@@ -75,7 +75,7 @@ var sharedTests = {
       });
     });
   },
-  
+
   tweetsRenderInReverseChronologicalOrder: function() {
     it('displays Tweets in reverse chronological order (newest first)', function() {
         cy.get('.tweet').each(function($tweet, index) {
@@ -177,7 +177,7 @@ describe('Project', function() {
       'The only HTML elements that should be hardcoded (coded into your .html file)',
       'are a div with an ID of app, and a script tag to load app.js.',
       'All other elements should be created from JavaScript within your app.js.\n'
-    ].join('\n');                  
+    ].join('\n');
     expect(htmlHasHardcodedContents, message).not.to.be.true;
   });
 });
@@ -190,7 +190,7 @@ describe('Home Feed', function() {
   it('contains one element with a class of "tweet" for every Tweet', function() {
     cy.get('#feed .tweet').should('have.length', numberOfTweetsAtLastRender);
   });
-  
+
   sharedTests.tweetsRenderInReverseChronologicalOrder();
 
   describe('Update Feed button', function() {
@@ -216,7 +216,7 @@ describe('Home Feed', function() {
           expect(Cypress.$('.tweet').length).to.be.greaterThan(initialNumTweets);
         });
       });
-      
+
       sharedTests.noDuplicateTweetsRendered();
       sharedTests.tweetsRenderInReverseChronologicalOrder();
 
@@ -273,7 +273,7 @@ describe('Tweet UI Component', function() {
       expect($message).to.contain(tweet.message);
     }
   );
-  
+
   assertEveryTweet('contains a child with a class of "username"', '.tweet .username');
   assertEveryTweet(
     'contains the username, prefixed by "@", in the child with a class of "username"',
@@ -340,7 +340,7 @@ describe('Tweet UI Component', function() {
           cy.get('.tweet i.' + iconClass + '[class*="fa-"]').should('exist');
         } else {
           cy.log('This should be an IMG tag using assets/icons/placeholder.png')
-          cy.get('.tweet img.' + iconClass + '[src$="assets/icons/placeholder.png"]').should('exist');
+          cy.get('.tweet img.' + iconClass + '[src="./assets/icons/placeholder.png"]').should('exist');
         }
       });
     });
@@ -427,7 +427,7 @@ describe('User Feed', function() {
         expect($username.text()).to.eq(selectedUsername);
       });
     });
-  
+
     it('changes the "Update Feed" button into a "Back" button', function() {
       cy.get('#update-feed').contains('Back', { matchCase: false });
     });
@@ -498,18 +498,18 @@ describe('Styling and Layout', function() {
         expect(true, 'A CSS :hover rule is included').to.eq(true);
         return;
       }
-  
+
       // check for JS hover handler instead if CSS rule isn't present
       var styles = getComputedStyle(elem);
       var stylesBefore = {};
       var stylesAfter = {};
       Object.assign(stylesBefore, styles);
-      
+
       cy.get('.comment').eq(1).trigger('mouseover').then(function() {
         var mouseOverMessage = 'The CSS of an icon should change on hover';
         Object.assign(stylesAfter, styles);
         cy.wrap(stylesBefore).should('not.deep.equal', stylesAfter, mouseOverMessage);
-  
+
         cy.get('.comment').eq(1).trigger('mouseout').then(function() {
           var mouseOutMessage = 'The CSS of an icon should change back to its initial value after hover';
           Object.assign(stylesAfter, styles);
@@ -618,7 +618,7 @@ if (!Cypress.env('SKIP_EXTRA_CREDIT')) {
           expect(submitButton.length).to.not.equal(0);
           submitButton.click();
         });
-        
+
       });
 
       context('when submitted', function() {

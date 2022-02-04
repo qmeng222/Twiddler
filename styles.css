@@ -1,3 +1,54 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
@@ -7,7 +58,94 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
+/* font-family: 'Roboto Mono', monospace; */
+
 #app {
-  background-color: green;
-  color: yellow;
+  margin: 15px 23% 15px 23%;
+  background-color: #716f72;
+  border-radius: 8px;
 }
+body {
+	background: #1F3C40;
+	font: 300 16px/22px 'Roboto Mono', monospace;
+  padding: 22px 80px 66px 80px;
+}
+#update-feed {
+  border: 2px solid #253e45;
+	border-radius: 5px;
+	color: #253e45;
+  background-color: #BFB28A;
+	cursor: pointer;
+	display: block;
+	font-weight: bold;
+	letter-spacing: .5px;
+	margin: 0 2.5% 0 2.5%;
+	text-transform: uppercase;
+}
+.header {
+  background-image: url("assets/img/Station-Eleven-Cover.jpeg");
+  background-repeat: no-repeat;
+  border: 5px solid #253e45;
+  border-radius: 8px;
+  height: 200px;
+  width: 580px;
+	font-size: 40px;
+	font-weight: bold;
+  text-shadow: 0 0 3px #000;
+	letter-spacing: 1px;
+	line-height: 44px;
+	text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  padding-top: 150px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: inline-block;
+  margin: 2.5%;
+
+}
+h2 {
+  font-size: 15px;
+  line-height: 20px;
+}
+.feed {
+  padding: 20px 30px 20px 30px;
+  display: block;
+  margin: 2 1.5%;
+  background: #253e45;
+}
+.tweet {
+  display: block;
+  margin: 1.5%;
+  padding: 8px 10px 8px 15px;
+  border: 2px solid #BFB28A;
+  color: #fff;
+  background: #1F3C40;
+  height: 180px;
+  width: 550px;
+  border-radius: 30px;
+}
+
+.profile-photo {
+  border-radius: 80px;
+  height: 80px;
+  width: 80px;
+  border: 2px solid #BFB28A;
+}
+
+.icon {
+ margin: 2px;
+}
+
+.icon:hover {
+  color: #BF7534;
+}
+.username {
+  font-weight: bold;
+  color: #000;
+}
+.username:hover {
+  color: #BF7534;
+  font-weight: bold;
+}
+
