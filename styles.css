@@ -19,6 +19,7 @@ hover color change for icons
 
 .comment, .retweet, .like, .share {
   color: purple;
+  height: 0;
 }
 
 .comment:hover, .retweet:hover, .like:hover, .share:hover {
@@ -41,33 +42,74 @@ hover color change for icons
 
 .container-1-3, .container-2-3 {
   margin: 0 auto;
-  width: 960px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
   display: inline-block;
   vertical-align: top;
 }
 
 .container-1-3 {
-  width: 33.33%;
+  width: 20%;
   background-color: gray;
 }
 
 .container-2-3 {
-  width: 66.66%;
+  width: 80%;
 }
 
+.tweetContainer1, .tweetContainer2 {
+  display: flex;
+  margin: 5px;
+}
+
+/*
+Tweet Container 1
+*/
+
 .tweet {
-  border: 0;
+  border: 2px solid #000000;
   border-radius: 5px;
-  height: auto;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pfpContainer {
+  display: flex;
 }
 
 .message {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-style: italic;
   font-weight: 100;
-  margin: 0;
+  margin: 10px;
   text-align: center;
   padding: 1px;
+  display: flex;
+  flex-grow: 1;
+}
+
+/*
+Tweet Container 2
+*/
+
+.tweetContainer2a, .tweetContainer2b {
+  display: flex;
+}
+
+.tweetContainer2a {
+  align-items: center;
+}
+
+.tweetContainer2b {
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.username, .timestamp {
+  display: flex;
+  margin: 2px;
+  font-style: italic;
 }
