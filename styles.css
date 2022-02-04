@@ -2,34 +2,76 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  background-color: #212f3c;
+  color: #AED6F1;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
-
 #app {
-  background-color: white;
-  color: black;
   margin: 10px;
+}
+.home-title {
+  text-align: center;
 }
 
 /* ==============
-BUTTON STYLES
+BUTTON and ICON STYLES
 ==============*/
 .button {
   border-radius: 5px;
   display: inline-block;
-  border: 1px solid black;
-  padding: 5px;
-  background-color: #ecf0f1;
-}
-.button:hover {
-  background-color: #d0d3d4;
 }
 
+.icon {
+  font-size: 0.73em;
+  margin: 0 5px;
+  border-radius: 50%;
+}
+.icon:first-of-type {
+  margin-left: 80%;
+}
+.button, .icon {
+  border: 1px solid #d6eaf8;
+  padding: 5px;
+  background-color: #283747;
+}
+
+.button:hover, .icon:hover {
+  background-color: #5d6d7e;
+}
+#update-feed {
+  margin-right: 20%;
+  margin-left: 70%;
+}
 /* ========
 FONTS
 ==========*/
 .pagefont {
 font-family: 'Quicksand', sans-serif;
+}
+
+/* ===========
+TWEET STYLE
+=============== */
+.tweet  {
+  margin: 10px 15% 10px 30%;
+  padding: 20px 2%;
+  border: 1px solid #d6eaf8;
+  border-radius: 5px;
+  background-color: #1b2631;
+}
+.profile-photo {
+  float: left;
+  margin-right: 15px;
+  width: 80px;
+  height: auto;
+}
+.timestamp {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.75em;
+}
+.message {
+  font-size: 1.25em;
 }

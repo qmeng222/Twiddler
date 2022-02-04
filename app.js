@@ -1,10 +1,10 @@
 $(document).ready(function(){
   jQuery("time.timeago").timeago();
   var $app = $('#app');
-  var $title = $('<h1>Twiddler</h1>');
+  var $title = $('<h1 class="home-title">Twiddler</h1>');
   var $feed = $('<div id="feed"></div>');
   var $refreshbutton = $('<div class="button" id="update-feed">Refresh Feed</div>');
-  var $update = $('#update-feed');
+  var $backbutton = $('<div class="button" id="update-feed">Back</div>');
   // Title
   $title.appendTo($app);
   $title.on("click", function(event) {
@@ -17,7 +17,7 @@ $(document).ready(function(){
 
   //refresh feature
   $(document).on("click", "#update-feed", function() {;
-    $refreshbutton.replaceWith('<div class="button" id="update-feed">Update Feed</div>')
+    $(".button").replaceWith($refreshbutton);
     $feed.html('');
     var index = streams.home.length - 1;
     while(index >= 0){
@@ -42,13 +42,13 @@ $(document).ready(function(){
       $message.appendTo($tweet);
 
       //Icons
-      var $comment = $('<i class="icon comment fas fa-comment-dots"></i>');
+      var $comment = $('<i class="icon comment far fa-comment-dots"></i>');
       $comment.appendTo($tweet);
-      var $retweet = $('<i class="icon retweet fas fa-share-square"></i>');
+      var $retweet = $('<i class="icon retweet far fa-share-square"></i>');
       $retweet.appendTo($tweet);
-      var $like = $('<i class="icon like fas fa-thumbs-up"></i>');
+      var $like = $('<i class="icon like far fa-thumbs-up"></i>');
       $like.appendTo($tweet);
-      var $share = $('<i class="icon share fas fa-paper-plane"></i>');
+      var $share = $('<i class="icon share far fa-paper-plane"></i>');
       $share.appendTo($tweet);
       $tweet.appendTo($feed);
       index -= 1;
@@ -82,7 +82,7 @@ $(document).ready(function(){
       $timestamp.appendTo($tweet);
       $message.appendTo($tweet);
 
-          //Icons
+      //Icons
       var $comment = $('<i class="icon comment fas fa-comment-dots"></i>');
       $comment.appendTo($tweet);
       var $retweet = $('<i class="icon retweet fas fa-share-square"></i>');
@@ -96,7 +96,7 @@ $(document).ready(function(){
       index -= 1;
     }
     //Change button text to home page
-    $refreshbutton.replaceWith('<div class="button" id="update-feed">Back</div>')
+    $refreshbutton.replaceWith($backbutton);
   })
-
+window.isItBeautifulYet = true;
 });
