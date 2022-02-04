@@ -12,42 +12,75 @@ $(document).ready(function(){
 
 
   //--------------------------------------------------------------------
-  //create new div for feed so renderfeeds aka new feeds can be posted in here
+  //create new div for feed so renderfeed aka new feeds can be posted in here
   var $feed = $('<div id="feed"></div>')  //create a div with id='feed'
-  // $feed.text('testtesttest')
   $feed.appendTo($app)
   //---------------------------------------------------------------------------
 
-  //--------------------------------------------------------------------
+    //create function 'renderFeed'
+    var renderFeed = function(index){
+      $feed.empty();
+      while (index >= 0) {
+        // var index = streams.home.length - 1;
+        var tweet = streams.home[index];
+        var $tweet = $('<div class="tweet"></div>');
+        $tweet.text('@' + tweet.user + ': ' + tweet.message + index);
+        $tweet.appendTo($feed);
+        index -= 1;
+      }
+
+      // while (index > lastIdx) {
+      //   var tweet = streams.home[lastIdx+1]   //rechieve individual tweet from streams.home
+      //   var $tweet = $('<div class="tweet"></div>')
+      //   $tweet.text('@' + tweet.user + ': ' + tweet.message + (lastIdx+1));
+      //   $tweet.prependTo($feed)
+      //   lastIdx += 1;
+    }
+
+  //=================================================================================
+  //  DO NOT TOUCH    DO NOT TOUCH    DO NOT TOUCH    DO NOT TOUCH    DO NOT TOUCH
   //There's a similar code in dataGenerator.js to auto generate new tweets I think in the backend?
   //so the below code is used to post 10 tweets from the newest to oldest?
   //the below code was given and moved from index.html
-  var index = streams.home.length - 1;
-  while(index >= 0){
-    var tweet = streams.home[index];  //individual tweets
-    var $tweet = $('<div class="tweet"></div>');
-    $tweet.text('@' + tweet.user + ': ' + tweet.message);
-    $tweet.appendTo($app);
-    index -= 1;
-  }
+  // var index = streams.home.length - 1;
+  // while(index >= 0){
+  //   var tweet = streams.home[index];  //individual tweets
+  //   var $tweet = $('<div class="tweet"></div>');
+  //   $tweet.text('@' + tweet.user + ': ' + tweet.message);
+  //   $tweet.appendTo($app);
+  //   index -= 1;
+  // }
+  //  DO NOT TOUCH    DO NOT TOUCH    DO NOT TOUCH    DO NOT TOUCH    DO NOT TOUCH
+  //=================================================================================
+  //below line substuded for the above default code
+  renderFeed(streams.home.length-1);
+  //=================================================================================
 
   var lastIdx = 10;
   $updateFeed.on('click', function(){
-    var index = streams.home.length - 1
-    //if condition to check if duplicated output
-    while (index > lastIdx) {
-      var tweet = streams.home[lastIdx+1]   //rechieve individual tweet from streams.home
-      var $tweet = $('<div class="tweet"></div>')
-      $tweet.text('@' + tweet.user + ': ' + tweet.message + (lastIdx+1));
-      $tweet.prependTo($feed)
-      lastIdx += 1;
-    }
+    index = streams.home.length - 1
+    renderFeed(index)
+
+    // var index = streams.home.length - 1
+    // //if condition to check if duplicated output
+    // while (index > lastIdx) {
+    //   var tweet = streams.home[lastIdx+1]   //rechieve individual tweet from streams.home
+    //   var $tweet = $('<div class="tweet"></div>')
+    //   $tweet.text('@' + tweet.user + ': ' + tweet.message + (lastIdx+1));
+    //   $tweet.prependTo($feed)
+    //   lastIdx += 1;
+    // }
   }); //click event listener
 
 
-
-
-
+  //testing some code
+  // $updateFeed.hover(function(){
+  //   $(this).toggleClass("hover");}
+    // function(){
+    //   var innerText = event.target.innerText;
+    //   console.log(innerText)
+  // }
+  // )
 
 
 
