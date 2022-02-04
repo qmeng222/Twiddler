@@ -22,6 +22,10 @@ $(document).ready(function(){
   var $feed = $('<div id=feed></div>');
   $feed.appendTo($app);
 
+    // Remove all previously existing Tweets from the Feed
+    // For each Tweet object in the stream array (in reverse order)
+      // Create a new Tweet UI component
+      // Append the new Tweet UI component to the Feed
 
   $('#update-feed').on('click', function() {
     if(this.value === 'update') {
@@ -32,10 +36,6 @@ $(document).ready(function(){
 
   // Update Feed button
   var renderFeed = function(event){
-    // // Remove all previously existing Tweets from the Feed
-    // For each Tweet object in the stream array (in reverse order)
-      // Create a new Tweet UI component
-      // Append the new Tweet UI component to the Feed
     var index = streams.home.length - 1;
     while(index >= 0){
       var tweet = streams.home[index];
@@ -90,4 +90,5 @@ $(document).ready(function(){
 
   renderFeed();
 
+  window.isItBeautifulYet = true;
 });

@@ -2,13 +2,159 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  background-color: #14171A;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: white;
-  color: black;
+  height: auto;
+  width: auto;
+  background-color: #14171A;
+  color: #FFF;
   font-family: 'Lato', sans-serif;
+  font-style: normal;
 }
+
+/*
+=============================
+Twiddler H1
+=============================
+*/
+h1 {
+  font-size: 50px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/*
+=============================
+Icons
+=============================
+*/
+
+.icons {
+  color: #E1E8ED;
+}
+
+.comment {
+  padding-left: 10px;
+  padding-right: 30px;
+}
+
+.retweet {
+  padding-right: 30px;
+}
+
+.like {
+  padding-right: 30px;
+}
+
+.comment:hover {
+  color : #1DA1F2;
+}
+.retweet:hover {
+  color : #1DA1F2;
+}
+.like:hover {
+  color : rgb(255, 28, 142);
+}
+.share:hover {
+  color : #10ff2f;
+}
+
+/*
+=============================
+Button
+=============================
+*/
+#update-feed {
+  background-color: #1DA1F2;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#feed {
+  display:block;
+  padding: 10px 20px;
+}
+
+.tweet {
+  height: auto;
+  width: auto;
+  width: 1000px;
+  margin: auto;
+  padding: 20px 5px 15px 20px;
+  margin-bottom: 10px;
+  display:block;
+  border-radius: 25px;
+  border-style:solid;
+}
+/*
+=============================
+Profile Picture
+=============================
+*/
+
+.profile-photo {
+  border:none;
+  border-radius: 50%;
+  height: auto;
+  width: auto;
+  max-width: 100px;
+  max-height: 100px;
+}
+/*
+=============================
+Username
+=============================
+*/
+
+.username {
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.username:hover {
+  text-decoration: underline;
+}
+
+/*
+=============================
+Message
+=============================
+*/
+
+.message {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: block;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/*
+=============================
+Timestamp
+=============================
+*/
+.timestamp {
+  padding: 5px;
+  display:inline;
+  float:right;
+}
+
+
+
+
