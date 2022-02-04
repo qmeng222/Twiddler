@@ -46,6 +46,7 @@ $(document).ready(function(){
       $message.text(tweet.message);
       $username.text('@' + tweet.user);
       $profilePhoto.attr("src", tweet.profilePhotoURL);
+      $profilePhoto.attr("user", tweet.user);
       $timestamp.text($.timeago(tweet.created_at));
 
       $profilePhotoDiv.append($profilePhoto);
@@ -71,6 +72,9 @@ $(document).ready(function(){
       $feed.append($tweet);
       $feed.append($preventOverlapHR);
 
+      $($username)    .click(handleUsernameClick);
+      $($profilePhoto).click(handleUsernameClick);
+
       index--;
     }
     $feed.appendTo($app);
@@ -80,29 +84,23 @@ $(document).ready(function(){
     }
   }
 
-  var handleUsernameClick = function(event) {   // why does "event" need to be included here for
-    console.log('handleUsernameClick called');  // Cypress not to break?
-    console.log(event);
-    if (event !== undefined) {
-      var username = event.target.innerText.substring(1);
-      renderFeed(username);
-      $updateFeed.text('Back');
+  var handleUsernameClick = function(evt) {
+    // console.log('handleUsernameClick called');
+    console.log(evt);
+    if (evt.target.innerHTML !== "") {
+      var username = evt.target.innerText.substring(1);
+    } else {
+      var username = evt.target.attributes.user.value;
     }
-  }
+    // console.log('username:', username);
+    renderFeed(username);
+    $updateFeed.text('Back');
+}
 
   // Set event listeners (providing appropriate handlers as input)
 
-  $updateFeed.on('click', renderFeed);
-
-  //
-  //
-  // why doesn't this work below? ---> $('.username').on('click', handleUsernameClick);
-  //
-  //
-  $(document).on('click', '.username', handleUsernameClick);//function() {
-  //
-  //
-  //
+  $updateFeed.click(renderFeed);
+  // $($feed).on('click', '.username', handleUsernameClick);
 
   // Append new HTML elements to the DOM
   $topBar.append($updateFeed).append($title).append($pineapple);
