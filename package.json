@@ -1,0 +1,28 @@
+{
+  "name": "twiddler",
+  "version": "1.0.0",
+  "description": "something like twitter",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VincentECE/seip2202-twiddler.git"
+  },
+  "keywords": [
+    "twitterrocks"
+  ],
+  "author": "vincenttran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VincentECE/seip2202-twiddler/issues"
+  },
+  "homepage": "https://github.com/VincentECE/seip2202-twiddler#readme",
+  "dependencies": {
+    "js-confetti": "^0.10.2"
+  }
+}
