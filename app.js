@@ -18,7 +18,7 @@ $(document).ready(function(){
   // Create event handler functions
   function renderFeed() {
     $('#feed').hide();
-    $('#feed').fadeIn(750);
+    $('#feed').fadeIn(0); // 750
     clearFeed();
     renderTweets();
   }
