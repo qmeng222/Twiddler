@@ -8,6 +8,94 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: #cddfff;
+  color: rgb(36, 36, 33);
+  font-family: 'Balsamiq Sans', cursive;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-style: normal;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  margin: auto;
+  width: 60%;
 }
+
+h1 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em;
+  font-size: 300%;
+  font-weight: bold;
+}
+
+.tweet {
+  background-color: rgb(219, 235, 219);
+  box-sizing: border-box;
+  padding: 15px;
+  border: 5px solid #ffffff;
+  margin: auto;
+  width: 60%;
+
+}
+
+.username {
+  font-size: 100%;
+}
+
+.message {
+  font-size: 150%;
+  margin-top: 10px;
+}
+
+.icons {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  text-align: center;
+  border: 1px;
+  padding: 10px;
+}
+
+.container {
+  background-color: rgb(255, 255, 255);
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  height: 70px;
+  width: 70px;
+  background-color: #caf7e3;
+  border-radius: 35px;
+  text-align: center;
+  margin: 7px;
+  line-height: 80px;
+}
+
+a i {
+  transition: all 0.3s linear;
+}
+
+a:hover i {
+  transform: scale(1.5);
+}
+
+.comment:hover {
+  color: rgb(151, 147, 147);
+}
+
+.retweet:hover {
+  color: rgb(151, 147, 147);
+}
+
+.like:hover {
+  color: rgb(151, 147, 147);
+}
+
+.share:hover {
+  color: rgb(151, 147, 147);
+}
+

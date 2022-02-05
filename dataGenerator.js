@@ -7,10 +7,10 @@
 window.streams = {};
 streams.home = [];
 streams.users = {};
-streams.users.shawndrost = [];
-streams.users.sharksforcheap = [];
-streams.users.mracus = [];
-streams.users.douglascalhoun = [];
+streams.users.ebicry = [];
+streams.users.shleeprokuma = [];
+streams.users.tokaraage = [];
+streams.users.paneko = [];
 window.users = Object.keys(streams.users);
 
 // utility function for adding tweets to our data structures
