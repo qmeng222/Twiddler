@@ -12,6 +12,10 @@ html {
   min-width: 1200px;
 }
 
+header {
+  position: absolute;
+}
+
 h1 {
   position: absolute;
   font-size: 80px;
@@ -26,6 +30,18 @@ h1 {
   width: 300px;
 }
 
+p {
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+  width: 65%;
+  height: 60px;
+  padding: 20px 0 0 40px;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+}
+
 #app {
   width: 75%;
   min-width: 980px;
@@ -33,16 +49,6 @@ h1 {
   box-shadow: 0 0 80px 1px white;
   text-align: center;
   border-radius: 100px;
-}
-
-.tweet {
-  background-color: #fff0f5;
-  display: inline-block;
-  box-shadow: 0 0 10px 2px white;
-  width: 80%;
-  min-width: 710px;
-  margin: 0 10% 20px 10%;
-  border-radius: 1%;
 }
 
 #update-feed {
@@ -54,16 +60,23 @@ h1 {
   border-style: none;
 }
 
-header {
-  position: absolute;
-}
-
 #feed {
   background-color: #09f;
   min-width: 980px;
   padding-top: 40px;
   padding-bottom: 100px;
   overflow: scroll;
+}
+
+
+.tweet {
+  background-color: #fff0f5;
+  display: inline-block;
+  box-shadow: 0 0 10px 2px white;
+  width: 80%;
+  min-width: 710px;
+  margin: 0 10% 20px 10%;
+  border-radius: 1%;
 }
 
 .profile-photo {
@@ -94,18 +107,6 @@ header {
   padding-top: 5px;
   font-style: italic;
   color: grey;
-}
-
-p {
-  display: inline-block;
-  margin: 0;
-  vertical-align: top;
-  width: 67%;
-  height: 60px;
-  padding: 20px 0 0 40px;
-  text-align: left;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 17px;
 }
 
 .icon-holder {
