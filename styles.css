@@ -7,7 +7,55 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
-#app {
-  background-color: green;
+
+#app, body{
+  background-color: rgb(178, 209, 235);
   color: yellow;
 }
+
+.icon:hover {
+  color: blue;
+}
+
+.title {
+  font-family: 'Lovers Quarrel', cursive;
+  height: 50px;
+  margin-left: 50px;
+  color: lavender;
+  font-size: 3em;
+
+}
+
+.tweet {
+  text-align: left;
+  border-style: solid;
+  border-color: gray;
+  border-radius: 20px;
+  background-color:aliceblue;
+  padding: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:2px;
+  width: 50%;
+  color: rgb(46, 16, 94);
+}
+
+.timestamp {
+  font-style: italic;
+  color: slategray;
+  text-align: right;
+}
+
+.username {
+  color: black;
+  font-weight: bold;
+  font-family: 'Teko', sans-serif;
+}
+
+.updateFeed {
+  position: fixed;
+  left: 46%;
+  top: 95%;
+  margin-bottom: 10px;
+}
+
