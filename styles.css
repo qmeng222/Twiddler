@@ -1,5 +1,7 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
-html, body, #app {
+html,
+body,
+#app {
   min-height: 100vh;
   margin: 0;
 }
@@ -11,7 +13,52 @@ providing a space for you to apply styles to your app's outermost HTML element -
   background-color: rgba(129, 51, 184, 0.495);
   color: rgb(0, 0, 0);
 }
+.username {
+  font-weight: bold;
+}
 
 .message {
-  font-family: 'PT Sans Narrow', sans-serif;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-style: normal;
+}
+.timestamp {
+  font-style: oblique;
+}
+h1 {
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.comment:hover {
+  background-color: aqua;
+}
+.retweet:hover {
+  background-color: aqua;
+}
+.like:hover {
+  background-color: aqua;
+}
+.share:hover {
+  background-color: aqua;
+}
+
+button {
+  background: rgb(198, 229, 245);
+  border-radius: 15px 50px 30px;
+  height: 3em;
+}
+
+.tweet {
+  margin: 10px 50px 20px;
+  padding: 5px 1em 0.5em 2em;
+  text-align: center;
+  width: 200px;
+  border: thick double #32a1ce;
+  border-style: groove;
+  border-width: 10px;
+  border-spacing: 200px;
+}
+
+.timeline {
+  text-align: center;
 }

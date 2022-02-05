@@ -118,7 +118,7 @@ $(document).ready(function(){
 
 
 
-
+  window.isItBeautifulYet = true
 });
 
 
