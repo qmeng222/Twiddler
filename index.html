@@ -1,28 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="lib/jquery.js"></script>
-    <script src="dataGenerator.js"></script>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
-
-    <script>
-      $(document).ready(function(){
-        var $app = $('#app');
-        $app.html('');
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($app);
-          index -= 1;
-        }
-
-      });
-    </script>
-  </body>
+   <head>
+      <script src="lib/jquery.js"></script>
+      <script src="https://timeago.yarp.com/jquery.timeago.js"></script>
+      <script src="https://kit.fontawesome.com/7b7d8afbd4.js" crossorigin="anonymous"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com"> 
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+      <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="styles.css">
+   </head>
+   <body>
+      <main id="app">
+         <button id="update-feed">Update</button>
+         <section id="feed"></section>
+         <script src="lib/dataGenerator.js"></script>
+         <script src="app.js"></script>
+      </main>
+   </body>
 </html>

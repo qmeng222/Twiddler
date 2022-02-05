@@ -8,6 +8,48 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: #fdede5; /* slight red */
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  width: 800px;
+}
+
+.tweet {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin: 1em;
+  padding: 1em;
+  text-align: left;
+}
+
+.tweet section {
+  display: flex;
+  flex-direction: row;
+}
+
+.tweet nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.username:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+i {
+  margin: 5px;
+}
+
+i:hover {
+  color: black;
+}
+
+img {
+  height: 15px;
 }
