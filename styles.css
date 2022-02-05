@@ -8,6 +8,10 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: rgba(129, 51, 184, 0.495);
+  color: rgb(0, 0, 0);
+}
+
+.message {
+  font-family: 'PT Sans Narrow', sans-serif;
 }
