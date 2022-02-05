@@ -2,7 +2,7 @@ $(document).ready(function(){
   var $app = $('#app');
   $app.html('');
 
-  // Adding twiddler page heading
+  // Adds twiddler page heading
   var $title = $('<h1>twiddler<h1>');
   $title.appendTo($app);
 
@@ -12,17 +12,21 @@ $(document).ready(function(){
     alert('The title of the page is: ' + event.target.innerText);
   });
 
-  // Adding update feed button
+  // Adds update feed button
   var $update_feed_btn = $('<button id="update-feed">update feed</button>');
   $app.append($update_feed_btn);
 
-  // Adding initial tweets to feed
+  // Adds home feed division for tweets
+  var $home_feed = $('<div id="feed"></div>');
+  $app.append($home_feed);
+
+  // Adds initial tweets to home feed
   var index = streams.home.length - 1;
   while(index >= 0){
     var tweet = streams.home[index];
     var $tweet = $('<div class="tweet"></div>');
     $tweet.text('@' + tweet.user + ': ' + tweet.message);
-    $tweet.appendTo($app);
+    $tweet.appendTo($home_feed);
     index -= 1;
   }
 
@@ -30,11 +34,11 @@ $(document).ready(function(){
   $update_feed_btn.on('click', function(event) {
     var oldFeedLength = $('div.tweet').length;
     var newFeedLength = streams.home.length;
-    for (var i = newFeedLength - 1; i > oldFeedLength - 1; i--) {
+    for (var i = oldFeedLength; i < newFeedLength; i++) {
       var tweet = streams.home[i];
       var $tweet = $('<div class="tweet"></div>');
       $tweet.text('@' + tweet.user + ': ' + tweet.message);
-      $tweet.appendTo($app);
+      $tweet.prependTo($home_feed);
     }
   });
 
