@@ -36,13 +36,13 @@ $(document).ready(function(){
     var $timeline = $('<h2 class=timeline>' + user + '\'s Timeline </h2>')
     $timeline.appendTo($app);
       var index = streams.users[user].length - 1;
-      while(index >= 0) {
-        renderUserTweet(user, index);
+      while (index >= 0) {
+        renderTweet(streams.users[user][index], true);
         index--;
       }
         $userFeed.appendTo($app);
         $("time.timestamp").timeago();
-    $($feed).hide();
+    // $($feed).hide();
     $($updateFeed).hide();
     $($homeButton).show();
     $($userFeed).show();
@@ -81,33 +81,6 @@ $(document).ready(function(){
     }
   }
 
-  var renderUserTweet = function(tweetUser, index) {
-    var $usertweet = $('<div class="tweet" ></div>');
-          var $username = $('<div class="username"></div>');
-          $username.text('@' + tweetUser);
-          var $photo = $('<img class="profile-photo"></img>');
-          var $message = $('<div class="message"></div>');
-          $message.text(streams.users[tweetUser][index].message);
-          var $timestamp = $(`<time class="timestamp"></time>`);
-          $timestamp.attr("datetime", streams.users[tweetUser][index].created_at.toISOString());
-          var $icons = $('<div class="icon"></div>');
-          var $comment = $('<i class="comment far fa-comments"></i>');
-          var $retweet = $('<i class="retweet fas fa-retweet"></i>');
-          var $like = $('<i class="like far fa-heart"></i>');
-          var $share = $('<i class="share far fa-share-square"></i>');
-
-          $username.appendTo($usertweet);
-          $message.appendTo($usertweet);
-          $photo.appendTo($usertweet);
-          $timestamp.appendTo($usertweet);
-          $comment.appendTo($icons);
-          $retweet.appendTo($icons);
-          $like.appendTo($icons);
-          $share.appendTo($icons);
-          $icons.appendTo($usertweet);
-          $usertweet.appendTo($userFeed);
-  }
-
   $updateFeed.on("click", function(event) {
     var index = streams.home.length - 1;
     while(index >= latest){
@@ -124,6 +97,8 @@ $(document).ready(function(){
   var index = streams.home.length - 1;
 
   var generateFeed = function(user) {
+    $('#feed').remove();
+    $feed = $('<div id="feed"></div>');
     if (!user) {
       while(index >= 0){
         var tweet = streams.home[index];
@@ -132,14 +107,14 @@ $(document).ready(function(){
         latest++;
       }
     } else {
-      showUserTimeline(user);
+        showUserTimeline(user);
     }
+    $feed.appendTo($app);
   }
 
   generateFeed();
 
   $userFeed.appendTo($app)
-  $feed.appendTo($app);
   $("time.timestamp").timeago();
 
 
