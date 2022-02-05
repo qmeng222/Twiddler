@@ -7,7 +7,61 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
+/* .message {
+  font-family: 'Zen Kurenaido', sans-serif;
+} */
+
 #app {
-  background-color: green;
-  color: yellow;
+  background-image: url(assets/img/background.jpg);
+  background-size: cover;
+  color: black;
+  border-color: cornflowerblue;
+  border-style: outset;
+  border-radius: 30px;
+}
+#feed {
+  text-align: center;
+  border-color: white;
+
+  background-size: 0em;
+
+}
+
+h1 {
+  color: hotpink;
+  background-color:white;
+  text-align: center;
+  margin: 90px;
+  height: 100px;
+  font-style:oblique;
+  font-size: 80px;
+  padding: 5px;
+
+
+}
+
+.message, .username {
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-style:oblique;
+  font-weight:400;
+}
+.tweet {
+  padding: 20px;
+}
+
+#update-feed {
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-style:oblique;
+  font-size: 15px;
+  color: hotpink;
+  border: 3px dotted yellow;
+  margin: 10px;
+  position: relative;
+  left: 800px;
+  width: 150px;
+  height: 50px;
+}
+
+.icon {
+  margin: 10px 20px;
 }
