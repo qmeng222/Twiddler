@@ -11,28 +11,16 @@ $(document).ready(function(){
     alert('The title of this page is: ' + event.target.innerText);
   });
 
-  var $homeButton = $('<button id="home" type="button">Home</button>');
-  $homeButton.hide();
-  $homeButton.appendTo($app);
-  $homeButton.on('click', function(event) {
-    generateFeed();
-    $('.userFeed').remove();
-    $('.timeline').hide();
-    $('div').show();
-    $('.new').show();
-    $($updateFeed).show();
-    $homeButton.hide();
-  });
-
-  $homeButton.insertAfter($updateFeed).hide();
 
   var userTimeline = function(event) {
     generateFeed(event.data);
   };
 
   var showUserTimeline = function(user) {
+    console.log("latest inside show user timeline", latest)
     $('.timeline').remove();
     // console.log(event.data);
+    $updateFeed.text('Back')
     var $timeline = $('<h2 class=timeline>' + user + '\'s Timeline </h2>')
     $timeline.appendTo($app);
       var index = streams.users[user].length - 1;
@@ -40,14 +28,29 @@ $(document).ready(function(){
         renderTweet(streams.users[user][index], true);
         index--;
       }
-        $userFeed.appendTo($app);
-        $("time.timestamp").timeago();
-    // $($feed).hide();
-    $($updateFeed).hide();
-    $($homeButton).show();
-    $($userFeed).show();
+    $("time.timestamp").timeago();
   }
-  var $updateFeed = $('<button id="update-feed" type="button">Update Feed</button>');
+  var twiddlerButton = function(event) {
+    var isBack = 'Back' === $updateFeed.text();
+    if (!isBack) {
+      var index = streams.home.length - 1;
+      console.log("this is latest ", latest)
+      console.log("This is index ", index)
+
+      while(index > latest){
+        var tweet = streams.home[index]
+        renderTweet(tweet, false);
+        $("time.timestamp").timeago();
+        index--
+      }
+      latest = streams.home.length - 1;
+    } else {
+      console.log("inside back, latest", latest)
+      generateFeed();
+      $('.timeline').hide();
+    }
+  }
+  $updateFeed = $('<button id="update-feed" type="button">Update Feed</button>');
   $updateFeed.appendTo($app);
 
   var renderTweet = function(tweet,isAppending) {
@@ -82,29 +85,25 @@ $(document).ready(function(){
   }
 
   $updateFeed.on("click", function(event) {
-    var index = streams.home.length - 1;
-    while(index >= latest){
-      var newTweet = streams.home[latest];
-      renderTweet(newTweet, false);
-      latest++;
-      $("time.timestamp").timeago();
-    }
+    twiddlerButton(event);
   });
 
   var $userFeed = $('<div id="userFeed"></div>')
   var $feed = $('<div id="feed"></div>');
-  var latest = 0;
-  var index = streams.home.length - 1;
+  var timelineTweets = []
+  var latest = streams.home.length - 1;
 
   var generateFeed = function(user) {
     $('#feed').remove();
     $feed = $('<div id="feed"></div>');
     if (!user) {
+      $updateFeed.text('Update Feed')
+      var index = streams.home.length - 1;
+      latest = streams.home.length - 1;
       while(index >= 0){
-        var tweet = streams.home[index];
-        renderTweet(tweet, true);
-        index--;
-        latest++;
+        var tweet = streams.home[index]
+        renderTweet(tweet, true)
+        index--
       }
     } else {
         showUserTimeline(user);
