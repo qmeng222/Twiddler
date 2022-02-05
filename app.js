@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var $app = $('#app');
-  var $title = $('<h1>Twiddler</h1>');
+  var $title = $('<h1>twiddler</h1>');
   var $updateButton = $('<button id="update-feed">Update Feed</button>');
   var $currentFeed = $('<div id="feed"></div>');
 
@@ -17,6 +17,7 @@ $(document).ready(function() {
 
     while(index >= 0) {
       var tweet = feedSource[index];
+      var $icons = $('<div class="icon-holder"></div>');
       var $tweet = $('<div class="tweet"></div>');
       var $userImg = $('<img class="profile-photo" src="' + tweet.profilePhotoURL + '" alt="Picture of Twiddler user">');
       var $user = $('<span class="username">@' + tweet.user + '</span>');
@@ -27,46 +28,54 @@ $(document).ready(function() {
       var $likeImg = $('<i class="icon like far fa-thumbs-up"></i>');
       var $shareImg = $('<i class="icon share far fa-share-square"></i>');
       $userImg.appendTo($tweet);
-      $user.appendTo($tweet);
-      $timePosted.appendTo($tweet);
       $text.appendTo($tweet);
-      $commentImg.appendTo($tweet);
-      $retweetImg.appendTo($tweet);
-      $likeImg.appendTo($tweet);
-      $shareImg.appendTo($tweet);
+      $timePosted.appendTo($tweet);
+      $user.appendTo($tweet);
+      $commentImg.appendTo($icons);
+      $retweetImg.appendTo($icons);
+      $likeImg.appendTo($icons);
+      $shareImg.appendTo($icons);
+      $icons.appendTo($tweet);
       $tweet.appendTo($currentFeed);
       index -= 1;
     }
   };
 
-  $title.on('click', function(event) {
-    console.log(event);
-    alert('The title of this page is: ' + event.target.innerText);
-  });
-
-  $updateButton.on('click', function() {
-    $('#update-feed').text('Update Feed');
+  var feedRefresh = function() {
     renderFeed();
-  });
+    if ($('#update-feed').text() === 'Back') {
+      $('#update-feed').text('Update Feed');
+    }
+  };
+
+  var handleUsernameClick = function() {
+    var user = (($(this).text()).substring(1));
+    renderFeed(user);
+    if ($('#update-feed').text() === 'Update Feed') {
+      $('#update-feed').text('Back');
+    }
+  };
+
+  $title.on('click', feedRefresh);
+
+  $updateButton.on('click', feedRefresh);
+
+  $app.on('click', '.username', handleUsernameClick);
 
   $app.on({
     mouseenter: function() {
-    $(this).css('color', 'blue');
+    $(this).css('color', '#07f');
     },
     mouseleave: function() {
-      $(this).css('color', 'yellow');
+      $(this).css('color', 'black');
     }
    }, 'i.icon');
-
-   $app.on('click', '.username', function() {
-     var user = (($(this).text()).substring(1));
-     renderFeed(user);
-     $('#update-feed').text('Back');
-   });
 
   $app.html('');
   renderFeed();
   $title.appendTo($app);
   $updateButton.appendTo($app);
   $currentFeed.appendTo($app);
+
+  window.isItBeautifulYet = true;
 });
