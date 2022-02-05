@@ -1,5 +1,9 @@
+
+
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
+  font-family: 'Hind Madurai', sans-serif;
+  font-weight: 600;
   min-height: 100vh;
   margin: 0;
 }
@@ -7,7 +11,93 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
+h1 {
+  text-align: center;
+  font-size: 72px;
+  font-weight: 700;
+  background-color: slategray;
+  height: 15px;
+  width: 300px;
+  vertical-align: middle;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h2 {
+  padding: 10px;
+  font-weight: 300;
+  text-align: center;
+
+}
+
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: gray;
+  color: black;
+  padding: 30px;
+}
+
+#update-feed {
+
+  background-color: rgba(255, 255, 255, 0.59);
+  font-size: 24px;
+  margin-left: 1072px;
+  margin-right: auto;
+  width: 160px;
+  align-items: center;
+
+}
+
+#feed {
+  margin-left: auto;
+  margin-right: auto;
+  width: 612px;
+}
+
+.icon:hover,
+.username:hover {
+  color: white;
+}
+
+
+
+.tweet {
+  border: 6px solid #3e3f416e;
+  background-color: slategray;
+  margin: 5px;
+  width: 600px;
+  height: 60px;
+}
+
+.message {
+  text-align: right;
+  padding: 6px;
+}
+
+.profile-photo {
+  border-radius: 50%;
+  float: left;
+  width: 24px;
+  padding: 6px;
+}
+
+.username {
+  display: block;
+  float: left;
+  padding-top: 6px;
+}
+
+.icon-container {
+  padding-left: 220px;
+}
+
+.icon {
+  padding-right: 32px;
+}
+
+.timestamp {
+  padding-right: 24px;
+  float: right;
+  font-size: 14px;
+  opacity: 0.5;
+  font-style: oblique;
 }
