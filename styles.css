@@ -8,6 +8,57 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: rgb(60, 179, 233);
+  color: black;
+  margin-top: -67px;
+
+}
+.title {
+  margin-bottom: -45px;
+  color: rgb(233, 240, 243);
+  font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+  font-size: 100px;
+  text-align: center;
+}
+
+.tweet {
+  background-color: rgb(135, 172, 235);
+  font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+  margin: 10px;
+  width: 30%;
+  border: 3px solid rgb(234, 234, 238);
+  border-radius: 5%;
+  padding: 10px;
+  margin-left: 500px;
+  height: 27vh;
+}
+
+#feed {
+  background-color: cornflowerblue;
+  text-align: left;
+  padding-top: 2px;
+}
+
+.profile-photo {
+  border-radius: 50%;
+}
+
+.username {
+  font-size: 200%;
+  font-weight: bold;
+  font-style: italic;
+  cursor: pointer;
+
+}
+
+.icons {
+  align-items: right;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.message {
+  font-weight: bold;
+  font-size: 120%;
+  cursor: auto;
 }
