@@ -8,6 +8,11 @@ $(document).ready(function(){
   var $homeFeed = $("<div id='feed'></div>");
   var $button = $("<button id='update-feed' type='button'>Update Feed</button>");
   var $userFeed = $("<div class='userFeed'></div>")
+  var $tweetDiv = $('<div class="tweetDiv"></div>');
+  var $tweetPic = $('<img class="profile-photo" src="assets/img/fsociety.png">');
+  var $visitorName = $('<span class="username fsociety">@fsociety</span>');
+  var $tweetForm = $('<form class="tweetForm" enctype="multipart/form-data" name="tweetForm">What\'s on your mind?<br><textarea class="textArea" name="tweet" rows="12" cols="62"></textarea></form>');
+  var $tweetButton = $('<button class="tweetSubmit" type="button">Post Tweet!</button>');
   var commentToggle = false;
 
   // Create event handler functions
@@ -38,30 +43,30 @@ $(document).ready(function(){
       var $iconL = $("<i class='icon like far fa-thumbs-up fa-2x'></i>");
       var $iconS = $("<i class='icon share fab fa-slideshare fa-2x'></i>");
       var $commentDiv = $("<div class='commentDiv'></div>");
-      var $commentForm = $("<form class ='commentForm' action='mailto:mitchwintrow@iamwintrow.com' method='POST' enctype='multipart/form-data' name='EmailForm'>Comment:<br><textarea class='textArea' name='comment' rows='12' cols='24'></textarea><br><input class='commentSubmit' type='submit' value='Submit'></form>");
+      var $commentForm = $("<form class='commentForm' action='mailto:mitchwintrow@iamwintrow.com' method='POST' enctype='multipart/form-data' name='EmailForm'>Comment:<br><textarea class='textArea' name='comment' rows='12' cols='24'></textarea><br><input class='commentSubmit' type='submit' value='Submit'></form>");
       $profilePhoto.appendTo($tweet);
       if (tweet.user === 'douglascalhoun') {
         $('.douglascalhoun').on("click", function() {
           $('#feed').hide();
-          $('#feed').fadeIn(750);
+          $('#feed').fadeIn(0); // 750
           renderUserFeed('douglascalhoun');
         });
       } else if (tweet.user === 'mracus') {
         $('.mracus').on("click", function() {
           $('#feed').hide();
-          $('#feed').fadeIn(750);
+          $('#feed').fadeIn(0); // 750
           renderUserFeed('mracus');
         });
       } else if (tweet.user === 'sharksforcheap') {
         $('.sharksforcheap').on("click", function() {
           $('#feed').hide();
-          $('#feed').fadeIn(750);
+          $('#feed').fadeIn(0); // 750
           renderUserFeed('sharksforcheap');
         });
       } else if (tweet.user === 'shawndrost') {
         $('.shawndrost').on("click", function() {
           $('#feed').hide();
-          $('#feed').fadeIn(750);
+          $('#feed').fadeIn(0); // 750
           renderUserFeed('shawndrost');
         });
       }
@@ -102,14 +107,14 @@ $(document).ready(function(){
       $('.commentSubmit').on('click', function(e) {
         $('.commentForm').slideUp(250);
       });
-      // $('.comment').on('click', '{clicked: false}', function(e) {
-      //   if (e.clicked === false) {
+      // $('.comment').on('click', function(e) {
+      //   if (commentToggle === false) {
       //     $('.commentForm').hide();
       //     $('.commentForm').slideDown(250);
-      //     e.clicked = true;
-      //   } else if (e.clicked === true) {
+      //     commentToggle = true;
+      //   } else if (commentToggle === true) {
       //     $('.commentForm').slideUp(250);
-      //     e.clicked = false;
+      //     commentToggle = false;
       //   }
       // });
       $iconC.appendTo($tweet);
@@ -136,6 +141,13 @@ $(document).ready(function(){
     renderTweets(user);
   }
 
+  function renderFSociety() {
+    console.log('working on it!');
+    // clearFeed();
+    // renderFSocietyTweet();
+    // renderTweets();
+  }
+
   // Set event listeners (providing appropriate handlers as input)
   $title.on('click', function(e) {
     console.log(e);
@@ -148,9 +160,35 @@ $(document).ready(function(){
     }
     renderFeed();
   });
+  $button.hover(function(e) {
+    $(e.target).css('background-color', 'blue');
+  }, function(e) {
+    $(e.target).css('background-color', 'dodgerblue');
+  });
+  $tweetButton.on('click', function(e) {
+    // console.log('working on it!');
+    // console.log(e);
+    renderFSociety();
+  });
+  // $tweetButton.on('mouseenter', function(e) {
+  //   $(e.target).css('background-color', 'blue');
+  // });
+  // $tweetButton.on('mouseleave', function(e) {
+  //   $(e.target).css('background-color', 'dodgerblue');
+  // });
+  $tweetButton.hover(function(e) {
+    $(e.target).css('background-color', 'blue');
+  }, function(e) {
+    $(e.target).css('background-color', 'dodgerblue');
+  });
 
   // Append new HTML elements to the DOM
   $title.appendTo($app);
+  $tweetDiv.appendTo($app);
+  $tweetPic.appendTo($tweetDiv);
+  $visitorName.appendTo($tweetDiv);
+  $tweetForm.appendTo($tweetDiv);
+  $tweetButton.appendTo($tweetDiv);
   $button.appendTo($app);
   $homeFeed.appendTo($app);
 
