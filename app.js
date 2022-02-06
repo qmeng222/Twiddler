@@ -13,37 +13,31 @@ $(document).ready(function(){
   //=========================================================
   var $title = $('<h1>Twiddler</h1>');
   var $updateFeed = $('<button id="update-feed">Update Feed</button>');
-  var $feed = $('<div id="feed"></div>');  //create a div with id='feed'
+  var $feed = $('<div id="feed"></div>');
+
   //=========================================================
   // CODING FORMAT - Create event handler functions
   //=========================================================
-  var renderFeed = function(index, user){  //user parameter require in project instruction
+  //helper function:
+  var renderFeed = function(index, user){  //user parameter
     $feed.empty();
 
+    //scenario 1.if user not defined  2.if user === @userName.slice(1)
     if (!user) {
-      // var index = streams.home.length - 1;
-      // var tweet = streams.home[index]; //if define tweet here it will affect home feed and everything becomes the same for every updatefeed click
       $updateFeed.text('Update Feed');
     } else {
       var index = streams.users[user].length - 1;
-      // var tweet = streams.users[user][index];
-      $updateFeed.text('Back');
+      handleUsernameClick()
     }
 
     while (index >= 0) {
-      // var tweet = streams.home[index];
-      // index = streams.home.length - 1
-      // var tweet = streams.home[index];
       if (user === undefined) {
         var tweet = streams.home[index];
-        // $updateFeed.text('Update Feed');
       } else {
         var tweet = streams.users[user][index];
-        // $updateFeed.text('Back');
       }
+
       var $tweet = $('<div class="tweet"></div>');
-      // FORMAT - Create new HTML elements
-      // var $profilePhoto = $(<img class="profile-photo" src=" assets/img/ + tweet.user + .png ">);
       var $profilePhoto = $('<img class="profile-photo" src="assets/img/' + tweet.user + '.png"/>');
       var $userName = $('<span class="username"></span>');
       var $tweetMessage = $('<p class="message"></p>');
@@ -62,12 +56,13 @@ $(document).ready(function(){
       $tweetMessage.text(tweet.message);
       $timeStamp.text(jQuery.timeago(tweet.created_at));
 
-      //organize and add elements
+      //organize tweet elements
       $tweet.append($profilePhoto).append($userName).append($tweetMessage).append($timeStamp);
-      $tweetIcons.appendTo($tweet);
       $tweetIcons.append($commentIcon).append($likeIcon).append($retweetIcon).append($shareIcon);
+      $tweetIcons.appendTo($tweet);
 
-      //have to do this for for icons?
+
+      //have to do this for four icons?
       $commentIcon.hover(
         function(){
           $(this).css('background-color', 'red');
@@ -79,8 +74,8 @@ $(document).ready(function(){
       //helper function for hover  ..........
       //username needs hover too, later
 
+      //if userName clicked, trigger renderFeed and user === userName.text().slice(1), then jump to renderFeed scenario 2
       $userName.on('click', function(){
-        // console.log($(this).text().slice(1))
         renderFeed(event, $(this).text().slice(1))
       });
 
@@ -89,13 +84,19 @@ $(document).ready(function(){
 
   }
 
+  //helper function as instructed:
+  var handleUsernameClick = function() {
+    if ($updateFeed.text() === 'Update Feed') { $updateFeed.text('Back') };
+  };
+
 
   //=========================================================
   // CODING FORMAT - Set event listeners (providing appropriate handlers as input
   //=========================================================
-  //substuded original code with below code to output initial tweets
+  //initial tweets
   renderFeed(streams.home.length-1, undefined);
 
+  //if update feed button is clicked:
   $updateFeed.on('click', function(){
     renderFeed(streams.home.length-1, undefined)
   });
