@@ -11,3 +11,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
   background-color: white;
   color: black;
 }
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+}
