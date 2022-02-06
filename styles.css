@@ -8,6 +8,87 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: #fffbf0;
+  color: black;
 }
+
+#feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+h1 {
+  font-family: 'Supermercado One', cursive;
+  font-size: 50px;
+  color: grey;
+  margin: 10px;
+  border-radius: 0cm;
+  text-align: center;
+}
+
+.profile-photo {
+  height: 40px;
+  border-radius: 50%;
+}
+
+.container {
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+#update-feed {
+  background-color: #ffa5b6;
+  color: black;
+  text-align: center;
+  border: #ffc5d1;
+  border-style: outset;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.tweet {
+
+  width: 70%;
+  border: #f0afa8;
+  border-style: double;
+  height: max-content;
+  padding: 15px;
+}
+
+.username {
+  color: black;
+  font-weight: bold;
+  text-align: left;
+  clear: both;
+}
+
+.timestamp {
+  font-style: oblique;
+  color: #ceccfd;
+  padding: 0px;
+  margin-bottom: 10px;
+  margin-top: 0px;
+  float: left;
+}
+
+.message {
+ font-family:'Times New Roman', Times, serif;
+ margin-bottom: 10px;
+ /* float:inline-start; */
+}
+
+.icon {
+  background-color: transparent;
+  color: #ff7871;
+  padding: 0.5em;
+  float: right;
+}
+
+.icon:hover {
+  background-color:rgb(248, 241, 241);
+  color: peru;
+};
