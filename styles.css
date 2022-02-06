@@ -2,12 +2,80 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  text-align: center;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
+h1 {
+  color: white;
+  font-style: italic;
+  font-weight: bold;
+  margin: auto;
+  padding: 25px;
+}
+
 #app {
-  background-color: green;
-  color: yellow;
+  background-image: url("assets/img/city.jpg"); /* The image used */
+  background-color: silver;
+  background-attachment: fixed;
+  background-repeat: repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  font-family: 'Roboto Mono', monospace;
+
+}
+
+#feed {
+  margin: 0px 50px 0px 50px;
+  padding: 30px;
+}
+
+.tweet {
+  backdrop-filter: blur(20px);
+  border: double;
+  font-weight: bold;
+  color: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 100px;
+}
+
+img {
+  float: left;
+  width: 15%;
+  border-radius: 50px;
+}
+
+span {
+  margin: 50px;
+}
+
+i {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.comment:hover {
+  height: 16px;
+  width: 16px;
+  background-image: url("assets/icons/greybox.png");
+}
+
+.retweet:hover {
+  height: 16px;
+  width: 20px;
+  background-image: url("assets/icons/greybox.png");
+}
+
+.like:hover {
+  height: 16px;
+  width: 16px;
+  background-image: url("assets/icons/greybox.png");
+}
+
+.share:hover {
+  height: 16px;
+  width: 16px;
+  background-image: url("assets/icons/greybox.png");
 }
