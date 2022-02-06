@@ -11,6 +11,7 @@ $(document).ready(function(){
   var $title = $('<h1>Twiddler</h1>');
   var $button = $('<button id=update-feed>Update Feed</button>');
   var $feed = $('<div id=feed></div>');
+  //var $username = $('<div class=username></div>');
 
 
 
@@ -26,7 +27,7 @@ $(document).ready(function(){
   }
 
   var handleUsernameClick = function (event) {
-    console.log(event.target);
+    console.log('this is the event:' + event.target)
     //toggle update feed button to 'Back' if button's text is 'Update Feed'
     //re-renders feed with only clicked user's tweet
   }
@@ -89,10 +90,26 @@ $(document).ready(function(){
   //Set event listeners (providing appropriate handlers as input)
   $title.on('click', handleTitleClick)
   $button.on('click', function() {
+    if ($(this).text() === "Update Feed") {
+      $(this).text("Back");
+  } else {
+      $(this).text("Update Feed");
+  };
     renderFeed()
   });
+
+
+//   $("#update-feed").click(function() {
+//     if ($(this).text() === "Update Feed") {
+//         $(this).text("Back");
+//     } else {
+//         $(this).text("Update Feed");
+//     };
+// });
+
+
   //event delegation
-  .on('click', handleUsernameClick);
+  $('.username').on('click', handleUsernameClick);
 
   renderFeed();
 
