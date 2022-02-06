@@ -38,7 +38,7 @@ $(document).ready(function(){
       $message.appendTo($tweet);
       //adds timestamp child element
       var $timestamp = $('<span class="timestamp"></span>');
-      $timestamp.text(tweet.created_at);
+      $timestamp.text(jQuery.timeago(tweet.created_at));
       $timestamp.appendTo($tweet);
       //adds comment icon
       var $comment = $('<img class="comment" src="./assets/icons/placeholder.png">');
