@@ -41,16 +41,16 @@ $(document).ready(function(){
       $timestamp.text(jQuery.timeago(tweet.created_at));
       $timestamp.appendTo($tweet);
       //adds comment icon
-      var $comment = $('<img class="comment" src="./assets/icons/placeholder.png">');
+      var $comment = $('<i class="fas fa-comment icon comment"></i>');
       $comment.appendTo($tweet);
       //adds retweet icon
-      var $retweet = $('<img class="retweet" src="./assets/icons/placeholder.png">');
+      var $retweet = $('<i class="fas fa-retweet icon retweet"></i>');
       $retweet.appendTo($tweet);
       //adds like icon
-      var $like = $('<img class="like" src="./assets/icons/placeholder.png">');
+      var $like = $('<i class="fas fa-heart icon like"></i>');
       $like.appendTo($tweet);
-      //adds share icon
-      var $share = $('<img class="share" src="./assets/icons/placeholder.png">');
+      //adds share iconr
+      var $share = $('<i class="fas fa-share icon share"></i>');
       $share.appendTo($tweet);
     }
   };
