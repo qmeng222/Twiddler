@@ -1,5 +1,14 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
-html, body, #app {
+@font-face {
+  src: url(/assets/fonts/airstrike/airstrike.ttf);
+  font-family: airstrike;
+}
+
+html,
+body,
+#app {
+  background: #466368;
+  background: linear-gradient(#380036, #0cbaba);
   min-height: 100vh;
   margin: 0;
 }
@@ -7,7 +16,58 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
-#app {
-  background-color: green;
-  color: yellow;
+.header {
+  height: 80px;
+}
+h1 {
+  font-family: airstrike;
+  font-size: 48px;
+  color: white;
+  letter-spacing: 8px;
+}
+
+.tweet_normal {
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 20px;
+
+  width: 65%;
+  /* display: block; */
+  margin: 15px auto 0px auto;
+  padding: 20px 10px;
+  background: linear-gradient(#e66ee2, #82ff7b);
+  color: white;
+}
+
+.tweet_normal {
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 20px;
+
+  width: 65%;
+  /* display: block; */
+  margin: 15px auto 0px auto;
+  padding: 20px 10px;
+  background: linear-gradient(#e66ee2, #82ff7b);
+  color: white;
+}
+
+.tweet_mouseover {
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 20px;
+
+  width: 65%;
+  /* display: block; */
+  margin: 15px auto 0px auto;
+  padding: 20px 10px;
+  background: linear-gradient(#1d0b1d, #a1f09d);
+}
+
+.profilePic {
+  border-radius: 50%;
+  width: 150px;
 }
