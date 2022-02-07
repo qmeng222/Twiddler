@@ -27,10 +27,16 @@ $(document).ready(function(){
   }
 
   var handleUsernameClick = function (event) {
-    console.log('this is the event:' + event.target)
+    console.log('this is the event: ' + event.target);
+    //renderFeed(event.target.innerText);
     //toggle update feed button to 'Back' if button's text is 'Update Feed'
-    //re-renders feed with only clicked user's tweet
-  }
+    if (($button).text() === "Update Feed") {
+      ($button).text("Back");
+      //re-renders feed with only clicked user's tweet
+      //renderFeed(user);
+      }
+    };
+
 
   var renderFeed = function (user) {
     // Remove all previously existing Tweets from the Feed
@@ -90,26 +96,15 @@ $(document).ready(function(){
   //Set event listeners (providing appropriate handlers as input)
   $title.on('click', handleTitleClick)
   $button.on('click', function() {
-    if ($(this).text() === "Update Feed") {
-      $(this).text("Back");
-  } else {
-      $(this).text("Update Feed");
-  };
+    if (($button).text() === "Back") {
+      ($button).text("Update Feed");
+    }
     renderFeed()
   });
 
 
-//   $("#update-feed").click(function() {
-//     if ($(this).text() === "Update Feed") {
-//         $(this).text("Back");
-//     } else {
-//         $(this).text("Update Feed");
-//     };
-// });
-
-
   //event delegation
-  $('.username').on('click', handleUsernameClick);
+  $('#feed').on('click', handleUsernameClick);
 
   renderFeed();
 
