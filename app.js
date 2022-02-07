@@ -7,7 +7,7 @@ $(document).ready(function () {
   var $updateButton = $('<button id="update-feed" onclick=updateFeed()>Update Feed</button>');
   var $backButton = $('<button id="back" onclick=goBack() style="display:none;">Back</button>');
   // var $feedDiv = $('<div id="feed" class="feed"></div>');
-  // var $app = $('<div id="#app"></div> ');
+  var $app = $('<div id="#app"></div> ');
   // Create event handler functions
   var handleTitleClick = function (event) {
     var titleType = event.target.localName === 'h1' ? 'title' : 'subtitle';
