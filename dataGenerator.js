@@ -14,7 +14,7 @@ streams.users.mracus = [];
 streams.users.douglascalhoun = [];
 window.users = Object.keys(streams.users);
 
-// each of these functions solve some smaller problem 
+// each of these functions solve some smaller problem
 // utility function for adding tweets to our data structures
 var addTweet = function(newTweet) {
   var username = newTweet.user;
@@ -56,7 +56,7 @@ for (var i = 0; i < 10; i++) {
 var scheduleNextTweet = function() {
   if (streams.home.length < 500) {
     generateRandomTweet();
-    setTimeout(scheduleNextTweet, 250 + (Math.random() * 1250));
+    setTimeout(scheduleNextTweet, 500 + (Math.random() * 2500));
   }
 };
 scheduleNextTweet();

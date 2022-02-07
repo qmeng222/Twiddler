@@ -3,69 +3,90 @@ $(document).ready(function(){
   var $app = $('#app');
   // clears the HTML from the app
   $app.html('');
-  // creates div with id="feed"
-  var $feed = $('<div id="feed"></div>');
-  // adds feed div as a child to the app div
-  $feed.appendTo($app);
 
-  var $navbar = $('<div class="navbar" id="main-navbar"></div>');
-  $navbar.appendTo($app);
+  var $title = $('<h1 id="title">Twiddler</h1>');
+  $title.appendTo($app);
+  $title.on("click", function(e) {
+    alert('The title of this page is: ' + e.target.innerText);
+  })
 
-  updateFeed();
-  createUpdateFeedButton(function() {
-    $feed.empty();
-    updateFeed(); // currently adds more tweets to the feed
-  }).appendTo($app);
+  var $sidebar = $('<section id="sidebar"></section>');
 
+  var showUserFeed = function(username) {
+    $('#feed').remove();
+    var $feed = renderFeed(username, function(){});
+    $feed.appendTo($app);
+    console.log('showUserFeed executed')
+    $('#update-feed').text('Back');
+  }
+
+  var showHomeFeed = function() {
+    $('#feed').remove();
+    // initializes the feed at appropriate state (home)
+    var $feed = renderFeed('', showUserFeed);
+    $feed.appendTo($app);
+    console.log('showHomeFeed executed')
+    $('#update-feed').text('Update Feed')
+  }
+
+  createFeedButton(showHomeFeed).appendTo($sidebar);
+  createFriendsList(showUserFeed).appendTo($sidebar);
+  createNewTweetForm(showHomeFeed).appendTo($sidebar);
+  $sidebar.appendTo($app);
+  showHomeFeed();
 });
 
-
-var createUpdateFeedButton = function(onClick) {
-    // creates update feed button
-  var $updateFeedButton = $('<button id="update-feed" text="Add">Update Feed</button>');
+// creates update feed button
+var createFeedButton = function(onClick) {
+  // creates update feed button element and adds "Update Feed" as default text
+  var $updateFeedButton = $('<button id="update-feed">Update Feed</button>');
   // creates functionality for the button - should add more tweets to the feed
-  $updateFeedButton.on('click', onClick)
+  $updateFeedButton.on('click', onClick);
+  console.log('createFeedButton invoked')
   return $updateFeedButton;
-}
+};
 
-var updateFeed = function() {
-  var index = streams.home.length - 1;
-  while(index >= 0){
+var renderFeed = function(user, onShowNewFeed) {
+  var allTweets = user ? streams.users[user] : streams.home;
+  var $feed = $('<div id="feed"></div>');
+  for (var i = allTweets.length -1; i >= 0; i--) {
     // JavaScript only, data structure
-    var tweet = streams.home[index];
-    var $tweet = createTweet(tweet);
+    var tweet = allTweets[i];
+    // creates the jQuery object
+    var $tweet = createTweet(tweet, onShowNewFeed);
+    console.log('onShowNewFeed in renderFeed: ', onShowNewFeed)
     // Adds the newly constructed tweet (jQuery object) to the div with an id="feed"
-    $tweet.appendTo($('#feed'));
-    index -= 1;
+    $tweet.appendTo($feed);
   }
-}
+  return $feed;
+};
 
-var createTweet = function(tweet) {
+var createTweet = function(tweet, onUsernameClick) {
   // creates jQuery variables
   var $tweet = $('<div class="tweet"></div>');
   var $message = $('<div class="message"></div>');
   var $username = $('<div class="username"></div>');
   var $profilePhoto = $('<img class="profile-photo"/>');
   var $timestamp = $('<div class="timestamp"></div>');
-  var $commentIcon = $('<img class="icon comment"/>');
-  var $retweetIcon = $('<img class="icon retweet"/>');
-  var $likeIcon = $('<img class="icon like"/>');
-  var $shareIcon = $('<img class="icon share">');
+  var $commentIcon = $('<i class="icon comment far fa-comments"></i>');
+  var $retweetIcon = $('<i class="icon retweet fas fa-retweet"></i>');
+  var $likeIcon = $('<i class="icon like far fa-heart"></i>');
+  var $shareIcon = $('<i class="icon share far fa-share-square"></i>');
 
   // adds to elements via jQuery variables
   $message.text(tweet.message);
-  $username.text('@' + tweet.user + ': ')
+  $username.text('@' + tweet.user + ':')
   $profilePhoto.attr('src', tweet.profilePhotoURL);
-  $timestamp.text(tweet.created_at)
-  $commentIcon.attr('src', './assets/icons/placeholder.png');
-  $retweetIcon.attr('src', './assets/icons/placeholder.png');
-  $likeIcon.attr('src', './assets/icons/placeholder.png');
-  $shareIcon.attr('src', './assets/icons/placeholder.png');
+  $timestamp.text(jQuery.timeago(tweet.created_at));
+  $username.on("click", function(e) {
+    onUsernameClick(e.target.innerText.replace('@', '').replace(':', ''));
+    console.log('username clicked');
+  });
 
   // appends these elements to the tweets
+  $profilePhoto.appendTo($tweet);
   $username.appendTo($tweet);
   $message.appendTo($tweet);
-  $profilePhoto.appendTo($tweet);
   $timestamp.appendTo($tweet);
   $commentIcon.appendTo($tweet);
   $retweetIcon.appendTo($tweet);
@@ -73,5 +94,57 @@ var createTweet = function(tweet) {
   $shareIcon.appendTo($tweet);
 
   return $tweet;
+};
+
+var createFriendsList = function(onClick) {
+  var allFriends = streams.users;
+  // create HTML <ul> element via jQuery
+  var $friendsList = $('<ul id="friends-list">Friends List</ul>');
+  $('#friends-list').on('click', "li", function(e) {
+    onClick(e.target.innerText);
+  })
+  for (var key in allFriends) {
+    var $friend = $('<li class="friend"></li>');
+    $friend.on("click", function(e) {
+      onClick(e.target.innerText);
+    })
+    $friend.text(key).appendTo($friendsList);
+  }
+  return $friendsList
 }
 
+window.visitor = 'defaultname';
+
+var createNewTweetForm = function(onClick) {
+
+  // creates jQuery elements
+  var $tweetForm = $('<div id="tweet-form">Tweet Form</div>')
+  var $submitButton = $('<button class="submit-button" type="button">Post Tweet</button>')
+  var $usernameText = $('<label>Username</label>')
+  var $usernameInput = $('<textarea class="textarea" id="username"></textarea>')
+  var $messageText = $('<label>Message</label>')
+  var $textarea = $('<textarea class="textarea message"></textarea>')
+
+  //adds elements to the app
+  $usernameText.appendTo($tweetForm);
+  $usernameInput.appendTo($tweetForm);
+  $messageText.appendTo($tweetForm);
+  $textarea.appendTo($tweetForm);
+  $submitButton.appendTo($tweetForm);
+
+  // gives Post Tweet button functionality
+  $submitButton.on("click", function(e) {
+    window.visitor = $usernameInput.val();
+    if (!streams.users[window.visitor]) {
+      var $friend = $('<li class="friend"></li>');
+      $friend.text(window.visitor);
+      $friend.appendTo('#friends-list');
+    }
+    writeTweet($textarea.val());
+    onClick();
+  });
+
+  return $tweetForm;
+}
+
+window.isItBeautifulYet = true;
