@@ -2,12 +2,55 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  background-color: green;
+  color: yellow;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
+/*
 #app {
   background-color: green;
   color: yellow;
+}
+*/
+
+/*
+h1, button {
+  font-family: 'Henny Penny', cursive;
+}
+*/
+
+h1 {
+  font-size: 360%;
+}
+
+button {
+  font-size: 110%;
+}
+
+.tweet {
+  padding: 10px;
+  border: 2px solid red;
+  margin: 8px;
+  background-color: lightgreen;
+  min-width: 300px;
+  max-width: 500px;
+  float: right;
+}
+
+.message {
+  background-color: aqua;
+  padding: 20px;
+}
+
+.icon {
+  padding-left: 4px;
+  padding-right: 4px;
+  float: right;
+}
+
+.icon:hover {
+  color: pink;
 }
