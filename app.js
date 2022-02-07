@@ -6,8 +6,8 @@ $(document).ready(function () {
   var $subtitle = $('<h2>Where Twiddlers be Twiddlin\'</h2>');
   var $updateButton = $('<button id="update-feed" onclick=updateFeed()>Update Feed</button>');
   var $backButton = $('<button id="back" onclick=goBack() style="display:none;">Back</button>');
-  var $feedDiv = $('<div id="#feed"></div>');
-  var $app = $('<div id="app"></div> ');
+  var $feedDiv = $('<div id="feed"></div>');
+  var $app = $('<div id="#app"></div> ');
   // Create event handler functions
   var handleTitleClick = function (event) {
     var titleType = event.target.localName === 'h1' ? 'title' : 'subtitle';
@@ -22,10 +22,9 @@ $(document).ready(function () {
   $app.appendTo($body);
   $subtitle.prependTo($body);
   $title.prependTo($body);
-  $updateButton.appendTo($('#app'));
-  $backButton.appendTo($('#app'));
-  $feedDiv.appendTo($('#app'));
-
+  $updateButton.appendTo($app);
+  $backButton.appendTo($app);
+  $feedDiv.appendTo($app);
 
   renderFeed();
 });
@@ -51,10 +50,10 @@ var renderFeed = function () {
     var $timestamp = $('<div class="timestamp"></div>');
     var $message = $('<div class="message"></div>');
     var $icons = $('<i class="fas fa-comments comment"></i> <i class="fas fa-retweet retweet"></i> <i class="fas fa-thumbs-up like"></i> <i class="fas fa-share share"></i><br>');
+
     $username.text('@' + tweet.user);
     $message.text(tweet.message);
-    //$timestamp.text($.timeago(tweet.created_at));
-    $timestamp.text(tweet.created_at);
+    $timestamp.text($.timeago(tweet.created_at));
     $pic.attr('src', tweet.profilePhotoURL);
     $tweet.prependTo($feed);
     $icons.prependTo($tweet);
