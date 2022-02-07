@@ -81,7 +81,7 @@ $(document).ready(function(){
 
   $title.on('click', handleTitleClick);
   $update_feed_btn.on('click', renderFeed);
-  /*$("#title").on('click', function() {
+  /*$('.icon').on('click', function() {
     console.log('hi');
     $('.icon').css('color', 'blue');
   });*/
