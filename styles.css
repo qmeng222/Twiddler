@@ -22,3 +22,9 @@ button {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: 400;
 }
+h1 {
+  font-family: 'Supermercado One', cursive;
+  font-size: 60px;
+  font-weight: 400;
+  text-align: center;
+}
