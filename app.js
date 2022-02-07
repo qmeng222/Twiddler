@@ -22,8 +22,8 @@ $(document).ready(function () {
   $app.appendTo($body);
   $subtitle.prependTo($body);
   $title.prependTo($body);
-  $updateButton.appendTo($app);
-  $backButton.appendTo($app);
+  $updateButton.appendTo($body);
+  $backButton.appendTo($body);
   $feedDiv.appendTo($app);
 
   renderFeed();
