@@ -27,14 +27,11 @@ $(document).ready(function(){
   }
 
   var handleUsernameClick = function (event) {
-    console.log('this is the event: ' + event.target);
-    //renderFeed(event.target.innerText);
+    var $user = event.target.innerText.substring(1);
+    renderFeed($user);
+
     //toggle update feed button to 'Back' if button's text is 'Update Feed'
-    if (($button).text() === "Update Feed") {
       ($button).text("Back");
-      //re-renders feed with only clicked user's tweet
-      //renderFeed(user);
-      }
     };
 
 
