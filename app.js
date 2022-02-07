@@ -89,3 +89,4 @@ function getTweetData() {
     return streams.users.douglascalhoun;
   }
 }
+window.isItBeautifulYet = true;
