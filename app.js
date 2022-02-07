@@ -42,8 +42,8 @@ $(document).ready(function(){
     $button.text("Back");
     for (var i = 0; i < streams.home.length; i++) {
       var tweet = streams.home[i];
-      console.log(event.target.innerText);
-      console.log(tweet.user);
+      //console.log(event.target.innerText);
+      //console.log(tweet.user);
       if (event.target.innerText.slice(1, event.target.innerText.length) === tweet.user) {
         var $tweet = $('<div class="tweet"></div>');
         var $profilePhoto = $('<img class="profile-photo" alt="Profile Picture" src="assets/img/' + tweet.user + '.png">');
@@ -68,11 +68,17 @@ $(document).ready(function(){
         $retweet.appendTo($tweet);
         $like.appendTo($tweet);
         $share.appendTo($tweet);
-        $button.appendTo($app);
+        //$button.appendTo($app);
       }
     }
   }
   var renderFeed = function() {
+    if (event.target.innerText === "Update Feed") {
+      //console.log("renderFeed run, button says: Update Feed")
+    } else if (event.target.innerText === "Back") {
+      //console.log("renderFeed run, button says: Back");
+      $button.text("Update Feed");
+    }
     $homefeed.html('');
     for (var i = 0; i < streams.home.length; i++) {
       var tweet = streams.home[i];
@@ -106,13 +112,37 @@ $(document).ready(function(){
   // Set event listeners (providing appropriate handlers as input)
   $button.on("click", renderFeed);
   $title.on("click", handleTitleClick);
-  //$userNames.on("click", renderFeed);
 
   // ??????????
   var index = streams.home.length - 1;
   while(index >= 0){
     var tweet = streams.home[index];
-    load();
+
+    var $tweet = $('<div class="tweet"></div>');
+    var $profilePhoto = $('<img class="profile-photo" alt="Profile Picture" src="assets/img/' + tweet.user + '.png">');
+    var $username = $('<span class="username"></span>');
+    var $message = $('<p class="message"></p>');
+    var $time = $('<span class="timestamp"></span>');
+    var $comment = $('<i class="icon comment fas fa-comments" alt="Comment Icon"></i>');
+    var $retweet = $('<i class="icon retweet fas fa-retweet" alt="Retweet Icon"></i>');
+    var $like = $('<i class="icon like fas fa-thumbs-up" alt="Like Icon"></i>');
+    var $share = $('<i class="icon share fas fa-share" alt="Share Icon"></i>');
+
+    $username.text('@' + tweet.user);
+    $message.text(tweet.message);
+    $time.text(jQuery.timeago(tweet.created_at));
+
+    $tweet.appendTo($homefeed);
+    $profilePhoto.appendTo($tweet);
+    $username.appendTo($tweet);
+    $message.appendTo($tweet);
+    $time.appendTo($tweet);
+    $comment.appendTo($tweet);
+    $retweet.appendTo($tweet);
+    $like.appendTo($tweet);
+    $share.appendTo($tweet);
+    $button.appendTo($app);
+
     index -= 1;
   }
 
@@ -120,4 +150,5 @@ $(document).ready(function(){
   $title.appendTo($app);
   $button.appendTo($app);
   $homefeed.appendTo($app);
+  window.isItBeautifulYet = true;
 });

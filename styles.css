@@ -9,35 +9,38 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
-/*
-#app {
-  background-color: green;
-  color: yellow;
-}
-*/
-
-/*
 h1, button {
   font-family: 'Henny Penny', cursive;
 }
-*/
 
 h1 {
   font-size: 360%;
+  margin: 8px;
 }
 
 button {
   font-size: 110%;
+  font-style: normal;
+  width: 150px;
+  background-color: yellow;
+  border: 2px solid yellow;
+  border-radius: 10px;
+  height: 40px;
+  margin: 8px;
+}
+
+button:hover {
+  border: 2px solid pink;
+  color: pink;
 }
 
 .tweet {
   padding: 10px;
-  border: 2px solid red;
+  border: 2px solid lightgreen;
+  border-radius: 10px;
   margin: 8px;
   background-color: lightgreen;
-  min-width: 300px;
-  max-width: 500px;
-  float: right;
+  width: 500px;
 }
 
 .message {
@@ -52,5 +55,19 @@ button {
 }
 
 .icon:hover {
+  color: pink;
+}
+
+img.profile-photo {
+  border-radius: 10px;
+}
+
+span.username {
+  font-weight: bold;
+  font-size: 150%;
+  text-align: center;
+}
+
+span.username:hover {
   color: pink;
 }
