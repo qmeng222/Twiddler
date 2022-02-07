@@ -10,4 +10,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
 #app {
   background-color: green;
   color: yellow;
+  /* font-family: 'Open Sans', sans-serif; */
+
 }
+
