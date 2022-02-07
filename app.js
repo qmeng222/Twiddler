@@ -6,8 +6,8 @@ $(document).ready(function () {
   var $subtitle = $('<h2>Where Twiddlers be Twiddlin\'</h2>');
   var $updateButton = $('<button id="update-feed" onclick=updateFeed()>Update Feed</button>');
   var $backButton = $('<button id="back" onclick=goBack() style="display:none;">Back</button>');
-  var $feedDiv = $('<div id="feed" class="feed"></div>');
-  var $app = $('<div id="#app"></div> ');
+  // var $feedDiv = $('<div id="feed" class="feed"></div>');
+  // var $app = $('<div id="#app"></div> ');
   // Create event handler functions
   var handleTitleClick = function (event) {
     var titleType = event.target.localName === 'h1' ? 'title' : 'subtitle';
@@ -19,12 +19,12 @@ $(document).ready(function () {
   $subtitle.on('click', handleTitleClick);
 
   // Append new HTML elements to the DOM
-  $app.appendTo($body);
+  //$app.appendTo($body);
   $subtitle.prependTo($body);
   $title.prependTo($body);
-  $updateButton.appendTo($body);
-  $backButton.appendTo($body);
-  $feedDiv.appendTo($app);
+  $updateButton.appendTo($app);
+  $backButton.appendTo($app);
+  //$feedDiv.appendTo($app);
 
   renderFeed();
 });
