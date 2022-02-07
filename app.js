@@ -6,7 +6,7 @@ $(document).ready(function () {
   var $subtitle = $('<h2>Where Twiddlers be Twiddlin\'</h2>');
   var $updateButton = $('<button id="update-feed" onclick=updateFeed()>Update Feed</button>');
   var $backButton = $('<button id="back" onclick=goBack() style="display:none;">Back</button>');
-  var $feedDiv = $('<div id="#feed" class="feed"></div>');
+  var $feedDiv = $('<div id="feed" class="feed"></div>');
   var $app = $('<div id="#app"></div> ');
   // Create event handler functions
   var handleTitleClick = function (event) {
