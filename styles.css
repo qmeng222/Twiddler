@@ -8,10 +8,18 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
+  background-image: url("assets/img/background.jpeg");
   background-color: white;
   color: black;
 }
 
 h1 {
+  margin-top: 0;
+  color: #B99EF3;
   font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
+
+.icon {
+  color: #B99EF3;
 }
