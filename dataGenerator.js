@@ -55,6 +55,7 @@ var scheduleNextTweet = function() { //generateRandomTweet after 250ms - 1.5 sec
   if (streams.home.length < 500) {
     generateRandomTweet();
     setTimeout(scheduleNextTweet, 250 + (Math.random() * 1250));
+
   }
 };
 

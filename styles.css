@@ -25,49 +25,38 @@ h1 {
   color: white;
   letter-spacing: 8px;
 }
-
-.tweet_normal {
+.tweet {
   border-width: 2px;
   border-style: solid;
   border-color: black;
   border-radius: 20px;
-
   width: 65%;
+  text-align: left;
   /* display: block; */
   margin: 15px auto 0px auto;
   padding: 20px 10px;
   background: linear-gradient(#e66ee2, #82ff7b);
   color: white;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 }
-
-.tweet_normal {
-  border-width: 2px;
-  border-style: solid;
-  border-color: black;
-  border-radius: 20px;
-
-  width: 65%;
-  /* display: block; */
-  margin: 15px auto 0px auto;
-  padding: 20px 10px;
-  background: linear-gradient(#e66ee2, #82ff7b);
-  color: white;
+.message {
+  font-style: italic;
+  font-weight: bold;
 }
-
-.tweet_mouseover {
-  border-width: 2px;
-  border-style: solid;
-  border-color: black;
-  border-radius: 20px;
-
-  width: 65%;
-  /* display: block; */
-  margin: 15px auto 0px auto;
-  padding: 20px 10px;
-  background: linear-gradient(#1d0b1d, #a1f09d);
-}
-
-.profilePic {
+.profile-photo {
   border-radius: 50%;
   width: 150px;
+}
+.username {
+  text-decoration: underline;
+}
+.icon:hover {
+  background: rgba(255, 255, 255, 1);
+  color: #64bb5d;
+}
+
+.fab {
+  color: white;
+  font-size: 20px;
 }
