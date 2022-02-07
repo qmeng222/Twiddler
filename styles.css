@@ -8,6 +8,95 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: rgb(255, 255, 255);
+  font-family: 'Supermercado One', cursive;
+}
+
+.tweet {
+  display: grid;
+
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 5;
+  border-style: outset;
+  border-radius: 3%;
+}
+.profile-photo {
+  height:100px;
+  width: 100px;
+  grid-column-start: 1;
+  grid-column-end: span 1;
+  grid-row-start: 1;
+  grid-row-end: span 5;
+}
+.username {
+  text-align:left;
+  font-weight: bold;
+  grid-column-start: 2;
+  grid-column-end: span 6;
+  grid-row-start: 1;
+  grid-row-end: span 1;
+}
+.message {
+  padding: 0px 40px 50px 120px;
+  text-align:left;
+  grid-column-start: 2;
+  grid-column-end: span 6;
+  grid-row-start: 2;
+  grid-row-end: span 2;
+}
+.timestamp {
+  text-align:right;
+  font-style: oblique;
+  margin-bottom: 50px;
+  margin-right: 200px;
+  margin-left: 200px;
+  grid-column-start: 2;
+  grid-column-end: span 6;
+  grid-row-start: 3;
+  grid-row-end: span 3;
+}
+.comment {
+  height:20px;
+  width: 20px;
+  text-align:center;
+  color:rgb(19, 39, 221);
+  grid-column-start: 2;
+  grid-column-end: span 2;
+  grid-row-start: 5;
+  grid-row-end: span 5;
+}
+i:hover {
+  background-color: gray;
+}
+.like {
+  height:20px;
+  width: 20px;
+  text-align:center;
+  color:rgb(19, 39, 221);
+  grid-column-start: 3;
+  grid-column-end: span 3;
+  grid-row-start: 5;
+  grid-row-end: span 5;
+}
+.retweet {
+  height:20px;
+  width: 20px;
+  text-align:center;
+  color:rgb(19, 39, 221);
+  grid-column-start: 4;
+  grid-column-end: span 4;
+  grid-row-start: 5;
+  grid-row-end: span 5;
+}
+.share {
+  height:20px;
+  width: 20px;
+  text-align:center;
+  color:rgb(19, 39, 221);
+  grid-column-start: 5;
+  grid-column-end: span 5;
+  grid-row-start: 5;
+  grid-row-end: span 5;
 }
