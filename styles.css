@@ -13,7 +13,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 }
 
-#feed{
+.feed{
   font-family: Open Sans, sans-serif;
 }
 
