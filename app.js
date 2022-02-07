@@ -6,7 +6,8 @@ $(document).ready(function () {
   var $subtitle = $('<h2>Where Twiddlers be Twiddlin\'</h2>');
   var $updateButton = $('<button id="update-feed" onclick=updateFeed()>Update Feed</button>');
   var $backButton = $('<button id="back" onclick=goBack() style="display:none;">Back</button>');
-  var $feedDiv = $('<div id="feed"></div>')
+  var $feedDiv = $('<div id="feed"></div>');
+  var $app = $('<div id="app"></div> ');
   // Create event handler functions
   var handleTitleClick = function (event) {
     var titleType = event.target.localName === 'h1' ? 'title' : 'subtitle';
@@ -18,6 +19,7 @@ $(document).ready(function () {
   $subtitle.on('click', handleTitleClick);
 
   // Append new HTML elements to the DOM
+  $app.appendTo($body);
   $subtitle.prependTo($body);
   $title.prependTo($body);
   $updateButton.appendTo($('#app'));
@@ -54,11 +56,11 @@ var renderFeed = function () {
     $timestamp.text($.timeago(tweet.created_at));
     $pic.attr('src', tweet.profilePhotoURL);
     $tweet.prependTo($feed);
-    $pic.appendTo($tweet);
-    $username.appendTo($tweet);
-    $message.appendTo($tweet);
-    $timestamp.appendTo($tweet);
-    $icons.appendTo($tweet);
+    $icons.prependTo($tweet);
+    $timestamp.prependTo($tweet);
+    $message.prependTo($tweet);
+    $username.prependTo($tweet);
+    $pic.prependTo($tweet);
 
     index += 1;
   }
