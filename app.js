@@ -46,9 +46,8 @@ var renderFeed = function () {
     var $icons = $('<span class="icons"><i class="fas fa-comments"></i> <i class="fas fa-retweet"></i> <i class="fas fa-thumbs-up"></i> <i class="fas fa-share"></i></span><br>');
     $username.text('@' + tweet.user);
     $message.text(tweet.message);
-    $timestamp.text($.timeago(tweet.created_at));
+    $timestamp.text(jquery.timeago(tweet.created_at));
     $pic.attr('src', tweet.profilePhotoURL);
-    //$buttons.attr('src','./assets/icons/placeholder.png');
     $tweet.prependTo($feed);
     $pic.appendTo($tweet);
     $username.appendTo($tweet);
@@ -71,8 +70,8 @@ var filterUser = function (arg) {
 };
 
 var goBack = function () {
-  $("#back").hide();
-  $("#update-feed").show();
+  $('#back').hide();
+  $('#update-feed').show();
   var tweets = $('#feed').children('.tweet').each(function () {
     $(this).show();
   });
