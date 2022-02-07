@@ -8,6 +8,102 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color:rgb(95, 171, 243);
+  color: black;
+}
+
+header {
+  background-color: rgb(7, 22, 109);
+  color:whitesmoke;
+  border-radius: 0 0 60% 60%;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+button {
+  width: 150px;
+  color: black;
+  font-size: 1.2em;
+  position: absolute;
+  left: 45%;
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(219, 216, 216);
+  border: 3px solid rgb(255, 244, 90);
+  border-radius: 5px;
+}
+button:hover {
+  background-color: rgba(255, 244, 90, 0.8);
+}
+
+.tweet {
+  background-color: rgba(253, 242, 253, 0.5);
+  display: grid;
+  height: 100%;
+
+  grid-auto-rows: minmax(10px, auto);
+  grid-template-columns: 20% 80%;
+  grid-gap: 10px;
+  justify-content: start;
+  align-items: center;
+
+  grid-template-areas:
+    "photo message"
+    "username icons"
+    "time time"
+  ;
+}
+
+.profile-photo {
+  grid-area: photo;
+  display: block;
+}
+.message {
+  grid-area: message;
+  margin: 10px;
+  font-size: larger;
+  height: auto;
+}
+.username {
+  grid-area: username;
+  background-color: wheat;
+  font-weight: 600;
+  padding: 5px;
+}
+.icon {
+  grid-area: icons;
+  font-size: large;
+}
+.timestamp {
+  grid-area: time;
+  font-style: italic;
+}
+
+.icon {
+  color: black;
+  display: flex;
+  text-align: center;
+}
+
+.icon > * {
+ flex-basis: 100%;
+}
+
+.username:hover,
+.comment:hover,
+.like:hover,
+.retweet:hover,
+.share:hover {
+  color: white;
+}
+
+.grid {
+  margin: 5rem auto;
+  width: min(50rem);
+  display: grid;
+  grid-template-columns: 100%;
+  grid-auto-flow: columns;
+  gap: 1em;
 }
