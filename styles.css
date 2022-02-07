@@ -8,6 +8,83 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/d6/1Lib1Ref_2020_social_media_graphic_background.png');
+  color: rgb(243, 243, 243);
 }
+h1 {
+  text-align: center;
+  margin-top: 100px;
+  font-family: 'Qahiri', sans-serif;
+
+  font-size:50pt;
+}
+#update-feed {
+  margin-left: 30%;
+  border-left: 5px solid #f0f0f0;
+  background-color: #3b3b3b;
+  color: #ffffff;
+  height: 50px;
+  align-items:center;
+}
+
+#feed {
+  align-items: flex-start;
+  color: rgb(255, 255, 255);
+  margin: 1cm;
+}
+
+.hover {
+  color: rgb(255, 0, 0);
+}
+
+.tweet {
+  display: grid;
+
+  align-items: start;
+
+
+  background-color: rgba(77, 78, 77, 0.281);
+  margin-top: 10px;
+  border-style: double;
+  border-width: medium;
+  border-radius: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+
+}
+
+.profile-photo {
+  padding-top: 10px;
+  vertical-align:text-top;
+}
+
+.username {
+ position:relative;
+ right: 0px;
+ width: 5px;
+ padding-bottom: 5px;
+
+}
+
+.message {
+  position: absolute;
+  padding: 25px;
+  padding-left: 100px;
+  text-align: center;
+  padding-right: 50px;
+
+}
+.timestamp {
+  position:absolute;
+  font-style: oblique;
+  font-weight: lighter;
+  align-self: flex-end;
+}
+
+.icon {
+  text-align: right;
+}
+
+
+/*font-family: 'Qahiri', sans-serif;*/
