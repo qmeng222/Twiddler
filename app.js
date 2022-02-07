@@ -4,7 +4,9 @@ $(document).ready(function () {
   // Create new HTML elements
   var $title = $('<h1>Twiddler</h1>');
   var $subtitle = $('<h2>Where Twiddlers be Twiddlin\'</h2>');
-
+  var $updateButton = $('<button id="update-feed" onclick=updateFeed()>Update Feed</button>');
+  var $backButton = $('<button id="back" onclick=goBack() style="display:none;">Back</button>');
+  var $feedDiv = $('<div id="feed"></div>')
   // Create event handler functions
   var handleTitleClick = function (event) {
     var titleType = event.target.localName === 'h1' ? 'title' : 'subtitle';
@@ -18,6 +20,9 @@ $(document).ready(function () {
   // Append new HTML elements to the DOM
   $subtitle.prependTo($body);
   $title.prependTo($body);
+  $updateButton.appendTo($('#app'));
+  $backButton.appendTo($('#app'));
+  $feedDiv.appendTo($('#app'));
 
 
   renderFeed();
@@ -35,15 +40,15 @@ var updateFeed = function () {
 
 var renderFeed = function () {
   var $feed = $('#feed');
-  var index = streams.home.length - 1;
-  while (index >= 0) {
+  var index = 0;
+  while (index < streams.home.length) {
     var tweet = streams.home[index];
     var $tweet = $('<div class="tweet"></div>');
     var $username = $('<div class="username" onclick="filterUser(this.innerHTML)"></div>');
     var $pic = $('<br><img class="profile-photo"></img>');
     var $timestamp = $('<div class="timestamp"></div>');
     var $message = $('<div class="message"></div>');
-    var $icons = $('<span class="icons"><i class="fas fa-comments"></i> <i class="fas fa-retweet"></i> <i class="fas fa-thumbs-up"></i> <i class="fas fa-share"></i></span><br>');
+    var $icons = $('<i class="fas fa-comments comment"></i> <i class="fas fa-retweet retweet"></i> <i class="fas fa-thumbs-up like"></i> <i class="fas fa-share share"></i><br>');
     $username.text('@' + tweet.user);
     $message.text(tweet.message);
     $timestamp.text($.timeago(tweet.created_at));
@@ -55,7 +60,7 @@ var renderFeed = function () {
     $timestamp.appendTo($tweet);
     $icons.appendTo($tweet);
 
-    index -= 1;
+    index += 1;
   }
 };
 

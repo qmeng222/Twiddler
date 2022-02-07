@@ -17,11 +17,11 @@ providing a space for you to apply styles to your app's outermost HTML element -
   font-family: Open Sans, sans-serif;
 }
 
-.icons{
+i{
   font-size: 25px;
 }
 
-.icons:hover{
+i:hover{
   background:aliceblue;
 }
 
