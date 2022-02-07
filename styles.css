@@ -79,5 +79,6 @@ i:hover {
 
 .timestamp {
   font-style: italic;
-  width: 100%;
+  text-align: right;
+  width: 95%;
 }
