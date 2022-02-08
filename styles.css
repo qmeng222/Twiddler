@@ -1,3 +1,4 @@
+
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
@@ -10,6 +11,94 @@ providing a space for you to apply styles to your app's outermost HTML element -
 #app {
   background-color: white;
   color: black;
-  /* font-family: 'Roboto', sans-serif; */
+  font-family: 'Roboto', sans-serif;
 }
+
+/*
+
+Title
+
+*/
+
+h1 {
+  background-color: cornflowerblue;
+  color: aliceblue;
+  margin-top: 0px;
+  margin-bottom: 24px;
+  padding: 24px 16px;
+  text-align: center;
+  height: 50px;
+}
+
+/*
+
+Update Feed Button
+
+*/
+
+.button {
+  position: relative;
+  margin-bottom: 72px;
+}
+
+#update-feed {
+  border-radius: 24px;
+  padding: 24px;
+  border: cornflowerblue;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+}
+
+/*
+
+Feed
+
+*/
+
+#feed {
+  display: flex;
+  flex-direction: column;
+  row-gap: 48px;
+  padding-left: 38%;
+}
+
+.icon:hover {
+  color: blue;
+}
+
+.tweet {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.message {
+  font-weight: bold;
+  font-size: large;
+  width: 100%;
+}
+
+.timestamp {
+  font-size: smaller;
+  align-self: flex-start;
+  width: 100%;
+  font-style: italic;
+}
+
+.profile-photo {
+  height: 72px;
+  width: 72px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.username {
+  align-self: flex-end;
+  font-style: italic;
+}
+
 
