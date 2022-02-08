@@ -12,4 +12,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
   color: black;
 }
 
-/* Tweets */
+#app {
+  background-color: #9DBBD9;
+  font-family: 'Rubik', sans-serif;
+  color: #000000;
+}

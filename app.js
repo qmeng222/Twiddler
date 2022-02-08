@@ -34,6 +34,11 @@ $(document).ready(function(){
       var $username = $('<div class="username"></div>');
       var $message = $('<div class="message"></div>');
       var $timestamp = $('<div class="timestamp"></div>');
+      var $iconContainer = $('<div class="icons"></div>');
+      var $iconComment = $('<i class="icon comment far fa-comment">');
+      var $iconRetweet = $('<i class="icon retweet far fa-share-square"></i>');
+      var $iconLike = $('<i class="icon like far fa-thumbs-up">');
+      var $iconShare = $('<i class="icon share far fa-heart">');
 
       $username.text('@' + tweet.user);
       $message.text(tweet.message);
@@ -46,6 +51,11 @@ $(document).ready(function(){
       $username.appendTo($tweet);
       $message.appendTo($tweet);
       $timestamp.appendTo($tweet);
+      $iconContainer.appendTo($tweet);
+      $iconComment.appendTo($iconContainer);
+      $iconRetweet.appendTo($iconContainer);
+      $iconLike.appendTo($iconContainer);
+      $iconShare.appendTo($iconContainer);
 
       index -= 1;
     }
@@ -60,7 +70,20 @@ $(document).ready(function(){
     $updateFeed.text('Update Feed');
   }
 
+  var handleUsernameClick = function() {
+    var user = $(this).text().slice(1);
+    $updateFeed.text('Back');
+    $feed.html('');
+    renderFeed(user);
+  }
+
   // Set event listeners
   $updateFeed.on('click', handleBtnClick);
+  $feed.on('click', ".tweet .username", handleUsernameClick);
+
+  $('.icon').hover(
+    function () { $(this).addClass('fas') },
+    function () { $(this).removeClass('fas') }
+  )
 });
 
