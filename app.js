@@ -9,6 +9,7 @@ $(document).ready(function(){
   var $title = $('<h1>Twiddler</h1>');
   var $updateFeedButton = $('<button id="update-feed" type="button">Update Feed</button>');
   var $homeFeed = $('<div id="feed" class="feed"></div>');
+  var $navigation = $('<div id="nav" class="nav"></div>')
 
 
 //Creates event handler functions
