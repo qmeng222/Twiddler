@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  jQuery("time.timeago").timeago();
   var $app = $('#app');
   //$app.html('');
 
@@ -37,7 +38,7 @@ $(document).ready(function(){
       $profilepic : $('<img class="profile-photo" src=' + tweet.profilePhotoURL + '><img/>'),
       $username   : $('<span class="username">' + '@' + tweet.user + '</span>'),
       $msg        : $('<p class="message">' + tweet.message + '</p>'),
-      $timestamp  : $('<span class="timestamp">' + tweet.created_at + '</span>'),
+      $timestamp  : $('<span class="timestamp">' + jQuery.timeago(tweet.created_at) + '</span>'),
       $comment    : $('<img class="icon, comment" src="assets/icons/placeholder.png">'),
       $retweet    : $('<img class="icon, retweet" src="assets/icons/placeholder.png">'),
       $like       : $('<img class="icon, like" src="assets/icons/placeholder.png">'),
@@ -53,8 +54,6 @@ $(document).ready(function(){
   var $feed = $('<div id="feed"></div>')
   $feed.appendTo($app)
   updateFeed();
-
-
 
 });
 
