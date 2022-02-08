@@ -8,6 +8,100 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-image: url();
+  background-color: white;
+  color: black;
+
+  height: 100%;
+  font-family: Montserrat, sans-serif;
+  font-weight: initial;
+  text-align: start;
+  width: 100%;
+  /* font-family: 'Montserrat', sans-serif; */
+}
+
+.icon {
+  padding: 0pt 0pt 0pt 10pt;
+  color: #8888ff
+}
+
+.icon:hover {
+  color: #444499  ;
+}
+
+.profile-photo{
+  width: 100px;
+  display: block;
+}
+
+.tweet{
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  padding: 10px;
+  margin: 10px;
+  border: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #9999cc;
+}
+
+.inside-tweet{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.user-date{
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.username{
+  padding: 0pt 0pt 0pt 10pt;
+  color: #5555cc;
+}
+
+.timestamp{
+  padding: 0pt 0pt 0pt 10pt;
+  font-style: italic;
+  color: #999999
+}
+
+.icons{
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.message{
+  padding: 0pt 0pt 0pt 10pt;
+}
+
+#feed {
+  padding: 20px;
+}
+
+button{
+  margin: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  border-color: cornflowerblue;
+  color: cornflowerblue;
+}
+
+h1{
+  text-align: center;
+  color: cornflowerblue;
 }
