@@ -52,7 +52,7 @@ for (var i = 0; i < 10; i++) {
 }
 
 var scheduleNextTweet = function() {
-  if (streams.home.length < 500) {
+  if (streams.home.length < 500) {[]
     generateRandomTweet();
     setTimeout(scheduleNextTweet, 250 + (Math.random() * 1250));
   }
