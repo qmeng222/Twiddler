@@ -1,40 +1,51 @@
 $(document).ready(function(){
-  // Select the div with the ID #app
+  // Select already existing app element
   var $app = $('#app');
-
-  // Create an h1 element with the text "Twiddler"
-  var $title = $('<h1>Twiddler</h1>');
-  // Create a button element with id named update-feed
-  var $button = $('<button id=update-feed>Update Feed</button>');
-  // Create a div element with id named feed
-  var $twitterFeed = $('<div id=feed></div>');
-
   $app.html('');
 
-  // Append the h1 element to the DOM, nested inside of the #app div
+  // Create new HTML elements
+  var $title = $('<h1>Twiddler</h1>');
+  var $button = $('<button id=update-feed>Update Feed</button>');
+  var $twitterFeed = $('<div id=feed></div>');
+
+  // Append static elements to the page (DOM)
   $title.appendTo($app);
-  // Append the button element to the DOM, nested inside of the #app div
   $button.appendTo($app);
-  // Append the div feed element to the DOM, nested inside of the #app div
   $twitterFeed.appendTo($app);
 
-  // Set a click event listener on the h1 element
-  $title.on('click', function(event) {
-    console.log(event);
-    alert('The title of this page is: ' + event.target.innerText);
-  });
+  // Create helper function for loading the feed
+  var renderFeed = function(user) {
+    if (user === undefined) {
+      index = streams.home.length - 1;
+    } else {
+      index = streams.users[user].length - 1;
+    }
 
-  // Set a click event listener on the button element
-  $button.on('click', function() {
+    while (index >= 0) {
+      if (user === undefined) {
+        var tweet = streams.home[index];
+      } else {
+        var tweet = streams.users[user][index];
+      }
 
-  });
+      var $tweet = $('<div class=tweet></div>');
 
-  var index = streams.home.length - 1;
-  while(index >= 0){
-    var tweet = streams.home[index];
-    var $tweet = $('<div class="tweet"></div>');
-    $tweet.text('@' + tweet.user + ': ' + tweet.message);
-    $tweet.appendTo($twitterFeed);
-    index -= 1;
+      $tweet.text('@' + tweet.user + ': ' + tweet.message);
+
+      // Append elements to the page (DOM)
+      $tweet.appendTo($twitterFeed);
+      index -= 1;
+    }
+  };
+
+  renderFeed();
+
+  var handleBtnClick = function(event) {
+    $twitterFeed.html('');
+    renderFeed();
+    $button.text('Update Feed');
   }
+
+  $button.on('click', handleBtnClick);
 });
+
