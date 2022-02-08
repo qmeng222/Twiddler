@@ -5,47 +5,62 @@ $(document).ready(function(){
 
   // Create new HTML elements
   var $title = $('<h1>Twiddler</h1>');
-  var $button = $('<button id=update-feed>Update Feed</button>');
-  var $twitterFeed = $('<div id=feed></div>');
+  var $updateFeed = $('<button id="update-feed">Update Feed</button>');
+  var $feed = $('<div id="#feed"></div>');
 
   // Append static elements to the page (DOM)
   $title.appendTo($app);
-  $button.appendTo($app);
-  $twitterFeed.appendTo($app);
+  $updateFeed.appendTo($app);
+  $feed.appendTo($app);
 
   // Create helper function for loading the feed
   var renderFeed = function(user) {
-    if (user === undefined) {
+    if (!user) {
       index = streams.home.length - 1;
     } else {
       index = streams.users[user].length - 1;
     }
 
     while (index >= 0) {
-      if (user === undefined) {
+      if (!user) {
         var tweet = streams.home[index];
       } else {
         var tweet = streams.users[user][index];
       }
 
-      var $tweet = $('<div class=tweet></div>');
+      // Create new HTML elements
+      var $tweet = $('<div class="tweet"></div>');
+      var $profilePhoto = $('<img class="profile-photo">');
+      var $username = $('<div class="username"></div>');
+      var $message = $('<div class="message"></div>');
+      var $timestamp = $('<div class="timestamp"></div>');
 
-      $tweet.text('@' + tweet.user + ': ' + tweet.message);
+      $username.text('@' + tweet.user);
+      $message.text(tweet.message);
+      $profilePhoto.attr('src', tweet.profilePhotoURL);
+      $timestamp.text(jQuery.timeago(tweet.created_at));
 
       // Append elements to the page (DOM)
-      $tweet.appendTo($twitterFeed);
+      $tweet.appendTo($feed);
+      $profilePhoto.appendTo($tweet);
+      $username.appendTo($tweet);
+      $message.appendTo($tweet);
+      $timestamp.appendTo($tweet);
+
       index -= 1;
     }
   };
 
   renderFeed();
 
-  var handleBtnClick = function(event) {
-    $twitterFeed.html('');
+  // Create event handler functions
+  var handleBtnClick = function() {
+    $feed.html('');
     renderFeed();
-    $button.text('Update Feed');
+    $updateFeed.text('Update Feed');
   }
 
-  $button.on('click', handleBtnClick);
+  // Set event listeners
+  $updateFeed.on('click', handleBtnClick);
 });
 
