@@ -2,12 +2,52 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  font-family: 'Andada Pro', serif;
+  font-weight: normal;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: beige;
+  color: black;
 }
+
+#title {
+  margin: 0 0 0 0;
+  text-align: center;
+  display: relative;
+  font-family: fantasy;
+  font-size: xx-large;
+  color: 637373;
+}
+
+
+#update-feed {
+  background-color: #ff9a76;
+  border-style: groove;
+  border-width: 0px;
+  border-radius: 28px;
+  box-sizing: padding-box;
+  color: #ffffff;
+  padding: 15px 32px;
+  display: inline-block;
+  font-size: 14px;
+  font-style: inherit;
+}
+
+
+.icon:hover {
+  background-color: cadetblue;
+  box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, .3);
+}
+
+.tweet {
+  border: 2px solid #949599;
+  height: 140px;
+  margin: 20px;
+  padding: 20px;
+  width: 400px;
+}
+

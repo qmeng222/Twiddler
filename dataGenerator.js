@@ -18,6 +18,7 @@ var addTweet = function(newTweet) {
   var username = newTweet.user;
   streams.users[username].push(newTweet);
   streams.home.push(newTweet);
+
 };
 
 // utility function
@@ -75,3 +76,4 @@ var writeTweet = function(message) {
   tweet.profilePhotoURL = './assets/img/visitor.png';
   addTweet(tweet);
 };
+
