@@ -15,7 +15,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 .timestamp {
   font-style: italic;
-  width; 100%;
+  width: auto;
   height: 100%
 }
 
