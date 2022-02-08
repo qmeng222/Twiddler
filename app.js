@@ -11,6 +11,11 @@ $(document).ready(function(){
     alert('The title of this page is: ' + event.target.innerText);
   });
 
+  //displays feed 1st time page is loaded
+  var $feed = $('<div id="feed"></div>')
+  $feed.appendTo($app)
+  updateFeed();
+
   //update feed button (UI)
   var $updateFeed = $('<button>Update Feed</button>');
   $updateFeed.appendTo($app);
@@ -44,20 +49,11 @@ $(document).ready(function(){
       $like       : $('<i class="icon, like, fas fa-heart"></i>'),
       $share      : $('<i class="icon, share, fas fa-share"></i>')
       };
-
-
-
       for(component in tweetUI) {
         tweetUI[component].appendTo($tweet);
       }
     }
   }
-
-  //displays feed 1st time page is loaded
-  var $feed = $('<div id="feed"></div>')
-  $feed.appendTo($app)
-  updateFeed();
-
 });
 
 

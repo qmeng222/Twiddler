@@ -1,6 +1,7 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
+  font-family: 'Heebo', sans-serif;
   margin: 0;
 }
 
@@ -12,6 +13,22 @@ providing a space for you to apply styles to your app's outermost HTML element -
   color: black;
 }
 
-/*
-font-family: 'Heebo', sans-serif;
-*/
+.fa-heart:hover {
+  color: red;
+}
+.fa-share:hover {
+  color: blue;
+}
+.fa-retweet:hover {
+  color: rgb(102, 223, 22);
+}
+.fa-comments:hover {
+  color: salmon;
+}
+
+
+
+
+
+
+
