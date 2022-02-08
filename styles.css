@@ -40,18 +40,24 @@ button {
   margin: 0 0 0 190px;
 }
 
-/* friend list*/
-ul {
-  background-color: #05386B;
-  color: #EDF5E1;
+/* left grid*/
+#friends-list,
+#new-tweet-form {
   font-family: 'Work Sans', sans-serif;
   font-size: 30px;
   font-weight: 400;
   display: inline-block;
+  vertical-align: top;
   width: 200px;
   border-radius: 5%;
   padding: 20px;
-  margin: 30px 100px 0 20px;
+  margin: 20px;
+}
+
+/* friend list*/
+ul {
+  background-color: #05386B;
+  color: #EDF5E1;
 }
 
 li {
@@ -59,44 +65,36 @@ li {
   font-size: 15px;
   font-weight: 300px;
   text-decoration: underline;
+  width: fit-content;
   padding: 10px 0;
 }
 
 /* new tweet*/
-#new-tweet {
+#new-tweet-form {
   background-color: #EDF5E1;
   color: #05386B;
-  border-radius: 5px;
-  width: 660px;
-  margin-top: 30px;
-  padding: 20px;
-}
-
-form {
-  font-family: 'Work Sans', sans-serif;
+  position: absolute;
+  left: 0;
+  top: 500px;
 }
 
 form h2 {
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 400;
   margin-top: 0;
   margin-bottom: 20px;
 }
 
 label {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 300px;
-  padding: 30px 5px;
-  vertical-align: top;
+  padding: 5px 0;
 }
 
+label,
 input {
-  vertical-align: top;
-  margin: 0 0 20px 15px;
-}
-
-#tweet {
-  margin-left: 55px;
+  display: block;
+  width: 90%;
 }
 
 .btn {
@@ -110,13 +108,6 @@ input {
   margin: 20px 0 10px 30px;
 }
 
-/* grid*/
-#friend-list,
-#new-tweet {
-  display: inline-block;
-  vertical-align: top;
-}
-
 /* tweet feed */
 #feed {
   color: #EDF5E1;
@@ -124,6 +115,7 @@ input {
   font-family: 'Work Sans', sans-serif;
   position: relative;
   left: 360px;
+  bottom: 277px;
 }
 
 .tweet {
@@ -175,6 +167,8 @@ i:hover {
 
 /* hover action: username, button */
 button:hover,
-.username:hover {
+.username:hover,
+.friend:hover,
+i:hover {
   cursor: pointer;
 }

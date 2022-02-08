@@ -14,20 +14,20 @@ $(document).ready(function(){
   $nav.appendTo($app);
 
   // adding the friend list section
-  $friendList = $("<ul id='friend-list'>Friend List</ul>");
+  $friendList = $("<ul id='friends-list'>Friend List</ul>");
   $.each(users, function(index, eachUser) {
     var friend = eachUser;
-    $("<li class='each-friend'>" + friend + "</li>").appendTo($friendList);
+    $("<li class='friend'>@" + friend + "</li>").appendTo($friendList);
   })
   $friendList.appendTo($app);
 
   // add new tweet section
-  var $sendTweet = $("<form id='new-tweet'></form>");
+  var $sendTweet = $("<form id='new-tweet-form'></form>");
   $("<h2>New Tweet</h2>").appendTo($sendTweet);
   $("<label for='user'>Username</label>").appendTo($sendTweet);
-  $("<input type='text' id='user' name='user'><br>").appendTo($sendTweet);
+  $("<input type='text' id='user' name='username'>").appendTo($sendTweet);
   $("<label for='tweet'>Tweet</label>").appendTo($sendTweet);
-  $("<textarea id='tweet' name='tweet' rows='5' cols='40'></textarea>").appendTo($sendTweet);
+  $("<input id='tweet' name='message' rows='5' cols='40'></textarea>").appendTo($sendTweet);
   $("<input class='btn' type='submit' value='Send'>").appendTo($sendTweet);
   $sendTweet.appendTo($app);
 
@@ -81,17 +81,13 @@ $(document).ready(function(){
       $("#update-feed").text("Update Feed");
     }
 
-    if ($buttonText === "Back") {
-      $("#update-feed").text("Update Feed");
-    }
-
     $feed.html('');
     renderFeed();
   };
 
   // event handler: @username click
   var handleUsernameClick = function(event) {
-    var $clickedItem = $(event.target).is(".username");
+    var $clickedItem = $(event.target).is(".username") || $(event.target).is(".friend");
     if ($clickedItem) {
       $("#update-feed").text("Back");
 
@@ -102,12 +98,29 @@ $(document).ready(function(){
     }
   };
 
+  // event handler: new tweet form submission
+  window.visitor = '';
+  var handleSendNewTweet = function(event) {
+    event.preventDefault();
+    visitor = $("#user").val();
+    var $message = $("#tweet").val();
+    if (!streams.users[visitor]) {
+      $("#friends-list").append($("<li class='friend'>@" + visitor + "</li>"));
+    }
+    writeTweet($message);
+    $feed.html('');
+    renderFeed();
+  }
+
   // event listner: "update-feed/back" button click
   $("#update-feed").on("click", handleClickButton);
   // event listner: "home" button click
   $("#home").on("click", handleClickButton);
   // event listner for @username
-  $("#feed").on("click", handleUsernameClick)
+  $("#feed").on("click", handleUsernameClick);
+  $("#friends-list").on("click", handleUsernameClick);
+  // event listner for newTweet submit
+  $("#new-tweet-form").on("submit", handleSendNewTweet);
 
   window.isItBeautifulYet = true;
 });
