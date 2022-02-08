@@ -39,11 +39,14 @@ $(document).ready(function(){
       $username   : $('<span class="username">' + '@' + tweet.user + '</span>'),
       $msg        : $('<p class="message">' + tweet.message + '</p>'),
       $timestamp  : $('<span class="timestamp">' + jQuery.timeago(tweet.created_at) + '</span>'),
-      $comment    : $('<img class="icon, comment" src="assets/icons/placeholder.png">'),
-      $retweet    : $('<img class="icon, retweet" src="assets/icons/placeholder.png">'),
-      $like       : $('<img class="icon, like" src="assets/icons/placeholder.png">'),
-      $share      : $('<img class="icon, share" src="assets/icons/placeholder.png">')
+      $comment    : $('<i class="icon, comment, fas fa-comments"></i>'),
+      $retweet    : $('<i class="icon, retweet, fas fa-retweet"></i>'),
+      $like       : $('<i class="icon, like, fas fa-heart"></i>'),
+      $share      : $('<i class="icon, share, fas fa-share"></i>')
       };
+
+
+
       for(component in tweetUI) {
         tweetUI[component].appendTo($tweet);
       }
