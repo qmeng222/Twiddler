@@ -58,6 +58,8 @@ $(document).ready(function(){
       //$tweet.text('@' + tweet.user + ': ' + tweet.message);
 
       var $profilephoto = $('<img class="profile-photo" src="assets/img/"' + tweet.user + '".png">');
+      //$('.profile-photo').attr("src", tweet.user);
+      //console.log(tweet.user);
       $profilephoto.appendTo($tweet);
 
       var $username = $('<div class="username"></div>');
