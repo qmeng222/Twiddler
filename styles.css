@@ -8,7 +8,7 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-image: url("assets/img/background.jpeg");
+  background-image: url("assets/img/grid-background.v1.jpg");
   background-color: white;
   color: #B99EF3;
   font-family: 'Press Start 2P', cursive;
