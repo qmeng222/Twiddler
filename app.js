@@ -1,7 +1,7 @@
 $(document).ready(function(){
   jQuery("time.timeago").timeago();
   var $app = $('#app');
-  //$app.html('');
+  //$app.html('')
 
   //Twiddler Title
   var $title = $('<h1>Twiddler</h1>');
@@ -11,29 +11,37 @@ $(document).ready(function(){
     alert('The title of this page is: ' + event.target.innerText);
   });
 
-  //displays feed 1st time page is loaded
-  var $feed = $('<div id="feed"></div>')
-  $feed.appendTo($app)
-  updateFeed();
 
   //update feed button (UI)
   var $updateFeed = $('<button>Update Feed</button>');
   $updateFeed.appendTo($app);
   $updateFeed.on("click", function(event) {
     console.log(event);
-    updateFeed();
+    renderFeed();
+    $updateFeed.html('Update Feed');
   });
 
+  //displays feed 1st time page is loaded
+  var $feed = $('<div id="feed"></div>')
+  $feed.appendTo($app)
+  renderFeed();
+
   //updates feed
-  function updateFeed() {
-    //clears feed to remove duplicates
+  function renderFeed(user) {
     $('#feed').empty()
 
-    //pushing tweets from dataGenerator.js to the DOM
-    var index = streams.home.length - 1;
+    if (user === undefined) {
+      var index = streams.home.length - 1;
+    } else {
+      var index = streams.users[user].length - 1;
+    }
     while(index >= 0){
-      //iterate thru msg reverse chronologically
-      var tweet = streams.home[index];
+      if (user === undefined) {
+        var tweet = streams.home[index];
+      } else {
+        var tweet = streams.users[user][index];
+      }
+
       var $tweet = $('<div class="tweet"></div>');
       $tweet.appendTo($feed);
       index -= 1;
@@ -41,8 +49,8 @@ $(document).ready(function(){
       //tweet UI components
       var tweetUI = {
       $profilepic : $('<img class="profile-photo" src=' + tweet.profilePhotoURL + '><img/>'),
-      $username   : $('<span class="username">' + '@' + tweet.user + '</span>'),
-      $msg        : $('<p class="message">' + tweet.message + '</p>'),
+      $username   : $('<div class="username">' + '@' + tweet.user + '</div>'),
+      $msg        : $('<p class="message"> ' + tweet.message + '</p>'),
       $timestamp  : $('<span class="timestamp">' + jQuery.timeago(tweet.created_at) + '</span>'),
       $comment    : $('<i class="icon, comment, fas fa-comments"></i>'),
       $retweet    : $('<i class="icon, retweet, fas fa-retweet"></i>'),
@@ -52,8 +60,39 @@ $(document).ready(function(){
       for(component in tweetUI) {
         tweetUI[component].appendTo($tweet);
       }
+
+
+      //show user specified feed
+      //var $userButton = $('<button class="userbutton">' + '@' + tweet.user + '</button>');
+      //$userButton.appendTo(tweetUI.$username);
+      $(".username").on("click", function(event) {
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        renderFeed($(this).text().slice(1));
+        console.log($(this).text().slice(1))
+        //console.log(this.className)
+        $updateFeed.html('Back');
+      });
+
     }
   }
+
+  /*
+  function handleUsernameClick() {
+    /*
+    if ($updateFeed.text() === 'Update Feed') {
+      $updateFeed.html('Back');
+    } else {
+      $updateFeed.html('Update Feed');
+    }
+
+    $( "div.username" ).click(function() {
+      alert( "Handler for .click() called." );
+    });
+  }
+  */
+
+
 });
 
 
