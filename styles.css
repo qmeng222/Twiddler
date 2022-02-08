@@ -8,6 +8,50 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background: #648880;
+  background: linear-gradient(to right, #f6f1d3, #7b8864 85%, #7b9c68);
+  color: rgb(0, 0, 0);
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+
 }
+
+#title{
+  text-align: center;
+  font-size: 300%;
+  background-color:rgb(110, 189, 74)
+}
+
+#update-feed{
+  float:left;
+  margin-left:100px;
+}
+
+#feed{
+  border-radius:0px;
+  height:0px;
+  padding:0em;
+  text-align:left;
+  width:100%;
+  display:inline-block;
+  margin-left:100px;
+}
+
+
+#profile-photo{
+  margin-left:10px;
+  size:10px 10px;
+}
+
+.icon{
+  size:20px;
+  padding:10px;
+  border-style:outset;
+}
+
+.icon:hover{
+  color: rgb(214, 224, 214);
+}
+
+
