@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="lib/jquery.js"></script>
+    <script src="lib/jquery.js" type="text/javascript"></script>
     <script src="dataGenerator.js"></script>
+    <script src="lib/jquery.timeago.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/7fb795c056.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
+    <link href="fonts.googleapis.com">
   </head>
   <body>
-    <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
+    <script src="app.js"></script>
+    <div id="app">
+      <!-- Code Starts -->
+      <!-- heading of title is added via jquery code-->
+      <!--<div id="feed">
+            Create div element for each tweet [tweet component]
+              Create img element for the user
+              Create span elemnt for the user
+              Create span element for the timestamp
+              Create icon elements for 4 functionalities:
+                - Like
+                - Share
+                - Retweet
+                - Comment
+              Create button element to update live feed id="update-feed"
 
-    <script>
-      $(document).ready(function(){
-        var $app = $('#app');
-        $app.html('');
+            Possibly can use this same setup for the friend feed and only filter the user feeds to display
+        -->
+      <!-- <div id="friend_list">
+            Create an unordered list element
+              Create list element for each user
+        -->
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($app);
-          index -= 1;
-        }
+      <!-- <div id="friend_feed"> Add this as part of the home feed functionality-->
+        <!-- Create a list element to display each tweet component of a specific user via filtering
+          or Display in a div element
+             Create a button to go back to the home feed
+        -->
 
-      });
-    </script>
+      <!-- <div id="tweet_form">
+         Create
+
+        -->
+    </div>  <!-- Your Entire Application will be built inside this div! -->
   </body>
 </html>

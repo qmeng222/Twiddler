@@ -8,6 +8,151 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  /*background-color: royalblue;
+  color: blue;*/
+  background-image: url("assets/img/maxresdefault.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
+
+body {
+  background-color: rebeccapurple;
+}
+
+h1 {
+  text-align: left;
+  text-shadow: black;
+  margin: 1%;
+  padding-top: 35px;
+  color: aliceblue;
+}
+
+h5 {
+  text-align: left;
+  text-shadow: black;
+  margin: 1%;
+  padding-top: 35px;
+  color: aliceblue;
+}
+
+#feed-title {
+  text-align: center;
+  color: rebeccapurple;
+  margin-left: 30%;
+  margin-right: 30%;
+  border-bottom: double rebeccapurple;
+  border-top: double rebeccapurple;
+}
+
+button {
+  display: inline-block;
+  background-color: #7b38d8;
+  border-radius: 5px;
+  border: 4px double #cccccc;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 24px;
+  padding: 5px;
+  width: 160px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-left: 28%;
+  margin-right: 28%;
+  margin-bottom: 10px;
+}
+
+div.tweet {
+  text-align: left;
+  border-radius: 50px;
+  background-color: lightskyblue;
+  margin-left: 28%;
+  margin-right: 28%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: auto;
+  border-color: peru;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
+  border-inline: dashed orangered;
+}
+
+i:hover {
+  background-color: pink;
+  font-size: 18px;
+}
+
+i {
+  margin-left: 50px;
+  text-align: right;
+}
+
+i.comment {
+  margin-left: 30%;
+}
+span.message {
+  margin-left: 10%;
+  width: auto;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: darkslateblue;
+  font-weight: 200;
+}
+
+span.username:hover {
+  font-size: 24px;
+  color: coral;
+  cursor: pointer;
+}
+
+span.username {
+  margin-left: 3%;
+  text-align: right;
+  padding: 5px;
+}
+
+img.profile-photo:hover {
+  width: auto;
+  height: auto;
+}
+img.profile-photo {
+  text-align: right;
+  margin-left: 1px;
+  margin-top: 5px;
+  height: auto;
+  width: 16px;
+}
+
+span.timestamp {
+  margin-left: 10%;
+  font-style: italic;
+}
+
+#friends {
+  background-color: lightskyblue o;
+  margin-right: 85%;
+  border-radius: 25px;
+  margin-bottom: 12px;
+  border-inline: dashed orangered;
+  cursor: pointer;
+  text-align: center;
+  font-size: 24px;
+}
+
+li.username:hover {
+  font-size: 24px;
+  color: aliceblue;
+  cursor: pointer;
+}
+
+li.username {
+  font-size: 18px;
+  color: aliceblue;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  text-align: left;
+}
+
