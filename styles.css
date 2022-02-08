@@ -1,19 +1,34 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
+  min-width: 500px;
   min-height: 100vh;
+  margin: auto;
   margin: 0;
   font-family: 'Comforter', cursive;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: white;
+  background-color: #cccccc;
   color: black;
 }
 
 .icon:hover {
   background-color: yellow;
+  border: 2px solid red;
+  border-radius: 50px 20px;
+}
+
+.tweet {
+  width: 95%;
+  height: auto;
+  margin: 5% 0;
+  border: 2px solid black;
+  padding: 10px;
 }
 
