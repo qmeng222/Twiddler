@@ -8,6 +8,60 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: #4d2121;
+  color: #2797d8;
+  padding: 10px;
 }
+
+#title {
+  margin: auto;
+  font-size: 52px;
+  /*font-family: 'Quintessential', cursive;*/
+  text-align: center;
+}
+
+#update-feed{
+  border-radius: 10px;
+  background-color: #2797d8;
+  color: white;
+  width: auto;
+  height: 35px;
+  display: block;
+  margin-left: 60%;
+}
+
+#feed {
+  margin: auto;
+  width: 55%;
+}
+
+
+.tweet {
+  border: black 2px solid;
+  border-radius: 15px;
+  margin: 5px;
+  height: auto;
+  padding: 10px;
+
+}
+
+.profile-picture{
+  width: 15px;
+  margin: 10px;
+  border: 2px solid black;
+}
+
+.comment, .like, .share, .retweet{
+  width: 20px;
+}
+
+i{
+  margin: 5px;
+  text-align: center;
+  padding: 10px;
+  color: #acacac;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #505050;
+}
+
