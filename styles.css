@@ -1,3 +1,5 @@
+@import "/path/to/pixel-borders.scss";
+
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
@@ -8,27 +10,145 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-image: url("assets/img/grid-background.v1.jpg");
+  background-image: url('assets/img/grid-png-43575.png');
+  background: linear-gradient(to right bottom, #f6e2e3, #f6dfe4, #f6dde6, #f4dbe9, #f0d9ec, #eddaf0, #e9dbf3, #e4dcf6, #e1e0f9, #dfe3fa, #dee7fc, #ddeafc);
   background-color: white;
   color: #B99EF3;
   font-family: 'Press Start 2P', cursive;
 }
 
+#content {
+  display: grid;
+  grid-template-columns: 1fr 150px 436px 150px 1fr;
+}
+
 h1 {
   margin-top: 0;
+  margin-bottom: 20px;
   text-align: center;
   line-height: 160px;
   color: #B99EF3;
   font-family: 'Press Start 2P', cursive;
   font-size: 56px;
+  text-shadow: 5px 5px #999;
 }
 
-.icon {
-  font-size: 24px;
-  color: #f7f5fa;
+h1:active {
+  text-shadow: 4px 4px #999;
+  transform: translateY(4px);
+}
+
+#feed {
+  grid-column: 2 / span 3;
+}
+
+button {
+  grid-column: 1 / 2;
+  height: 40px;
+  margin-left: 50px;
+  margin-right: 50px;
+  border: 6px groove white;
+  border-radius: 2px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 16px;
+  color: #B99EF3;
+  box-shadow: 4px 4px 3px #999;
+  background-color: #f7f5fa;
+  text-shadow: 0.25px 0.25px #999;
+}
+
+button:hover {
+  background-color: #ece9f0;
+  border: 6px groove #f7f5fa;
+}
+
+button:active {
+  box-shadow: 3px 3px 3px #888;
+  transform: translateY(3px);
+}
+
+.tweet {
+  display: grid;
+  grid-template-columns: 21% 58% 21%;
+  grid-template-rows: 20% 65% 15%;
+  height: 175px;
+  border: 6px groove white;
+  border-radius: 2px;
+  margin: 0 10px 20px 10px;
+  background-color: #E9D7F1;
+  box-shadow: 1px 2px 2px #999;
+}
+
+.top-bar {
+  grid-area: 1 / 1 / 2 / 4;
+  display: flex;
+  border-bottom: 6px groove white;
+  justify-content: space-between;
+  padding: 6px;
+}
+
+.message {
+  grid-area: 2 / 2 / 3 / 3;
+  display: flex;
+  align-items: center;
+  text-shadow: 0.25px 0.25px #999;
 }
 
 .username {
-  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   color: #f7f5fa;
+  font-style: italic;
+  font-size: 15px;
+  text-shadow: 0.5px 0.5px #999;
+}
+
+.username:hover {
+  color: #B99EF3;
+}
+
+.username:active {
+  text-shadow: 0.3px 0.3px #666;
+  transform: translateX(0.5px) translateY(0.5px);
+}
+
+.image-container {
+  grid-area: 2 / 1 / 3 / 2;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 160px;
+}
+
+.icon {
+  color: #f7f5fa;
+  text-shadow: 1px 1px 1px #999;
+  padding: 8px;
+}
+
+.icon:active {
+  transform: translateX(0.5px) translateY(0.5px);
+}
+
+hr {
+  height: 27px;
+  border-left: 4px groove white;
+}
+
+.timestamp {
+  grid-area: 3 / 2 / 4 / 4;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 10px;
+  font-weight: lighter;
+  padding: 8px;
+  text-shadow: 0.1px 0.1px #999;
 }

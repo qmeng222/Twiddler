@@ -6,9 +6,13 @@ $(document).ready(function(){
   var $title = $('<h1>twiddler<h1>');
   $title.appendTo($app);
 
+  // Adds content container
+  var $container = $('<div id="content"></div>');
+  $app.append($container);
+
   // Event handler function for title click
   var handleTitleClick = function(event) {
-    alert('The title of the page is: ' + event.target.innerText);
+    location.reload();
   };
 
   // Event listener for title click
@@ -16,11 +20,11 @@ $(document).ready(function(){
 
   // Adds update feed button
   var $button = $('<button id="update-feed">update feed</button>');
-  $app.append($button);
+  $container.append($button);
 
   // Adds home feed division for tweets
   var $home_feed = $('<div id="feed"></div>');
-  $app.append($home_feed);
+  $container.append($home_feed);
 
   // Event handler function for rendering feed
   var renderFeed = function(event, user) {
@@ -35,9 +39,16 @@ $(document).ready(function(){
       var tweet = stream[i];
       var $tweet = $('<div class="tweet"></div>');
       $tweet.prependTo($home_feed);
-      //profile pic child element
+      //top bar container
+      var $top_bar = $('<div class="top-bar"></div>');
+      //icon container
+      var $icon_container = $('<div class="icon-container"></div>');
+      $icon_container.prepend($('<hr>'));
+      //profile pic in image container
+      var $image_container = $('<div class="image-container"></div>');
       var $profile_pic = $('<img class="profile-photo">');
       $profile_pic.attr('src', tweet.profilePhotoURL);
+      $image_container.append($profile_pic);
       //username child element
       var $username = $('<span class="username"></span');
       $username.text('@' + tweet.user);
@@ -47,16 +58,22 @@ $(document).ready(function(){
       //timestamp child element
       var $timestamp = $('<span class="timestamp"></span>');
       $timestamp.text(jQuery.timeago(tweet.created_at));
-      //comment icon
-      var $comment = $('<i class="fas fa-comment icon comment"></i>');
-      //retweet icon
-      var $retweet = $('<i class="fas fa-retweet icon retweet"></i>');
-      //like icon
-      var $like = $('<i class="fas fa-heart icon like"></i>');
-      //share icon
-      var $share = $('<i class="fas fa-share icon share"></i>');
+      //comment icon in icon container
+      var $comment = $('<i class="fas fa-comment fa-lg icon comment"></i>');
+      $icon_container.append($comment, $('<hr>'));
+      //retweet icon in icon container
+      var $retweet = $('<i class="fas fa-retweet fa-lg icon retweet"></i>');
+      $icon_container.append($retweet, $('<hr>'));
+      //like icon in icon container
+      var $like = $('<i class="fas fa-heart fa-lg icon like"></i>');
+      $icon_container.append($like, $('<hr>'));
+      //share icon in icon container
+      var $share = $('<i class="fas fa-share fa-lg icon share"></i>');
+      $icon_container.append($share);
+      //append icons and username to top bar
+      $top_bar.append($username, $icon_container);
       //append tweet elements to tweet
-      $tweet.append($profile_pic, $username, $message, $timestamp, $comment, $retweet, $like, $share);
+      $tweet.append($image_container, $top_bar, $message, $timestamp);
     }
   };
 

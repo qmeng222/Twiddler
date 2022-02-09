@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "cypress": "^9.4.1"
+  },
+  "dependencies": {
+    "pixel-borders": "^1.1.4"
   }
 }
