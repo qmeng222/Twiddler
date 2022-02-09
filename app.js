@@ -11,6 +11,7 @@ $(document).ready(function(){
   var $title = $('<h1>Twiddler</h1>');
   var $feed = $('<div id="feed"></div>');
   var $button = $('<button id="update-feed">Update Feed</button>');
+  var $friendList = $('<ul id="friend-list">Friends</ul>');
 
   // Create event hander functions
 
@@ -62,9 +63,18 @@ $(document).ready(function(){
     }
   };
 
+  var renderFriends = function(users) {
+    for (var key in streams.users) {
+      var $user = $('<li class="friend"></li>');
+      $user.text(key);
+      $user.appendTo($friendList);
+    }
+  }
+
   // Set event listeners (providing appropriate handlers as input)
 
   renderFeed();
+  renderFriends();
 
   $title.on('click', function(event) {
     alert('The title of this page is: ' + event.target.innerText);
@@ -90,11 +100,16 @@ $(document).ready(function(){
     handleUsernameClick($(this).html());
   });
 
+  $friendList.on('click', '.friend', function (event) {
+    handleUsernameClick($(this).html());
+  });
+
   // Append new HTML elements to the DOM
 
   $title.appendTo($app);
   $feed.appendTo($app);
   $button.appendTo($app);
+  $friendList.appendTo($app);
 
 });
 

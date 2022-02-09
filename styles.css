@@ -11,7 +11,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 130px auto auto;
+  grid-template-rows: 130px 130px auto auto;
   gap: 10px;
 }
 
@@ -27,13 +27,29 @@ body {
 }
 
 h1 {
-  font-family: 'Bilbo';
+  font-family: 'Bilbo', Georgia;
   color: rgb(29, 79, 27);
   font-style: normal;
   letter-spacing: 3px;
   justify-self: center;
   font-size: 90px;
   margin-top: 20px;
+}
+
+button,
+.tweet,
+#friend-list {
+font-family: 'Bilbo', Georgia;
+letter-spacing: 2px;
+font-weight: bold;
+color:rgb(29, 79, 27);
+background-color: rgba(224, 192, 156, 0.5);
+}
+
+.tweet,
+#friend-list {
+  border: 3px solid rgb(56, 33, 14);
+  border-radius: 25px;
 }
 
 button {
@@ -43,16 +59,12 @@ button {
   height: 50px;
   justify-self: center;
   border-radius: 5px;
-  font-family: 'Bilbo';
   font-size: 20px;
-  letter-spacing: 2px;
-  font-weight: bold;
-  color:rgb(29, 79, 27);
-  background-color: rgba(224, 192, 156, 0.5);
 }
 
 button:hover {
   background-color:rgb(142, 172, 140);
+  cursor: pointer;
 }
 
 #feed {
@@ -61,15 +73,8 @@ button:hover {
 }
 
 .tweet {
-  font-family: 'Bilbo';
   font-size: 25px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  background-color: rgba(224, 192, 156, 0.5);
-  color: rgb(29, 79, 27);
   padding: 10px;
-  border: 3px solid rgb(56, 33, 14);
-  border-radius: 25px;
 }
 
 .profile-photo {
@@ -96,8 +101,10 @@ button:hover {
   font-size: 20px;
 }
 
-.username:hover {
+.username:hover,
+.friend:hover {
   color: rgb(29, 79, 27);
+  cursor: pointer;
 }
 
 .message {
@@ -113,8 +120,26 @@ button:hover {
   color: rgb(56, 33, 14);
 }
 
+.icons:hover {
+  cursor: pointer;
+}
+
 .icon {
   padding: 2px 22px;
+}
+
+#friend-list {
+  grid-column-start: 1;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  justify-self: center;
+  padding: 20px 50px;
+  font-size: 50px;
+}
+
+.friend {
+  color:rgb(56, 33, 14);
+  font-size: 30px;
 }
 
 
