@@ -1,13 +1,323 @@
-/* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/*
+  ========================================
+  Reset
+  ========================================
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+  ========================================
+  Custom styles
+  ========================================
+*/
 html, body, #app {
   min-height: 100vh;
   margin: 0;
 }
 
-/* Continue building out the CSS styling for your Twiddler app below! We got you started by
-providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
-
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: #293f50;
+  color: white;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
 }
+
+/*
+  ========================================
+  Grid
+  ========================================
+*/
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container,
+.grid {
+  margin: 0 auto;
+  width: 960px;
+}
+
+.container {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.col-1-3,
+.col-2-3 {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.grid,
+.col-1-3,
+.col-2-3 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.col-1-3 {
+  width: 33.33%;
+}
+.col-2-3 {
+  width: 66.66%;
+}
+
+/*
+  ========================================
+  Clearfix
+  ========================================
+*/
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  clear: both;
+  *zoom: 1;
+}
+
+/*
+  ========================================
+  Typography
+  ========================================
+*/
+
+h1, h3, h4, h5, p {
+  margin-bottom: 22px;
+}
+
+h1, h2, h3, h4 {
+  color: #648880;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 44px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 44px;
+}
+h3 {
+  font-size: 21px;
+}
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  color: #a9b2b9;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+strong {
+  font-weight: 400;
+}
+cite, em {
+  font-style: italic;
+}
+
+/*
+  ========================================
+  Buttons
+  ========================================
+*/
+
+button {
+  border-radius: 5px;
+  color: blue;
+  cursor: pointer;
+  display: block;
+  font-weight: 400;
+  letter-spacing: .5px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/*
+ICONS
+*/
+
+i:hover {
+  color: #648880;
+}
+
+img {
+  border-radius: 50%;
+}
+
+i {
+  padding: 0 10px 10px 10px;
+}
+
+/*
+TWEETS
+*/
+.message {
+  padding-top: 22px;
+  padding-left: 22px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.tweet {
+  border: solid;
+  border-color: #648880;
+  display: block
+}
+
+img {
+  height: 22px;
+  width: 22px;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 1px;
+}
+
+.username {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 10px;
+}
+
+.timestamp {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  padding-left: 10px;
+  font-style: italic;
+  font-size: 10px;
+}
+
+/*
+  ========================================
+  Primary header
+  ========================================
+*/
+
+.logo {
+  border-top: 4px solid #648880;
+  float: left;
+  padding: 40px 0 22px 0;
+  font-size: 48px;
+  font-weight: 100;
+  letter-spacing: .5px;
+  line-height: 44px;
+  padding: 40px 0 22px 0;
+  text-transform: uppercase;
+
+}
+
+/*
+  ========================================
+  Home
+  ========================================
+*/
+
+.hero {
+  color: #fff;
+  line-height: 44px;
+  padding: 22px 80px 66px 80px;
+  text-align: center;
+}
+.hero h2 {
+  font-size: 36px;
+}
+.hero p {
+  font-size: 24px;
+}
+
+.teaser a:hover h3 {
+  color: #a9b2b9;
+}
+
+.hero p {
+  font-size: 24px;
+  font-weight: 100;
+}
+
+/*
+  ========================================
+  Rows
+  ========================================
+*/
+
+.row,
+.row-alt {
+  min-width: 960px;
+}
+
+.row {
+  background: #fff;
+  padding: 66px 0 44px 0;
+}
+
+.row-alt {
+   background: #cbe2c1;
+   background: -webkit-linear-gradient(to right, #a1d3b0, #f6f1d3);
+   background: -moz-linear-gradient(to right, #a1d3b0, #f6f1d3);
+   background: linear-gradient(to right, #a1d3b0, #f6f1d3);
+   padding: 44px 0 22px 0;
+ }
