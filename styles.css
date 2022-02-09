@@ -2,11 +2,23 @@
 html, body, #app {
   min-height: 100vh;
   font-family: 'Heebo', sans-serif;
+  font-style: normal;
+  font-weight: normal;
   margin: 0;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
+
+#title {
+  text-align: center;
+  border-radius: 5px;
+  height: 100px;
+  width: 100px;
+  border-color: purple;
+  padding: 10px;
+  margin: 10px;
+}
 
 #app {
   background-color: lightgrey;

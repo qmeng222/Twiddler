@@ -1,7 +1,6 @@
 $(document).ready(function(){
   jQuery("time.timeago").timeago();
   var $app = $('#app');
-  //$app.html('')
 
   //Twiddler Title
   var $title = $('<h1>Twiddler</h1>');
@@ -11,9 +10,8 @@ $(document).ready(function(){
     alert('The title of this page is: ' + event.target.innerText);
   });
 
-
   //update feed button (UI)
-  var $updateFeed = $('<button>Update Feed</button>');
+  var $updateFeed = $('<button id="update-feed">Update Feed</button>');
   $updateFeed.appendTo($app);
   $updateFeed.on("click", function(event) {
     console.log(event);
@@ -52,19 +50,15 @@ $(document).ready(function(){
       $username   : $('<div class="username">' + '@' + tweet.user + '</div>'),
       $msg        : $('<p class="message"> ' + tweet.message + '</p>'),
       $timestamp  : $('<span class="timestamp">' + jQuery.timeago(tweet.created_at) + '</span>'),
-      $comment    : $('<i class="icon, comment, fas fa-comments"></i>'),
-      $retweet    : $('<i class="icon, retweet, fas fa-retweet"></i>'),
-      $like       : $('<i class="icon, like, fas fa-heart"></i>'),
-      $share      : $('<i class="icon, share, fas fa-share"></i>')
+      $comment    : $('<i class="icon comment fas fa-comments"></i>'),
+      $retweet    : $('<i class="icon retweet fas fa-retweet"></i>'),
+      $like       : $('<i class="icon like fas fa-heart"></i>'),
+      $share      : $('<i class="icon share fas fa-share"></i>')
       };
       for(component in tweetUI) {
         tweetUI[component].appendTo($tweet);
       }
 
-
-      //show user specified feed
-      //var $userButton = $('<button class="userbutton">' + '@' + tweet.user + '</button>');
-      //$userButton.appendTo(tweetUI.$username);
       $(".username").on("click", function(event) {
         event.stopPropagation();
         event.stopImmediatePropagation();
@@ -73,26 +67,9 @@ $(document).ready(function(){
         //console.log(this.className)
         $updateFeed.html('Back');
       });
-
     }
   }
-
-  /*
-  function handleUsernameClick() {
-    /*
-    if ($updateFeed.text() === 'Update Feed') {
-      $updateFeed.html('Back');
-    } else {
-      $updateFeed.html('Update Feed');
-    }
-
-    $( "div.username" ).click(function() {
-      alert( "Handler for .click() called." );
-    });
-  }
-  */
-
-
+  window.isItBeautifulYet = true;
 });
 
 

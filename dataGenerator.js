@@ -17,7 +17,7 @@ window.users = Object.keys(streams.users);
 var addTweet = function(newTweet) {
   var username = newTweet.user;
   streams.users[username].push(newTweet);
-  streams.home.push(newTweet);
+  streams.home.push(newTweet);  //[oldest,old,new, newer, newest, even newer]
 };
 
 // utility function
@@ -52,7 +52,7 @@ for (var i = 0; i < 10; i++) {
 }
 
 var scheduleNextTweet = function() {
-  if (streams.home.length < 500) {[]
+  if (streams.home.length < 500) {
     generateRandomTweet();
     setTimeout(scheduleNextTweet, 250 + (Math.random() * 1250));
   }
