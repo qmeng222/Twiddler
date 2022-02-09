@@ -17,6 +17,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
   margin: auto;
   font-size: 52px;
   /*font-family: 'Quintessential', cursive;*/
+  font-style: italic;
   text-align: center;
 }
 
@@ -45,10 +46,24 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 }
 
-.profile-picture{
-  width: 15px;
+.profile-photo{
+  width: 70px;
   margin: 10px;
   border: 2px solid black;
+  border-radius: 15px;
+  float: left;
+}
+
+.username{
+  font-weight: bold;
+  font-size: x-large;
+  font-family: 'Courier New', Courier, monospace;
+
+}
+
+.message{
+  font-size: large;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .comment, .like, .share, .retweet{
@@ -63,5 +78,17 @@ i{
   border: 1px solid black;
   border-radius: 10px;
   background-color: #505050;
+}
+
+i:hover{
+  background-color: #2797d8;
+}
+
+.timestamp{
+  display: flex;
+  margin-left: 70%;
+  font-size: 15px;
+  font-family: 'Courier New', Courier, monospace;
+
 }
 
