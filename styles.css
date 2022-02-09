@@ -64,7 +64,7 @@ html, body, #app {
 }
 
 #app {
-  background-color: #293f50;
+  background-color: #053050;
   color: white;
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   font-style: normal;
@@ -147,7 +147,7 @@ h1, h3, h4, h5, p {
 }
 
 h1, h2, h3, h4 {
-  color: #648880;
+  color: #00947b;
 }
 
 h1 {
@@ -173,7 +173,7 @@ h5 {
 }
 
 strong {
-  font-weight: 400;
+  font-weight: 700;
 }
 cite, em {
   font-style: italic;
@@ -187,7 +187,7 @@ cite, em {
 
 button {
   border-radius: 5px;
-  color: blue;
+  color: #1c0099;
   cursor: pointer;
   display: block;
   font-weight: 400;
@@ -197,11 +197,13 @@ button {
 }
 
 /*
-ICONS
+  ========================================
+  ICONS
+  ========================================
 */
 
 i:hover {
-  color: #648880;
+  color: #003b1b;
 }
 
 img {
@@ -213,8 +215,11 @@ i {
 }
 
 /*
-TWEETS
+  ========================================
+  TWEETS
+  ========================================
 */
+
 .message {
   padding-top: 22px;
   padding-left: 22px;
@@ -224,7 +229,7 @@ TWEETS
 
 .tweet {
   border: solid;
-  border-color: #648880;
+  border-color: #008cff;
   display: block
 }
 
@@ -253,53 +258,6 @@ img {
 
 /*
   ========================================
-  Primary header
-  ========================================
-*/
-
-.logo {
-  border-top: 4px solid #648880;
-  float: left;
-  padding: 40px 0 22px 0;
-  font-size: 48px;
-  font-weight: 100;
-  letter-spacing: .5px;
-  line-height: 44px;
-  padding: 40px 0 22px 0;
-  text-transform: uppercase;
-
-}
-
-/*
-  ========================================
-  Home
-  ========================================
-*/
-
-.hero {
-  color: #fff;
-  line-height: 44px;
-  padding: 22px 80px 66px 80px;
-  text-align: center;
-}
-.hero h2 {
-  font-size: 36px;
-}
-.hero p {
-  font-size: 24px;
-}
-
-.teaser a:hover h3 {
-  color: #a9b2b9;
-}
-
-.hero p {
-  font-size: 24px;
-  font-weight: 100;
-}
-
-/*
-  ========================================
   Rows
   ========================================
 */
@@ -315,9 +273,9 @@ img {
 }
 
 .row-alt {
-   background: #cbe2c1;
-   background: -webkit-linear-gradient(to right, #a1d3b0, #f6f1d3);
-   background: -moz-linear-gradient(to right, #a1d3b0, #f6f1d3);
-   background: linear-gradient(to right, #a1d3b0, #f6f1d3);
+   background: blue;
+   background: -webkit-linear-gradient(to right, green, blue);
+   background: -moz-linear-gradient(to right, green, blue);
+   background: linear-gradient(to right, green, blue);
    padding: 44px 0 22px 0;
  }
