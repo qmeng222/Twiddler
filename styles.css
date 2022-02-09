@@ -9,5 +9,47 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 #app {
   background-color: green;
-  color: yellow;
+  width: auto;
+  height: fit-content;
+  color: black;
+  margin:0;
+}
+h1 {
+  margin:0;
+}
+#maintweedfeed {
+  position:absolute;
+  left:100px;
+  height:fit-content;
+  width:500px;
+  background-color : rebeccapurple;
+  border: salmon;
+}
+#feed {
+
+  border: solid 4px;
+}
+.tweet{
+  border:steelblue solid ;
+  font-family: 'Zen Kurenaido', sans-serif;
+  font: 100;
+  font-weight: bold;
+}
+#update-feed {
+  font-family: 'Courier New', Courier, monospace;
+  font-style:normal;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+  border-color: chartreuse;
+  border-radius: 5%;
+  padding: 0px;
+  position: relative;
+  left: 0px;
+  width: 150px;
+  height:80px;
+}
+.icon {
+  margin: 15px 15px;
 }
