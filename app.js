@@ -6,6 +6,7 @@ $(document).ready(function() {
 
   // Create new HTML elements
   var $feedDiv = $('<div id="feed"></div>');
+  var $controlDiv = $('<div id="controlDiv"></div>')
   var $updateBtn = $('<button id="update-feed">Update Feed</button>');
   var $title = $('<h1>Twiddler</h1>');
 
@@ -13,7 +14,7 @@ $(document).ready(function() {
   function renderFeed (user) {
     $feedDiv.html('');
 
-    var tweetStream = []; //streams.home;
+    var tweetStream = [];
     if (user === undefined || streams.users[user] === undefined) {
       tweetStream = streams.home;
     } else {
@@ -27,6 +28,11 @@ $(document).ready(function() {
       // Create HTML elements
       var $tweet = $('<div class="tweet"></div>');
       var $profilePhoto = $('<img class="profile-photo">');
+      var $tweetPicAndInfoDiv = $('<div id="pic-info-div"></div>')
+      var $tweetProfilePicDiv = $('<div id="tweetProfilePicDiv"></div>')
+      var $tweetInfoDiv = $('<div id="tweetInfoDiv"></div>')
+      var $tweetShareDiv = $('<div id="tweetShareDiv"></div>')
+      var $tweetTimeStampDiv = $('<div id="time-stamp"></div>')
       var $userName = $('<span class="username"></span>');
       var $message = $('<span class="message"></span>');
       var $timeStamp = $('<span class="timestamp"></span>');
@@ -45,15 +51,20 @@ $(document).ready(function() {
       $userName.on('click', handleUsernameClick);
 
       // Append new HTML elements to Tweet UI component
-      $profilePhoto.appendTo($tweet);
-      $userName.appendTo($tweet);
-      $message.appendTo($tweet);
-      $timeStamp.appendTo($tweet);
-      $commentImg.appendTo($tweet);
-      $retweetImg.appendTo($tweet);
-      $likeImg.appendTo($tweet);
-      $shareImg.appendTo($tweet);
       $tweet.appendTo($feedDiv);
+      $tweetPicAndInfoDiv.appendTo($tweet)
+      $tweetTimeStampDiv.appendTo($tweet)
+      $tweetProfilePicDiv.appendTo($tweetPicAndInfoDiv);
+      $tweetInfoDiv.appendTo($tweetPicAndInfoDiv);
+      $profilePhoto.appendTo($tweetProfilePicDiv);
+      $userName.appendTo($tweetInfoDiv);
+      $message.appendTo($tweetInfoDiv);
+      $tweetShareDiv.appendTo($tweetInfoDiv);
+      $commentImg.appendTo($tweetShareDiv);
+      $retweetImg.appendTo($tweetShareDiv);
+      $likeImg.appendTo($tweetShareDiv);
+      $shareImg.appendTo($tweetShareDiv);
+      $timeStamp.appendTo($tweetTimeStampDiv);
 
       streamsLength -= 1;
     }
@@ -80,8 +91,9 @@ $(document).ready(function() {
   });
 
   // Append new HTML elements to the DOM
-  $title.appendTo($app);
-  $updateBtn.appendTo($app);
+  $controlDiv.appendTo($app);
+  $title.appendTo($controlDiv);
+  $updateBtn.appendTo($controlDiv);
   $feedDiv.appendTo($app);
 
   renderFeed();

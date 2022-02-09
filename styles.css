@@ -9,7 +9,83 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
   font-family: 'Dancing Script', cursive;
+  font-style: normal;
+  display: flex;
+}
+
+#controlDiv {
+  display: flex;
+  flex-direction: column;
+  background-color: turquoise;
+  font-weight: normal;
+  width: 20%;
+}
+
+#feed {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+  width: 80%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#update-feed {
+  height: 30px;
+  width: 80%;
+  align-self: center;
+}
+
+#pic-info-div {
+  display: flex;
+}
+
+#tweetInfoDiv {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 4;
+  margin-left: 30px;
+}
+
+#tweetShareDiv {
+  margin-top: 20px;
+}
+
+#tweetTimeStampDiv {
+  display: flex;
+  justify-content: end;
+}
+
+#tweetProfilePicDiv {
+  height: 100%;
+}
+.tweet {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.profile-photo {
+  width: auto;
+  height: 100%;
+  padding: 5%;
+  border-radius: 50% 20% / 10% 40%;
+}
+
+.message {
+  text-align: left;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.icon:hover {
+  color: gray;
+}
+
+h1 {
+  text-align: center;
 }
