@@ -9,8 +9,12 @@ streams.home = [];
 streams.users = {};
 streams.users.shawndrost = [];
 streams.users.sharksforcheap = [];
-streams.users.mracus = [];
+streams.users.johnwick = [];
 streams.users.douglascalhoun = [];
+streams.users.dirtyrick = [];
+streams.users.mortysmith = [];
+streams.users.queenelizabeth = [];
+// streams.users.fsociety = [];
 window.users = Object.keys(streams.users);
 
 // utility function for adding tweets to our data structures
@@ -27,11 +31,11 @@ var randomElement = function(array) {
 };
 
 // random tweet generator
-var opening = ['just', '', '', '', '', 'ask me how i', 'completely', 'nearly', 'productively', 'efficiently', 'last night i', 'the president', 'that wizard', 'a ninja', 'a seedy old man'];
-var verbs = ['downloaded', 'interfaced', 'deployed', 'developed', 'built', 'invented', 'experienced', 'navigated', 'aided', 'enjoyed', 'engineered', 'installed', 'debugged', 'delegated', 'automated', 'formulated', 'systematized', 'overhauled', 'computed'];
+var opening = ['just', '', '', '', '', 'ask me how I', 'completely', 'nearly', 'productively', 'efficiently', 'last night I', 'the president', 'that wizard', 'a ninja', 'a seedy old man', 'Rick and Morty just', 'Elliot Alderson'];
+var verbs = ['downloaded', 'interfaced', 'deployed', 'developed', 'built', 'invented', 'experienced', 'navigated', 'aided', 'enjoyed', 'engineered', 'installed', 'debugged', 'delegated', 'automated', 'formulated', 'systematized', 'overhauled', 'computed', 'incinerated', 'chopped up', 'waterboarded', 'sold', 'smelted', 'launched', 'farted on', 'pooped in', 'dissected', 'grilled and ate'];
 var objects = ['my', 'your', 'the', 'a', 'my', 'an entire', 'this', 'that', 'the', 'the big', 'a new form of'];
-var nouns = ['cat', 'koolaid', 'system', 'city', 'worm', 'cloud', 'potato', 'money', 'way of life', 'belief system', 'security system', 'bad decision', 'future', 'life', 'pony', 'mind'];
-var tags = ['#techlife', '#burningman', '#sf', 'but only i know how', 'for real', '#sxsw', '#ballin', '#omg', '#yolo', '#magic', '', '', '', ''];
+var nouns = ['cat', 'koolaid', 'system', 'city', 'worm', 'cloud', 'potato', 'money', 'way of life', 'belief system', 'security system', 'bad decision', 'future', 'life', 'pony', 'mind', 'unicorn', 'magical leopluridon', 'extraterrestrial', 'bacon', 'chopsticks', 'headphones', 'velociraptor'];
+var tags = ['#techlife', '#burningman', '#sf', 'but only I know how', 'for real', '#sxsw', '#ballin', '#omg', '#yolo', '#magic', '', '', '', '', '#pleasedonteatme', '#superbad', '#burgerandfries', '#inandoutbaby', '#slurpinslurpinslurpinitup', '#wubbalubbadubdub', 'as a meat puppet', 'to outer space'];
 
 var randomMessage = function() {
   return [randomElement(opening), randomElement(verbs), randomElement(objects), randomElement(nouns), randomElement(tags)].join(' ');

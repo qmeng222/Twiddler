@@ -13,6 +13,10 @@ html, body, #app {
 h1 {
   font-family: 'Lobster', cursive;
   padding-left: 25px;
+  transition: .4s;
+}
+h1:hover {
+  transform: scale(1.25) rotate(1.00turn);
 }
 img {
   border-radius: 35px;
@@ -28,7 +32,9 @@ providing a space for you to apply styles to your app's outermost HTML element -
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 #update-feed {
+  transition: .2s;
   background-color: dodgerblue;
   border-color: blue;
   color: white;
@@ -37,6 +43,11 @@ providing a space for you to apply styles to your app's outermost HTML element -
   margin-top: 15px;
   margin-bottom: 5px;
 }
+
+#update-feed:hover {
+  transform: scale(1.25);
+}
+
 #feed {
   margin-left: 15px;
   margin-right: 40%;
@@ -48,13 +59,16 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 .username {
   font-weight: 700;
-  color: blueviolet
+  color: blueviolet;
+  transition: .2s;
+  border-radius: 12px;
 }
 
 .timestamp {
   font-weight: 100;
   color: blue;
   padding-left: 20px;
+  padding-bottom: 10px;
 }
 
 .profile-photo {
@@ -68,8 +82,8 @@ providing a space for you to apply styles to your app's outermost HTML element -
   background-color: cyan;
   border-radius: 20px;
   margin-top: 10px;
-  /* margin-right: 50%; */
-  border: 2px solid blue;
+  margin-bottom: 40px;
+  border: 6px ridge blue;
 }
 
 .tweetDiv {
@@ -77,7 +91,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
   padding-bottom: 10px;
   background-color: cyan;
   border-radius: 20px;
-  border: 2px solid blue;
+  border: 6px ridge blue;
   margin-left: 15px;
   margin-right: 40%;
   padding-bottom: 10px;
@@ -91,11 +105,16 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 
 .tweetSubmit {
+  transition: .2s;
   border-radius: 12px;
   color: white;
   background-color: dodgerblue;
   border: 2px ridge blue;
   margin-top: 5px;
+}
+
+.tweetSubmit:hover {
+  transform: scale(1.25);
 }
 
 .title {
@@ -127,21 +146,36 @@ providing a space for you to apply styles to your app's outermost HTML element -
   padding-left: 5px;
   padding-right: 5px;
   margin-left: 15px;
+  margin-bottom: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 12px;
   border: 2px groove blue;
   background-color: dodgerblue;
+  transition: .4s;
+}
+
+.icon:hover {
+  transform: rotate(1.00turn) scale(1.25);
 }
 
 .commentDiv {
-  margin-left: 15px;
-  /* background-color: dodgerblue; */
-  color: blue;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: cyan;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  border: 6px ridge blue;
 }
 
 .commentForm {
   display: none;
+  padding-top: 5px;
+  margin-left: 15px;
+  color: blue;
 }
 
 .commentSubmit {
@@ -149,10 +183,84 @@ providing a space for you to apply styles to your app's outermost HTML element -
   color: white;
   background-color: dodgerblue;
   border: 2px ridge blue;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .textArea {
+  border: 2px ridge blue;
   border-radius: 12px;
   background-color: dodgerblue;
   color: white;
+  width: 80%;
+  padding: 2%;
+  /* padding-right: 47.5%; */
 }
+
+.toUser {
+  border: 2px ridge blue;
+  border-radius: 12px;
+  background-color: dodgerblue;
+  color: white;
+  width: 40%;
+  height: 20%;
+  padding: 10px;
+}
+
+::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+#friends-list {
+  background-color: skyblue;
+  border: 2px ridge blue;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.friends-list-div {
+  float: right;
+  margin-right: 2%;
+  border: 6px ridge blue;
+  border-radius: 20px;
+  background-color: cyan;
+  padding: 3%;
+}
+
+.friends-list-title {
+  background-color: dodgerblue;
+  border-radius: 40px 12px;
+  border: 8px groove blue;
+  width: 140px;
+  margin-left: 20px;
+  text-align: center;
+  font-family: 'Lobster', cursive;
+}
+
+.friend {
+  padding: 5px;
+  transition: .2s;
+  border: 2px blue ridge;
+  border-radius: 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  background-color: dodgerblue;
+}
+
+.friend:hover {
+  transform: scale(1.25);
+}
+
+.xtra {
+  float: right;
+  border-radius: 35px;
+  margin-left: 5px;
+}
+
+.poster {
+  float: right;
+}
+
