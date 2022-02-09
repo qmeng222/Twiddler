@@ -2,12 +2,102 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  font-family: 'Open Sans', sans-serif, 'Space Mono', monospace;
+  font-style: normal;
+  font-weight: normal;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: lightyellow;
+  color: black;
+}
+
+.icon:hover {
+  color: white;
+  background-color: cornflowerblue;
+}
+
+#feed {
+  margin: 20px;
+}
+
+.tweet {
+  display: flex;
+  flex-flow: wrap;
+  border: 2px solid darkgrey;
+  border-radius: 5px;
+  background-color: white;
+  margin: 8px 0px;
+  padding: 4px;
+}
+
+.profile-photo {
+  border-radius: 50%;
+  width: 10%;
+}
+
+.username {
+  display: flex;
+  justify-content: flex-start;
+  text-align: right;
+  width: 20%;
+  margin: 0px 20px;
+}
+
+.message {
+  display: flex;
+  justify-content: flex-start;
+  order: 1;
+  width: 100%;
+  border: 2px solid darkgrey;
+  border-radius: 25px;
+  background-color: lightyellow;
+  padding: 20px;
+  margin: 10px 25% 10px 10px;
+}
+
+.timestamp {
+  display: flex;
+  justify-content: right;
+  width: 60%;
+  margin: 0px 20px;
+}
+
+.icon {
+  display: flex;
+  justify-content: space-evenly;
+  order: 2;
+  margin: 10px;
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 25%;
+}
+
+h1 {
+  display: flex;
+  height: 70px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  margin: 0px;
+  padding-top: 20px;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+}
+
+button#update-feed {
+  margin: 10px 20px;
+  padding: 4px;
+}
+
+button#update-feed:hover {
+  background-color: aquamarine;
 }
