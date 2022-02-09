@@ -57,9 +57,8 @@ $(document).ready(function(){
       //text of above tweet
       //$tweet.text('@' + tweet.user + ': ' + tweet.message);
 
-      var $profilephoto = $('<img class="profile-photo" src="assets/img/"' + tweet.user + '".png">');
-      //$('.profile-photo').attr("src", tweet.user);
-      //console.log(tweet.user);
+      var $profilephoto = $('<img class="profile-photo" src="' + tweet.profilePhotoURL + '">');
+      //console.log(tweet.profilePhotoURL);
       $profilephoto.appendTo($tweet);
 
       var $username = $('<div class="username"></div>');
@@ -109,4 +108,4 @@ $(document).ready(function(){
 
 });
 
-// window.isItBeautifulYet = true
+window.isItBeautifulYet = true

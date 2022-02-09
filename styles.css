@@ -1,5 +1,6 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
+  background-image: url("https://i.stack.imgur.com/jGlzr.png");
   min-width: 500px;
   min-height: 100vh;
   margin: auto;
@@ -30,5 +31,10 @@ providing a space for you to apply styles to your app's outermost HTML element -
   margin: 5% 0;
   border: 2px solid black;
   padding: 10px;
+}
+
+.profile-photo {
+  height: 100px;
+  width: 100px;
 }
 
