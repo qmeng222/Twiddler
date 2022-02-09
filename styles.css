@@ -6,14 +6,40 @@ html, body, #app {
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
-
-#app {
-  background-color: white;
-  color: black;
-}
-
 #app {
   background-color: #9DBBD9;
   font-family: 'Rubik', sans-serif;
   color: #000000;
+  padding: 90px;
+}
+
+.icon:hover {
+  font-weight: bold;
+  color: #000000;
+}
+
+.tweet {
+  border: solid #12114a;
+  background-color: #3491BF;
+  padding: 5px 20px 5px 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.profile-photo {
+  border-radius: 40px;
+  height: auto;
+}
+
+.timestamp {
+  text-align: right;
+  font-style: italic;
+  font-size: .85em;
+}
+
+#update-feed {
+  border-radius:25px;
+  margin-bottom: 15px;
+	border:1px solid #adb6c4;
+  background-color:#c8d4e8;
 }

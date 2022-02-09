@@ -4,9 +4,9 @@ $(document).ready(function(){
   $app.html('');
 
   // Create new HTML elements
-  var $title = $('<h1>Twiddler</h1>');
+  var $title      = $('<h1>Twiddler</h1>');
   var $updateFeed = $('<button id="update-feed">Update Feed</button>');
-  var $feed = $('<div id="#feed"></div>');
+  var $feed       = $('<div id="feed"></div>');
 
   // Append static elements to the page (DOM)
   $title.appendTo($app);
@@ -29,16 +29,16 @@ $(document).ready(function(){
       }
 
       // Create new HTML elements
-      var $tweet = $('<div class="tweet"></div>');
-      var $profilePhoto = $('<img class="profile-photo">');
-      var $username = $('<div class="username"></div>');
-      var $message = $('<div class="message"></div>');
-      var $timestamp = $('<div class="timestamp"></div>');
-      var $iconContainer = $('<div class="icons"></div>');
-      var $iconComment = $('<i class="icon comment far fa-comment">');
-      var $iconRetweet = $('<i class="icon retweet far fa-share-square"></i>');
-      var $iconLike = $('<i class="icon like far fa-thumbs-up">');
-      var $iconShare = $('<i class="icon share far fa-heart">');
+      var $tweet          = $('<div class="tweet"></div>');
+      var $profilePhoto   = $('<img class="profile-photo">');
+      var $username       = $('<div class="username"></div>');
+      var $message        = $('<div class="message"></div>');
+      var $timestamp      = $('<div class="timestamp"></div>');
+      var $iconContainer  = $('<div class="icons"></div>');
+      var $iconComment    = $('<i class="icon comment far fa-comment">');
+      var $iconRetweet    = $('<i class="icon retweet far fa-share-square"></i>');
+      var $iconLike       = $('<i class="icon like far fa-thumbs-up">');
+      var $iconShare      = $('<i class="icon share far fa-heart">');
 
       $username.text('@' + tweet.user);
       $message.text(tweet.message);
@@ -64,13 +64,13 @@ $(document).ready(function(){
   renderFeed();
 
   // Create event handler functions
-  var handleBtnClick = function() {
+  var handleBtnClick = function(event) {
     $feed.html('');
     renderFeed();
     $updateFeed.text('Update Feed');
   }
 
-  var handleUsernameClick = function() {
+  var handleUsernameClick = function(event) {
     var user = $(this).text().slice(1);
     $updateFeed.text('Back');
     $feed.html('');
@@ -80,10 +80,5 @@ $(document).ready(function(){
   // Set event listeners
   $updateFeed.on('click', handleBtnClick);
   $feed.on('click', ".tweet .username", handleUsernameClick);
-
-  $('.icon').hover(
-    function () { $(this).addClass('fas') },
-    function () { $(this).removeClass('fas') }
-  )
 });
 
