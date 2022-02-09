@@ -108,4 +108,6 @@ $(document).ready(function(){
   //This function call initializes the page on startup
   renderFeed();
 
+  window.isItBeautifulYet = true;
+
 });

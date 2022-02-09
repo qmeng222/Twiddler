@@ -8,23 +8,25 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: #4d2121;
-  color: #2797d8;
+  background-color: #470D21;
+  color: #F9E4D4;
   padding: 10px;
 }
 
 #title {
   margin: auto;
-  font-size: 52px;
+  font-size: 110px;
   /*font-family: 'Quintessential', cursive;*/
+  color: #9C0F48;
   font-style: italic;
   text-align: center;
 }
 
 #update-feed{
+  border: 1px #9C0F48;
   border-radius: 10px;
-  background-color: #2797d8;
-  color: white;
+  background-color: #D67D3E;
+  color: #F9E4D4;
   width: auto;
   height: 35px;
   display: block;
@@ -38,9 +40,10 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 
 .tweet {
-  border: black 2px solid;
+  border: #D67D3E 2px solid;
+  background-color: #9C0F48;
   border-radius: 15px;
-  margin: 5px;
+  margin: 10px;
   height: auto;
   padding: 10px;
 
@@ -74,10 +77,10 @@ i{
   margin: 5px;
   text-align: center;
   padding: 10px;
-  color: #acacac;
+  color: #9C0F48;
   border: 1px solid black;
   border-radius: 10px;
-  background-color: #505050;
+  background-color: #D67D3E;
 }
 
 i:hover{
