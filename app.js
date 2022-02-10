@@ -80,5 +80,7 @@ $(document).ready(function(){
   // Set event listeners
   $updateFeed.on('click', handleBtnClick);
   $feed.on('click', ".tweet .username", handleUsernameClick);
+
+  window.isItBeautifulYet = true
 });
 
