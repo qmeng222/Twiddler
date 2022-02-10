@@ -7,7 +7,7 @@ $(document).ready(function(){
   while(index >= 0){
     var tweet = streams.home[index];
     var $tweet = $('<div class="tweet"></div>');
-    var $profilePhoto = $('<img class=""profile-photo src="'+ tweet.profilePhotoURL +'">');
+    var $profilePhoto = $('<img class="profile-photo" src="'+ tweet.profilePhotoURL +'">');
     var $username = $('<div class="username"><h4>@'+ tweet.user +'</h4></div>');
     var $message = $('<p class="message">' + tweet.message + '</p>');
     var postTime = jQuery.timeago(tweet.created_at);
@@ -19,24 +19,17 @@ $(document).ready(function(){
     $icon.append('<div class"icons><i class="icons column retweet fa-solid fa-retweet"></i></div>');
     $icon.append('<div class"icons><i class="icons column like fa-brands fa-gratipay"></i></div>');
     $icon.append('<div class"icons"><i class="icons column share fa-solid fa-share"></i></div>');
-    $tweet.text('@' + tweet.user + ': ' + tweet.message);
+    // $tweet.text('@' + tweet.user + ': ' + tweet.message);
 
     $profilePhoto.appendTo($tweet);
-    $username.appendTo($tweet);
     $message.appendTo($tweet);
+    $username.appendTo($tweet);
     $timeStamp.appendTo($tweet);
 
     $icon.appendTo($tweet);
 
     index -= 1;
   }
-
-  $(".icons").hover(function() {
-    $(this).css("background-color", "white");
-}, function() {
-    $(this).css("background-color", "black");
-});
-
 
 
 
@@ -93,8 +86,8 @@ $(document).ready(function(){
       $icon.append('<div class"icons"><i class="icons column share fa-solid fa-share"></i></div>');
 
       $profilePhoto.appendTo($tweet);
-      $username.appendTo($tweet);
       $message.appendTo($tweet);
+      $username.appendTo($tweet);
       $timeStamp.appendTo($tweet);
 
       $icon.appendTo($tweet);

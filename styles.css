@@ -74,6 +74,26 @@ button {
   margin: 20px;
 }
 
+.message {
+  font-size: 120%;
+  font-weight:  bolder;
+}
+
+.username {
+  text-align: center;
+  width: 120px;
+
+}
+
+.timestamp {
+  width: 150px;
+  text-align: center;
+  position: relative;
+  right: -80%;
+  background-color: #769FCD;
+  color: white;
+}
+
 .userinform{
   text-align: center;
 }
