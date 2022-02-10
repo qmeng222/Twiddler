@@ -8,6 +8,92 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: #D3DEDC;
+  color:#92A9BD;
+  border-radius: 30px;
+}
+
+h1 {
+  color: #7C99AC;
+  text-align: center;
+  padding: 50px;
+  font-size: 3em;
+  font-weight: revert;
+  margin: 0;
+  font-family: 'Space Mono', monospace;
+  font-style: normal;
+}
+
+button {
+  padding: 15px 32px;
+  background-color: #92A9BD;
+  border: none;
+  color: #FFEFEF
+}
+
+.icons {
+  border-radius: 15px;
+  width: 30px;
+  position: relative;
+  background-color: black;
+}
+
+.feed {
+  height: 800px;
+}
+
+.profile-photo {
+  position: relative;
+  left: -40%;
+  border-radius: 30px;
+}
+
+
+.tweet {
+  margin: 20px;
+  padding: 20px;
+  border: 10px solid #769FCD;
+  background-color: #D6E6F2;
+  text-align: center;
+
+}
+
+
+.profile {
+  background-color: #FFEFEF;
+  width: 200px;
+  height: 500px;
+  display: inline-block;
+  margin: 20px;
+  text-align: center;
+  position: fixed;
+  border-radius: 30px;
+}
+
+#profilephoto {
+  margin: 20px;
+}
+
+.userinform{
+  text-align: center;
+}
+
+#block {
+  width: 200px;
+  height: 5px;
+  background-color: #92A9BD;
+  position: absolute;
+}
+
+#feed {
+  display: grid;
+  grid-area: content;
+  margin: 20px;
+  background-color: #FFEFEF;
+  display: inline-block;
+  width: 800px;
+  height: 800px;
+  position: relative;
+  left: 30%;
+  overflow: scroll;
 }
