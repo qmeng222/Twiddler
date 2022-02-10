@@ -1,13 +1,96 @@
-/* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
+
+
+
+/*These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
   margin: 0;
 }
 
-/* Continue building out the CSS styling for your Twiddler app below! We got you started by
+/*Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: white;
+  color: white;
+}
+
+
+#feed {
+  margin: auto;
+}
+
+
+
+.message {
+  font-family: 'PT Sans Narrow', sans-serif;
+  margin-left: 10px;
+}
+
+.tweet {
+  background-color: deepskyblue;
+  font-family: 'PT Sans Narrow', sans-serif;
+  border: solid black;
+  border-width: 8px;
+  border-radius: 5px;
+  margin: auto;
+  width: 75%;
+  margin-top: 10px;
+}
+
+.title {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  color: deepskyblue;
+  height: 40px;
+}
+
+.subtitle {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  color: deepskyblue;
+
+}
+
+
+
+.username {
+  font-style: italic;
+  margin-left: 10px;
+
+}
+
+.profile-photo {
+  margin: 10px;
+}
+
+.icon {
+  margin: 10px 25px 10px
+}
+
+.icon:hover {
+  transform: scale(1.4);
+}
+
+.timestamp {
+  margin-left: 10px;
+}
+
+#update-feed {
+background-color: greenyellow;
+border: solid black;
+border-width: 4px;
+font-family: 'PT Sans Narrow', sans-serif;
+padding: 10px;
+
+font-size: 20px;
+margin: 0 auto;
+display: block;
+
+
+
 }
