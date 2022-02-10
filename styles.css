@@ -8,6 +8,116 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: white;
+  color: black;
+  font-family: 'Noto';
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  background-color: rgb(18, 138, 236);
+  margin: 0%;
+  height: 90px;
+  /* font-style: italic; */
+  font-size: 400%;
+}
+
+button {
+  /* font-family: 'Noto Sans', sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+  height: 30px;
+  border-color: white;
+  background-color: rgb(18, 138, 236); */
+  display:block;
+  padding:0.3em 1.2em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius:2em;
+  border-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Noto Sans',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color: rgb(18, 138, 236);
+  text-align: center;
+  transition: all 0.2s;
+}
+button:hover {
+background-color:#4095c6;
+}
+@media all and (max-width:30em){
+  button{
+    display:block;
+    margin:0.2em auto;
+  }
+}
+
+.tweet {
+  width: 50%;
+  border-color:rgb(18, 138, 236);
+  border: solid;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  /* justify-content: space-evenly; */
+  /* text-align: center; */
+  /* margin: 0px; */
+  /* border: 0%; */
+  /* width: 400px; */
+  padding: 10px;
+}
+
+.profile-photo {
+  border-radius: 100%;
+  /* justify-content: start; */
+  float: left;
+}
+
+.username {
+  font-weight: bold;
+  font-size: large;
+  /* justify-content: flex-start; */
+  float: left;
+}
+
+.message {
+  /* justify-content: center; */
+  float:inline-start;
+}
+
+.timestamp {
+  font-size: small;
+  font-style: italic;
+  /* justify-content: end; */
+  float: right;
+}
+
+.icon {
+  padding: 5px;
+  /* align-content: center; */
+}
+
+/* .icon, .timestamp, .username, .message {
+  margin-top: auto;
+  margin-bottom: auto;
+} */
+
+.icon:hover {
+  /* background-color: rgb(18, 138, 236); */
+  color: rgb(18, 138, 236);
+}
+
+h1, .message, .username, .timestamp {
+  font-family: 'Noto Sans', sans-serif;
 }
