@@ -8,6 +8,49 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: white;
+}
+
+
+/* Tweet Fonts */
+
+.message {
+  font-family: 'Ubuntu';
+  font-weight: 100;
+  font-style: normal;
+}
+
+.username {
+  font-family: 'Ubuntu';
+  font-weight: 400;
+}
+.timestamp {
+  font-family: 'Ubuntu';
+  font-weight: 100;
+  font-size: smaller;
+}
+/* Other Fonts */
+h1 {
+  font-family: 'Ubuntu';
+  font-size: 40px;
+  font-weight: 600;
+  display: inline-block;
+  color: skyblue;
+  text-align: center;
+  margin-left: 250px;
+}
+#update-feed {
+  font-family: 'Ubuntu';
+  display: inline-block;
+}
+/* Tweet layout */
+.tweet {
+  display: block;
+  border: 3px solid skyblue;
+  border-radius: 4%;
+  height: 165px;
+  margin: 20px;
+  padding: 20px;
+  width: 450px;
+  background-color: lightgrey;
 }
