@@ -1,13 +1,61 @@
-/* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
-  margin: 0;
+  padding: 4px;
+  font-family: 'Titillium Web';
+  font-style:normal;
+  font-weight:normal;
+  background-color: #78c0f0;
+background-image: linear-gradient(160deg, #78c0f0 0%, #809ad0 100%);
+}
+/* Continue building out the CSS styling for your Twiddler app below! We got you started by
+providing a space for you to apply styles to your app’s outermost HTML element - the #app itself. */
+
+#feed {
+  width: 100%;
+  margin: auto;
 }
 
-/* Continue building out the CSS styling for your Twiddler app below! We got you started by
-providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
-
 #app {
-  background-color: green;
-  color: yellow;
+  color: white;
+  text-align: center;
+}
+.tweet {
+  border-radius: 5%;
+  text-align: center;
+  padding: 5px;
+  margin: auto;
+  margin-bottom: 7px;
+  margin-top: 7px;
+  width: 50%;
+  background-color: #69A0D6;
+}
+.message {
+  font-family: ‘Oswald’, sans-serif;
+}
+.username {
+  font-family: ‘Oswald’, sans-serif;
+  font-size: medium;
+  font-weight: 15;
+}
+.timestamp {
+  font-size: small;
+  font-weight: 15;
+}
+.comment, .retweet, .like, .share {
+  border-radius: 3px;
+  margin: 3px;
+}
+.profile-photo {
+  border-radius: 10px;
+  width: 30px;
+}
+#update-feed, #back {
+  background-color: rgb(194, 184, 184);
+  border-radius: 5px;
+  height: 25px;
+  width: 100px;
+  margin: 10px;
+}
+.hover {
+  background-color: #D67669;
 }
