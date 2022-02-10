@@ -13,9 +13,28 @@ providing a space for you to apply styles to your app's outermost HTML element -
   padding: 90px;
 }
 
+#app > h1 {
+  text-align: center;
+  height: auto;
+}
+
+.profile-photo {
+  margin-top: 5px;
+}
+
 .icon:hover {
   font-weight: bold;
   color: #000000;
+}
+
+.username {
+  margin-top: 10px;
+  font-weight: bolder;
+}
+
+.message {
+  margin-top: 5px;
+  color: #c8d4e8;
 }
 
 .tweet {
@@ -38,8 +57,15 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 
 #update-feed {
-  border-radius:25px;
+  border-radius: 25px;
   margin-bottom: 15px;
-	border:1px solid #adb6c4;
+  padding: 10px;
+	border: 2px solid #1c1342;
   background-color:#c8d4e8;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 5px 5px 0px;
 }
