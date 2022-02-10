@@ -7,16 +7,11 @@ $(document).ready(function(){
 
 
   //Creates a title that gives alert when you click on it
-var $title = $('<h1>Twiddler</h1>');
+var $title = $('<h1 class = "title">Twiddler</h1>');
 $title.prependTo($app);
-var $appTitle = $('appTitle')
-$appTitle.on("click", function(event) {
-  console.log(event);
-  alert('The title of this page is: ' + event.target.innerText);
-});
 
 //Creates an Update Feed Button
-var $updateFeedButton = $('<a id = update-feed>Update Feed</a>').addClass("updateFeedButton")
+var $updateFeedButton = $('<a id = update-feed class = "updateFeed">Update Feed</a>').addClass("updateFeedButton")
 $updateFeedButton.appendTo($title)
 
 
@@ -153,7 +148,7 @@ $updateFeedButton.on("click", function(event) {
   usernameFilter = 'Na';
   addTweets(streams, usernameFilter);
 });
-
+window.isItBeautifulYet = true;
 });
 
 

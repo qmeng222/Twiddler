@@ -19,14 +19,21 @@ providing a space for you to apply styles to your app's outermost HTML element -
 /* Taking button from Shay Howe example to test
 */
 .updateFeedButton {
-  background-color: rgb(255, 255, 255);
+
   color: rgba(15, 27, 92, 0.925);
   cursor: pointer;
   display: inline-block;
-  font-weight: 400;
+  font-weight: 40;
   letter-spacing: .5px;
   margin: 0;
   text-transform: uppercase;
+  font-size: large;
+
+}
+
+.title {
+  font-size: xxx-large;
+  text-align: center;
 }
 
 .font {
@@ -35,14 +42,40 @@ font-family: 'Rowdies', cursive;
 }
 
 
-/*.appTitle {
-
+.message {
+  color:rosybrown;
+  font-size:larger;
 }
 
 .username {
+  cursor: pointer;
+  color:skyblue;
+  font-size: large;
+  font-style: italic;
+  text-align: left;
+}
+.timestamp {
+  font-size: small;
+}
+.icon {
+  color:rgb(255, 255, 255);
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid seashell;
+
+}
+.updateFeed {
+  display: block;
+  color: azure;
+}
+.tweet {
+
+  border-radius: 10px;
+  height: 100px;
+  margin: 20px;
+  padding: 20px;
+  padding-bottom: 50px;
+  width: 400px;
 
 }
 
-.message {
-
-}*\
