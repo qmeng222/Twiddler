@@ -10,27 +10,41 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 #app {
   background-color: white;
-  color: black;
 }
+#homeFeed {
+  padding: 10px;
+}
+#update-feed {
+  margin-left: 25%;
 
-.comment:hover, .retweet:hover, .like:hover, .share:hover {
+}
+.title {
+  padding: 10px;
+  margin: auto;
+  width: 10%;
+}
+.comment:hover, .retweet:hover, .like:hover, .share:hover, .username:hover {
   color: green;
-
+  cursor: pointer;
 }
 
-  .tweetFeed {
-  position: inline-block;
+#feed {
+  justify-content: center;
+  padding-left: 25%;
+  padding-right: 25%;
 }
+
 .tweet {
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
+  text-align: center;
   align-items: flex-start;
-  position: relative;
+  flex-direction: column;
   height: 100px;
-  padding: 10px;
-  margin: 10px;
-  width: 500px;
+  padding: 5px;
+  margin: 5px;
+  width: 100%;
   border: 3px solid green;
 }
  .profile-photo {
@@ -38,29 +52,27 @@ providing a space for you to apply styles to your app's outermost HTML element -
   height: 50px;
   border-radius: 50%;
 }
-.username {
-  float: left;
-}
+
 .message {
+  font-size: 16px;
+  padding-bottom: 100%;
   font-family: 'Abel', sans-serif;
   font-style: italic;
-  float: right;
   text-align: start;
   font-weight: bold;
+  display: flex;
 }
 
-/* .timestamp {
-  float: right;
-} */
-/* #homeFeed {
-  height: 800px;
-  width: 800px;
-  border: 3px solid black;
+.timestamp {
+  font-size: 12px;
 }
-.tweetFeed {
-  height: 800px;
-  width: 400px;
-  border: 3px solid pink;
+.comment, .retweet, .like, .share {
+  float: right;
+  padding: 2px;
+  margin-left: auto;
+}
+.username {
+  padding-top: 16px;
 }
 #userIMG {
   padding: 3px;
@@ -72,4 +84,4 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 .title {
   color: green;
-} */
+}

@@ -18,12 +18,12 @@ $(document).ready(function(){
   var createTweet = function ($tweet, tweet) {
     $tweet.prepend(`<img class="profile-photo" src="${tweet.profilePhotoURL}" />`);
     $tweet.append(`<span class="username">@${tweet.user}:</span>`);
-    $tweet.append(`<p class="message">${tweet.message}</p>`);
     $tweet.append(`<span class="timestamp">${jQuery.timeago(tweet.created_at)}</span>`);
+    $tweet.append(`<p class="message">${tweet.message}</p>`);
     $tweet.append(`<i class="far fa-comment-dots comment"></i>
-    <i class="fas fa-retweet retweet"></i>
-    <i class="far fa-thumbs-up like"></i>
-    <i class="fas fa-share-square share"></i>` );
+                   <i class="fas fa-retweet retweet"></i>
+                   <i class="far fa-thumbs-up like"></i>
+                   <i class="fas fa-share-square share"></i>` );
     pastTweets.push(`${tweet.user}, ${tweet.message}`);
     return $tweet
   }
@@ -72,8 +72,7 @@ $(document).ready(function(){
       }
     });
   });
-
-// window.isItBeautifulYet = true;
+  // window.isItBeautifulYet = true;
 });
 
 
