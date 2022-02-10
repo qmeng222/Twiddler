@@ -2,12 +2,66 @@
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: rgb(207, 207, 207);
+  padding: 20px 0;
+}
+
+#feed {
+  margin: auto;
+  width: 600px;
+  display: block;
+  background-color: rgb(235, 235, 235);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.tweet {
+  margin: 0 10px;
+  height: 100px;
+  padding: 10px;
+  display: block;
+  border-top: 1px solid black;
+}
+
+.timestamp {
+  font-style: italic;
+  text-align: right;
+}
+
+.tweet:first-child {
+  border-top: none;
+}
+
+.profile-photo {
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  /* display: inline-block; */
+  float: left;
+}
+
+.username:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+h1 {
+  margin: 0;
+}
+
+.comment:hover,
+.like:hover,
+.share:hover,
+.retweet:hover {
+  color: red;
+  cursor: pointer;
 }
