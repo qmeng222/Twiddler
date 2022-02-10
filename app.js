@@ -3,10 +3,14 @@ $(document).ready(function(){
     var $app = $('#app');
     // Replace the HTML in that div with an empty string
     $app.html('');
-    // Create a h1 element with the text 'Twiddler' (in memory, not in the actual DOM)
-    var $title = $('<h1>Twiddler</h1>');
+    // Create a h1 element with the text 'Twiddler' (in memory, not in the actual DOM) + subtitle
+    var $title = $('<h1 class="title">Twiddler</h1>');
+    var $subtitle = $('<h1 class="subtitle">or, why no one ever sees Tim anymore</h1>');
+
     // Append that h1 element to the DOM (inside the #app element)
     $title.appendTo($app);
+    $subtitle.appendTo($app);
+
     // Set an event listener on the h1 element (for a click) that generates an alert
     $title.on("click", function(event) {
       console.log(event);
@@ -21,7 +25,7 @@ $(document).ready(function(){
       $tweet.appendTo($app);
       index -= 1;
     }
-    
+
     //--------------------------------------------
     // CREATE UPDATE FEED BUTTON
     //--------------------------------------------
@@ -34,6 +38,11 @@ $(document).ready(function(){
     $updateFeedButton.on('click', function () {
         // Call the render feed function
         renderFeed();
+        handleUsernameClick();
+        // Move this function to another spot after renderfeed has been called?
+        if ($updateFeedButton.text() === 'Back') {
+          $updateFeedButton.text('Update Feed');
+        }
     })
 
     //--------------------------------------------
@@ -50,29 +59,29 @@ $(document).ready(function(){
 
 
     //--------------------------------------------
-    // RENDER FEED
+    // POPULATE FEED WITH TWEET ELEMENTS
     //--------------------------------------------
-    
-    // Remove any existing tweets:
-    var renderFeed = function() {
-    var $loadedTweets = $('.tweet');
+
+    var renderFeed = function(user) {
+      // Remove any existing tweets:
+      var $loadedTweets = $('.tweet');
     $('.tweet').remove();
 
-    // Iterate through the elements in streams.home
- 
+    // Iterate through the elements in streams.home OR streams.user[the provided argument]
         // Create an iterator variable for the elements in streams.home
-        var index = streams.home.length - 1;
+        var index = (user === undefined) ? streams.home.length - 1 : streams.users[user].length - 1;
 
-        // For each element in streams.home
+        // For each element in streams.home (or streams.users if argument passed in)
         while(index >= 0){
+
         // CREATE A TWEET ELEMENT
-          // tweet = the element
-          var tweet = streams.home[index];
+          // tweet = the last element of the home streams (an object) OR the last element of the user's stream (object)
+          var tweet = (user === undefined) ? streams.home[index] : streams.users[user][index];
           // Create a div with class 'tweet'
-          var $tweet = $('<div class="tweet"></div>');          
+          var $tweet = $('<div class="tweet"></div>');
           // Append the tweet to the feed
           $tweet.appendTo($feed);
-          
+
           // CREATE PROFILE PHOTO ELEMENT
           var $profilePhoto = $('<img src="assets/img/' + tweet.user +'.png" class="profile-photo"></img>');
           $profilePhoto.appendTo($tweet);
@@ -84,19 +93,21 @@ $(document).ready(function(){
           $username.text('@' + username);
           // Append it to the $tweet element
           $username.appendTo($tweet);
+          // On click, change Update Feed button text to 'Back'
+
 
           // CREATE A MESSAGE ELEMENT
           var $message = $('<div class="message"></div>')
           $message.text(tweet.message);
           $message.appendTo($tweet);
 
-          // Create <div> for timestamp
+          // CREATE A TIMESTAMP ELEMENT
           var $timestamp = $('<div class="timestamp"></div>');
           var timeSince = jQuery.timeago(tweet.created_at)
           $timestamp.text(timeSince);
           $timestamp.appendTo($tweet);
 
-          // Create 4 elements for Like, Share, Comment, Retweet
+          // CREATE 4 ELEMENTS FOR LIKE, SHARE, COMMENT, RETWEET
           var $comment = $('<i class="comment fas fa-comment icon" ></i>');
           $comment.appendTo($tweet);
 
@@ -110,16 +121,36 @@ $(document).ready(function(){
           $share.appendTo($tweet);
 
 
-   
+
           // Decrement the iterator variable
           index -= 1;
         }
+      }
 
 
-
-    }
-
+    // Render the feed for the first time upon page load
     renderFeed();
 
+    //--------------------------------------------
+    // IF USERNAME CLICKED, RENDER USER FEED
+    //--------------------------------------------
+
+    // Create a click event handler on every username element inside each tweet so that
+    // the feed renders with the username passed in as an argument
+    var handleUsernameClick = function() {
+    $('.tweet').on('click', '.username', function() {
+      if ($updateFeedButton.text() === 'Update Feed') {
+        $updateFeedButton.text('Back');
+      }
+        var usernameArg = $(this).text().substring(1);
+        renderFeed(usernameArg);
+        handleUsernameClick();
+    })
+  }
+  handleUsernameClick();
+
+
+  window.isItBeautifulYet = true
   // End of .ready() function
+
   });
