@@ -11,3 +11,9 @@ providing a space for you to apply styles to your app's outermost HTML element -
   background-color: green;
   color: yellow;
 }
+
+#update-feed {
+  position: relative;
+  vertical-align: bottom;
+  margin: 0 auto;
+}
