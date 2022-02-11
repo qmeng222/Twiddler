@@ -64,7 +64,7 @@ var $renderTweet = function(tweet){
   var firstLoad = true;
   //Change icon colors
   $(document).on("mouseover", 'i', function() {
-    .attr('style', 'color:gray');
+    icon.attr('style', 'color:gray');
   });
   // icon.on('mouseover', function() {
   //   icon.attr('style', 'color:gray');
