@@ -6,7 +6,12 @@ html, body, #app {
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
-
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
 #app {
   background-color: white;
 }
@@ -47,10 +52,14 @@ h1 {
 .tweet {
   display: block;
   border: 3px solid skyblue;
-  border-radius: 4%;
-  height: 165px;
-  margin: 20px;
-  padding: 20px;
+  border-radius: 15%;
+  height: 180px;
+  /* margin: 20px; */
+  /* padding: 20px; */
+  /* width: 450px; */
+  margin: 0 auto;
+  padding-left: 30px;
+  padding-right: 30px;
   width: 450px;
   background-color: lightgrey;
 }
