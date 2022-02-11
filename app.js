@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  jQuery(document).ready(function() {
+    jQuery("time.timeago").timeago();
+  });
   var $app = $('#app');
   $app.html('');
   var $title = $('<h1>Twiddler</h1>');
@@ -22,12 +25,12 @@ $button.on('click', function() {
     var $message = $('<p class="message"></p>');
     var $username = $('<span class="username"></span>');
     var $profilepic = $('<img src=' + tweet.profilePhotoURL + ' class="profile-photo"></img>');
-    var $timestamp = $('<span class="timestamp"></span>');
+    var $timestamp = $('<span class="timestamp timeago"></span>');
     var $comment = $('<img src="assets/icons/placeholder.png" class="icon comment"></img>');
     var $retweet = $('<img src="assets/icons/placeholder.png" class="icon retweet"></img>');
     var $like = $('<img src="assets/icons/placeholder.png" class="icon like"></img>');
     var $share = $('<img src="assets/icons/placeholder.png" class="icon share"></img>');
-    $timestamp.text(tweet.created_at);
+    $timestamp.text(jQuery.timeago(tweet.created_at));
     $profilepic.appendTo($tweet);
     $username.text('@' + tweet.user + ': ');
     $message.text(tweet.message);
@@ -58,7 +61,7 @@ $button.on('click', function() {
     var $retweet = $('<img src="assets/icons/placeholder.png" class="icon retweet"></img>');
     var $like = $('<img src="assets/icons/placeholder.png" class="icon like"></img>');
     var $share = $('<img src="assets/icons/placeholder.png" class="icon share"></img>');
-    $timestamp.text(tweet.created_at);
+    $timestamp.text(jQuery.timeago(tweet.created_at));
     $profilepic.appendTo($tweet);
     $username.text('@' + tweet.user + ': ');
     $message.text(tweet.message);
