@@ -72,7 +72,7 @@ $(document).ready(function(){
       }
     });
   });
-  // window.isItBeautifulYet = true;
+  window.isItBeautifulYet = true;
 });
 
 
