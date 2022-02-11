@@ -43,6 +43,8 @@ var generateRandomTweet = function() {
   tweet.user = randomElement(users);
   tweet.message = randomMessage();
   tweet.created_at = new Date();
+  tweet.profilePhotoLink =
+  // this wasn't in the video
   tweet.profilePhotoURL = './assets/img/' + tweet.user + '.png';
   addTweet(tweet);
 };

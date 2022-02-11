@@ -8,6 +8,20 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color:darkslategray;
+  color: tan;
+  font-family: 'Poppins', sans-serif;
+  font-style: oblique;
+  font-weight: 500;
+  border: 10px;
+  border-radius: 1%;
+  height: fit-content;
+  width: 500px;
+  margin: 25%;
+  padding: 5%;
+  text-align: center;
+}
+
+.icon:hover {
+  color: royalblue;
 }
