@@ -8,6 +8,37 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: lightblue;
+  color: black;
+
 }
+
+#feed {
+  border-style: solid;
+  border-radius: 30px;
+
+  margin-right: 600px;
+  width: auto;
+
+  padding: 25px 25px 25px 25px;
+
+}
+
+#tweet {
+  height: 100px;
+  font-family: "Times New Roman", Times, serif;
+  font-style: normal;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+
+/* font-family: 'Roboto Slab', serif; */
+
+/*
+uses the "font-weight" CSS property with a valid valueprocessing
+uses the "margin" CSS property with a valid valueprocessing
+uses the "padding" CSS property with a valid valueprocessing
+uses the "text-align" CSS property with a valid valueprocessing
+uses the "width" CSS property with a valid value */
