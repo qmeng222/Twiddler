@@ -10,8 +10,14 @@ $(document).ready(function(){
 
   var $title = $('<h1>Twiddler</h1>');
   var $feed = $('<div id="feed"></div>');
-  var $button = $('<button id="update-feed">Update Feed</button>');
-  var $friendList = $('<ul id="friend-list">Friends</ul>');
+  var $updateButton = $('<button id="update-feed">Update Feed</button>');
+  var $friendList = $('<ul id="friends-list">Friends</ul>');
+  var $messageForm = $('<form id="new-tweet-form" method="POST"></form>');
+  var $userLabel = $('<label for="user-input" id="user-label">Username</label><br>');
+  var $userInput = $('<input type="text" id="user-input" name="username"><br>');
+  var $messageLabel = $('<label for="message-input" id="user-message">Message</label><br>');
+  var $messageInput = $('<input id="message-input" name="message"><br>');
+  var $sendButton = $('<button id="send-button">Send Tweet</button>');
 
   // Create event hander functions
 
@@ -58,8 +64,8 @@ $(document).ready(function(){
 
   var handleUsernameClick = function(username) {
     renderFeed(username);
-    if ($button.html() === 'Update Feed') {
-      $button.html('Back');
+    if ($updateButton.html() === 'Update Feed') {
+      $updateButton.html('Back');
     }
   };
 
@@ -71,6 +77,16 @@ $(document).ready(function(){
     }
   }
 
+  var sendTweet = function() {
+    // get username data
+    var username = $userInput.serializeArray();
+    var visitor = username.value;
+    // get msg data
+    var message = $messageInput.serializeArray();
+    // write new tweet (how to set global visitor property??)
+    writeTweet(message.value);
+  }
+
   // Set event listeners (providing appropriate handlers as input)
 
   renderFeed();
@@ -80,11 +96,11 @@ $(document).ready(function(){
     alert('The title of this page is: ' + event.target.innerText);
   });
 
-  $button.on('click', function(event) {
+  $updateButton.on('click', function(event) {
     event.preventDefault();
     renderFeed();
-    if ($button.html() === 'Back') {
-      $button.html('Update Feed');
+    if ($updateButton.html() === 'Back') {
+      $updateButton.html('Update Feed');
     }
   });
 
@@ -96,21 +112,30 @@ $(document).ready(function(){
     $(this).css("color", "rgb(56, 33, 14)");
   });
 
-  $feed.on('click', '.username', function (event) {
+  $feed.on('click', '.username', function(event) {
     handleUsernameClick($(this).html());
   });
 
-  $friendList.on('click', '.friend', function (event) {
+  $friendList.on('click', '.friend', function(event) {
     handleUsernameClick($(this).html());
   });
+
+  $sendButton.on('click', function(event) {
+    event.preventDefault();
+    sendTweet();
+    renderFeed();
+    $("li").remove();
+    renderFriends();
+  })
 
   // Append new HTML elements to the DOM
 
   $title.appendTo($app);
   $feed.appendTo($app);
-  $button.appendTo($app);
+  $updateButton.appendTo($app);
   $friendList.appendTo($app);
-
+  $messageForm.append($userLabel, $userInput, $messageLabel, $messageInput, $sendButton);
+  $messageForm.appendTo($app);
 });
 
 window.isItBeautifulYet = true;
