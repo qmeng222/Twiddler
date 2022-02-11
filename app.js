@@ -63,9 +63,9 @@ var $renderTweet = function(tweet){
   });
   var firstLoad = true;
   //Change icon colors
-  $(document).on("mouseover", 'i', function() {
-    icon.attr('style', 'color:gray');
-  });
+  // $(document).on("mouseover", 'i', function() {
+  //   i.attr('style', 'color:gray');
+  // });
   // icon.on('mouseover', function() {
   //   icon.attr('style', 'color:gray');
   // });

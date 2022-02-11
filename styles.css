@@ -82,6 +82,7 @@ i {
 
 img {
   border-radius: 50%;
+  padding: 10px;
 }
  #app {
    background-color: lightgrey;
