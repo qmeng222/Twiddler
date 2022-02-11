@@ -48,7 +48,7 @@ $(document).ready(function(){
       $username.text('@' + tweet.user +': ')
       $message.text(tweet.message);
 
-      var theTime = $.timeago(new Date());
+      var theTime = $.timeago(tweet.created_at);
       $timestamp.text(theTime);
 
       // add event listener for username
@@ -61,8 +61,8 @@ $(document).ready(function(){
         //alert('User: ' + tweet.user + '| Index: ' + index + '| Username: ' + username);
         //console.log(e);
         //alert($('button').textContent);
-        if($('#update-feed')[0].outerText === 'Update Feed') {
-          $('#update-feed').attr("id","back").text('Back');
+        if($('#update-feed').length) {
+          $('#update-feed').text('Back');
           $('#feed-area h2').text('User Feed');
         }
 
@@ -120,8 +120,8 @@ $(document).ready(function(){
 
   $updateBtn.on("click", function() {
     renderFeed();
-    if($('#back')[0].outerText === 'Back') {
-      $('#back').attr('id','update-feed').text('Update Feed');
+    if($('#update-feed').length) {
+      $('#update-feed').text('Update Feed');
     }
     $('#feed-area h2').text('Home Feed');
   });
@@ -134,4 +134,6 @@ $(document).ready(function(){
 
 
 });
+
+window.isItBeautifulYet = true;
 

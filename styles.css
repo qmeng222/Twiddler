@@ -16,8 +16,20 @@ body {
 
  h1 {
    margin: 0 auto;
-   font-weight: 400;
+   padding: 30px;
+   font-weight: 700;
    font-style: italic;
+   text-decoration: wavy;
+ }
+
+ h2 {
+   margin-bottom: 10px;
+ }
+
+ label {
+  display: inline-block;
+  margin-bottom: 10px;
+  width: 4.5rem;
  }
 
 
@@ -25,16 +37,18 @@ body {
 /* IDS */
 
 #app {
-  background-color: rgba(255, 160, 122, 0.7);
+  background-color: rgba(255, 160, 122, 0.4);
   color: darkblue;
   margin: 10px auto;
-  padding: 10px;
+  padding: 0;
   width: clamp(320px, 640px, 960px);
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 #header {
   text-align: center;
+  border-radius: 4px;
+  background-color: rgb(190, 119, 119);
 
 
 }
@@ -48,7 +62,7 @@ body {
 #new-tweet-form {
   float: left;
 
-  /* width: clamp(320px, 640px, 960px); */
+  width: clamp(320px, 50%, 960px);
   padding: 10px;
   height: 100%;
 
@@ -69,7 +83,9 @@ body {
   border: 1px darkkhaki dotted;
   padding: 10px;
   clear: both;
-  width: 95%;
+
+  margin: 0 auto;
+  border-radius: 4px;
 
 }
 
@@ -94,6 +110,7 @@ body {
   flex-direction:column;
   flex-wrap: wrap;
   padding-left: 30px;
+  gap: 5px;
 }
 
 .username, .message, .timestamp, .iconContainer, .iconComment, .iconShare, .iconRetweet, .iconLike {
@@ -111,6 +128,7 @@ body {
   flex-shrink: 0;
   flex-wrap: nowrap;
   padding-left: 0;
+  gap: 5px;
 
 }
 
