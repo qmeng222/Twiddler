@@ -43,41 +43,6 @@ h1 {
   transform: translateY(-50%);
   left: 100px;
 }
-/* #sign-in {
-  position: absolute;
-  top: 10px;
-  right: 100px;
-  width: 400px;
-  border: 0;
-  font-size: 0;
-}
-.new-user {
-  font-size: 30px;
-  background-color: skyblue;
-  height:40px;
-  width: 300px;
-  border: 2px solid black;
-  border-bottom: 0px;
-  border-radius: 15px 0 0 0;
-  margin: 0;
-  padding-left: 10px;
-}
-.register {
-  padding-left: 10px;
-  margin: 0;
-  font-size: 20px;
-  height: 40px;
-  width:300px;
-  border-radius: 0 0 0 15px;
-}
-#submit {
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 30px;
-  width: 100px;
-  border-radius: 0 15px 15px 0;
-} */
 .heading {
   height: 80px;
   border: 2px solid black;
@@ -110,12 +75,12 @@ h1 {
   height: 60px;
   justify-content: flex-start;
 }
-.username,
+span.friend,
 .profile-photo,
 .timestamp {
   margin: 10px;
 }
-.username,
+span.friend,
 .timestamp {
   font-size: 20px;
   padding-top: 20px;
@@ -127,7 +92,6 @@ h1 {
 }
 .timestamp {
   position: absolute;
-  font-size: 20px;
   right: 0;
   font-style: italic;
 }
@@ -148,24 +112,20 @@ h1 {
   border-radius: 100%;
 }
 .icons:hover {
-  color: red;
+  color: skyblue;
 }
 
-/* ----- WIDGETS ----- */
-/* ----- WIDGETS ----- */
-/* ----- WIDGETS ----- */
+/* ----- Sidebars ----- */
+/* ----- Sidebars ----- */
+/* ----- Sidebars ----- */
 h2 {
   font-size: 30px;
   height: 30px;
 }
-.widget {
+.sidebar {
   position: fixed;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   top: 50%;
   transform: translateY(-50%);
-  height: 400px;
   width: 350px;
   background-color: white;
   border-radius: 20px;
@@ -184,30 +144,28 @@ h2 {
 #new-tweet-form {
   right:0;
   margin-right: 75px;
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
   height: 250px;
-  width: 250px;
-  background-color: white;
-  border-radius: 20px;
-  border: 2px solid black;
-  padding: 10px;
 }
 #send-tweet {
-  font-size: 20px;
   text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
-input {
+input,
+label {
+  font-size: 25px;
   display:block;
+  margin: 10px;
 }
-/* ----- TYPOGRAPHY ----- */
-/* ----- TYPOGRAPHY ----- */
-/* ----- TYPOGRAPHY ----- */
 .interactive:hover {
   font-weight: bold;
   color: skyblue;
 }
+/* ----- TYPOGRAPHY ----- */
+/* ----- TYPOGRAPHY ----- */
+/* ----- TYPOGRAPHY ----- */
+
 h1,
 h2,
 h3,
@@ -216,6 +174,7 @@ li,
 button,
 span,
 p,
-input {
+input,
+label {
   font-family: 'Bitter', serif;
 }
