@@ -1,13 +1,227 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
-html, body, #app {
-  min-height: 100vh;
-  margin: 0;
+html {
+    background-color: #282828;
 }
 
-/* Continue building out the CSS styling for your Twiddler app below! We got you started by
-providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto', sans-serif, Arial, Helvetica;
+    font-style: normal;
+    font-weight: 400;
+}
 
-#app {
-  background-color: green;
-  color: yellow;
+.app {
+    width: 100%;
+    height: 100%;
+    background-color: #282828;
+    border: 1px solid #282828;
+    color: gold;
+}
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    background-color: #282828;
+    border: 1px solid #282828;
+    color: gold;
+}
+
+.tweetboxnavbar {
+    float: left;
+    margin-left: 5%;
+    margin-top: 2%;
+    width: 90%;
+    height: 20%;
+    background-color: #282828;
+    border: 1px solid #282828;
+    color: gold;
+}
+
+.tweetboxnavbar2 {
+    float: left;
+    margin-left: 5%;
+    margin-top: 2%;
+    width: 90%;
+    height: 40%;
+    background-color: #282828;
+    border: 1px solid #282828;
+    color: gold;
+}
+
+.tweetboxnavbar3 {
+    float: left;
+    margin-left: 5%;
+    margin-top: 2%;
+    width: 90%;
+    height: 20%;
+    overflow: hidden;
+    background-color: #282828;
+    border: 1px solid #282828;
+    color: gold;
+}
+
+.navbar-inner {
+    width: 1200px;
+    height: 60px;
+    margin: 0 auto 0 auto;
+    overflow: hidden;
+    background-color: #282828;
+    border: 1px solid #282828;
+}
+
+.mainbody {
+    width: 1200px;
+    height: auto;
+    margin: 10px auto 10px auto;
+    background-color: #282828;
+}
+
+.col1 {
+    float: left;
+    width: 21%;
+    height: auto;
+    margin-top: 1%;
+    margin-left: 1%;
+    background-color: #282828;
+}
+
+.col2 {
+    float: left;
+    width: 75%;
+    height: 1000px;
+    margin-left: 2%;
+    background-color: #282828;
+    border: 1px solid #282828;
+}
+
+.new-tweet-form {
+    float: left;
+    width: 80%;
+    height: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: #282828;
+    border: 1px solid gold;
+}
+
+.feed {
+    float: left;
+    width: 80%;
+    height: auto;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: #282828;
+}
+
+.tweet {
+    float: left;
+    width: 92%;
+    height: 50%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: #282828;
+    border: 1px solid gold;
+    border-radius: 8px;
+
+}
+
+.messagebox {
+    float: none;
+    width: 90%;
+    height: 70%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: left;
+    background-color: #282828;
+    border: 1px solid gold;
+}
+
+.navbar-col1 {
+    float: left;
+    width: 20%;
+    height: 50%;
+    background-color: #282828;
+}
+
+.navbar-col2 {
+    float: left;
+    width: 73%;
+    margin-left: 5%;
+    height: 50%;
+    text-align: center;
+    background-color: #282828;
+}
+
+.tweetboxnavbarcol1 {
+    float: left;
+    width: 20%;
+    height: 80%;
+    text-align: center;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+
+}
+
+.username {
+    float: left;
+    width: 30%;
+    height: 80%;
+    text-align: center;
+    margin-top: .5%;
+    margin-left: 5%;
+    margin-right: 2%;
+    background-color: #282828;
+    border: 1px solid gold;
+}
+
+.tweetboxnavbarcol3 {
+    float: left;
+    width: 20%;
+    height: 80%;
+    text-align: center;
+    margin-top: .5%;
+    margin-left: 5%;
+    margin-right: 2%;
+    background-color: #282828;
+}
+
+.home {
+    float: left;
+    width: 48%;
+    height: 100%;
+    padding: 0;
+    font-size: 1;
+    text-align: center;
+    background-color: #282828;
+}
+
+.update-feed {
+    float: right;
+    width: 48%;
+    height: 100%;
+    padding: 0;
+    font-size: 1;
+    text-align: center;
+    background-color: #282828;
+}
+
+.button {
+    text-align:justify;
+    margin-left: 12.5%;
+    margin-right: 9%;
+    margin-top: 4%;
+    margin-bottom: 2%;
+  }
+
+.fa-solid:hover {
+    color: red;
 }
