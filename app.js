@@ -7,9 +7,6 @@ $(document).ready(function() {
 
   // new HTML elements
   var $title = $('<h1>Twiddler</h1>');
-  // var buttonStr = '<button type="button" id="update-feed">Update Feed</button>'
-  // var $button = $(buttonStr);
-
   var $button = $('<button type="button" id="update-feed">Update Feed</button>');
   var $feed = $('<div id="feed"></div>')
 
@@ -50,7 +47,6 @@ $(document).ready(function() {
   }
 
   var handleTitleClicks = function(event) {
-    console.log(event);
     alert('The title of this page is: ' + event.target.innerText);
   }
 
@@ -72,13 +68,13 @@ $(document).ready(function() {
 
   // append
   $title.appendTo($app);
-  // $button.appendTo($app);
   $button.appendTo($app);
   renderFeed();
   $feed.appendTo($app);
 
 });
 
+window.isItBeautifulYet = true;
 //
 //
 // currently we are trying to implement a twiddler feed where
