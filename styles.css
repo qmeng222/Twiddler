@@ -1,13 +1,549 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
-html, body, #app {
+/* html, body, #app {
   min-height: 100vh;
   margin: 0;
-}
+} */
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
-#app {
+
+/* #app {
   background-color: green;
-  color: yellow;
+  color: #ffff00;
+} */
+
+i {
+  display: inline-block;
+  max-width: 100%;
 }
+
+.tweet {
+  margin-right: 100px;
+  margin-bottom: 0px;
+  margin-left: 100px;
+  padding-bottom: 40px;
+  padding-left: 0px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background-color: #acb2c4;
+}
+
+.username {
+  position: relative;
+  left: -132px;
+  top: -15px;
+  right: 0px;
+  bottom: 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 200px;
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-align-content: space-around;
+  -ms-flex-line-pack: distribute;
+  align-content: space-around;
+  background-color: transparent;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.message {
+  position: relative;
+  left: -103px;
+  bottom: -5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: visible;
+  width: 600px;
+  height: 150px;
+  margin: 0px -200px -171px -10px;
+  padding: 10px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-radius: 20px;
+  background-color: rgba(126, 136, 157, 0.5);
+  font-size: 22px;
+  line-height: 30px;
+  text-align: left;
+  text-decoration: none;
+  -o-object-fit: fill;
+  object-fit: fill;
+}
+
+.timestamp {
+  position: relative;
+  left: 225px;
+  top: 2px;
+  right: -200px;
+  bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-left: 0px;
+  background-color: transparent;
+}
+
+.comment {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  margin: 10px 20px -40px 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  text-align: center;
+}
+
+.like {
+  position: relative;
+  left: -145px;
+  top: 86px;
+  width: 35px;
+  height: 35px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+}
+
+.share {
+  position: relative;
+  left: -90px;
+  top: 51px;
+  width: 35px;
+  height: 35px;
+  margin: 0px;
+}
+
+.feed {
+  position: static;
+  margin-bottom: 0px;
+  padding-bottom: 20px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  grid-auto-columns: 1fr;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: auto auto;
+  grid-template-rows: auto auto;
+  border-radius: 16px;
+  background-color: #d5cac1;
+  text-align: center;
+}
+
+.heading-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  padding-top: 5px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  border-radius: 0px;
+  background-clip: border-box;
+  -webkit-text-fill-color: inherit;
+  mix-blend-mode: normal;
+  -o-object-fit: fill;
+  object-fit: fill;
+}
+
+.body-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100%;
+  margin-top: 0px;
+  margin-right: 200px;
+  margin-left: 200px;
+  padding-right: 100px;
+  padding-left: 100px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  border-radius: 20px;
+}
+
+.button-2 {
+  margin-bottom: 30px;
+  padding: 9px 20px;
+  border-radius: 20px;
+  background-color: #5d91be;
+}
+
+.image {
+  position: relative;
+  top: 0px;
+  display: inline-block;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  max-width: 50%;
+  margin: 10px 288px 0px -221px;
+  padding: 0px;
+  border-style: solid solid none none;
+  border-width: 1px 2px 1px 1px;
+  border-color: #000;
+  border-radius: 70px;
+  text-align: center;
+}
+
+.image-2 {
+  width: 35px;
+  height: 35px;
+  margin-top: 10px;
+  margin-bottom: -40px;
+  margin-left: -10px;
+}
+
+.profile-photo {
+  position: relative;
+  left: -270px;
+  bottom: -20px;
+  display: block;
+  max-width: 50%;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-left: 0px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  border-radius: 50px;
+}
+
+.comment {
+  position: relative;
+  left: -255px;
+  top: 156px;
+  bottom: 0px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+}
+
+.retweet {
+  position: relative;
+  left: -200px;
+  top: 121px;
+  bottom: 0px;
+  width: 35px;
+  height: 35px;
+}
+
+.div-block {
+  display: block;
+  background-color: #858066;
+}
+
+.tweet {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 40px;
+  padding: 20px 140px 60px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  background-color: #bebebf;
+}
+
+.div-block-2 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 60px 140px 0px;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  border-radius: 20px;
+  background-color: #b8b8b8;
+}
+
+.heading-2 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-left: 0px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  background-color: transparent;
+  text-align: center;
+  -o-object-fit: fill;
+  object-fit: fill;
+}
+
+.button-2 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100px;
+  margin-right: 220px;
+  margin-left: 220px;
+  padding-right: 0px;
+  padding-left: 0px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  text-align: center;
+  -o-object-fit: fill;
+  object-fit: fill;
+}
+
+.body-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-left: 0px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  grid-auto-columns: 1fr;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: auto auto;
+  grid-template-rows: auto auto;
+  text-align: center;
+}
+
+.div-block-3 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: visible;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #909090;
+}
+
+@media screen and (max-width: 479px) {
+  .body {
+    margin-left: 0px;
+  }
+}
+
+
+.comment:hover, .retweet:hover, .like:hover, .share:hover {
+  color : gray;
+}
+
+
+
+
+/* Font !!! */
+/* font-family: 'Gideon Roman', cursive; */
+.message {
+  font-family: 'Gideon Roman', cursive;
+  font-weight: normal;
+}
+
+/*
+<div id="app">
+
+  <!-- title -->
+  <h1>Twiddler</h1>
+
+  <!-- button -->
+  <button id="update-feed">Update Feed</button>
+
+  <div id='feed'>
+
+    <div class='tweet'>
+      <img class="profile-photo">
+      div <span class="username"></span>
+      div <span class='message'></span>
+      div <span class="timestamp"></span>
+      i <img class="comment" src="./assets/icons/placeholder.png">
+      i <img class="retweet" src="./assets/icons/placeholder.png">
+      i <img class="like" src="./assets/icons/placeholder.png">
+      i <img class="share" src="./assets/icons/placeholder.png">
+    </div>
+
+  </div>
+</div>
+
+
+<body class="body-2">
+  <div id="app" class="div-block-2">
+    <h1 class="heading-2">Heading</h1>
+    <a id="update-feed" href="#" class="button-2 w-button">Update Feed</a>
+    <div id="feed" class="div-block-3">
+      <div class="tweet"><img src="images/douglascalhoun.png" loading="lazy" alt="" class="profile-photo">
+        <div class="username">@DC</div>
+        <div class="message">This is a long mesage</div>
+        <div class="timestamp">Two minutes ago</div><img src="images/placeholder.png" loading="lazy" alt="" class="comment"><img src="images/placeholder.png" loading="lazy" alt="" class="retweet"><img src="images/placeholder.png" loading="lazy" alt="" class="like"><img src="images/placeholder.png" loading="lazy" alt="" class="share">
+      </div>
+    </div>
+  </div>
+*/
