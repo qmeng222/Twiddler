@@ -1,13 +1,137 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
-  min-height: 100vh;
-  margin: 0;
+  height: 100%;
+  max-height: 100%;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
+/* font-family: 'Bebas Neue', cursive; */
+/* font-family: 'Arimo', sans-serif; */
+/* font-family: 'Nanum Gothic', sans-serif; */
+
 #app {
-  background-color: green;
-  color: yellow;
+  color: rgb(255, 255, 255);
+  border: rgb(179, 162, 224);
+  display: block;
+  font-family: 'Arimo', sans-serif;
+  border-color: rgb(0, 0, 0);
+  text-shadow: rgb(0, 0, 0);
+  text-align: center;
+  background-blend-mode: lighten;
 }
+
+.Twiddler {
+  width: 35%;
+  background: rgba(27, 54, 173, 0.4);
+  color: rgb(255, 255, 255);
+  display: block;
+  border: solid;
+  border-color: rgb(0, 0, 0);
+  border-radius: 50px;
+  display: flex;
+  font-size: larger;
+	text-align: right;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  font-size: xxx-large;
+}
+
+body {
+  background-image: url("Twiddler BG.jpeg");
+  align-items: center;
+ }
+
+#update-feed {
+  color: rgb(32, 2, 2);
+  display: inline-block;
+  height: 12%;
+  width: 25%;
+  background: rgb(40, 126, 175);
+  border: solid;
+  border-color: rgb(255, 255, 255);
+  padding: 10px;
+  margin: 5px;
+  font-family: 'Nanum Gothic', sans-serif;
+  color: white;
+  font-size: larger;
+  font-style: normal;
+  font-weight: bold;
+  border-radius: 50px;
+}
+
+#update-feed:hover {
+  transform: scale(1.2);
+  color: rgb(40, 126, 175);
+  border-color: rgb(40, 126, 175);
+  background: rgb(255, 255, 255);
+  font-style: italic;
+}
+
+.tweet {color: rgb(32, 2, 2);
+  display: inline-block;
+  height: 12%;
+  width: 60%;
+  background: rgba(49, 156, 218);
+  border: solid;
+  border-color: rgb(0, 0, 0);
+  margin: 5px;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: large;
+  font-style: normal;
+  font-weight: bolder;
+  border-radius: 100px;
+}
+
+
+.profile-photo {
+  padding: 3px;
+  margin-top: -75px;
+  margin-left: -250px;
+  border-radius: 75%;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+}
+
+.message {
+  font-family: 'Arimo', sans-serif;
+  color: white;
+  width: auto;
+  font-size: large;
+  font-weight: bolder;
+  margin: 12px;
+  padding: 5px;
+}
+
+.comment, .retweet, .like, .share {
+  color: rgb(255, 255, 255);
+  margin: 8px;
+  padding: 10px;
+}
+
+.comment:hover {
+  transform: scale(1.5);
+  color: rgb(20, 61, 85);
+}
+
+.retweet:hover {
+  transform: scale(1.5);
+  color: rgb(20, 61, 85);
+}
+
+.like:hover {
+  transform: scale(1.5);
+  color: rgb(20, 61, 85);
+}
+
+.share:hover {
+  transform: scale(1.5);
+  color: rgb(20, 61, 85);
+}
+
+.timestamp {
+  font-size: smaller;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
