@@ -1,16 +1,17 @@
-
-
  $(document).ready(function() {
    var $app = $('#app');
+   $app.html('');
 
    //create new HTML elements
    var $title = $('<h1 id="title">Twiddler</h1>');
    var $feedtitle = $('<h4 id="title">Feeds</h1>');
    var $feed = $('<div id="feed"></div>');
+   var $updateFeed = $('<button id="update-feed">Update Feed</button>');
 
    $('time.timeago').timeago();
 
     // Create event handler functions
+
    $updateFeed.on('click', function(event) {
      $feed.empty();
      $renderFeed();
@@ -47,7 +48,7 @@
        $tweet.appendTo($feed);
 
        var $profilePhoto = $('<img class ="profile-photo"></img>');
-       $profilePhoto.attr('src', tweet.profilePhotoURL);
+       $profilePhoto.attr('src', tweet.profilePhotoURL)
        $profilePhoto.appendTo($tweet);
 
        var $username = $('<div class = "username"></div>');
@@ -60,16 +61,16 @@
        $message.text(tweet.message);
        $message.appendTo($tweet);
 
-       var $comment = $('<i class="comment fa-solid fa-comment"></i>');
+       var $comment = $('<i class="comment fa-solid fa-comment icon"></i>');
        $comment.appendTo($tweet);
 
-       var $retweet = $('<i class="fas fa-retweet icon retweet"></i>');
+       var $retweet = $('<i class="retweet fa-solid fa-retweet icon"></i>');
        $retweet.appendTo($tweet);
 
-       var $like = $('<i class="fas fa-thumbs-up icon like"></i>');
+       var $like = $('<i class="like fas fa-thumbs-up icon"></i>');
        $like.appendTo($tweet);
 
-       var $share = $('<i class = "fas fa-share icon share"></i>');
+       var $share = $('<i class ="share fas fa-share icon"></i>');
        $share.appendTo($tweet);
 
        var $timestamp = $('<div class = "timestamp timeago"></div>');
@@ -82,6 +83,7 @@
        index -= 1;
      }
    };
+   $renderFeed();
 
    window.isItBeautifulYet = true;
  });

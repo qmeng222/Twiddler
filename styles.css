@@ -48,3 +48,11 @@ providing a space for you to apply styles to your app's outermost HTML element -
   height: 300px;
   padding: 0%;
 }
+
+.icon:hover{
+  size:20px;
+}
+
+.like:hover{
+  size:20px;
+}
