@@ -7,7 +7,136 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
-#app {
-  background-color: green;
-  color: yellow;
+/*font-family: 'Nanum Pen Script', cursive; */
+
+h1 {
+  font-family: 'Nanum Pent Script';
 }
+
+div {
+  column-count: 1;
+  column-width: 1px;
+  column-rule-style: solid;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#app {
+  background-color: lightskyblue;
+  color: black;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 100px;
+  padding-right: 300px;
+}
+
+
+
+#feed {
+  background-color: rgb(46, 163, 202);
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: left;
+  width: 70%;
+}
+
+
+.button {
+  border: none;
+  color: white;
+  padding: 4px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+#update-feed{
+  float: right;
+}
+
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4c4eaf;
+}
+
+.button1:hover {
+  background-color: #4c6baf;
+  color: white;
+}
+
+.tweet {
+  border: 5px solid black;
+  border-width: thin;
+  padding: 5px;
+  margin: 5px;
+}
+
+.profile-photo {
+  float : right;
+  height: 50px;
+}
+
+.message {
+  color:black;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.username {
+  color:red;
+  padding : 5px;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.timestamp{
+  font-size: smaller;
+  color: grey;
+}
+
+.like {
+  height: 30px;
+  padding: 10px;
+
+}
+
+.like:hover {
+  color: white;
+}
+
+.comment {
+  height: 30px;
+  padding: 10px;
+}
+
+.comment:hover {
+  color: white;
+}
+
+.share {
+  height: 30px;
+  padding: 10px;
+}
+
+.share:hover {
+  color: white;
+}
+
+.retweet {
+  height: 30px;
+  padding: 10px;
+}
+
+.retweet:hover {
+  color: white;
+}
+
+
