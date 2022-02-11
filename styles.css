@@ -1,3 +1,4 @@
+
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
@@ -8,6 +9,150 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color:  #D2F6C5;
+  font-family: 'Merriweather Sans', sans-serif;
+  color: rgb(114, 116, 114);
+  border-radius: 5px;
+  margin-top: 0px;
+
 }
+
+.header {
+  background-color: #28DF99;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+/*
+  ========================================
+  Typography
+  ========================================
+*/
+
+
+h1, p {
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: 60px;
+  font-style: italic;
+  line-height: 44px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 44px;
+}
+h3 {
+  font-size: 21px;
+}
+h4 {
+  font-size: 18px;
+}
+
+
+
+
+/*
+  ========================================
+  Grid
+  ========================================
+*/
+
+
+.container,
+.grid {
+  margin: 0 auto;
+  width: 640px;
+  padding: 4px 4px 4px 4px;
+}
+.container {
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  position: center;
+}
+.tweet {
+  background-color: rgb(246, 247, 212, 0.8);
+  border-radius: 20px;
+  margin-bottom: 16px;
+  border-color: #9cdfc5;
+  border-style: dotted;
+  padding-left: 20px;
+  padding-top: 15px;
+  border-width: 2px;
+
+}
+.profile-user {
+  width: 300px;
+  display: inline-block;
+}
+.tweet-top {
+  height: 120px;
+}
+
+.btn {
+  position: center;
+  width: 600px;
+  padding-left: 10px;
+}
+
+.message {
+  display: inline-block;
+  padding-right: 20px;
+  padding-bottom: 80px;
+}
+.username {
+  position: right;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.timeago {
+  color: #99F3BD;
+  padding-top: 4px;
+  padding-bottom: 8px;
+}
+
+
+
+/*
+  ========================================
+  Buttons
+  ========================================
+*/
+
+.profile-photo {
+  float: left;
+  width: 70px;
+  height: 70px;
+  color: #D2F6C5;
+
+  border-radius: 50%;
+}
+
+button {
+  background-color: #D2F6C5;
+  border-style: dotted;
+  border-color: #fff;
+  border-radius: 10px;
+  color: #05c759;
+}
+
+
+.fas {
+  position: relative;
+
+  color: #99F3BD;
+  padding-bottom: 8px;
+  padding-left: 70px;
+}
+
+.fas:hover{
+  transform: scale(1.2);
+  transition:0.2s ease-in-out;
+  color: #05c759;
+}
+
