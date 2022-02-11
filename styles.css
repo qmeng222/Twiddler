@@ -8,6 +8,43 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color:wheat;
+  color: burlywood;
+  padding: 20px 0;
+  font-family: 'Rowdies', cursive;
+  font-style: normal;
+}
+
+#title {
+  padding: 50px;
+  font-size: xx-large;
+  font-weight: 600;
+}
+
+#feed {
+  background-color: rgb(194, 141, 71);
+  margin: auto;
+  width: 600px;
+  border: chocolate;
+  border-radius: 0%;
+  color: aliceblue;
+  text-align: center;
+}
+
+#update-feed {
+  float: center;
+  margin-left:500px;
+
+}
+
+.icon{
+  size:20px;
+  padding:10px;
+  height: 0%;
+}
+
+.tweet {
+  margin:1px;
+  height: 300px;
+  padding: 0%;
 }
