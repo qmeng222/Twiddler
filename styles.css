@@ -23,16 +23,19 @@ providing a space for you to apply styles to your app's outermost HTML element -
   font-family: 'Ubuntu';
   font-weight: 100;
   font-style: normal;
+  width: 450px;
 }
 
 .username {
   font-family: 'Ubuntu';
   font-weight: 400;
+  width: 80%;
 }
 .timestamp {
   font-family: 'Ubuntu';
   font-weight: 100;
   font-size: smaller;
+  margin: 10px;
 }
 /* Other Fonts */
 h1 {
@@ -40,26 +43,46 @@ h1 {
   font-size: 40px;
   font-weight: 600;
   display: inline-block;
-  color: skyblue;
+  color: rgb(117, 183, 236);
   text-align: center;
   margin-left: 250px;
 }
 #update-feed {
-  font-family: 'Ubuntu';
-  display: inline-block;
+  border-radius: 5px;
+  display: block;
+  margin-left: 220px;
 }
 /* Tweet layout */
 .tweet {
   display: block;
-  border: 3px solid skyblue;
-  border-radius: 15%;
-  height: 180px;
-  /* margin: 20px; */
-  /* padding: 20px; */
-  /* width: 450px; */
+  border: 3px groove rgb(117, 183, 236);
+  border-radius: 7%;
+  height: 150px;
+  margin-bottom: 60px;
+  padding-top: 40px;
+  width: 200px;
   margin: 0 auto;
   padding-left: 30px;
   padding-right: 30px;
   width: 450px;
-  background-color: lightgrey;
+  background-color: white;
 }
+
+.profile-photo {
+  width: 20%;
+  float: left;
+  margin: 15px;
+}
+
+i {
+  margin: auto;
+
+  width: 15%;
+}
+
+img {
+  border-radius: 50%;
+}
+ #app {
+   background-color: lightgrey;
+ }

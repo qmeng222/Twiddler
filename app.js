@@ -62,8 +62,16 @@ var $renderTweet = function(tweet){
     $("#update-feed").html("Update Feed");
   });
   var firstLoad = true;
-
-
+  //Change icon colors
+  $(document).on("mouseover", 'i', function() {
+    .attr('style', 'color:gray');
+  });
+  // icon.on('mouseover', function() {
+  //   icon.attr('style', 'color:gray');
+  // });
+  // icon.on('mouseout', function() {
+  //   icon.attr("style", "color: black");
+  // });
   //Append new HTML elements to the DOM
   var $renderFeed = function() {
     $( "#feed" ).empty();
