@@ -4,25 +4,19 @@
     <script src="lib/jquery.js"></script>
     <script src="dataGenerator.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;1,600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/505d9a7fbc.js" crossorigin="anonymous"></script>
+    <script src="lib/timeago.js" type="text/javascript"></script>
+
   </head>
+
   <body>
-    <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
+    <div id="app">
 
-    <script>
-      $(document).ready(function(){
-        var $app = $('#app');
-        $app.html('');
+    </div>  <!-- Your Entire Application will be built inside this div! -->
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($app);
-          index -= 1;
-        }
-
-      });
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>
+
+
