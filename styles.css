@@ -15,9 +15,7 @@ providing a space for you to apply styles to your app's outermost HTML element -
           box-sizing: border-box;
 }
 #app {
-
   color: black;
-
 }
 /* ----- Header ----- */
 header {
@@ -26,17 +24,17 @@ header {
   z-index: 10;
   height: 100px;
   width: 100%;
+  border-radius: 0 0 15px 15px;
 }
 h1 {
   position: relative;
-
-  width: 45%;
+  width: 300px;
   text-align: center;
   left: 50%;
   transform: translateX(-50%);
   margin-top: 10px;
   margin-bottom: 10px;
-  font-size: 50px;
+  line-height: 80px;
 }
 #update-feed {
   position: absolute;
@@ -44,18 +42,14 @@ h1 {
   top: 50%;
   transform: translateY(-50%);
   left: 100px;
-  height: 50px;
-  font-size: 25px;
 }
-#sign-in {
+/* #sign-in {
   position: absolute;
   top: 10px;
   right: 100px;
-  height: 80px;
   width: 400px;
-  border-radius: 15px;
-  background-color: white;
-
+  border: 0;
+  font-size: 0;
 }
 .new-user {
   font-size: 30px;
@@ -82,9 +76,14 @@ h1 {
   top: 0;
   font-size: 30px;
   width: 100px;
-  height: 80px;
   border-radius: 0 15px 15px 0;
+} */
+.heading {
+  height: 80px;
   border: 2px solid black;
+  border-radius: 15px;
+  background-color: white;
+  font-size: 60px;
 }
 
 /* ----- Main Feed ----- */
@@ -173,45 +172,50 @@ h2 {
   border: 2px solid black;
   padding: 10px;
 }
-
 #friends {
   margin-left: 75px;
 }
 .friend {
   font-size: 30px;
-  /* margin: 15px 0; */
 }
 #friendlist {
   padding-top: 0;
 }
-#compose {
+#new-tweet-form {
   right:0;
   margin-right: 75px;
-}
-#write {
-  height: 225px;
-  width: 305px;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 250px;
+  width: 250px;
+  background-color: white;
   border-radius: 20px;
+  border: 2px solid black;
   padding: 10px;
-  font-size: 15px;
 }
 #send-tweet {
-  font-size: 40px;
-  width: 275;
+  font-size: 20px;
   text-align: center;
+}
+input {
+  display:block;
 }
 /* ----- TYPOGRAPHY ----- */
 /* ----- TYPOGRAPHY ----- */
 /* ----- TYPOGRAPHY ----- */
-.interactive {
+.interactive:hover {
   font-weight: bold;
+  color: skyblue;
 }
 h1,
 h2,
 h3,
+h4,
 li,
 button,
 span,
-p {
+p,
+input {
   font-family: 'Bitter', serif;
 }

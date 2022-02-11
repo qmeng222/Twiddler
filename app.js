@@ -4,10 +4,10 @@ $(document).ready(function(){
 
   var $header = $('<header></header>'); //Header is added to page
   $header.appendTo($app);
-  $('<button class="interactive" id="update-feed">Update Feed</button>').appendTo($header);
-  $('<h1>Twiddler</h1>').appendTo($header);
+  $('<button class="interactive heading" id="update-feed">Update Feed</button>').appendTo($header);
+  $('<h1 class="heading">Twiddler</h1>').appendTo($header);
 
-  $('<div id="sign-in"><h3 class="new-user">Sign in here!</h3><input class="register"><button class="interactive" id="submit">LOG<br>IN</button></div>').appendTo($header);
+  // $('<div class="heading" id="sign-in"><h3 class="new-user">Sign in here!</h3><input class="register"><button class="interactive heading" id="submit">LOG<br>IN</button></div>').appendTo($header);
 
 
 
@@ -21,11 +21,13 @@ $(document).ready(function(){
   $('<li class="friend interactive">mracus</li>').appendTo($friendlist);
   $('<li class="friend interactive">douglascalhoun</li>').appendTo($friendlist);
 
-  $('<div class="widget" id="compose"></div>').appendTo($app);
-  var $compose = $('#compose');
-  $('<h2 class="interactive">Compose Twid</h2>').appendTo($compose);
-  $('<textarea id="write"></textarea>').appendTo($compose);
-  $('<button class="interactive" id="send-tweet">Send Twid</button>').appendTo($compose);
+  $('<form id="new-tweet-form"></form>').appendTo($app);
+  var $newTweet = $('#new-tweet-form');
+  $('<label for="username">Username</label>').appendTo($newTweet);
+  $('<input name="username">').appendTo($newTweet);
+  $('<label for="message">Tweet Message</label>').appendTo($newTweet);
+  $('<input name="message">').appendTo($newTweet);
+  $('<input type="submit" class="interactive" id="send-tweet" value="Post">').appendTo($newTweet);
 
 
   var renderFeed = function(userFeed) {
