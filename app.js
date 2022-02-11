@@ -97,4 +97,5 @@ $(document).ready(function() {
   $feedDiv.appendTo($app);
 
   renderFeed();
+  window.isItBeautifulYet = true;
 });

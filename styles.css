@@ -8,8 +8,12 @@ html, body, #app {
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
+h1 {
+  text-align: center;
+}
+
 #app {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Arvo', serif;
   font-style: normal;
   display: flex;
 }
@@ -84,8 +88,4 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 .icon:hover {
   color: gray;
-}
-
-h1 {
-  text-align: center;
 }
