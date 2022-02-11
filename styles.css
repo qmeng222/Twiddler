@@ -8,6 +8,87 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
+  background-color: darkslategrey;
   color: yellow;
 }
+
+#update-feed {
+  margin:0 auto;
+  display:block;
+}
+
+.tweet {
+  width: 40%;
+  outline: 1px solid white;
+  margin: 0 auto;
+  display: block;
+  border: 5px, solid black;
+  border-radius: 20px;
+  padding-bottom: 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.username {
+  font-size: 13px;
+}
+.message {
+  color: rgb(235, 235, 62);
+  text-shadow: black;
+  text-align: center;
+  font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+}
+
+h1 {
+  text-align: center;
+}
+
+
+
+.timestamp {
+  font-size: xx-small;
+  text-align:  right;
+  padding-left: 20px;
+}
+
+.comment {
+  margin-left: 63%;
+  padding: 5px;
+}
+
+.retweet {
+  padding: 5px;
+}
+
+.like {
+  padding: 5px;
+}
+
+.share {
+  padding: 5px;
+}
+.comment:hover {
+  color:blueviolet;
+}
+
+.retweet:hover {
+  color: blueviolet;
+}
+
+.like:hover {
+  color: blueviolet;
+}
+
+.share:hover {
+  color: blueviolet;
+}
+
+.profile-photo {
+  border-radius: 70px;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
