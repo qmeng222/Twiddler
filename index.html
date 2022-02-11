@@ -3,26 +3,22 @@
   <head>
     <script src="lib/jquery.js"></script>
     <script src="dataGenerator.js"></script>
+    <script src=app.js></script>
+    <script src="https://kit.fontawesome.com/ad7bba40ae.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
-
-    <script>
-      $(document).ready(function(){
-        var $app = $('#app');
-        $app.html('');
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($app);
-          index -= 1;
-        }
-
-      });
-    </script>
+    <header id="header">
+      <h1 id="twiddler">Twiddler</h1>
+      <img src="/Users/seth/Documents/GalvanizePC/seip2202-twiddler/assets/icons/placeholder.png" alt="placeholder picture" id="logo">
+      <button type="button" id="refreshFeed">Refresh Feed</button>
+    </header>
+    <div class="row">
+      <div class="column" id="lColumn"></div>
+      <div class="column"id="mColumn">
+        <div id="app"></div>
+      </div>
+      <div class="column" id="rColumn"></div>
+    </div>
   </body>
 </html>
