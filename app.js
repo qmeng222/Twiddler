@@ -3,8 +3,6 @@ $(document).ready(function(){
 
   window.isItBeautifulYet = true;
 
-  // $("time.timeago").timeago();
-  jQuery.timeago(tweet.created_at)
 
   var $app = $('#app');
   $app.html('');
