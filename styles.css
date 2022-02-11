@@ -164,6 +164,11 @@ label {
 #message-input {
   width: 300px;
   margin-left: 20px;
+  font-family: 'Bilbo', Georgia;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color:rgb(29, 79, 27);
 }
 
 #user-input {
