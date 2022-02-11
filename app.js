@@ -18,6 +18,7 @@ $(document).ready(function(){
   var $messageLabel = $('<label for="message-input" id="user-message">Message</label><br>');
   var $messageInput = $('<input id="message-input" name="message"><br>');
   var $sendButton = $('<button id="send-button">Send Tweet</button>');
+  console.log(window.streams);
 
   // Create event hander functions
 
@@ -78,13 +79,10 @@ $(document).ready(function(){
   }
 
   var sendTweet = function() {
-    // get username data
     var username = $userInput.serializeArray();
-    var visitor = username.value;
-    // get msg data
+    window.visitor = username[0].value;
     var message = $messageInput.serializeArray();
-    // write new tweet (how to set global visitor property??)
-    writeTweet(message.value);
+    writeTweet(message[0].value);
   }
 
   // Set event listeners (providing appropriate handlers as input)
