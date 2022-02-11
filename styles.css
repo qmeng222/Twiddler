@@ -8,12 +8,10 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 /* #app {
-  /* background-color: green;
-  color: yellow; */
-/* } */
-
-
-/* div {
-  font-family: 'Lobster', cursive;
-
+  background-color: green;
+  color: yellow;
 } */
+
+body {
+  font-family: 'Oswald', sans-serif;
+}
