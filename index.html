@@ -2,27 +2,90 @@
 <html>
   <head>
     <script src="lib/jquery.js"></script>
+    <script src="lib/timeago.js"></script>
+    <script src="https://kit.fontawesome.com/91182bb82c.js" crossorigin="anonymous"></script>
     <script src="dataGenerator.js"></script>
     <link rel="stylesheet" href="styles.css">
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rasa:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
   </head>
   <body>
-    <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
+    <div id="app">
 
-    <script>
-      $(document).ready(function(){
-        var $app = $('#app');
-        $app.html('');
+      <!--Header-->
+      <div id="header">
+        <h2>
+          Twiddler
+        </h2>
+      </div>
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($app);
-          index -= 1;
-        }
+      <!--extra credit-->
+      <div id="extra-credit">
 
-      });
-    </script>
+        <!--New Tweet Form-->
+        <div id="new-tweet-form">
+          <h2>
+            New Tweet
+          </h2>
+
+          <form>
+            <div id="username">
+              <label for="username">
+                Username
+              </label>
+              <input id="username" type="text">
+            </div>
+            <div id="message">
+              <label for="message">
+                Message
+              </label>
+              <input id="message" type="text">
+            </div>
+
+            <button type="submit">Submit</button>
+
+
+          </form>
+
+        </div><!--
+        --><div id="friends-list">
+          <h2>
+            Friends' List
+          </h2>
+          <ul>
+            <li>
+              Friend 1
+            </li>
+            <li>
+              Friend 2
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+      <!--Feed Area-->
+      <div id="feed-area">
+        <h2>
+          Feed
+        </h2>
+        <div id="button-container">
+          <button id="update-feed">Update Feed</button>
+        </div>
+        <br><br>
+        <div id="feed">
+
+        </div>
+      </div>
+
+
+
+    </div>  <!-- Your Entire Application will be built inside this div! -->
+
+    <script src="app.js"></script>
   </body>
 </html>
