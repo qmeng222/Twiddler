@@ -17,7 +17,7 @@ $(document).ready(function(){
     var $newTweet = $('<form class="sidebar" id="new-tweet-form"></form>'); //new tweet template
     $('<label for="username">Username</label>').appendTo($newTweet);
     $('<input name="username" id="username">').appendTo($newTweet);
-    $('<label for="message">Tweet Message</label>').appendTo($newTweet);
+    $('<label for="new-message">Tweet Message</label>').appendTo($newTweet);
     $('<input name="message" id="new-message">').appendTo($newTweet);
     $('<input type="submit" class="interactive" id="send-tweet" value="Post Tweet">').appendTo($newTweet);
     return $newTweet;
@@ -25,10 +25,10 @@ $(document).ready(function(){
 
   var renderSidebar = function() {
     $sidebars.html('');
-    $('<nav class="sidebar" id="friends"><h2>Friend List</h2><ul id="friendlist"></ul></nav').appendTo($sidebars); //Renders friend list
-    var $friendlist = $('#friendlist');
+    $('<nav class="sidebar" id="friends"><h2>Friend List</h2><ul id="friends-list"></ul></nav').appendTo($sidebars); //Renders friend list
+    var $friendlist = $('#friends-list');
     for (var key in streams.users) {
-      $('<li class="friend interactive">' + key + '</li>').appendTo($friendlist);
+      $('<li class="friend interactive">' + '@' + key + '</li>').appendTo($friendlist);
     }
 
     newTweetTemplate.clone().appendTo($sidebars);
@@ -42,7 +42,7 @@ $(document).ready(function(){
     });
 
     $('li.friend').click(function() { //Renders user feed from friend list
-      var user = $(this).text();
+      var user = $(this).text().substring(1);
       renderFeed(user);
     });
   };
@@ -76,7 +76,7 @@ $(document).ready(function(){
 
 
       $('<img class="profile-photo" src="' + tweet.profilePhotoURL + '">').appendTo($tweetData); //Tweet data is parsed
-      $('<span class="friend interactive">@' + tweet.user + '</span>').appendTo($tweetData);
+      $('<span class="friend interactive username">@' + tweet.user + '</span>').appendTo($tweetData);
       $('<span class="timestamp">' + jQuery.timeago(tweet.created_at) + '</span>').appendTo($tweetData);
 
 
