@@ -8,6 +8,56 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-image: linear-gradient(red, orange);
+  color: gold;
+  font-family: Quintessential, serif;
+}
+#home-feed {
+  background-color: black;
+  color: white;
+}
+h1 {
+  background-color: blue;
+  text-align: center;
+  margin: 0px;
+  margin-bottom: 30px;
+}
+/* tweet components */
+.tweet {
+  display: block;
+  background-color: blue;
+  border-radius: 5px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+img {
+  border-radius: 5px;
+  height: 45px;
+  width: 45px;
+}
+
+i {
+  margin-left: 10px;
+}
+
+.timestamp {
+  float: right;
+  margin: 0 1.5%;
+  width: 30%;
+}
+.message {
+  background-color: black;
+  display: block;
+  padding: 20px;
+}
+.username {
+  font-style: oblique;
+  font-weight: bold;
+}
+
+i:hover {
+  color: red;
 }
