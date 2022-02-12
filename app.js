@@ -25,10 +25,32 @@ $(document).ready(function(){
   $mcolumn.appendTo($row);
   $rcolumn.appendTo($row);
 
+  // EXTRA CREDIT
 
+  // friends list
+  var $friendsList = $('<ul id="friends-list"></ul>');
+  var $friend1 = $('<li class="friend">@douglascalhoun</li>')
+  var $friend2 = $('<li class="friend">@mracus</li>')
+  var $friend3 = $('<li class="friend">@sharksforcheap</li>')
+  var $friend4 = $('<li class="friend">@shawdrost</li>')
+  $friend1.appendTo($friendsList)
+  $friend2.appendTo($friendsList)
+  $friend3.appendTo($friendsList)
+  $friend4.appendTo($friendsList)
+
+  // new tweet form
+  var $tweetForm = $('<div id="new-tweet-form"></div>');
+  var $newTweetInput = $('<input type="text" name="username">');
 
 
   // EVENT HANDLERS
+
+  // EXTRA CREDIT
+  var handleFriendClick = function(event) {
+    console.log(event);
+    var user = (event.target.innerText).slice(1);
+    renderFeed(user);
+  }
 
   var titleClick = function(event) {
     console.log(event);
@@ -155,7 +177,9 @@ $(document).ready(function(){
 
 
   // EVENT LISTENERS
-  $title.on("click", titleClick);
+
+  // EXTRA CREDIT
+  $friend4.on("click", ".username", handleFriendClick);
 
   $updateFeedButton.on("click", function(event) {
     renderFeed();
@@ -175,6 +199,9 @@ $(document).ready(function(){
   $mcolumn.appendTo($row);
   $rcolumn.appendTo($row);
   $row.appendTo($app);
+
+  // EXTRA
+  $friendsList.appendTo(lColumn);
 
   renderFeed();
   window.isItBeautifulYet = true;
