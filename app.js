@@ -62,10 +62,130 @@ var loadTweets = function() {
 $(document).on('click', '.douglascalhoun', function () {
   // your function here
 
+  $feed.html('');
+
+  $update.html('Back');
+
   var index = streams.users.douglascalhoun.length - 1;
   while(index >= 0){
 
-    var tweet = streams.home[index];
+
+
+    var tweet = streams.users.douglascalhoun[index];
+    var $tweet = $('<div class="tweet"></div>');
+    var $photo = $('<img src="assets/img/' + tweet.user + '.png" class="profile-photo">');
+    var $username = $('<div class="username ' + tweet.user + '">@' + tweet.user + '</div>');
+    var $message = $('<div class="message">' + tweet.message + '</div>');
+    var $timestamp = $('<div class="timestamp"> ' + jQuery.timeago(tweet.created_at) + '</div>');
+    var $comment = $('<i class="icon comment fa-solid fa-comment">');
+    var $retweet = $('<i class="icon retweet fa-solid fa-retweet">');
+    var $like = $('<i class="icon like fa-solid fa-thumbs-up">');
+    var $share = $('<i class="icon share fa-solid fa-share-nodes">');
+
+    $tweet.text();
+    $photo.appendTo($tweet);
+    $username.appendTo($tweet);
+    $message.appendTo($tweet);
+    $timestamp.appendTo($tweet);
+    $comment.appendTo($tweet);
+    $retweet.appendTo($tweet);
+    $like.appendTo($tweet);
+    $share.appendTo($tweet);
+    $tweet.appendTo($feed);
+
+    index -= 1;
+  }
+});
+
+$(document).on('click', '.mracus', function () {
+  // your function here
+
+  $feed.html('');
+
+  $update.html('Back');
+
+  var index = streams.users.mracus.length - 1;
+  while(index >= 0){
+
+
+
+    var tweet = streams.users.mracus[index];
+    var $tweet = $('<div class="tweet"></div>');
+    var $photo = $('<img src="assets/img/' + tweet.user + '.png" class="profile-photo">');
+    var $username = $('<div class="username ' + tweet.user + '">@' + tweet.user + '</div>');
+    var $message = $('<div class="message">' + tweet.message + '</div>');
+    var $timestamp = $('<div class="timestamp"> ' + jQuery.timeago(tweet.created_at) + '</div>');
+    var $comment = $('<i class="icon comment fa-solid fa-comment">');
+    var $retweet = $('<i class="icon retweet fa-solid fa-retweet">');
+    var $like = $('<i class="icon like fa-solid fa-thumbs-up">');
+    var $share = $('<i class="icon share fa-solid fa-share-nodes">');
+
+    $tweet.text();
+    $photo.appendTo($tweet);
+    $username.appendTo($tweet);
+    $message.appendTo($tweet);
+    $timestamp.appendTo($tweet);
+    $comment.appendTo($tweet);
+    $retweet.appendTo($tweet);
+    $like.appendTo($tweet);
+    $share.appendTo($tweet);
+    $tweet.appendTo($feed);
+
+    index -= 1;
+  }
+});
+
+$(document).on('click', '.sharksforcheap', function () {
+  // your function here
+
+  $feed.html('');
+
+  $update.html('Back');
+
+  var index = streams.users.sharksforcheap.length - 1;
+  while(index >= 0){
+
+
+
+    var tweet = streams.users.sharksforcheap[index];
+    var $tweet = $('<div class="tweet"></div>');
+    var $photo = $('<img src="assets/img/' + tweet.user + '.png" class="profile-photo">');
+    var $username = $('<div class="username ' + tweet.user + '">@' + tweet.user + '</div>');
+    var $message = $('<div class="message">' + tweet.message + '</div>');
+    var $timestamp = $('<div class="timestamp"> ' + jQuery.timeago(tweet.created_at) + '</div>');
+    var $comment = $('<i class="icon comment fa-solid fa-comment">');
+    var $retweet = $('<i class="icon retweet fa-solid fa-retweet">');
+    var $like = $('<i class="icon like fa-solid fa-thumbs-up">');
+    var $share = $('<i class="icon share fa-solid fa-share-nodes">');
+
+    $tweet.text();
+    $photo.appendTo($tweet);
+    $username.appendTo($tweet);
+    $message.appendTo($tweet);
+    $timestamp.appendTo($tweet);
+    $comment.appendTo($tweet);
+    $retweet.appendTo($tweet);
+    $like.appendTo($tweet);
+    $share.appendTo($tweet);
+    $tweet.appendTo($feed);
+
+    index -= 1;
+  }
+});
+
+$(document).on('click', '.shawndrost', function () {
+  // your function here
+
+  $feed.html('');
+
+  $update.html('Back');
+
+  var index = streams.users.shawndrost.length - 1;
+  while(index >= 0){
+
+
+
+    var tweet = streams.users.shawndrost[index];
     var $tweet = $('<div class="tweet"></div>');
     var $photo = $('<img src="assets/img/' + tweet.user + '.png" class="profile-photo">');
     var $username = $('<div class="username ' + tweet.user + '">@' + tweet.user + '</div>');
@@ -92,8 +212,10 @@ $(document).on('click', '.douglascalhoun', function () {
 });
 
 
+
 $update.on('click', function(event) {
 
+  $update.html('Update Feed')
 
   $feed.html('');
 
