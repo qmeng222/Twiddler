@@ -5,10 +5,8 @@ $(document).ready(function(){
   $app.html('');
   jQuery("time.timeago").timeago();
 
-  // NEW ELEMENTS
 
-  // TWEET
-  var $icons
+  // TWEETS
   var $icons  = $('<div class="icons"></div>');
   var $feed = $('<div id="feed"></div>');
 
