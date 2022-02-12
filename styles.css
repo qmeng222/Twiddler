@@ -10,4 +10,30 @@ providing a space for you to apply styles to your app's outermost HTML element -
 #app {
   background-color: green;
   color: yellow;
+  height: auto;
+  width: auto;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
 }
+
+.comment:hover, .like:hover, .retweet:hover, .share:hover {
+  background-color: blue;
+}
+
+#update-feed {
+  border-radius: 8px;
+  text-align: center;
+	margin: 20px;
+	font-size: 24px;
+	cursor: pointer;
+	background-color: #FDB768;
+	color: #975102;
+  font-family: Arial;
+  font-style: italic;
+  font-weight: bold;
+
+}
+
+
