@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 var app = express();
 app.use(cors({
   origin: '*'
-  //origin:'https://6329-2601-6c3-4001-8140-9ddf-3192-cc66-8729.ngrok.io'
 }));
 app.use(bodyParser.json());
 app.use(express.json());

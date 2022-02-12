@@ -1,8 +1,7 @@
 
-
+const apiUrl = 'https://fa6f-2601-6c3-4001-8140-9ddf-3192-cc66-8729.ngrok.io';
 
 var getApiUrl = function(URL, params) {
-  const apiUrl = 'https://ea4a-2601-6c3-4001-8140-9ddf-3192-cc66-8729.ngrok.io';
   var newUrl = URL[(URL.length - 1)] === '/' ? (URL + '?') : ( URL + '/?' );
   let addAndSymbolIter = 0;
   params.forEach(function(param) {
@@ -63,7 +62,6 @@ var loadTweets = function(data, $) {
         $child.text(val);
         $child.toggleClass(classes[c]);
       } else if(key === 'profilePhotoUR') {
-        console.log(data[ind]['profilePhotoURL'])
         var imgVal = data[ind]['profilePhotoURL']  ? data[ind]['profilePhotoURL'] : './assets/img/visitor.png';
         var userName = data[ind]['user']
         var $headerChild = $($child.children());
@@ -84,38 +82,51 @@ var loadTweets = function(data, $) {
 }
 
 
-var createEmptyTweets = function($, $tweets, numToMake) {
+var createEmptyTweets = function($, $feed, numToMake) {
   var index = numToMake ? numToMake : 40;
   var i = 0;
   var addedHeight = 0;
   while(index > i){
-    var $tweet = $('<div class="tweet"></div>');
-    var $tweetHeader = $('<div class="tweetHeader"></div>')
-    var imgPath =  'assets/img/visitor.png';
-    $('<img class ="tweetImg emptyImg"></img>').attr("src", imgPath).appendTo($tweetHeader);
-    $('<div class="txtHead emptyHead"></div>').appendTo($tweetHeader);
-    $tweetHeader.appendTo($tweet)
-    $('<div class="txtMessage emptyMessage"></div>').appendTo($tweet);
-    $('<div class="txtTime emptyTime"></div>').appendTo($tweet);
-    addedHeight += $('.tweet').height();
-    $tweet.appendTo($tweets);
+    var $tweet = createTweet($)
+    $tweet.appendTo($feed);
+    addedHeight += 90;
     i++;
   }
   var initMain = $('.main').height()
-  $tweets.height(initMain + addedHeight);
+  $feed.height(initMain + addedHeight);
   $('.main').height(initMain + addedHeight);
 }
 
 
-var userInit = async function($, streams) {
-  var tweets = await getUserTweets($);
-  streams.home = tweets;
-  loadTweets(tweets, $);
+
+
+
+
+var createTweet = function($, tweet) {
+  if (tweet) {
+    var $tweet = $('<div class="tweet loaded"></div>');
+    var $tweetHeader = $('<div class="tweetHeader"></div>')
+    var imgPath = tweet.profilePhotoUR ? tweet.profilePhotoUR : './assets/img/visitor.png';
+    $('<img class ="profile-photo"></img>').attr("src", imgPath).appendTo($tweetHeader)
+    $('<div class="username"></div>').text('@' + tweet.user).appendTo($tweetHeader);
+    $tweetHeader.appendTo($tweet)
+    $('<div class="message"></div>').text(tweet.message).appendTo($tweet);
+    var time = $.timeago(new Date(tweet.created_at))
+    $('<div class="timestamp"></div>').text(time).appendTo($tweet);
+    return $tweet;
+  } else {
+    var $tweet = $('<div class="tweet"></div>');
+    var $tweetHeader = $('<div class="tweetHeader"></div>')
+    var imgPath =  'assets/img/visitor.png';
+    $('<img class ="profile-photo emptyImg"></img>').attr("src", imgPath).appendTo($tweetHeader);
+    $('<div class="username emptyHead"></div>').appendTo($tweetHeader);
+    $tweetHeader.appendTo($tweet)
+    $('<div class="message emptyMessage"></div>').appendTo($tweet);
+    $('<div class="timestamp emptyTime"></div>').appendTo($tweet);
+    return $tweet;
+  }
+
 }
-
-
-
-
 
 
 
@@ -127,7 +138,7 @@ var checkForNewTweets = async function($, streams, user) {
   var ajaxUrl = getApiUrl('/api/getNewTweets', [['userName', userName], ['lastTime', mili]]);
   var tweets = await ajaxGet(ajaxUrl);
   if (tweets.length) {
-    $('.update').css('visibility', 'visible')
+    $('#update-feed').css('visibility', 'visible')
     streams.addedToUpdate += tweets.length ? tweets.length : 0;
     streams.home = tweets.concat(streams.home)
   }
@@ -135,46 +146,45 @@ var checkForNewTweets = async function($, streams, user) {
 
 
 
-var updateWithNewTweets = function($, streams, $tweets) {
+
+
+var updateWithNewTweets = function($, streams, $feed) {
   var numToGrab = streams.addedToUpdate;
   var addedTweets = streams.home.slice(0, numToGrab).reverse();
   addedTweets.forEach(function(tweet) {
-    var $tweet = $('<div class="tweet loaded"></div>');
-    var $tweetHeader = $('<div class="tweetHeader"></div>')
-    var imgPath = tweet.profilePhotoUR ? tweet.profilePhotoUR : './assets/img/visitor.png';
-    $('<img class ="tweetImg"></img>').attr("src", imgPath).appendTo($tweetHeader)
-    $('<div class="txtHead"></div>').text('@' + tweet.user).appendTo($tweetHeader);
-    $tweetHeader.appendTo($tweet)
-    $('<div class="txtMessage"></div>').text(tweet.message).appendTo($tweet);
-    var time = $.timeago(new Date(tweet.created_at))
-    $('<div class="txtTime"></div>').text(time).appendTo($tweet);
-    $tweet.prependTo($tweets);
+    var $tweet = createTweet($, tweet);
+    $tweet.prependTo($('#feed'));
   })
-  $('.update').css('visibility', 'hidden')
+  $('#update-feed').css('visibility', 'hidden')
 }
 
 
 
 
+var userInit = async function($, streams) {
+  var tweets = await getUserTweets($);
+  streams.home = tweets;
+  loadTweets(tweets, $);
+}
+
+
 
 $(document).ready(function(){
-
-  console.log($.timeago(Date.now()))
   window.streams = {};
   streams.addedToUpdate = 0;
-  var $tweets = $('.tweets');
-  $tweets.delegate( ".tweet", "click", function() {
+  var $feed = $('#feed');
+  $feed.delegate( ".tweet", "click", function() {
     console.log('tweet clicked')
     console.log(this)
     $( this ).toggleClass( "chosen" );
   });
 
-  $('.update').on('click', function() {
-    updateWithNewTweets($, streams, $tweets);
+  $('#update-feed').on('click', function() {
+    updateWithNewTweets($, streams, $feed);
   });
 
   if(streams.home === undefined) {
-    createEmptyTweets($, $tweets);
+    createEmptyTweets($, $feed);
     userInit($, streams);
   } else {
     loadTweets(streams.home, $)
@@ -182,7 +192,7 @@ $(document).ready(function(){
 
   setInterval(function() {
     checkForNewTweets($, streams);
-  }, 12500);
+  }, 5000);
 });
 
 

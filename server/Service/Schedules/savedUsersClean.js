@@ -1,5 +1,5 @@
 var init = function(users, saveFunc, saveIntervals) {
-  saveIntervals = saveIntervals ? saveIntervals : 3600;//seconds
+  saveIntervals = saveIntervals ? saveIntervals : 300;//seconds
   saveIntervals *= 1000; //miliseconds
   var createTimeout = async function() {
     setTimeout(async function() {
