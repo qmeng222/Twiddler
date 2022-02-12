@@ -1,13 +1,81 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
-html, body, #app {
+html, body {
   min-height: 100vh;
   margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
 }
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
+.title {
+  font-size: 60px;
+  text-align: center;
+  color: lightskyblue
+}
+
+#update-feed {
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  margin: auto;
+  height: 50px;
+  padding: 15px;
+  border-radius: 30px;
+  color: lightskyblue;
+}
+
 #app {
-  background-color: green;
-  color: yellow;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color:#f2f6f7;
+  text-shadow: 1px 1px 1px gray
+}
+
+#feed {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 500px;
+}
+
+.tweet {
+  text-align: center;
+  background: dodgerblue;
+  background: linear-gradient(to right bottom, #69D9F5, #C1E3EF);
+  border: 3px solid gray;
+  border-radius: 30px;
+  height: 150px;
+  margin: auto;
+  padding: 25px;
+  width: 700px;
+}
+
+.profile-photo {
+  border-radius: 15px;
+  float: left;
+  margin: 5px;
+}
+
+.username {
+  font-size: 40px;
+  float: left;
+}
+
+.timestamp {
+  float: right;
+}
+
+.message {
+  clear: both;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.icons {
+  bottom: 10px;
+  padding: 20px;
 }
