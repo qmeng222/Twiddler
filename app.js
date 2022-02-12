@@ -22,6 +22,18 @@ $(document).ready(function(){
   var $button = $('<button id="update-feed">update feed</button>');
   $container.append($button);
 
+  //Adds friend list
+  var $friends_list_container = $('<div id="friends-list-container"></div>');
+  $friends_list_container.append('<button id="friends-title">friends</button>');
+  $container.append($friends_list_container);
+  var $friends_list = $('<ul id="friends-list"></ul>');
+  $friends_list_container.append($friends_list);
+  for (var i = 0; i < window.users.length; i++) {
+    var $friend = $('<li class="friend"></li>');
+    $friend.text(window.users[i]);
+    $friends_list.append($friend);
+  }
+
   // Adds home feed division for tweets
   var $home_feed = $('<div id="feed"></div>');
   $container.append($home_feed);
@@ -108,11 +120,19 @@ $(document).ready(function(){
     // changes button text to 'back' from 'update feed'
     $button.text('back');
     // renders user feed
-    var user = $(this).text().slice(1);
+    var user = $(this).text();
+    if (user[0] === '@') {
+      user = user.slice(1);
+    }
     renderFeed(event, user);
   };
 
   // Event listener function for username click
   $home_feed.on('click', '.username', handleUsernameClick);
+
+  // Event listener function for username click within friends list
+  $friends_list_container.on('click', 'li', handleUsernameClick);
+
+  window.isItBeautifulYet = true
 
 });

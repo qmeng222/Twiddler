@@ -1,5 +1,3 @@
-@import "/path/to/pixel-borders.scss";
-
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
@@ -31,7 +29,7 @@ h1 {
   color: #B99EF3;
   font-family: 'Press Start 2P', cursive;
   font-size: 64px;
-  text-shadow: 5px 5px #999;
+  text-shadow: 6px 6px #999;
 }
 
 h1:active {
@@ -41,10 +39,10 @@ h1:active {
 
 #feed {
   grid-column: 2 / span 3;
+  grid-row-start: 1;
 }
 
-button {
-  grid-column: 1 / 2;
+#update-feed {
   height: 40px;
   margin-left: 50px;
   margin-right: 50px;
@@ -59,14 +57,59 @@ button {
   cursor: url('assets/img/Webp.net-resizeimage.png'), auto;
 }
 
-button:hover {
+#update-feed:hover {
   background-color: #ece9f0;
   border: 6px groove #f7f5fa;
 }
 
-button:active {
+#update-feed:active {
   box-shadow: 3px 3px 3px #888;
   transform: translateY(3px);
+}
+
+#friends-list-container {
+  grid-column: 5 / 6;
+  margin-left: 50px;
+  margin-right: 50px;
+  height: 450px;
+  border: 6px groove white;
+  border-radius: 2px;
+  box-shadow: 1px 2px 2px #999;
+  background-color: #f7f5fa;
+  text-align: center;
+}
+
+#friends-title {
+  width: 290px;
+  height: 40px;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  border-bottom: 6px groove white;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 16px;
+  color: #B99EF3;
+  background-color: #f7f5fa;
+  text-shadow: 0.25px 0.25px #999;
+  box-shadow: 2px 2px 2px #999;
+  cursor: url('assets/img/Webp.net-resizeimage.png'), auto;
+}
+
+#friends-list {
+  text-align: left;
+  list-style-type: none;
+  list-style-image: url();
+}
+
+li {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 17px;
+  text-shadow: 0.25px 0.25px #999;
 }
 
 .tweet {
@@ -100,8 +143,8 @@ button:active {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  color: #f7f5fa;
-  font-style: italic;
+  color: white;
+  font-style: oblique;
   font-size: 15px;
   text-shadow: 0.5px 0.5px #999;
 }
