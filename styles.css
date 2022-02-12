@@ -128,19 +128,23 @@ button {
 
 #lColumn {
   width: 23%;
-  height: auto;
+  height: 100vh;
+  overflow: auto;
+
 }
 
 #mColumn {
   width: 51.6%;
   background-color: black;
   height: auto;
+  top: 50px;
 }
 
 #rColumn {
   float: right;
   width: 23%;
-  height: auto;
+  height: 100vh;
+  overflow: auto;
 }
 .row {
   top: auto;
@@ -151,9 +155,37 @@ button {
   display: table;
   clear: both;
 }
+#icon {
+  color:red;
+  font-size: 30px;
+}
 #icon:hover {
   color: white;
 }
-#timestamp {
+#username {
+  font-size: large;
+}
+img.profile-photo {
+  width: 25px;
+  height: auto;
+}
+.tweetIcons {
   right: 100px;
 }
+.timestamp {
+  font-size: 15px;
+  color: white;
+}
+.tweet {
+  border: white solid;
+  border-radius: 10px;
+  border-color: white;
+}
+#feed {
+  margin: 35px;
+}
+.username {
+  color: aqua;
+}
+
+

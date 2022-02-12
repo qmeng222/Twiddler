@@ -72,10 +72,10 @@ $(document).ready(function(){
         var $profilePhoto = $('<img class="profile-photo">');
 
         // ICONS
-        var $comment = $('<i class="icon comment far fa-comments"></i>');
-        var $retweet = $('<i class="icon retweet fas fa-retweet"></i>');
-        var $like = $('<i class="icon like far fa-heart"></i>');
-        var $share = $('<i class="icon share fas fa-share"></i>');
+        var $comment = $('<i id="icon" class="icon comment far fa-comments"></i>');
+        var $retweet = $('<i id="icon" class="icon retweet fas fa-retweet"></i>');
+        var $like = $('<i id="icon" class="icon like far fa-heart"></i>');
+        var $share = $('<i id="icon" class="icon share fas fa-share"></i>');
 
         $profilePhoto.attr('src', tweet.profilePhotoURL)
         $username.text('@' + tweet.user);
@@ -116,10 +116,10 @@ $(document).ready(function(){
         var $timestamp = $('<span class ="timestamp"></span>');
 
         // ICONS
-        var $comment = $('<i class="icon comment far fa-comments"></i>');
-        var $retweet = $('<i class="icon retweet fas fa-retweet"></i>');
-        var $like = $('<i class="icon like far fa-heart"></i>');
-        var $share = $('<i class="icon share fas fa-share"></i>');
+        var $comment = $('<i id="icon" class="icon comment far fa-comments"></i>');
+        var $retweet = $('<i id="icon" class="icon retweet fas fa-retweet"></i>');
+        var $like = $('<i id="icon" class="icon like far fa-heart"></i>');
+        var $share = $('<i id="icon" class="icon share fas fa-share"></i>');
 
         $profilePhoto.attr('src', tweet.profilePhotoURL)
         $username.text('@' + tweet.user);
