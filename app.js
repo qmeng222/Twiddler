@@ -9,7 +9,6 @@ $(document).ready(function(){
   var $button = $('<button type="button" id="update-feed">Update Feed</button>');
   $button.appendTo($app);
   // $button.on("click", function(event) {
-
   // })
 
   var $createFeed = $('<div id="feed"></div>');
