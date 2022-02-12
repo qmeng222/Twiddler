@@ -93,6 +93,7 @@ button {
   || OLD CODE ||
 */
 #header {
+  position: fixed;
   border: 5px solid;
   height: 25px;
   border-color: black;
@@ -127,16 +128,22 @@ button {
 
 #lColumn {
   width: 23%;
+  height: auto;
 }
 
 #mColumn {
   width: 51.6%;
-  background-color: white;
+  background-color: black;
+  height: auto;
 }
 
 #rColumn {
   float: right;
   width: 23%;
+  height: auto;
+}
+.row {
+  top: auto;
 }
 
 .row:after {

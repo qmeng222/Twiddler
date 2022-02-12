@@ -47,6 +47,9 @@ $(document).ready(function(){
   var handleUsernameClick = function(event) {
     console.log(event);
 
+    var user = (event.target.innerText).slice(1);
+    renderFeed(user);
+
     if ($('#update-feed').text() === 'Update Feed') {
       $('#update-feed').text('Back');
     }
@@ -145,7 +148,7 @@ $(document).ready(function(){
         $tweet.appendTo($feed);
 
         index -= 1;
-        $updateBtn.on("click", handleBackBtn);
+        $updateFeedButton.on("click", handleBackButton);
       }
     };
   };
@@ -159,7 +162,6 @@ $(document).ready(function(){
   });
 
   $feed.on("click", ".username", handleUsernameClick);
-
   $updateFeedButton.on("click", handleBackButton);
 
   // APPEND TO DOM
