@@ -1,0 +1,18 @@
+
+in the console
+
+user$ npm run dev
+
+starts a ngrok server locally that we can make calls to.
+
+it will log a url that you need to copy and paste into
+
+/app/app.js
+
+right at the top otherwise requests will fail.
+
+EXAMPLE url
+'https://ea4a-2601-6c3-4001-8140-9ddf-3192-cc66-8729.ngrok.io';
+
+and the value to replace
+const apiUrl = 'https://ea4a-2601-6c3-4001-8140-9ddf-3192-cc66-8729.ngrok.io';
