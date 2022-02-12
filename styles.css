@@ -8,6 +8,56 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  background-color: greenyellow;
+  color: blueviolet;
+  font-family: 'Patrick Hand', cursive;
+  font-style: oblique;
+  font-weight: 500;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 6em;
+}
+
+#update-feed {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.4em;
+  margin: 0 auto;
+  background-color: white;
+  border: 0.08em solid gray;
+  border-radius: 10em;
+}
+
+#feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 65%;
+  margin: 0 auto;
+
+}
+
+
+.tweet {
+  font-size: 20px;
+  display: normal;
+  flex-direction: column;
+  border: solid;
+  border-style: hidden;
+  border-color: black;
+  width: 70%;
+  height: auto;
+  background-color: rgba(211, 211, 211, 0.8);
+  color: midnightblue;
+  padding: 1%;
+  margin: 1%;
+  border-radius: 1em;
+}
+
+.profile-photo {
+  margin: 20px;
 }
