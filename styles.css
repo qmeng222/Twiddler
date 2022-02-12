@@ -151,3 +151,9 @@ button {
   display: table;
   clear: both;
 }
+#icon:hover {
+  color: white;
+}
+#timestamp {
+  right: 100px;
+}
