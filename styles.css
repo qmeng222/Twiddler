@@ -8,8 +8,8 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-image: url('assets/img/grid-png-43575.png');
-  background: linear-gradient(to right bottom, #f6e2e3, #f6dfe4, #f6dde6, #f4dbe9, #f0d9ec, #eddaf0, #e9dbf3, #e4dcf6, #e1e0f9, #dfe3fa, #dee7fc, #ddeafc);
+  background-image: url('assets/img/imgonline-com-ua-twotoone-1I7bMGJyCTdi.png');
+  /*background: linear-gradient(to right bottom, #f6e2e3, #f6dfe4, #f6dde6, #f4dbe9, #f0d9ec, #eddaf0, #e9dbf3, #e4dcf6, #e1e0f9, #dfe3fa, #dee7fc, #ddeafc);*/
   background-color: white;
   color: #B99EF3;
   font-family: 'Press Start 2P', cursive;
@@ -120,7 +120,7 @@ h2 {
   border: 6px groove white;
   border-radius: 2px;
   margin: 0 10px 20px 10px;
-  background-color: #E9D7F1;
+  background: linear-gradient(to right bottom, #f6e2e3, #f6dfe4, #f6dde6, #f4dbe9, #f0d9ec, #eddaf0, #e9dbf3, #e4dcf6, #e1e0f9, #dfe3fa, #dee7fc, #ddeafc);
   box-shadow: 1px 2px 2px #999;
 }
 
