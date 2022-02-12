@@ -5,17 +5,20 @@ $(document).ready(function(){
   $app.html('');
 
   // Create new HTML elements
-  var $title = $('<h1>Twiddler!</h1>');
-  var $updateButton = $('<button id="update-feed">Update Feed</button>');
+  var $title = $('<h1>Ru Paul\'s Twiddler Race</h1>');
+  var $updateButton = $('<button id="update-feed">Update, Queen!</button>');
   var $feed = $('<div id="feed"></div>');
 
   // Create event handler functions
   var renderFeed = function(start, end, srcArr, appendTo, user) {
     while(start > end){
+      //Home feed branch
       if (user === undefined){
         var $tweet = buildTweet(srcArr[start]);
         $tweet.appendTo(appendTo);
-      } else if (user === srcArr[start].user){
+      }
+      //User feed branch
+      else if (user === srcArr[start].user){
         var $tweet = buildTweet(srcArr[start]);
         $tweet.appendTo(appendTo);
       }
@@ -26,7 +29,7 @@ $(document).ready(function(){
   var buildTweet = function(tweet) {
     var $tweet = $('<div class="tweet"></div>');
     var $profilePhoto = $('<img class="profile-photo" src="assets/img/'+tweet.user+'.png"></img>');
-    var $username = $('<div class="username">@'+tweet.user+'</div>');
+    var $username = $('<div class="username"><span>@'+tweet.user+'</span></div>');
     var $message = $('<div class="message">'+tweet.message+'</div>');
     var $timestamp = $('<div class="timestamp">'+jQuery.timeago(tweet.created_at)+'</div>');
     var $iconSpan = $('<span class="icon"></span>');
@@ -43,14 +46,13 @@ $(document).ready(function(){
     $iconSpan.append($like);
     $iconSpan.append($share);
     $tweet.append($iconSpan);
-
     return $tweet;
   }
 
   var updateFeed = function() {
     $("div.tweet").remove();
     renderFeed(streams.home.length - 1, -1, streams.home, $('#feed'));
-    $("#update-feed").html("Update Feed");
+    $("#update-feed").html("Update, Queen!");
   }
 
   var handleUsernameClick = function() {
@@ -71,18 +73,25 @@ $(document).ready(function(){
 
   // Set event listeners (providing appropriate handlers as input)
   $('button#update-feed').on('click', updateFeed);
-  $('#feed').on('click', 'div.username',handleUsernameClick);
-  $('#feed').on('mouseenter', 'div.username',function() {
-    $('div.username').css("cursor", "pointer");
+  $('button').on('mouseenter', function() {
+    $('button#update-feed').css("cursor", "pointer");
   });
-  $('#feed').on('mouseleave', 'div.username',function() {
-    $('div.username').css("cursor", "arrow");
+  $('button').on('mouseleave',function() {
+    $('button#update-feed').css("cursor", "arrow");
+  });
+  $('#feed').on('click', 'div.username',handleUsernameClick);
+  $('#feed').on('mouseenter', 'div.username span',function() {
+    $('div.username span').css("cursor", "pointer");
+  });
+  $('#feed').on('mouseleave', 'div.username span',function() {
+    $('div.username span').css("cursor", "arrow");
   });
   $('#feed').on('mouseenter', 'i', function() {
     $(this).css("color", "orange");
   });
   $('#feed').on('mouseleave', 'i', function() {
-    $(this).css("color", "black");
+    $(this).css("color", "#FF2E63");
   });
 
+  window.isItBeautifulYet = true;
 });
