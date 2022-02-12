@@ -177,4 +177,5 @@ $(document).ready(function(){
   $row.appendTo($app);
 
   renderFeed();
+  window.isItBeautifulYet = true;
 });
