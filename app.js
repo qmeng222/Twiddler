@@ -19,8 +19,9 @@ $(document).ready(function(){
   $feed.appendTo($app);
   var refreshedIndex = 11;
   var refreshtweets = function() {
-    for (; refreshedIndex < streams.home.length - 1 ; refreshedIndex++) {
-      console.log('refreshfeed ' + refreshedIndex);
+    console.log('length of array ' + (streams.home.length-1) + ' and index' + refreshedIndex);
+    while (refreshedIndex < (streams.home.length - 1)) {
+      console.log('ran');
       var tweet = streams.home[refreshedIndex];
       var $tweet = $('<div class="tweet"></div>');
       var $message = $('<p class="message"></p>');
@@ -43,18 +44,19 @@ $(document).ready(function(){
       $retweet.appendTo($tweet);
       $like.appendTo($tweet);
       $share.appendTo($tweet);
+      refreshedIndex += 1;
     };
-    refreshedIndex = streams.home.length - 1 ;
+    console.log('ended run' + refreshedIndex);
   };
   $updatefeed.on('click', function() {
     if ($updatefeed.text() === 'Refresh Feed') {
+      console.log('ran');
       refreshtweets();
     } else {
       $('.tweet').remove();
       $updatefeed.empty();
       $updatefeed.text('Refresh Feed');
       for (var i = 0; i <= refreshedIndex; i++) {
-        console.log('backupdate feedindex ' + refreshedIndex);
         var tweet = streams.home[i];
         var $tweet = $('<div class="tweet"></div>');
         var $message = $('<p class="message"></p>');
@@ -81,11 +83,12 @@ $(document).ready(function(){
     }
 
   });
-// first 10 tweets
+// first 11 tweets
 
   var index = streams.home.length - 1;
   while(index >= 0){
-    console.log('indexwhile ' + index);
+
+
     var tweet    = streams.home[index];
     var $tweet   = $('<div class="tweet"></div>');
     var $message = $('<p class="message"></p>');
