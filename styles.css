@@ -22,6 +22,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
+  font-family: 'IBM Plex Sans Thai Looped', sans-serif;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -48,6 +49,7 @@ table {
 	border-spacing: 0;
 }
 
+
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
   min-height: 100vh;
@@ -60,11 +62,39 @@ providing a space for you to apply styles to your app's outermost HTML element -
 #app {
   background-color: black;
   color: yellow;
+  font-size: 25px;
 }
 
+header {
+  border: 25px hidden;
+  width: 100%;
+  position: fixed;
+  height: auto;
+}
+
+.title {
+  position: fixed;
+  display: flex;
+  right: 600px;
+  top: 5px;
+}
+
+#update-feed {
+  position: fixed;
+  display: flex;
+  right: 100px;
+  top: 5px;
+  color: -internal-light-dark(black, yellow);
+}
+button {
+  color: yellow, black;
+}
+/*
+  || OLD CODE ||
+*/
 #header {
   border: 5px solid;
-  height: auto;
+  height: 25px;
   border-color: black;
   background-color: black;
   color: white;
