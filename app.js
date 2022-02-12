@@ -6,11 +6,28 @@ $(document).ready(function(){
   jQuery("time.timeago").timeago();
 
   // NEW ELEMENTS
-  var $title = $('<h1 class="title">Twiddler</h1>');
-  var $updateFeedButton = $('<button id="update-feed">Update Feed</button>');
-  var $header = $('<header id="header"></header>');
+
+  // TWEET
+  var $icons
   var $icons  = $('<div class="icons"></div>');
   var $feed = $('<div id="feed"></div>');
+
+  // LAYOUT
+  var $header = $('<header id="header"></header>');
+  var $title = $('<h1 class="title">Twiddler</h1>');
+  var $updateFeedButton = $('<button id="update-feed">Update Feed</button>');
+
+  var $row = $('<div class="row"></div>');
+  var $lcolumn = $('<div class="column" id="lColumn"></div>')
+  var $mcolumn = $('<div class="column"id="mColumn"></div>')
+  var $rcolumn = $('<div class="column" id="rColumn"></div>')
+
+
+  $lcolumn.appendTo($row);
+  $mcolumn.appendTo($row);
+  $rcolumn.appendTo($row);
+
+
 
 
   // EVENT HANDLERS
@@ -69,12 +86,15 @@ $(document).ready(function(){
         $username.appendTo($tweet);
         $message.appendTo($tweet);
         $tweetFooter.appendTo($tweet);
-        $timestamp.appendTo($tweetFooter);
+
         $comment.appendTo($tweetIcons);
         $retweet.appendTo($tweetIcons);
         $like.appendTo($tweetIcons);
         $share.appendTo($tweetIcons);
+
         $tweetIcons.appendTo($tweetFooter);
+        $timestamp.appendTo($tweetFooter);
+
         $tweet.appendTo($feed);
         index -= 1;
       }
@@ -115,12 +135,15 @@ $(document).ready(function(){
         $like.appendTo($tweet);
         $share.appendTo($tweet);
         $tweetFooter.appendTo($tweet);
-        $timestamp.appendTo($tweetFooter);
+
         $comment.appendTo($tweetIcons);
         $retweet.appendTo($tweetIcons);
         $like.appendTo($tweetIcons);
         $share.appendTo($tweetIcons);
+
+        $timestamp.appendTo($tweetFooter);
         $tweetIcons.appendTo($tweetFooter);
+
         $tweet.appendTo($feed);
 
         index -= 1;
@@ -142,11 +165,16 @@ $(document).ready(function(){
   $updateFeedButton.on("click", handleBackButton);
 
   // APPEND TO DOM
-  $title.appendTo($app);
+  $title.appendTo($header);
   $updateFeedButton.appendTo($header);
   $icons.appendTo($header);
   $header.appendTo($app)
-  $feed.appendTo($app);
+  $feed.appendTo($mcolumn);
+
+  $lcolumn.appendTo($row);
+  $mcolumn.appendTo($row);
+  $rcolumn.appendTo($row);
+  $row.appendTo($app);
 
   renderFeed();
 });
