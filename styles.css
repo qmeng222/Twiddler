@@ -104,6 +104,16 @@ h1:active {
 li {
   margin-top: 30px;
   margin-bottom: 30px;
+  text-shadow: 0.5px 0.5px #999;
+}
+
+li:hover {
+  color: #a382eb;
+}
+
+li:active {
+  text-shadow: 0.3px 0.3px #666;
+  transform: translateX(1px) translateY(1px);
 }
 
 h2 {
