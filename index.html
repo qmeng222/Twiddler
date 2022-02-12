@@ -3,22 +3,15 @@
   <head>
     <script src="lib/jquery.js"></script>
     <script src="dataGenerator.js"></script>
-    <script src=app.js></script>
-    <script src="https://kit.fontawesome.com/ad7bba40ae.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="lib/timeago.js"></script>
+    <script src="https://kit.fontawesome.com/ad7bba40ae.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@300&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header id="header">
-      <h1 id="twiddler">Twiddler</h1>
-      <img src="/Users/seth/Documents/GalvanizePC/seip2202-twiddler/assets/icons/placeholder.png" alt="placeholder picture" id="logo">
-      <button type="button" id="refreshFeed">Refresh Feed</button>
-    </header>
-    <div class="row">
-      <div class="column" id="lColumn"></div>
-      <div class="column"id="mColumn">
-        <div id="app"></div>
-      </div>
-      <div class="column" id="rColumn"></div>
-    </div>
+    <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
+    <script src="app.js"></script>
   </body>
 </html>
