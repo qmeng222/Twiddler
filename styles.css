@@ -8,6 +8,89 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+  font-family: 'Roboto', sans-serif;
+  background-color: darkslateblue;
+  color: white;
+  display: grid;
+  grid-column-gap: 50px;
+  grid-row-gap: 10px;
+}
+
+#update-feed {
+  border-radius: 5%;
+  background-color: #404040;
+  padding: 10px;
+  width: fit-content;
+  margin: auto;
+}
+
+#feed {
+  display: grid;
+  margin: auto;
+  width: 50%
+}
+
+.tweet {
+  padding: 10px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 75px 75px;
+  padding-bottom: 40px;
+}
+
+h1 {
+  height: fit-content;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+  font-size: 72px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.message {
+  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-column-end: span 4;
+  column-span: all;
+}
+
+.hovered {
+  cursor: pointer;
+}
+
+.profile-photo {
+
+}
+
+.timestamp {
+  grid-column-start: -1;
+  grid-row-start: 1;
+}
+
+.username {
+  color: #DDDDDD;
+  grid-column-start: 2;
+}
+
+.username.hovered {
+  color: grey;
+}
+
+.icon {
+  padding-left: 20px;
+  padding-right: 20px;
+  scale(2, 2);
+  grid-row-start: -1;
+  text-align: center;
+  margin: auto;
+}
+
+.icon.hovered {
+  color: grey;
+}
+
+#update-feed.hovered {
+  background-color: #303030;
 }
