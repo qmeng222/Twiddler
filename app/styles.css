@@ -68,6 +68,17 @@ html, body{
 
 
 
+#tweetFooter {
+  display: flex;
+  margin-top: 10px;
+  align-content: space-around;
+  justify-content: space-around;
+  /* display: grid;
+  grid-template-columns: 30px 30px;
+  grid-template-rows: 30px;
+  grid-column-gap: 5px; */
+
+}
 
 
 .tweet {
@@ -91,6 +102,11 @@ html, body{
   background-color: rgba(60, 60, 60, 1.0);
 }
 
+
+.icon {
+  height: 30px;
+  width: 30px;
+}
 
 
 .tweetHeader {
