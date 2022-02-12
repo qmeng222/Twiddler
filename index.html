@@ -8,14 +8,28 @@
     <script src="app.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div id="app">  <!-- Your Entire Application will be built inside this div! -->
-      <button id="update-feed" type="button">Update Feed</button>
-      <!-- <button id="home-feed" type="button">Back</button> -->
-      <div id="feed"></div>
+      <header class="container">
+        <h1>TWIDDLER</h1>
+      </header>
+
+      <section class="grid">
+
+        <section class="col-1-2">
+          <button id="update-feed" type="button">Update Feed</button>
+        </section>
+
+        <section class="col-2-2">
+          <div id="feed-title"><span>Home Feed</span></div>
+          <div id="feed"></div>
+        </section>
+
+      </section>
+
     </div>
   </body>
 </html>

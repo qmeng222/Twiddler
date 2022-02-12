@@ -1,7 +1,7 @@
 $(document).ready(function(){
   // Select already existing elements
   var $updateFeedBtn = $('#update-feed');
-  //var $icon = $('span.icon');
+  var $feedTitle = $('#feed-title');
 
   // Create new HTML elements
 
@@ -14,6 +14,7 @@ $(document).ready(function(){
       $updateFeedBtn.text('Back');
     }
 
+    $feedTitle.text('Feed for user @' + username);
     renderFeed(username);
   };
 
@@ -22,6 +23,7 @@ $(document).ready(function(){
       $updateFeedBtn.text('Update Feed');
     }
 
+    $feedTitle.text('Home Feed');
     renderFeed();
   }
 
@@ -51,40 +53,41 @@ var renderFeed = function(user){
 
   while(index >= 0){
     var tweet = tweetStream[index];
-    var $tweet = $('<div class="tweet"></div>');
+    var $tweet = $('<div class="tweet tweet-grid-wrapper"></div>');
 
     var $profilePhoto = $('<img class="profile-photo"' + ' src="' + tweet.profilePhotoURL + '">');
     var $username = $('<div class="username">@' + tweet.user + '</div>');
     var $message = $('<p class="message">' + tweet.message + '</p>');
     var $timestamp = $('<span class="timestamp">' + jQuery.timeago(tweet.created_at) + '</span>');
-    var $commentIcon = $('<span class="comment icon"><i class="fa-solid fa-comment"></i></span>');
+    var $commentIcon = $('<span class="comment icon"><i class="comment icon fa-solid fa-comment"></i></span>');
     var $retweetIcon = $('<span class="retweet icon"><i class="retweet icon fa-solid fa-retweet"></i></span>');
     var $likeIcon = $('<span class="like icon"><i class="like icon fa-solid fa-thumbs-up"></i></span>');
     var $shareIcon = $('<span class="share icon"><i class="share icon fa-solid fa-share"></i></span>');
 
-    //$tweet.text('@' + tweet.user + ': ' + tweet.message);
+    var $tweetGrid1 = $('<div class="tweet-grid-1">');
+    var $tweetGrid2 = $('<div class="tweet-grid-2">');
+    var $tweetGrid3= $('<div class="tweet-grid-3">');
+    var $tweetGrid4 = $('<div class="tweet-grid-4">');
 
-    $profilePhoto.appendTo($tweet);
-    $username.appendTo($tweet);
-    $message.appendTo($tweet);
-    $timestamp.appendTo($tweet);
-    $commentIcon.appendTo($tweet);
-    $retweetIcon.appendTo($tweet);
-    $likeIcon.appendTo($tweet);
-    $shareIcon.appendTo($tweet);
+    $profilePhoto.appendTo($tweetGrid1);
+    $tweetGrid1.appendTo($tweet);
+
+    $message.appendTo($tweetGrid2);
+    $tweetGrid2.appendTo($tweet);
+
+    $username.appendTo($tweetGrid3);
+    $tweetGrid3.appendTo($tweet);
+
+    $timestamp.appendTo($tweetGrid4);
+    $commentIcon.appendTo($tweetGrid4);
+    $retweetIcon.appendTo($tweetGrid4);
+    $likeIcon.appendTo($tweetGrid4);
+    $shareIcon.appendTo($tweetGrid4);
+    $tweetGrid4.appendTo($tweet);
 
     $tweet.appendTo($app);
     index -= 1;
   }
 };
 
-/*
-$('.icon').on('click', function () {
-  alert('an icon!');
-});
-*/
-/*
-$(document).on("click", ".username", function() {
-  alert('username func called');
-});
-*/
+window.isItBeautifulYet = true;
