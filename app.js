@@ -40,8 +40,8 @@ $(document).ready(function(){
 
   // Adds submit post container to home feed
   var $submit_post = $('<div id="submit-post"></div>');
-  var $top_bar = $('<div class="top-bar">@</div>');
-  $submit_post.append($top_bar);
+  //var $top_bar = $('<div class="top-bar">@</div>');
+  //$submit_post.append($top_bar);
   $home_feed.append($submit_post);
 
   // Adds new post form
@@ -49,7 +49,12 @@ $(document).ready(function(){
   var $enter_username = $('<input type="text" name="username" id="enter-username">');
   var $enter_message = $('<input type="text" name="message" id="enter-message">');
   var $submit = $('<input type="submit" value="submit" id="submit">');
-  $new_post_form.append($enter_username, $enter_message, $submit);
+  var $top_bar = $('<div class="top-bar" id="new-post-top-bar">@</div>');
+  var $my_profile_pic = $('<img class="profile-photo" id="my-profile-photo" src="assets/img/soda2.png">');
+  var $my_image_container = $('<div class="image-container"></div>');
+  $my_image_container.append($my_profile_pic);
+  $top_bar.append($enter_username);
+  $new_post_form.append($top_bar, $enter_message, $submit, $my_image_container);
   $submit_post.append($new_post_form);
 
   // Adds tweet container to home feed
@@ -124,14 +129,14 @@ $(document).ready(function(){
   // Event handler function for new tweet submission
   var handleNewTweet = function(event) {
     event.preventDefault();
-    var form_values = $('#new-post-form ').serializeArray();
+    var form_values = $('#new-post-form').serializeArray();
     var tweet = {};
     tweet.user = form_values[0].value;
     tweet.message = form_values[1].value;
     tweet.created_at = new Date();
-    tweet.profilePhotoURL = './assets/img/visitor.png';
+    tweet.profilePhotoURL = './assets/img/soda2.png';
     streams.home.push(tweet);
-    console.log(streams.home);
+    $('#new-post-form').trigger('reset');
     renderFeed();
   };
 
