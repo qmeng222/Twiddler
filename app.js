@@ -46,7 +46,7 @@ $(document).ready(function(){
 
   // Adds new post form
   var $new_post_form = $('<form method="post" id="new-post-form"></form>');
-  var $enter_username = $('<input type="text" name="username" id="enter-username">');
+  var $enter_username = $('<input type="text" name="username" id="enter-username" placeholder=" ">');
   var $enter_message = $('<input type="text" name="message" id="enter-message">');
   var $submit = $('<input type="submit" value="submit" id="submit">');
   var $top_bar = $('<div class="top-bar" id="new-post-top-bar">@</div>');

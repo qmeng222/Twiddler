@@ -181,6 +181,10 @@ form {
   animation-iteration-count: infinite;
 }
 
+#enter-username:not(:placeholder-shown) {
+  border: none !important;
+}
+
 #enter-message {
   grid-area: 2 / 2 / 3 / 3;
   height: 90px;
