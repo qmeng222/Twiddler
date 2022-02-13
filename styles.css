@@ -1,13 +1,73 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
+html{
+  background: url('http://i.stack.imgur.com/jGlzr.png');
+  background-color:#0C0C0C;
+  background-size: 100% 100%;
+  height:100%;
+  width:100%;
+}
+
 html, body, #app {
   min-height: 100vh;
   margin: 0;
+  border-radius: 100px;
 }
+
+
 
 /* Continue building out the CSS styling for your Twiddler app below! We got you started by
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
+
 #app {
-  background-color: green;
-  color: yellow;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+
+}
+
+h1 {
+  font-size: 300%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  font-family: 'Redressed', cursive;
+
+}
+h2 {
+  font-style: normal;
+  font-weight: bold;
+}
+#feed, h2 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 50px;
+
+}
+#feed {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.username {
+  color:rgb(153, 21, 21);
+  font-style: normal;
+  font-weight: bold;
+
+}
+
+.message {
+  text-align: center;
+}
+
+.timestamp {
+  text-align: right;
+  font-style: italic;
+}
+
+.comment, .retweet, .like, .share {
+  width: 30px;
+
+}
+.comment:hover, .retweet:hover, .like:hover, .share:hover {
+  background-color: yellow;
 }
