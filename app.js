@@ -34,14 +34,32 @@ $(document).ready(function(){
     $friends_list.append($friend);
   }
 
-  // Adds home feed division for tweets
+  // Adds home feed division
   var $home_feed = $('<div id="feed"></div>');
   $container.append($home_feed);
+
+  // Adds submit post container to home feed
+  var $submit_post = $('<div id="submit-post"></div>');
+  var $top_bar = $('<div class="top-bar">@</div>');
+  $submit_post.append($top_bar);
+  $home_feed.append($submit_post);
+
+  // Adds new post form
+  var $new_post_form = $('<form method="post" id="new-post-form"></form>');
+  var $enter_username = $('<input type="text" name="username" id="enter-username">');
+  var $enter_message = $('<input type="text" name="message" id="enter-message">');
+  var $submit = $('<input type="submit" value="submit" id="submit">');
+  $new_post_form.append($enter_username, $enter_message, $submit);
+  $submit_post.append($new_post_form);
+
+  // Adds tweet container to home feed
+  var $tweet_container = $('<div id="tweet-container"></div>');
+  $home_feed.append($tweet_container);
 
   // Event handler function for rendering feed
   var renderFeed = function(event, user) {
     //clears feed
-    $home_feed.empty();
+    $tweet_container.empty();
     //sets stream variable depending on presence of user argument
     var stream;
     user ? (stream = streams.users[user]) : (stream = streams.home);
@@ -50,7 +68,7 @@ $(document).ready(function(){
       //tweet division container
       var tweet = stream[i];
       var $tweet = $('<div class="tweet"></div>');
-      $tweet.prependTo($home_feed);
+      $tweet.prependTo($tweet_container);
       //top bar container
       var $top_bar = $('<div class="top-bar"></div>');
       //icon container
@@ -102,6 +120,23 @@ $(document).ready(function(){
 
   // Event listener for update feed/back button
   $button.on('click', handleButtonClick);
+
+  // Event handler function for new tweet submission
+  var handleNewTweet = function(event) {
+    event.preventDefault();
+    var form_values = $('#new-post-form ').serializeArray();
+    var tweet = {};
+    tweet.user = form_values[0].value;
+    tweet.message = form_values[1].value;
+    tweet.created_at = new Date();
+    tweet.profilePhotoURL = './assets/img/visitor.png';
+    streams.home.push(tweet);
+    console.log(streams.home);
+    renderFeed();
+  };
+
+  // Event listener function for new tweet submission
+  $('#submit').on('click', handleNewTweet);
 
   // Event handler functions for icon hover
   var mouseOverIcon = function(event) {

@@ -8,6 +8,7 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
+  /*background-image: url('assets/img/light-purple3_8_81.png');*/
   background-image: url('assets/img/imgonline-com-ua-twotoone-1I7bMGJyCTdi.png');
   /*background: linear-gradient(to right bottom, #f6e2e3, #f6dfe4, #f6dde6, #f4dbe9, #f0d9ec, #eddaf0, #e9dbf3, #e4dcf6, #e1e0f9, #dfe3fa, #dee7fc, #ddeafc);*/
   background-color: white;
@@ -29,7 +30,7 @@ h1 {
   color: #B99EF3;
   font-family: 'Press Start 2P', cursive;
   font-size: 64px;
-  text-shadow: 6px 6px #999;
+  text-shadow: 8px 8px #999;
 }
 
 h1:active {
@@ -98,7 +99,7 @@ h1:active {
 #friends-list {
   text-align: left;
   list-style-type: none;
-  list-style-image: url();
+  list-style-image: url('assets/img/pixel-heart_20.png');
 }
 
 li {
@@ -108,7 +109,7 @@ li {
 }
 
 li:hover {
-  color: #a382eb;
+  color: #a080e6;
 }
 
 li:active {
@@ -122,19 +123,46 @@ h2 {
   text-shadow: 0.25px 0.25px #999;
 }
 
+#submit-post {
+  height: 160px;
+  border: 6px groove white;
+  border-radius: 2px;
+  margin: 0 10px 20px 10px;
+  background-color: #f7f5fa;
+}
+
+form {
+  height: 160px;
+  display: grid;
+  grid-template-columns: 21% 58% 21%;
+  grid-template-rows: 20% 65% 15%;
+}
+
+#enter-username {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+#enter-message {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
 .tweet {
   display: grid;
   grid-template-columns: 21% 58% 21%;
   grid-template-rows: 20% 65% 15%;
-  height: 175px;
+  height: 160px;
   border: 6px groove white;
   border-radius: 2px;
   margin: 0 10px 20px 10px;
-  background: linear-gradient(to right bottom, #f6e2e3, #f6dfe4, #f6dde6, #f4dbe9, #f0d9ec, #eddaf0, #e9dbf3, #e4dcf6, #e1e0f9, #dfe3fa, #dee7fc, #ddeafc);
+  background-color: #f7f5fa;
+  /*background: linear-gradient(to right bottom, #f6e2e3, #f6dfe4, #f6dde6, #f4dbe9, #f0d9ec, #eddaf0, #e9dbf3, #e4dcf6, #e1e0f9, #dfe3fa, #dee7fc, #ddeafc);*/
   box-shadow: 1px 2px 2px #999;
 }
 
 .top-bar {
+  /*background-image: linear-gradient(to right, #fad9ea, #f3d7eb, #ead5ec, #e2d4ed, #d9d2ec, #d1d1ea, #c9cfe8, #c2cee5, #bbcce0, #b6cbdb, #b1c8d5, #aec6cf);*/
+  /*background-image: linear-gradient(to right top, #e3edfd, #e5eafd, #e9e6fb, #eee2f8, #f3def3, #f3def3, #f3def3, #f3def3, #eee2f8, #e9e6fb, #e5eafd, #e3edfd);*/
+  background: linear-gradient(to right bottom, #f6e2e3, #f6dfe4, #f6dde6, #f4dbe9, #f0d9ec, #eddaf0, #e9dbf3, #e4dcf6, #e1e0f9, #dfe3fa, #dee7fc, #ddeafc);
   grid-area: 1 / 1 / 2 / 4;
   display: flex;
   border-bottom: 6px groove white;
@@ -146,7 +174,7 @@ h2 {
   grid-area: 2 / 2 / 3 / 3;
   display: flex;
   align-items: center;
-  text-shadow: 0.25px 0.25px #999;
+  text-shadow: 0.35px 0.35px #999;
 }
 
 .username {
