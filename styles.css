@@ -196,6 +196,11 @@ form {
   font-size: 16px;
 }
 
+#enter-message::placeholder {
+  opacity: 0.7;
+  color: #B99EF3;
+}
+
 #submit {
   grid-area: 3 / 3 / 4 / 4;
   font-family: 'Press Start 2P', cursive;
@@ -205,6 +210,17 @@ form {
   height: 35px;
   width: 125px;
   margin-left: 10px;
+  cursor: url('assets/img/Webp.net-resizeimage.png'), auto;
+}
+
+#submit:hover {
+  background-color: #ece9f0;
+  border: 6px groove #f7f5fa;
+}
+
+#submit:active {
+  background-color: #e6e3eb;
+  transform: translateY(1px);
 }
 
 .tweet {
