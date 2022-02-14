@@ -21,9 +21,10 @@ h1, h2 {
 }
 /* Main Feed ----------------*/
 .large-panel {
-  vertical-align: top;
   background-color: rgb(32, 33, 36);
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
+  align-items:center;
   width: 60%;
   height: 100vh;
   overflow: scroll;
@@ -36,63 +37,59 @@ h1, h2 {
 .small-panel {
   vertical-align: top;
   background-color: rgb(32, 33, 36);
-  display: inline-flex;
+  display:inline-flex;
   flex-direction: column;
-  align-content: flex-start;
+  align-items: center;
   width: 20%;
   height: 100vh;
   text-align: center;
 }
 /* Tweets ----------------*/
 .tweet {
+  display:grid;
+  height: 100px;
+  grid-template: 4fr 1fr / 1fr 3fr 1fr;
+  max-width: 600px;
+  min-width: 450px;
+  justify-items: center;
   margin: 10px;
   background-color: rgb(44, 46, 50);
   border: 1px solid rgb(169, 169, 169);
   border-radius: 15px;
-  padding: 10px;
   color: 	rgb(255, 255, 255);
 }
-.profile_photo {
-  height: 20px;
-  width: 20px;
-  overflow:hidden;
-  border-radius: 50%;
+.profile-photo {
+  align-self: center;
+  justify-self: center;
 }
 .message {
-  vertical-align: top;
-  height: 30px;
-  width: 300px;
-  margin: 10px;
+  grid-column: 2 / span 1;
   font-size: 15px;
-  margin-bottom: 20px;
+  max-height:80px;
+  justify-self: start;
+  align-self:start;
+}
+.username {
+  grid-area: 2 / 1 / span 1 / span 1;
+  align-self:center;
+  font-size: 12px;
 }
 .icon:hover,
 .username:hover {
   color:rgb(255, 140, 0);
   cursor: pointer;
 }
-.icon{
-  margin: 0px 10px;
+.icon {
+  margin: 0 10px 0 10px;
+}
+.icons{
+  grid-area: 2 / 2 / span 1 / span 1;
+  justify-self:end;
+  margin-right: 20px;
 }
 .timestamp {
   font-style: italic;
-}
-.image-and-username {
-  width: 20%;
-  vertical-align: top;
-  display:inline-flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-direction: column;
-  font-size: 12px;
-  padding: 10px, 10px, 3px;
-}
-.message-and-links{
-  width: 80%;
-  display: inline-block;
-}
-.timestamp{
-  float:right;
+  grid-area: 2 / 3 / span 1 / span 1;
   font-size: 10px;
 }
 /* New Tweet and Menu Panel ----------------*/

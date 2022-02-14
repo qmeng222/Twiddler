@@ -14,7 +14,7 @@ $(document).ready(function(){
   $newTweet.append('<label for="form-username">Username:</label><br>');
   $newTweet.append('<input type="text" id="form-username" name="username" placeholder="@username"><br>');
   $newTweet.append('<label for="form-message">Message:</label><br>');
-  $newTweet.append('<input type="text" id="form-message" name="message" rows="6" placeholder="Message">');
+  $newTweet.append('<input type="text" id="form-message" name="message" rows="6" placeholder="Message"><br>');
   $newTweet.append('<input class="btn" type="submit" value="Submit">');
 
   //Create event handler functions
@@ -39,11 +39,9 @@ $(document).ready(function(){
       var $retweet = $('<i class="icon retweet fas fa-retweet"></i>');
       var $like = $('<i class="icon like far fa-thumbs-up"></i>');
       var $share = $('<i class="icon share fas fa-external-link-alt"></i>');
-      var $imgAndUser = $('<div class = "image-and-username"></div>');
-      var $messageAndLinks = $('<div class = "message-and-links"></div>');
-      $imgAndUser.append($profPic, $username);
-      $messageAndLinks.append([$message, $comment, $retweet, $like, $share, $timestamp]);
-      $tweet.append([$imgAndUser,$messageAndLinks]);
+      var $icons = $('<div class = "icons"></div>');
+      $icons.append([$message, $comment, $retweet, $like, $share, $timestamp]);
+      $tweet.append([$profPic, $message, $username, $icons, $timestamp]);
       $tweet.appendTo($feed);
       $username.on('click',handleUsernameClick);
       index -= 1;
