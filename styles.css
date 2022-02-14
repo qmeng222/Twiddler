@@ -1,5 +1,6 @@
 /* These CSS rules apply to the <html>, <body>, and <div id="app"> HTML elements in index.html */
 html, body, #app {
+  font-family: 'Noto Sans', sans-serif;
   min-height: 100vh;
   margin: 0;
 }
@@ -8,6 +9,81 @@ html, body, #app {
 providing a space for you to apply styles to your app's outermost HTML element - the #app itself. */
 
 #app {
-  background-color: green;
-  color: yellow;
+
+  background-color: white;
+  color: black;
+}
+h1 {
+  padding: 50px;
+  margin-left: 100px;
+  height: auto;
+  font-family: 'Courgette', cursive;
+}
+.title{
+  color: rgb(0, 145, 255);
+}
+.title:hover{
+  color: rgba(0, 145, 255, 0.605);
+}
+button{
+  margin-left: 155px;
+  height: auto;
+}
+.tweet {
+  width: auto;
+  border-radius: 30px;
+  height: auto;
+  background-color: rgb(231, 227, 227);
+  border-color: black;
+  border: 50px;
+
+  margin-left: 350px;
+  margin-block-end: 10px;
+  margin-right: 100px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+}
+.username:hover {
+  color: rgb(0, 145, 255);
+}
+.timestamp{
+  text-align: right;
+  padding-right: 15px;
+}
+.message {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+.timeago {
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 13px;
+}
+/*///////////
+
+  ICONS
+
+*/
+.comment,
+.share,
+.retweet,
+.like {
+  height: auto;
+  color: rgb(0, 145, 255);
+  padding-top: 15px;
+  padding-right: 15px;
+}
+.like:hover{
+
+  color: white;
+}
+.comment:hover{
+  color:white;
+}
+.share:hover{
+  color: white;
+}
+.retweet:hover{
+  color: white;
 }

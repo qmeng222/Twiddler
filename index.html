@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html>
+  <!-- links and sources and data -->
   <head>
     <script src="lib/jquery.js"></script>
+    <script src="lib/timeago.js"></script>
     <script src="dataGenerator.js"></script>
+      <!-- rel is general name , href is path, file Name. both needed -->
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/f3b3a52f53.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Noto+Sans&display=swap" rel="stylesheet">
   </head>
+  <!-- using javascript in this section, inside body. -->
   <body>
     <div id="app"></div>  <!-- Your Entire Application will be built inside this div! -->
 
-    <script>
-      $(document).ready(function(){
-        var $app = $('#app');
-        $app.html('');
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div class="tweet"></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($app);
-          index -= 1;
-        }
-
-      });
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>
