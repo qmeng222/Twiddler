@@ -1,5 +1,5 @@
 var init = function(users, newTweet, timeTillNext, percentRange, numberToGen) {
-  timeTillNext = timeTillNext ? timeTillNext : 2000;
+  timeTillNext = timeTillNext ? timeTillNext : 10000;
   percentRange = percentRange ? percentRange : .15;
   var numberToGen = 500;
   var numGened = 0;

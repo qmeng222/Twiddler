@@ -1,4 +1,4 @@
-var tweet = require('./genTweet').generateRandomTweet;
+var tweet = require('./genTweet.js').generateRandomTweet;
 
 module.exports = {
     tweet

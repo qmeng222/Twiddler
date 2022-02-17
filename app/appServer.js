@@ -1,22 +1,10 @@
-//Inputs: UserName
-//Output: tweet object: {
-//  userName:'string',
-//  created_at: number,
-//  message: 'string',
-//  profilePhotoURL: 'string',
-//  likes: number.
-//  retweets: number
-//}
+
 
 
 // generate random tweet
 var generateRandomTweet = function(users) {
   var tweet = {};
-  var keys = Object.keys(users);
-  var randUser = randomElement(keys);
-  while (randUser === 'doobs') {
-    randUser = randomElement(keys);
-  }
+  var randUser = randomElement(users);
   tweet.user = randUser;
   tweet.message = randomMessage();
   tweet.created_at = Date.now();
@@ -53,39 +41,63 @@ var randomMessage = function() {
 };
 
 
-module.exports = {
-  generateRandomTweet
+
+
+var initUserNames = [
+  "shawndrost",
+  "sharksforcheap",
+  "mracus",
+  "douglascalhoun",
+];
+
+var initServerTweets = function(userNames) {
+  var serverTweets = [];
+  var i = 25;
+  while (i--) {
+    serverTweets.push(generateRandomTweet(userNames));
+  }
+  return serverTweets;
+};
+
+
+var initServer = function() {
+  var tweets = initServerTweets(initUserNames);
+  var servObj = {
+    startTweetGen: function() {
+      setInterval(function() {
+        var newTweet = generateRandomTweet(initUserNames);
+        tweets.push(newTweet);
+      }, 3500)
+    },
+    getTweets: function() {
+      return JSON.parse(JSON.stringify(tweets));
+    }
+  }
+  return servObj;
+};
+
+
+var server = initServer();
+server.startTweetGen();
+
+var getUserTweets = async function($) {
+  var tweets = await new Promise(function(resolve) {
+    setTimeout(resolve(server.getTweets()), 500);
+  });
+  return tweets;
 }
 
 
-
-
-
-// for (var i = 0; i < 10; i++) {
-//   generateRandomTweet();
-// }
-
-// var scheduleNextTweet = function() {
-//   if (streams.home.length < 500) {
-//     generateRandomTweet();
-//     setTimeout(scheduleNextTweet, 250 + (Math.random() * 1250));
-//   }
-// };
-// scheduleNextTweet();
-
-// // utility function for letting students add "write a tweet" functionality
-// // (note: not used by the rest of this file.)
-// var writeTweet = function(message) {
-//   if (!visitor) {
-//     throw new Error('set the global visitor property!');
-//   }
-//   if (!streams.users[visitor]) {
-//     streams.users[visitor] = [];
-//   }
-//   var tweet = {};
-//   tweet.user = visitor;
-//   tweet.message = message;
-//   tweet.created_at = new Date();
-//   tweet.profilePhotoURL = './assets/img/visitor.png';
-//   addTweet(tweet);
-// };
+var checkForNewTweets = async function($, streams, user) {
+  var curLen = streams.home.length;
+  var serverTweets = server.getTweets();
+  var newTweets = server.getTweets().slice(curLen);
+  var tweets = await new Promise(function(resolve) {
+    setTimeout(resolve(newTweets), 500);
+  });
+  if (tweets.length) {
+    $('#update-feed').css('visibility', 'visible')
+    streams.addedToUpdate += tweets.length ? tweets.length : 0;
+    streams.home = tweets.concat(streams.home)
+  }
+}
