@@ -37,7 +37,7 @@ var randomMessage = function() {
   // Assemble and return 20 randomElements() of the above arrays
   var randomMessage = '';
   for (var i = 0; i < 20; i++) {
-    randomMessage += randomElement(opening) + ' ' + randomElement(verbs) + ' ' + randomElement(objects) + ' ' + randomElement(nouns) + ' ' + randomElement(tags);
+    randomMessage += randomElement(opening) + ' ' + randomElement(verbs) + ' ' + randomElement(objects) + ' ' + randomElement(nouns) + ' ' + randomElement(tags) + ' ';
   }
   return randomMessage;
 
