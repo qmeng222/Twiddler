@@ -32,13 +32,14 @@ $(document).ready(function(){
         var $username = $('<div class="username"></div>');
         var $timestamp = $('<div class="timestamp"></div');
         var $message = $('<p class="message"></div>');
+        var $icoDiv = $('<div class="icons"></div>');
         var $comment = $('<i></i>');
         var $retweet = $('<i></i>');
         var $like = $('<i></i>');
         var $share = $('<i></i>');
 
-        var tweetArr = [$profilePic, $username, $timestamp, $message,
-                        $comment, $retweet, $like, $share];
+        var tweetArr = [$profilePic, $username, $timestamp, $message]
+        var icoArr = [$comment, $retweet, $like, $share];
 
         $profilePic.attr('src', tweet.profilePhotoURL);
 
@@ -48,6 +49,7 @@ $(document).ready(function(){
         $username.click(function () {
           updateFeed(this.innerText);
         });
+
         $username.hover(icoHoverOn, icoHoverOff);
 
         $message.text(tweet.message);
@@ -59,9 +61,20 @@ $(document).ready(function(){
 
         $('.icon').hover(icoHoverOn, icoHoverOff);
 
+
+
+
+        // append elements in icoArr to icoDiv
+        for (var i = 0; i < icoArr.length; i++) {
+          $icoDiv.append(icoArr[i]);
+        }
+
+        // append elements in tweetArr to tweet
         for (var i = 0; i < tweetArr.length; i++) {
           tweetArr[i].appendTo($tweet);
         }
+
+        $tweet.append($icoDiv);
 
         $tweet.appendTo('#feed');
       }

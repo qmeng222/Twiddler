@@ -9,17 +9,17 @@ providing a space for you to apply styles to your app's outermost HTML element -
 
 #app {
   font-family: 'Roboto', sans-serif;
-  background-color: darkslateblue;
+  background-color: #6533b5;
   color: white;
   display: grid;
-  grid-column-gap: 50px;
-  grid-row-gap: 10px;
+  grid-column-gap: 3rem;
+  grid-row-gap: 0.75rem;
 }
 
 #update-feed {
-  border-radius: 5%;
+  border-radius: 0.5rem;
   background-color: #404040;
-  padding: 10px;
+  padding: 0.75rem;
   width: fit-content;
   margin: auto;
 }
@@ -31,20 +31,25 @@ providing a space for you to apply styles to your app's outermost HTML element -
 }
 
 .tweet {
-  padding: 10px;
   margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 75px 75px;
-  padding-bottom: 40px;
+  grid-template-columns: fit-content(7rem) 1fr 1fr;
+  grid-template-rows: fit-content fit-content fit-content;
+  padding: 2rem;
+  background-color: #DDDDDD;
+  color: #303030;
+  border-radius: 1rem;
+  padding-bottom: 1rem;
 }
 
 h1 {
   height: fit-content;
-  padding: 20px;
+  padding: 1rem;
   margin: auto;
   text-align: center;
-  font-size: 72px;
+  font-size: 4rem;
   font-style: italic;
   font-weight: bold;
 }
@@ -60,35 +65,45 @@ h1 {
   cursor: pointer;
 }
 
-.profile-photo {
-
-}
-
 .timestamp {
   grid-column-start: -1;
   grid-row-start: 1;
+  align-items: center;
+  display: flex;
+  justify-content:flex-end
 }
 
 .username {
-  color: #DDDDDD;
+  /* color: #DDDDDD; */
+  padding-left: 1rem;
   grid-column-start: 2;
+  grid-row-start: 1;
+  align-items: center;
+  display: flex;
+
 }
 
 .username.hovered {
   color: grey;
 }
 
+.icons {
+  grid-column-start: 1;
+  grid-column-end: span 4;
+  grid-row-start: 3;
+}
+
 .icon {
-  padding-left: 20px;
-  padding-right: 20px;
-  scale(2, 2);
-  grid-row-start: -1;
-  text-align: center;
+  cursor: pointer;
+  padding: 0.5rem 2rem 0.5rem 1rem;
   margin: auto;
+  font-size: 1.2rem;
+  filter: brightness(2);
 }
 
 .icon.hovered {
-  color: grey;
+  /* color: #6533b5; */
+  filter: brightness(1);
 }
 
 #update-feed.hovered {

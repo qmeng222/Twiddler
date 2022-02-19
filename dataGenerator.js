@@ -34,7 +34,15 @@ var nouns = ['cat', 'koolaid', 'system', 'city', 'worm', 'cloud', 'potato', 'mon
 var tags = ['#techlife', '#burningman', '#sf', 'but only i know how', 'for real', '#sxsw', '#ballin', '#omg', '#yolo', '#magic', '', '', '', ''];
 
 var randomMessage = function() {
-  return [randomElement(opening), randomElement(verbs), randomElement(objects), randomElement(nouns), randomElement(tags)].join(' ');
+  // Assemble and return 20 randomElements() of the above arrays
+  var randomMessage = '';
+  for (var i = 0; i < 20; i++) {
+    randomMessage += randomElement(opening) + ' ' + randomElement(verbs) + ' ' + randomElement(objects) + ' ' + randomElement(nouns) + ' ' + randomElement(tags);
+  }
+  return randomMessage;
+
+
+
 };
 
 // generate random tweets on a random schedule
